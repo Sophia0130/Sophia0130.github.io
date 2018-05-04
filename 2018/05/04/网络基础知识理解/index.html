@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：写这片博客的起因是，我只是想知道为什么用GitHub搭建自己的博客，自己不需要买域名，之前从来没有接触过网络方面的知识，看了很多大神的博客，复制粘贴成自己的理解。  外网IP和内网IPIP可以不严谨的分为外网IP和内网IP(局域网)。  PS：这样分好像是不对的，我也不理解，网上的大神说入门级的小白可以先这样理解。  1.外网IP：即因特网IP，其IP地址具有全球唯一性。但是全世界的IP地址">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-04T08:53:32.314Z">
+<meta property="og:updated_time" content="2018-05-04T12:05:46.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络基础知识理解">
 <meta name="twitter:description" content="PS：写这片博客的起因是，我只是想知道为什么用GitHub搭建自己的博客，自己不需要买域名，之前从来没有接触过网络方面的知识，看了很多大神的博客，复制粘贴成自己的理解。  外网IP和内网IPIP可以不严谨的分为外网IP和内网IP(局域网)。  PS：这样分好像是不对的，我也不理解，网上的大神说入门级的小白可以先这样理解。  1.外网IP：即因特网IP，其IP地址具有全球唯一性。但是全世界的IP地址">
@@ -206,6 +206,14 @@
 <p>(2)子网掩码可以用来判断任意两台计算机的IP地址是否属于同一子网络。最简单的理解就是两台计算机各自的IP地址与子网掩码进行与运算后，得出的结果是相同的，则说明这两台计算机是处于同一个子网络上的，可以进行直接的通讯。</p>
 <p>2.网关：是一个网络通向其他网络的IP地址，网关是与你直接相连的路由器的地址。</p>
 <p>​<font color="gray" size="2">举个栗子:poultry_leg: ：有网络A和网络B，网络A的IP地址范围为“192.168.1.1~192. 168.1.254”，子网掩码为255.255.255.0，网络B的IP地址范围为“192.168.2.1~192.168.2.254”，子网掩码为255.255.255.0。要实现这两个网络之间的通信，则必须通过网关。如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。</font></p>
+<h2 id="域名、网站名、URL"><a href="#域名、网站名、URL" class="headerlink" title="域名、网站名、URL"></a>域名、网站名、URL</h2><p>http: //mail.163.com/index.html</p>
+<p>1) http://  是协议，HTTP超文本传输协议，网页在网上传输的协议</p>
+<p>2) mail  是服务器名，代表一个邮箱服务器，所以是mail</p>
+<p>3)163.com  是域名</p>
+<p>4) mail.163.com  是网站名，由服务器名+域名组成</p>
+<p>5）/  表示根目录，也就是说，通过网站名找到服务器，然后在服务器存放网页的根目录</p>
+<p>6:）index.html  表示根目录下的默认网页</p>
+<p>7）http:// mail.163.com/index.html  叫做URL，统一资源定位符，全球性地址，用于定位网上的资源。</p>
 <h2 id="宽带和路由器"><a href="#宽带和路由器" class="headerlink" title="宽带和路由器"></a>宽带和路由器</h2><p>想让人看懂的解释</p>
 <p>宽带：就是自来水公司通往各家的管道。     </p>
 <p>路由器：连到你家的主送水管道，通过这个你家这个主管道，可以让你家接水管的地方都出水。 </p>
@@ -435,6 +443,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
