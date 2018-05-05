@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：写这片博客的起因是，我只是想知道为什么用GitHub搭建自己的博客，自己不需要买域名，之前从来没有接触过网络方面的知识，看了很多大神的博客，复制粘贴成自己的理解。  外网IP和内网IPIP可以不严谨的分为外网IP和内网IP(局域网)。  PS：这样分好像是不对的，我也不理解，网上的大神说入门级的小白可以先这样理解。  1.外网IP：即因特网IP，其IP地址具有全球唯一性。但是全世界的IP地址">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-04T12:05:46.945Z">
+<meta property="og:updated_time" content="2018-05-05T03:07:39.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络基础知识理解">
 <meta name="twitter:description" content="PS：写这片博客的起因是，我只是想知道为什么用GitHub搭建自己的博客，自己不需要买域名，之前从来没有接触过网络方面的知识，看了很多大神的博客，复制粘贴成自己的理解。  外网IP和内网IPIP可以不严谨的分为外网IP和内网IP(局域网)。  PS：这样分好像是不对的，我也不理解，网上的大神说入门级的小白可以先这样理解。  1.外网IP：即因特网IP，其IP地址具有全球唯一性。但是全世界的IP地址">
@@ -63,6 +63,8 @@
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/">关于我</a></li>
+	        
+				<li><a href="/">旅行手账</a></li>
 	        
 				<li><a href="/">相册</a></li>
 	        
@@ -118,6 +120,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -134,11 +138,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/">关于我</a></li>
+					<li style="width: 25%"><a href="/">关于我</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/">相册</a></li>
+					<li style="width: 25%"><a href="/">旅行手账</a></li>
+		        
+					<li style="width: 25%"><a href="/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -184,14 +190,16 @@
 <p>网络中的地址方案分为两套：IP地址系统和域名地址系统。这两套地址系统其实是一一对应的关系。</p>
 <p>1.IP (Internet Protocol) “网络之间互连的协议”或”因特网协议”，计算机在因特网上进行通信时应当遵守的规则。</p>
 <p>2.IP地址 (Internet Protocol Address) ：”互联网协议地址”，IP地址就是给每个连接在Internet上的主机分配的一个32bit地址，即每一个与网络相连接的计算机和服务器都被指派了一个独一无二的地址。IP地址用二进制数来表示，每个IP地址长32比特，由4个小于256的数字组成，数字之间用点间隔。</p>
-<p>​<font color="gray" size="2">举个栗子:poultry_leg: ：100.10.0.1表示一个IP地址。</font></p>
+<font color="gray" size="2">举个栗子 ：100.10.0.1表示一个IP地址。</font>
+
 <p><strong>理解误区</strong>：一台计算机只能有一个IP地址这个观点是错误的，可以指定一台计算机具有多个IP地址，也可以使多台服务器共用一个IP地址，看起来就像一台主机。</p>
 <p>全世界的IP地址是由国际组织NIC（Network Information Center）负责统一分配。</p>
 <p>3.域名：由于IP地址是数字标识，使用时难以记忆和书写，因此在IP地址的基础上又发展出一种符号化的地址方案，且与特定的IP地址对应，这样网络上的资源访问起来就容易得多。这个与网络上的<strong>数字型地址</strong>相对应的<strong>字符型地址</strong>，就被称为域名。相对IP地址不仅便于记忆，而且即使在IP地址发生变化的情况下，通过改变解析对应关系，域名仍可保持不变。</p>
-<p>4.域名解析：域名到IP地址的转换过程，该工作由DNS服务器完成。</p>
+<p>4.域名解析：域名到IP地址的转换过程，该工作由DNS服务器完成。DNS是进行域名和与之相对应的IP地址转换的服务器。</p>
 <h2 id="IP和MAC地址"><a href="#IP和MAC地址" class="headerlink" title="IP和MAC地址"></a>IP和MAC地址</h2><p>1.MAC地址 (Media Access Control)，意译为媒体访问控制，或称为物理地址、硬件地址。是网卡生产商出厂时烧录进去的 ，物理上一般不可改变，每个网卡理论上都是全球唯一的。</p>
 <p>在OSI模型中，MAC对应于第二层数据链路层，而IP对应于第三层网络层。</p>
-<p>​<font color="gray" size="2">举个栗子:poultry_leg: ：IP地址就像家里的门牌号，MAC地址就像身份证号，只知道MAC地址，却无法知道具体的位置</font></p>
+<font color="gray" size="2">举个栗子 ：IP地址就像家里的门牌号，MAC地址就像身份证号，只知道MAC地址，却无法知道具体的位置</font>
+
 <p>2.网卡：实现联网计算机和网络电缆之间的物理连接，为计算机之间相互通信提供一条物理通道。</p>
 <p>网卡分有线和无线两种：</p>
 <p>(1)有线网卡，需要一根光纤电缆线，将宽带接入主机</p>
@@ -202,10 +210,10 @@
 
 <h2 id="IP、子网掩码、网关"><a href="#IP、子网掩码、网关" class="headerlink" title="IP、子网掩码、网关"></a>IP、子网掩码、网关</h2><p>1.子网掩码</p>
 <p>(1)子网掩码不能单独存在，必须结合IP地址， 将某个IP地址划分成网络地址和主机地址两部分，网络号标识的是Internet上的一个子网，而主机号标识的是子网中的某台主机。</p>
-<p>​<font color="gray" size="2">举个栗子:poultry_leg: ：192.168.1.199   子网掩码：255.255.255.0   那么192.168.1是网络号，199是主机号</font></p>
+<p>​<font color="gray" size="2">举个栗子 :poultry_leg: ：192.168.1.199   子网掩码：255.255.255.0   那么192.168.1是网络号，199是主机号</font></p>
 <p>(2)子网掩码可以用来判断任意两台计算机的IP地址是否属于同一子网络。最简单的理解就是两台计算机各自的IP地址与子网掩码进行与运算后，得出的结果是相同的，则说明这两台计算机是处于同一个子网络上的，可以进行直接的通讯。</p>
 <p>2.网关：是一个网络通向其他网络的IP地址，网关是与你直接相连的路由器的地址。</p>
-<p>​<font color="gray" size="2">举个栗子:poultry_leg: ：有网络A和网络B，网络A的IP地址范围为“192.168.1.1~192. 168.1.254”，子网掩码为255.255.255.0，网络B的IP地址范围为“192.168.2.1~192.168.2.254”，子网掩码为255.255.255.0。要实现这两个网络之间的通信，则必须通过网关。如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。</font></p>
+<p>​<font color="gray" size="2">举个栗子 ：有网络A和网络B，网络A的IP地址范围为“192.168.1.1~192. 168.1.254”，子网掩码为255.255.255.0，网络B的IP地址范围为“192.168.2.1~192.168.2.254”，子网掩码为255.255.255.0。要实现这两个网络之间的通信，则必须通过网关。如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。</font></p>
 <h2 id="域名、网站名、URL"><a href="#域名、网站名、URL" class="headerlink" title="域名、网站名、URL"></a>域名、网站名、URL</h2><p>http: //mail.163.com/index.html</p>
 <p>1) http://  是协议，HTTP超文本传输协议，网页在网上传输的协议</p>
 <p>2) mail  是服务器名，代表一个邮箱服务器，所以是mail</p>
@@ -214,13 +222,19 @@
 <p>5）/  表示根目录，也就是说，通过网站名找到服务器，然后在服务器存放网页的根目录</p>
 <p>6:）index.html  表示根目录下的默认网页</p>
 <p>7）http:// mail.163.com/index.html  叫做URL，统一资源定位符，全球性地址，用于定位网上的资源。</p>
+<hr>
+<p>PS:师兄看完后给的一下建议，这里再加一点东西喽~</p>
+<p>1.http超文本传输协议 ， https是其加密版本。</p>
+<p>2.主机(host):表示能够同其他机器互相访问的本地计算机，一台本地机有唯一标志代码，同网络掩码一起组成IP地址。</p>
+<p>3.端口(port):数据通过它在计算机和其它设备(如打印机、鼠标、键盘或监视器)之间、网络之间或和其它直接连接的计算机之间传递。端口对CPU来说，是作为它用来发送或接收数据的一个或多个内存地址的。</p>
+<hr>
 <h2 id="宽带和路由器"><a href="#宽带和路由器" class="headerlink" title="宽带和路由器"></a>宽带和路由器</h2><p>想让人看懂的解释</p>
 <p>宽带：就是自来水公司通往各家的管道。     </p>
 <p>路由器：连到你家的主送水管道，通过这个你家这个主管道，可以让你家接水管的地方都出水。 </p>
 <p>不想让人看懂的解释</p>
 <p>宽带：当地运营商提供给各家上网的线路。      </p>
 <p>路由器：控制你家机器上网的主线路，几台机器都想上网就得通过这个路由器。</p>
-<font color="gray" size="5">PS：直接贴百度知道上的大神的回答，简直精辟了！</font>
+<font color="gray" size="2">PS：直接贴百度知道上的大神的回答，简直精辟了！</font>
 
 
 
@@ -344,6 +358,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#外网IP和内网IP"><span class="toc-number">1.</span> <span class="toc-text">外网IP和内网IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP和域名"><span class="toc-number">2.</span> <span class="toc-text">IP和域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP和MAC地址"><span class="toc-number">3.</span> <span class="toc-text">IP和MAC地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP、子网掩码、网关"><span class="toc-number">4.</span> <span class="toc-text">IP、子网掩码、网关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名、网站名、URL"><span class="toc-number">5.</span> <span class="toc-text">域名、网站名、URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#宽带和路由器"><span class="toc-number">6.</span> <span class="toc-text">宽带和路由器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI"><span class="toc-number">7.</span> <span class="toc-text">OSI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-IP"><span class="toc-number">8.</span> <span class="toc-text">TCP/IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建博客托管到GitHub"><span class="toc-number">9.</span> <span class="toc-text">Hexo搭建博客托管到GitHub</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -446,11 +473,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,7 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://github.com/Sophia0130" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://github.com/Sophia0130" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>我的GitHub</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://weibo.com/5222954634/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>我的微博</a>
             </li>
           
         </ul>
