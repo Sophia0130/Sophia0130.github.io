@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>绿小蕤</title>
+  <icon>https://www.gravatar.com/avatar/e4d7a8bd1cb84fb3b4123916b4ea2f6b</icon>
+  <subtitle>好逸恶劳,贪生怕死</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-05-07T02:03:44.963Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>绿小蕤</name>
+    <email>528036346@qq.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>天池比赛入门</title>
+    <link href="http://yoursite.com/2018/05/07/%E5%A4%A9%E6%B1%A0%E6%AF%94%E8%B5%9B%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2018/05/07/天池比赛入门/</id>
+    <published>2018-05-07T01:59:32.000Z</published>
+    <updated>2018-05-07T02:03:44.963Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="天池、Kaggle、DataCastle"><a href="#天池、Kaggle、DataCastle" class="headerlink" title="天池、Kaggle、DataCastle"></a>天池、Kaggle、DataCastle</h2><p>天池、Kaggle、DataCastle这几个大数据+机器学习的大赛平台初步了解。</p><p><a href="https://www.zhihu.com/question/41450532/answer/91372849" target="_blank" rel="noopener">https://www.zhihu.com/question/41450532/answer/91372849</a></p><p>加油！！！我一定可以做出来的！！！</p><hr><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>大神总结的机器学习是什么，简单而又醍醐灌顶：机器学习最大的特点，或者说它的发展方向，就是<strong>不要有人工干预</strong>，自己学习。通过迭代，降低自己的loss（error），提升自己的accuracy 。你只要告诉它学习的方向，剩下的就是开着它跑，给它时间，让它自己学完就好了。(满脸迷妹崇拜大神~)</p><p>PS：实际上，机器大量时间花在数据处理上，小部分时间花在模型，模型都是现有的，具体做的就是，如何选择模型，如何调节参数。</p><a id="more"></a><h2 id="机器学习应用流程"><a href="#机器学习应用流程" class="headerlink" title="机器学习应用流程"></a>机器学习应用流程</h2><p>机器学习常用算法 </p><p>常用工具</p><p>建模与问题解决流程</p><p>(1) 数据处理</p><p>(2) 特征工程</p><p>(3) 模型选择</p><p>(4) 寻找最佳超参数 ：交叉验证</p><p>(5) 模型分析与模型融合</p><h2 id="机器学习算法"><a href="#机器学习算法" class="headerlink" title="机器学习算法"></a>机器学习算法</h2><p>1.算法分类</p><p><img src="http://7xo0y8.com1.z0.glb.clouddn.com/ml_conceptml_algorithms.png" alt="算法分类">2.算法选择路径图scikit-learn algorithm cheat-sheet</p><p><img src="https://img-blog.csdn.net/20160930051801241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="算法选择路径图"></p><p>classification 分类</p><p>regression连续值预测 回归</p><p>clustering 聚类(不同于分类，是无监督的，也就是寻找关联规则)</p><p>dimensionality reduction  降维 特征非常多</p><h2 id="机器学习开源项目"><a href="#机器学习开源项目" class="headerlink" title="机器学习开源项目"></a>机器学习开源项目</h2><p>就把它看做是一项工具，现成的库，里面的函数实现特定功能，直接拿来用即可。</p><p>下面是网上一位大神做的总结，内容很全，值得参考。</p><p><a href="https://yq.aliyun.com/articles/30794" target="_blank" rel="noopener">https://yq.aliyun.com/articles/30794</a></p><p><a href="https://yq.aliyun.com/articles/30796?spm=a2c4e.11153940.blogcont30794.29.40072508tHSzWa" target="_blank" rel="noopener">https://yq.aliyun.com/articles/30796?spm=a2c4e.11153940.blogcont30794.29.40072508tHSzWa</a></p><p>PS：一些经常看到的项目，反正我没用过。</p><p>1.TensorFlow                                                                            TensorFlow 是谷歌发布的第二代机器学习系统，是一个利用数据流图（Data Flow Graphs）进行数值计算的开源软件库。                                                                                                                                                                 主要用在<strong>深度神经网络</strong>方面。</p><p>2.Scikit-Learn                                                                                Scikit-Learn 是用于机器学习的Python 模块，建立在NumPy、SciPy 和 matplotlib基础上，<strong>非常全</strong>的库。            基本功能主要被分为六个部分：<strong>分类、回归、聚类、数据降维、模型选择、数据预处理</strong>。</p><p>3.Caffe                                                                                            Caffe 是做深度学习的框架。                                                                                                                                  目前Caffe应用实践主要有数据整理、设计网络结构、训练结果、基于现有训练模型，使用Caffe直接识别。</p><p>4.Keras                                                                                                Keras 是极其精简并高度模块化的神经网络库，在TensorFlow 或 Theano 上都能够运行，是一个高度模块化的神经网络库，支持GPU和CPU运算。同时支持卷积网络和递归网络，以及两者之间的组合。</p><p>5.MXNet                                                                                                                        MXNet 是一个兼具效率和灵活性的<strong>深度学习框架</strong>。它允许使用者将符号编程和命令式编程相结合，以追求效率和生产力的最大化。该库轻量且便携带，并且可扩展到多个GPU和多台主机上。</p><p>6.XGBoost                                                                                                            XGBoot 是设计为高效、灵活、可移植的优化分布式梯度 Boosting库。它实现了 Gradient Boosting 框架下的机器学习算法。XGBoost通过提供并行树Boosting（也被称为GBDT、GBM），以一种快速且准确的方式解决了许多数据科学问题。</p><p><strong>Boosting 提升或叫增强</strong>，是一个机器学习技术，可以用于<strong>回归</strong>和<strong>分类</strong>问题，它每一步产生一个<strong>弱预测模型</strong>(如决策树)，并<strong>加权累加</strong>到总模型中。提升的理论意义，如果一个问题存在弱分类器，则 可以通过提升的办法得到强分类器。</p><p>如果每一步的弱预测模型生成都是依据损失函数的<strong>梯度方向</strong>，则称之为梯度提升(Gradient boosting)。        </p><p>7.gensim                                                                                     用于NLP<strong>自然语言处理</strong>Natural Language Processing</p><p>8.Numpy                                                                                                                            用于科学计算 </p><p>9.Matplotlib                                                                                                              Matplotlib 是一个非常强大的 Python 画图工具，可视化数据</p><p>10.pandas                                                                                     数据清洗 数据预处理</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;天池、Kaggle、DataCastle&quot;&gt;&lt;a href=&quot;#天池、Kaggle、DataCastle&quot; class=&quot;headerlink&quot; title=&quot;天池、Kaggle、DataCastle&quot;&gt;&lt;/a&gt;天池、Kaggle、DataCastle&lt;/h2&gt;&lt;p&gt;天池、Kaggle、DataCastle这几个大数据+机器学习的大赛平台初步了解。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/41450532/answer/91372849&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.zhihu.com/question/41450532/answer/91372849&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;加油！！！我一定可以做出来的！！！&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;机器学习&quot;&gt;&lt;a href=&quot;#机器学习&quot; class=&quot;headerlink&quot; title=&quot;机器学习&quot;&gt;&lt;/a&gt;机器学习&lt;/h2&gt;&lt;p&gt;大神总结的机器学习是什么，简单而又醍醐灌顶：机器学习最大的特点，或者说它的发展方向，就是&lt;strong&gt;不要有人工干预&lt;/strong&gt;，自己学习。通过迭代，降低自己的loss（error），提升自己的accuracy 。你只要告诉它学习的方向，剩下的就是开着它跑，给它时间，让它自己学完就好了。(满脸迷妹崇拜大神~)&lt;/p&gt;
+&lt;p&gt;PS：实际上，机器大量时间花在数据处理上，小部分时间花在模型，模型都是现有的，具体做的就是，如何选择模型，如何调节参数。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编译器和解释器</title>
+    <link href="http://yoursite.com/2018/05/04/%E7%BC%96%E8%AF%91%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
+    <id>http://yoursite.com/2018/05/04/编译器和解释器/</id>
+    <published>2018-05-04T12:42:04.000Z</published>
+    <updated>2018-05-04T12:46:12.321Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="编译器、解释器"><a href="#编译器、解释器" class="headerlink" title="编译器、解释器"></a>编译器、解释器</h2><p>1.编译器：将源程序编译成机器语言，保存成二进制文件，运行速度快</p><p>2.解释器：执程序时一条条解释成机器语言，运行速度慢</p><h2 id="编译型语言、解释型语言"><a href="#编译型语言、解释型语言" class="headerlink" title="编译型语言、解释型语言"></a>编译型语言、解释型语言</h2><p>1.编译型语言：不能独立运行，使用了库函数，需要链接，最后输出可执行代码 (C、C++)</p><p>缺点：编译成特定平台的机器码，无法将可执行文件移植到其它平台，可以移植也需要采用该平台的编译器重新编译</p><a id="more"></a><p>2.解释型语言：生成中间代码，同于机器码，再解释成可执行的机器码 (java、python)</p><p>优点：跨平台容易，只需要特定平台的解释器</p><p>缺点：牺牲了程序的执行效率，才方便移植</p><p>举个栗子：Java能够一次编译，导出运行Java编译成Java字节码，Java虚拟机 (JVM) 将字节码解释成具体平台上的机器指令来执行</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;编译器、解释器&quot;&gt;&lt;a href=&quot;#编译器、解释器&quot; class=&quot;headerlink&quot; title=&quot;编译器、解释器&quot;&gt;&lt;/a&gt;编译器、解释器&lt;/h2&gt;&lt;p&gt;1.编译器：将源程序编译成机器语言，保存成二进制文件，运行速度快&lt;/p&gt;
+&lt;p&gt;2.解释器：执程序时一条条解释成机器语言，运行速度慢&lt;/p&gt;
+&lt;h2 id=&quot;编译型语言、解释型语言&quot;&gt;&lt;a href=&quot;#编译型语言、解释型语言&quot; class=&quot;headerlink&quot; title=&quot;编译型语言、解释型语言&quot;&gt;&lt;/a&gt;编译型语言、解释型语言&lt;/h2&gt;&lt;p&gt;1.编译型语言：不能独立运行，使用了库函数，需要链接，最后输出可执行代码 (C、C++)&lt;/p&gt;
+&lt;p&gt;缺点：编译成特定平台的机器码，无法将可执行文件移植到其它平台，可以移植也需要采用该平台的编译器重新编译&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="编译" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>make和CMake</title>
+    <link href="http://yoursite.com/2018/05/04/make%E5%92%8CCMake/"/>
+    <id>http://yoursite.com/2018/05/04/make和CMake/</id>
+    <published>2018-05-04T12:24:18.000Z</published>
+    <updated>2018-05-04T12:45:49.911Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="makefile-和-make"><a href="#makefile-和-make" class="headerlink" title="makefile 和 make"></a>makefile 和 make</h2><p>1.makefile 文件</p><p>一个工程中有很多源文件，makefile定义了整个工程的编译规则，哪些文件先编译，哪些文件后编译，哪些文件重新编译。malefile是<strong>自动化编译</strong>，一旦写好，只需一个make，整个工程自动编译。</p><p>windows平台下，VS开发环境自动生成makefile文件</p><p>Linux平台下，Qt Creator自动生成了类似makeile的 .pro文件</p><a id="more"></a><p>2.编译器和 make</p><p>编译器是编译一个文件</p><p>make是编译多个源文件的工具，解释makefile中的指令，看作是编译器的调度器</p><h2 id="CmakeList-txt-和-CMake"><a href="#CmakeList-txt-和-CMake" class="headerlink" title="CmakeList.txt 和 CMake"></a>CmakeList.txt 和 CMake</h2><p>CMake是种跨平台编译工具，Cmake 将 CMakeList.txt 转化为make 需要的 makefile 文件，用make编译</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;makefile-和-make&quot;&gt;&lt;a href=&quot;#makefile-和-make&quot; class=&quot;headerlink&quot; title=&quot;makefile 和 make&quot;&gt;&lt;/a&gt;makefile 和 make&lt;/h2&gt;&lt;p&gt;1.makefile 文件&lt;/p&gt;
+&lt;p&gt;一个工程中有很多源文件，makefile定义了整个工程的编译规则，哪些文件先编译，哪些文件后编译，哪些文件重新编译。malefile是&lt;strong&gt;自动化编译&lt;/strong&gt;，一旦写好，只需一个make，整个工程自动编译。&lt;/p&gt;
+&lt;p&gt;windows平台下，VS开发环境自动生成makefile文件&lt;/p&gt;
+&lt;p&gt;Linux平台下，Qt Creator自动生成了类似makeile的 .pro文件&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="编译" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GitHub+Hexo 搭建自己的博客</title>
+    <link href="http://yoursite.com/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2018/05/04/GitHub-Hexo-搭建自己的博客/</id>
+    <published>2018-05-04T09:24:31.000Z</published>
+    <updated>2018-05-04T09:28:15.046Z</updated>
+    
+    <content type="html"><![CDATA[<font color="gray" size="2">PS：参考网上各种大神的博客，作为一个小白，我真的东拼西凑，半懂不懂搭出来了自己的博客页面，所以看到这篇博文的你，一定要有信心~</font><h2 id="搭建过程和遇到的问题"><a href="#搭建过程和遇到的问题" class="headerlink" title="搭建过程和遇到的问题"></a>搭建过程和遇到的问题</h2><p>自己搭的时候参考了好几篇，大神太多啦，推荐看这位的就够了</p><p><a href="https://www.cnblogs.com/jackyroc/p/7681938.html" target="_blank" rel="noopener">https://www.cnblogs.com/jackyroc/p/7681938.html</a></p><p>下面罗列一下几个遇到的问题：</p><p>1.Node.js安装及环境配置之Windows，这位写得很详细啦~</p><p><a href="https://www.cnblogs.com/zhouyu2017/p/6485265.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhouyu2017/p/6485265.html</a></p><p>2.配置SSH Key到GitHub，在这个地方卡了好久，好多博文这里一笔带过写了，推荐下面这位啦~</p><p><a href="https://blog.csdn.net/gulingfengze/article/details/69665223" target="_blank" rel="noopener">https://blog.csdn.net/gulingfengze/article/details/69665223</a></p><a id="more"></a><p>3._config.yml配置，我用记事本打开中文出现乱码，用代码编辑器就好了，我下了个sublime</p><p>4.部署HEXO时出现ERROR Deployer not found : github</p><p><a href="https://blog.csdn.net/crow1108/article/details/50445671" target="_blank" rel="noopener">https://blog.csdn.net/crow1108/article/details/50445671</a></p><p>5.新手特别需要的Markdown语法 与 Hexo常用指令，其实网上很多，下面这个罗列的是很常用的</p><p><a href="http://www.mamicode.com/info-detail-1275803.html" target="_blank" rel="noopener">http://www.mamicode.com/info-detail-1275803.html</a></p><h2 id="发表新文章的总结"><a href="#发表新文章的总结" class="headerlink" title="发表新文章的总结"></a>发表新文章的总结</h2><p>GitHub+Hexo 搭建博客</p><p>1.进入Hexo放在的文件 右键-Git Bash</p><p>2.发布文章的步骤<br>  1).hexo new 创建文章<br>  2).Markdown语法编辑文章<br>  3).部署<br>  hexo clean #清除缓存 网页正常情况下可以忽略此条命令<br>  hexo generate #生成<br>  hexo server #启动服务预览，非必要，可本地浏览网页<br>  hexo deploy #部署发布</p><p>~~最后，强推一把我的博客 <a href="https://sophia0130.github.io/" target="_blank" rel="noopener">https://sophia0130.github.io/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;font color=&quot;gray&quot; size=&quot;2&quot;&gt;PS：参考网上各种大神的博客，作为一个小白，我真的东拼西凑，半懂不懂搭出来了自己的博客页面，所以看到这篇博文的你，一定要有信心~&lt;/font&gt;
+
+&lt;h2 id=&quot;搭建过程和遇到的问题&quot;&gt;&lt;a href=&quot;#搭建过程和遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;搭建过程和遇到的问题&quot;&gt;&lt;/a&gt;搭建过程和遇到的问题&lt;/h2&gt;&lt;p&gt;自己搭的时候参考了好几篇，大神太多啦，推荐看这位的就够了&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/jackyroc/p/7681938.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.cnblogs.com/jackyroc/p/7681938.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下面罗列一下几个遇到的问题：&lt;/p&gt;
+&lt;p&gt;1.Node.js安装及环境配置之Windows，这位写得很详细啦~&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/zhouyu2017/p/6485265.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.cnblogs.com/zhouyu2017/p/6485265.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.配置SSH Key到GitHub，在这个地方卡了好久，好多博文这里一笔带过写了，推荐下面这位啦~&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/gulingfengze/article/details/69665223&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/gulingfengze/article/details/69665223&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络基础知识理解</title>
+    <link href="http://yoursite.com/2018/05/04/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/"/>
+    <id>http://yoursite.com/2018/05/04/网络基础知识理解/</id>
+    <published>2018-05-04T06:56:18.000Z</published>
+    <updated>2018-05-07T05:23:02.788Z</updated>
+    
+    <content type="html"><![CDATA[<font color="gray" size="2">PS：写这片博客的起因是，我只是想知道为什么用GitHub搭建自己的博客，自己不需要买域名，之前从来没有接触过网络方面的知识，看了很多大神的博客，复制粘贴成自己的理解。</font><h2 id="外网IP和内网IP"><a href="#外网IP和内网IP" class="headerlink" title="外网IP和内网IP"></a>外网IP和内网IP</h2><p>IP可以不严谨的分为外网IP和内网IP(局域网)。 </p><font color="gray" size="2">PS：这样分好像是不对的，我也不理解，网上的大神说入门级的小白可以先这样理解。</font><p>1.外网IP：即因特网IP，其IP地址具有全球唯一性。但是全世界的IP地址数量是有限资源，日益增加的上网用户人数使得有限的IP地址资源紧张。为此，网络服务商采用了动态分配的办法，在用户上网的时侯分配一个IP，当不上网时，之前用的ip又很可能分配给别的上网用户。这样大大提高了IP的利用效率。<br>2.内网IP：相当于电脑在局域网里面的地址标识，一般是通过DHCP服务器进行动态分配的，机制其实与外网IP的分配相似，但在不引起IP地址冲突的情况下，可以设置成固定IP。</p><a id="more"></a><h2 id="IP和域名"><a href="#IP和域名" class="headerlink" title="IP和域名"></a>IP和域名</h2><p>下面只讨论因特网IP</p><p>网络中的地址方案分为两套：IP地址系统和域名地址系统。这两套地址系统其实是一一对应的关系。</p><p>1.IP (Internet Protocol) “网络之间互连的协议”或”因特网协议”，计算机在因特网上进行通信时应当遵守的规则。</p><p>2.IP地址 (Internet Protocol Address) ：”互联网协议地址”，IP地址就是给每个连接在Internet上的主机分配的一个32bit地址，即每一个与网络相连接的计算机和服务器都被指派了一个独一无二的地址。IP地址用二进制数来表示，每个IP地址长32比特，由4个小于256的数字组成，数字之间用点间隔。</p><font color="gray" size="2">举个栗子 ：100.10.0.1表示一个IP地址。</font><p><strong>理解误区</strong>：一台计算机只能有一个IP地址这个观点是错误的，可以指定一台计算机具有多个IP地址，也可以使多台服务器共用一个IP地址，看起来就像一台主机。</p><p>全世界的IP地址是由国际组织NIC（Network Information Center）负责统一分配。</p><p>3.域名：由于IP地址是数字标识，使用时难以记忆和书写，因此在IP地址的基础上又发展出一种符号化的地址方案，且与特定的IP地址对应，这样网络上的资源访问起来就容易得多。这个与网络上的<strong>数字型地址</strong>相对应的<strong>字符型地址</strong>，就被称为域名。相对IP地址不仅便于记忆，而且即使在IP地址发生变化的情况下，通过改变解析对应关系，域名仍可保持不变。</p><p>4.域名解析：域名到IP地址的转换过程，该工作由DNS服务器完成。DNS是进行域名和与之相对应的IP地址转换的服务器。</p><h2 id="IP和MAC地址"><a href="#IP和MAC地址" class="headerlink" title="IP和MAC地址"></a>IP和MAC地址</h2><p>1.MAC地址 (Media Access Control)，意译为媒体访问控制，或称为物理地址、硬件地址。是网卡生产商出厂时烧录进去的 ，物理上一般不可改变，每个网卡理论上都是全球唯一的。</p><p>在OSI模型中，MAC对应于第二层数据链路层，而IP对应于第三层网络层。</p><font color="gray" size="2">举个栗子 ：IP地址就像家里的门牌号，MAC地址就像身份证号，只知道MAC地址，却无法知道具体的位置</font><p>2.网卡：实现联网计算机和网络电缆之间的物理连接，为计算机之间相互通信提供一条物理通道。</p><p>网卡分有线和无线两种：</p><p>(1)有线网卡，需要一根光纤电缆线，将宽带接入主机</p><p>(2)无线网卡，他可以不需要电缆直接连接电脑，而通过接收无线路由器发出的电信号，来连接网络的。</p><font color="gray" size="2">PS：因为从来没有接触过这部分知识，实在看不懂为什么要分IP地址和MAC地址，网上有很多大神有相关的解释。</font><h2 id="IP、子网掩码、网关"><a href="#IP、子网掩码、网关" class="headerlink" title="IP、子网掩码、网关"></a>IP、子网掩码、网关</h2><p>1.子网掩码</p><p>(1)子网掩码不能单独存在，必须结合IP地址， 将某个IP地址划分成网络地址和主机地址两部分，网络号标识的是Internet上的一个子网，而主机号标识的是子网中的某台主机。</p><p>​<font color="gray" size="2">举个栗子 :poultry_leg: ：192.168.1.199   子网掩码：255.255.255.0   那么192.168.1是网络号，199是主机号</font></p><p>(2)子网掩码可以用来判断任意两台计算机的IP地址是否属于同一子网络。最简单的理解就是两台计算机各自的IP地址与子网掩码进行与运算后，得出的结果是相同的，则说明这两台计算机是处于同一个子网络上的，可以进行直接的通讯。</p><p>2.网关：是一个网络通向其他网络的IP地址，网关是与你直接相连的路由器的地址。</p><p>​<font color="gray" size="2">举个栗子 ：有网络A和网络B，网络A的IP地址范围为“192.168.1.1~192. 168.1.254”，子网掩码为255.255.255.0，网络B的IP地址范围为“192.168.2.1~192.168.2.254”，子网掩码为255.255.255.0。要实现这两个网络之间的通信，则必须通过网关。如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。</font></p><h2 id="域名、网站名、URL"><a href="#域名、网站名、URL" class="headerlink" title="域名、网站名、URL"></a>域名、网站名、URL</h2><p>http: //mail.163.com/index.html</p><p>1) http://  是协议，HTTP超文本传输协议，网页在网上传输的协议</p><p>2) mail  是服务器名，代表一个邮箱服务器，所以是mail</p><p>3)163.com  是域名</p><p>4) mail.163.com  是网站名，由服务器名+域名组成</p><p>5）/  表示根目录，也就是说，通过网站名找到服务器，然后在服务器存放网页的根目录</p><p>6:）index.html  表示根目录下的默认网页</p><p>7）http:// mail.163.com/index.html  叫做URL，统一资源定位符，全球性地址，用于定位网上的资源。</p><hr><p>PS:师兄看完后给的一下建议，这里再加一点东西喽~</p><p>1.http超文本传输协议 ， https是其加密版本。</p><p>2.主机(host):表示能够同其他机器互相访问的本地计算机，一台本地机有唯一标志代码，同网络掩码一起组成IP地址。</p><p>3.端口(port):数据通过它在计算机和其它设备(如打印机、鼠标、键盘或监视器)之间、网络之间或和其它直接连接的计算机之间传递。端口对CPU来说，是作为它用来发送或接收数据的一个或多个内存地址的。</p><hr><h2 id="宽带和路由器"><a href="#宽带和路由器" class="headerlink" title="宽带和路由器"></a>宽带和路由器</h2><p>想让人看懂的解释</p><p>宽带：就是自来水公司通往各家的管道。     </p><p>路由器：连到你家的主送水管道，通过这个你家这个主管道，可以让你家接水管的地方都出水。 </p><p>不想让人看懂的解释</p><p>宽带：当地运营商提供给各家上网的线路。      </p><p>路由器：控制你家机器上网的主线路，几台机器都想上网就得通过这个路由器。</p><font color="gray" size="2">PS：直接贴百度知道上的大神的回答，简直精辟了！</font><h2 id="OSI"><a href="#OSI" class="headerlink" title="OSI"></a>OSI</h2><p>OSI模型，该模型定义了不同计算机互联的标准，是设计和描述计算机网络通信的基本框架。</p><p>模型把网络通信分为7层，分别是物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。</p><h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p>网络通讯协议(Transmission Control Protocol/Internet Protocol) 是Internet最基本的协议、Internet国际互联网络的基础，由网络层的IP协议和传输层的TCP协议组成。TCP/IP 定义了电子设备如何连入因特网，以及数据如何在它们之间传输的标准。</p><h2 id="Hexo搭建博客托管到GitHub"><a href="#Hexo搭建博客托管到GitHub" class="headerlink" title="Hexo搭建博客托管到GitHub"></a>Hexo搭建博客托管到GitHub</h2><p>Github是国外免费的Git代码托管平，利用Github Page服务可以免费创建一个静态网站。</p><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，生成</p><p>静态网页，托管在GitHub服务器上。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;font color=&quot;gray&quot; size=&quot;2&quot;&gt;PS：写这片博客的起因是，我只是想知道为什么用GitHub搭建自己的博客，自己不需要买域名，之前从来没有接触过网络方面的知识，看了很多大神的博客，复制粘贴成自己的理解。&lt;/font&gt;
+
+&lt;h2 id=&quot;外网IP和内网IP&quot;&gt;&lt;a href=&quot;#外网IP和内网IP&quot; class=&quot;headerlink&quot; title=&quot;外网IP和内网IP&quot;&gt;&lt;/a&gt;外网IP和内网IP&lt;/h2&gt;&lt;p&gt;IP可以不严谨的分为外网IP和内网IP(局域网)。 &lt;/p&gt;
+&lt;font color=&quot;gray&quot; size=&quot;2&quot;&gt;PS：这样分好像是不对的，我也不理解，网上的大神说入门级的小白可以先这样理解。&lt;/font&gt;
+
+&lt;p&gt;1.外网IP：即因特网IP，其IP地址具有全球唯一性。但是全世界的IP地址数量是有限资源，日益增加的上网用户人数使得有限的IP地址资源紧张。为此，网络服务商采用了动态分配的办法，在用户上网的时侯分配一个IP，当不上网时，之前用的ip又很可能分配给别的上网用户。这样大大提高了IP的利用效率。&lt;br&gt;2.内网IP：相当于电脑在局域网里面的地址标识，一般是通过DHCP服务器进行动态分配的，机制其实与外网IP的分配相似，但在不引起IP地址冲突的情况下，可以设置成固定IP。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello GitHub</title>
+    <link href="http://yoursite.com/2018/05/03/Hello-GitHub/"/>
+    <id>http://yoursite.com/2018/05/03/Hello-GitHub/</id>
+    <published>2018-05-03T10:35:23.000Z</published>
+    <updated>2018-05-04T09:29:30.360Z</updated>
+    
+    <content type="html"><![CDATA[<p>绿小蕤的第一篇Blog，花了一个下午+晚上，但是都是值得的~</p><p>开启小白之旅~</p><p>需要博客搭建教程的盆友，具体可以看我另一片博文 </p><p><a href="https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;绿小蕤的第一篇Blog，花了一个下午+晚上，但是都是值得的~&lt;/p&gt;
+&lt;p&gt;开启小白之旅~&lt;/p&gt;
+&lt;p&gt;需要博客搭建教程的盆友，具体可以看我另一片博文 &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://sophia0130.github.io/2018/05/04/Git
+      
+    
+    </summary>
+    
+    
+      <category term="纪念第一篇文章" scheme="http://yoursite.com/tags/%E7%BA%AA%E5%BF%B5%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+    
+  </entry>
+  
+</feed>
