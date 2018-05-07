@@ -186,39 +186,9 @@
 <hr>
 <h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>大神总结的机器学习是什么，简单而又醍醐灌顶：机器学习最大的特点，或者说它的发展方向，就是<strong>不要有人工干预</strong>，自己学习。通过迭代，降低自己的loss（error），提升自己的accuracy 。你只要告诉它学习的方向，剩下的就是开着它跑，给它时间，让它自己学完就好了。(满脸迷妹崇拜大神~)</p>
 <p>PS：实际上，机器大量时间花在数据处理上，小部分时间花在模型，模型都是现有的，具体做的就是，如何选择模型，如何调节参数。</p>
-<h2 id="机器学习应用流程"><a href="#机器学习应用流程" class="headerlink" title="机器学习应用流程"></a>机器学习应用流程</h2><p>机器学习常用算法 </p>
-<p>常用工具</p>
-<p>建模与问题解决流程</p>
-<p>(1) 数据处理</p>
-<p>(2) 特征工程</p>
-<p>(3) 模型选择</p>
-<p>(4) 寻找最佳超参数 ：交叉验证</p>
-<p>(5) 模型分析与模型融合</p>
-<h2 id="机器学习算法"><a href="#机器学习算法" class="headerlink" title="机器学习算法"></a>机器学习算法</h2><p>1.算法分类</p>
-<p><img src="http://7xo0y8.com1.z0.glb.clouddn.com/ml_conceptml_algorithms.png" alt="算法分类">2.算法选择路径图scikit-learn algorithm cheat-sheet</p>
-<p><img src="https://img-blog.csdn.net/20160930051801241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="算法选择路径图"></p>
-<p>classification 分类</p>
-<p>regression连续值预测 回归</p>
-<p>clustering 聚类(不同于分类，是无监督的，也就是寻找关联规则)</p>
-<p>dimensionality reduction  降维 特征非常多</p>
-<h2 id="机器学习开源项目"><a href="#机器学习开源项目" class="headerlink" title="机器学习开源项目"></a>机器学习开源项目</h2><p>就把它看做是一项工具，现成的库，里面的函数实现特定功能，直接拿来用即可。</p>
-<p>下面是网上一位大神做的总结，内容很全，值得参考。</p>
-<p><a href="https://yq.aliyun.com/articles/30794" target="_blank" rel="noopener">https://yq.aliyun.com/articles/30794</a></p>
-<p><a href="https://yq.aliyun.com/articles/30796?spm=a2c4e.11153940.blogcont30794.29.40072508tHSzWa" target="_blank" rel="noopener">https://yq.aliyun.com/articles/30796?spm=a2c4e.11153940.blogcont30794.29.40072508tHSzWa</a></p>
-<p>PS：一些经常看到的项目，反正我没用过。</p>
-<p>1.TensorFlow                                                                            TensorFlow 是谷歌发布的第二代机器学习系统，是一个利用数据流图（Data Flow Graphs）进行数值计算的开源软件库。                                                                                                                                                                 主要用在<strong>深度神经网络</strong>方面。</p>
-<p>2.Scikit-Learn                                                                                Scikit-Learn 是用于机器学习的Python 模块，建立在NumPy、SciPy 和 matplotlib基础上，<strong>非常全</strong>的库。            基本功能主要被分为六个部分：<strong>分类、回归、聚类、数据降维、模型选择、数据预处理</strong>。</p>
-<p>3.Caffe                                                                                            Caffe 是做深度学习的框架。                                                                                                                                  目前Caffe应用实践主要有数据整理、设计网络结构、训练结果、基于现有训练模型，使用Caffe直接识别。</p>
-<p>4.Keras                                                                                                Keras 是极其精简并高度模块化的神经网络库，在TensorFlow 或 Theano 上都能够运行，是一个高度模块化的神经网络库，支持GPU和CPU运算。同时支持卷积网络和递归网络，以及两者之间的组合。</p>
-<p>5.MXNet                                                                                                                        MXNet 是一个兼具效率和灵活性的<strong>深度学习框架</strong>。它允许使用者将符号编程和命令式编程相结合，以追求效率和生产力的最大化。该库轻量且便携带，并且可扩展到多个GPU和多台主机上。</p>
-<p>6.XGBoost                                                                                                            XGBoot 是设计为高效、灵活、可移植的优化分布式梯度 Boosting库。它实现了 Gradient Boosting 框架下的机器学习算法。XGBoost通过提供并行树Boosting（也被称为GBDT、GBM），以一种快速且准确的方式解决了许多数据科学问题。</p>
-<p><strong>Boosting 提升或叫增强</strong>，是一个机器学习技术，可以用于<strong>回归</strong>和<strong>分类</strong>问题，它每一步产生一个<strong>弱预测模型</strong>(如决策树)，并<strong>加权累加</strong>到总模型中。提升的理论意义，如果一个问题存在弱分类器，则 可以通过提升的办法得到强分类器。</p>
-<p>如果每一步的弱预测模型生成都是依据损失函数的<strong>梯度方向</strong>，则称之为梯度提升(Gradient boosting)。        </p>
-<p>7.gensim                                                                                     用于NLP<strong>自然语言处理</strong>Natural Language Processing</p>
-<p>8.Numpy                                                                                                                            用于科学计算 </p>
-<p>9.Matplotlib                                                                                                              Matplotlib 是一个非常强大的 Python 画图工具，可视化数据</p>
-<p>10.pandas                                                                                     数据清洗 数据预处理</p>
-
+        
+          <a class="article-more-a" href="/2018/05/07/天池比赛入门/#more">more >></a>
+        
       
 
       
@@ -756,11 +726,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,7 +738,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
