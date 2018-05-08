@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>argc和argv | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1int main(int argc, char **argv)和int main(int argc, char *arg[])的区别 1. 字符和指针123456789101112131415161718191.char *a: 一级指针，a数据地址，*a指针指向的数据printf(&amp;quot;%c&amp;quot;,*a)输出一个字符，printf(&amp;quot;%s&amp;quot;,a)输出字符串举个栗">
+  <meta name="description" content="int main(int argc, char **argv)和int main(int argc, char *arg[])的区别 1. 字符和指针1.char *a: 一级指针，a数据地址，*a指针指向的数据printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串举个栗子：char *p1,*p2char str[]=”study” 字符数组，内容可变p1=strp2">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="argc和argv">
 <meta property="og:url" content="http://yoursite.com/2018/05/08/argc和argv/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="1int main(int argc, char **argv)和int main(int argc, char *arg[])的区别 1. 字符和指针123456789101112131415161718191.char *a: 一级指针，a数据地址，*a指针指向的数据printf(&amp;quot;%c&amp;quot;,*a)输出一个字符，printf(&amp;quot;%s&amp;quot;,a)输出字符串举个栗">
+<meta property="og:description" content="int main(int argc, char **argv)和int main(int argc, char *arg[])的区别 1. 字符和指针1.char *a: 一级指针，a数据地址，*a指针指向的数据printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串举个栗子：char *p1,*p2char str[]=”study” 字符数组，内容可变p1=strp2">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-08T07:11:08.672Z">
+<meta property="og:updated_time" content="2018-05-08T11:57:39.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="argc和argv">
-<meta name="twitter:description" content="1int main(int argc, char **argv)和int main(int argc, char *arg[])的区别 1. 字符和指针123456789101112131415161718191.char *a: 一级指针，a数据地址，*a指针指向的数据printf(&amp;quot;%c&amp;quot;,*a)输出一个字符，printf(&amp;quot;%s&amp;quot;,a)输出字符串举个栗">
+<meta name="twitter:description" content="int main(int argc, char **argv)和int main(int argc, char *arg[])的区别 1. 字符和指针1.char *a: 一级指针，a数据地址，*a指针指向的数据printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串举个栗子：char *p1,*p2char str[]=”study” 字符数组，内容可变p1=strp2">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -192,12 +192,14 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char **argv)和int main(int argc, char *arg[])的区别</span><br></pre></td></tr></table></figure>
-<h3 id="1-字符和指针"><a href="#1-字符和指针" class="headerlink" title="1. 字符和指针"></a>1. 字符和指针</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1.char *a: 一级指针，a数据地址，*a指针指向的数据</span><br><span class="line">printf(&quot;%c&quot;,*a)输出一个字符，printf(&quot;%s&quot;,a)输出字符串</span><br><span class="line">举个栗子：</span><br><span class="line">char *p1,*p2</span><br><span class="line">char str[]=&quot;study&quot; 字符数组，内容可变</span><br><span class="line">p1=str      </span><br><span class="line">p2=&quot;hard&quot; 字符串，字符串以字符数组存储，以&apos;\0&apos;结束,内容不可变</span><br><span class="line"></span><br><span class="line">2.char **a: 二级指针，指向char *a[]</span><br><span class="line">printf(&quot;%c&quot;,**a)输出一个字符，printf(&quot;%s&quot;,*a)输出字符串</span><br><span class="line">举个栗子：</span><br><span class="line">char** w</span><br><span class="line">char *week=&#123;&quot;Moday&quot;,&quot;Tuesday&quot;,&quot;Thursday&quot;&#125;</span><br><span class="line">w=week</span><br><span class="line"></span><br><span class="line">3.char *a[]: a是一个数组，数组的元素是字符串地址，地址包含的值是字符型数据</span><br><span class="line">printf(&quot;%c&quot;,*a[i])输出一个字符，printf(&quot;%s&quot;,a[i]))输出字符串</span><br><span class="line">举个栗子：</span><br><span class="line">char *a[]=&#123;&quot;study&quot;,&quot;hard&quot;&#125;</span><br></pre></td></tr></table></figure>
+        <p>int main(int argc, char **argv)和int main(int argc, char *arg[])的区别</p>
+<h3 id="1-字符和指针"><a href="#1-字符和指针" class="headerlink" title="1. 字符和指针"></a>1. 字符和指针</h3><p>1.char *a: 一级指针，a数据地址，*a指针指向的数据<br>printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串<br>举个栗子：<br>char *p1,*p2<br>char str[]=”study” 字符数组，内容可变<br>p1=str<br>p2=”hard” 字符串，字符串以字符数组存储，以’\0’结束,内容不可变</p>
+<p>2.char **a: 二级指针，指向char *a[]<br>printf(“%c”,**a)输出一个字符，printf(“%s”,*a)输出字符串<br>举个栗子：<br>char **w<br>char *week={“Moday”,”Tuesday”,”Thursday”}<br>w=week</p>
+<p>3.char *a[]: a是一个数组，数组的元素是字符串地址，地址包含的值是字符型数据<br>printf(“%c”,*a[i])输出一个字符，printf(“%s”,a[i]))输出字符串<br>举个栗子：<br>char *a[]={“study”,”hard”}</p>
 <a id="more"></a>
 <h3 id="2-argc-和-argv"><a href="#2-argc-和-argv" class="headerlink" title="2. argc 和 argv"></a>2. argc 和 argv</h3><p>argc是命令行总的参数个数  <strong>argc 至少是1</strong>                                                                                argv[]是argc个参数  <strong>其中第0个参数是程序的全名</strong> 后面的参数是命令行用户输入的参数</p>
-<h3 id="3-区别"><a href="#3-区别" class="headerlink" title="3. 区别"></a>3. 区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(int argc,char *argv[])  argv指向字符串的指针数组</span><br><span class="line">(int argc,char **argv)   argv指向char *，即argv存的是指向字符串的指针数组的地址</span><br></pre></td></tr></table></figure>
-<h3 id="4-VS中如何使用argv"><a href="#4-VS中如何使用argv" class="headerlink" title="4. VS中如何使用argv"></a>4. VS中如何使用argv</h3><p>命令参数里输入参数，试一下下面这个简单例程就i理解了</p>
+<h3 id="3-区别"><a href="#3-区别" class="headerlink" title="3. 区别"></a>3. 区别</h3><p>(int argc,char *argv[])  argv指向字符串的指针数组<br>(int argc,char **argv)   argv指向char *，即argv存的是指向字符串的指针数组的地址</p>
+<h3 id="4-VS中如何使用argv"><a href="#4-VS中如何使用argv" class="headerlink" title="4. VS中如何使用argv"></a>4. VS中如何使用argv</h3><p>命令参数里输入参数，试一下下面这个简单例程就理解了</p>
 <p><a href="https://blog.csdn.net/ly763124994/article/details/13627971" target="_blank" rel="noopener">https://blog.csdn.net/ly763124994/article/details/13627971</a></p>
 
       
@@ -437,15 +439,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
