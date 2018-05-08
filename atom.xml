@@ -207,4 +207,32 @@
     
   </entry>
   
+  <entry>
+    <title>Hello GitHub</title>
+    <link href="http://yoursite.com/2018/05/03/Hello-GitHub/"/>
+    <id>http://yoursite.com/2018/05/03/Hello-GitHub/</id>
+    <published>2018-05-03T10:35:23.000Z</published>
+    <updated>2018-05-08T07:21:02.045Z</updated>
+    
+    <content type="html"><![CDATA[<p>绿小蕤的第一篇Blog，花了一个下午+晚上，但是都是值得的~</p><p>开启小白之旅~</p><p>需要博客搭建教程的盆友，具体可以看我另一片博文 </p><p><a href="https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;绿小蕤的第一篇Blog，花了一个下午+晚上，但是都是值得的~&lt;/p&gt;
+&lt;p&gt;开启小白之旅~&lt;/p&gt;
+&lt;p&gt;需要博客搭建教程的盆友，具体可以看我另一片博文 &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://sophia0130.github.io/2018/05/04/Git
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="纪念第一篇文章" scheme="http://yoursite.com/tags/%E7%BA%AA%E5%BF%B5%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+    
+  </entry>
+  
 </feed>
