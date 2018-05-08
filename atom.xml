@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-08T07:11:08.672Z</updated>
+  <updated>2018-05-08T08:57:14.805Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CommandLineParse类</title>
+    <link href="http://yoursite.com/2018/05/08/CommandLineParse%E7%B1%BB/"/>
+    <id>http://yoursite.com/2018/05/08/CommandLineParse类/</id>
+    <published>2018-05-08T08:53:09.000Z</published>
+    <updated>2018-05-08T08:57:14.805Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="CommandLineParse类-命令行解析类"><a href="#CommandLineParse类-命令行解析类" class="headerlink" title="CommandLineParse类(命令行解析类)"></a>CommandLineParse类(命令行解析类)</h2><p>PS：看例程的时候特别不理解这个类是啥意思，可以看下面这个</p><p><a href="https://blog.csdn.net/jkhere/article/details/8674019" target="_blank" rel="noopener">https://blog.csdn.net/jkhere/article/details/8674019</a></p><p>但是我个人觉得用我自己写的程序更好理解 keys，这种简单明了的比较适合我们小白~~</p><a id="more"></a><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgcodecs.hpp"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/highgui.hpp"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgproc.hpp"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* keys =</span><br><span class="line">&#123;</span><br><span class="line"><span class="string">"&#123;input |C:/Users/king/Pictures/Saved Pictures/1.jpg| string |input image&#125;"</span></span><br><span class="line">&#125;;</span><br><span class="line">    <span class="comment">//分别表示简称，文件来源，文件值和帮助语句</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Mat src, dst;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* source_window = <span class="string">"Source image"</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* equalized_window = <span class="string">"Equalized Image"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Load image</span></span><br><span class="line"><span class="function">CommandLineParser <span class="title">parser</span><span class="params">(argc, argv, keys)</span></span>;</span><br><span class="line">src = imread(parser.get&lt;String&gt;(<span class="string">"input"</span>), IMREAD_COLOR);</span><br><span class="line"><span class="keyword">if</span> (src.empty())</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"Could not open or find the image!\n"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cvtColor(src, src, COLOR_BGR2GRAY);</span><br><span class="line">equalizeHist(src, dst);</span><br><span class="line"></span><br><span class="line">namedWindow(source_window, WINDOW_AUTOSIZE);</span><br><span class="line">namedWindow(equalized_window, WINDOW_AUTOSIZE);</span><br><span class="line"></span><br><span class="line">imshow(source_window, src);</span><br><span class="line">imshow(equalized_window, dst);</span><br><span class="line"></span><br><span class="line">waitKey(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>1.这个类的作用</p><p>以前没这个类时，如果要运行带参数的.exe，必须在命令行中输入文件路径以及各种参数，一不小心就输错了，很不方便。<br>现在有了这个类，只需要<strong>改keys</strong>里面的内容就可以了，并且运行时可以<strong>直接在vs下用F5，不需要cmd命令行带参运行</strong>。</p><p>2.keys</p><p>keys中间的内容分成4断，用”|”分隔开，分别表示简称，文件来源，文件值和帮助语句                PS：文件的值我不是很理解，如果类型是bool，那就有值0或，如果是类型是图像，它的值可以<strong>省略</strong>，我这边文件的值用了string，也运行成功了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;CommandLineParse类-命令行解析类&quot;&gt;&lt;a href=&quot;#CommandLineParse类-命令行解析类&quot; class=&quot;headerlink&quot; title=&quot;CommandLineParse类(命令行解析类)&quot;&gt;&lt;/a&gt;CommandLineParse类(命令行解析类)&lt;/h2&gt;&lt;p&gt;PS：看例程的时候特别不理解这个类是啥意思，可以看下面这个&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/jkhere/article/details/8674019&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/jkhere/article/details/8674019&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;但是我个人觉得用我自己写的程序更好理解 keys，这种简单明了的比较适合我们小白~~&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="opencv" scheme="http://yoursite.com/tags/opencv/"/>
+    
+  </entry>
   
   <entry>
     <title>argc和argv</title>
@@ -212,7 +234,7 @@
     <link href="http://yoursite.com/2018/05/03/Hello-GitHub/"/>
     <id>http://yoursite.com/2018/05/03/Hello-GitHub/</id>
     <published>2018-05-03T10:35:23.000Z</published>
-    <updated>2018-05-08T07:21:02.045Z</updated>
+    <updated>2018-05-08T07:22:32.541Z</updated>
     
     <content type="html"><![CDATA[<p>绿小蕤的第一篇Blog，花了一个下午+晚上，但是都是值得的~</p><p>开启小白之旅~</p><p>需要博客搭建教程的盆友，具体可以看我另一片博文 </p><p><a href="https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a></p>]]></content>
     
