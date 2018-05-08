@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: opencv | 绿小蕤</title>
+  <title>argc和argv | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
-<meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/tags/opencv/index.html">
+  <meta name="description" content="int main(int argc, char *argv)和int main(int argc, char arg[])    的区别1. 字符和指针123456789101112131415161718191.char *a: 一级指针，a数据地址，*a指针指向的数据printf(&amp;quot;%c&amp;quot;,*a)输出一个字符，printf(&amp;quot;%s&amp;quot;,a)输出字符串举个栗">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="argc和argv">
+<meta property="og:url" content="http://yoursite.com/2018/05/08/argc和argv/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="int main(int argc, char *argv)和int main(int argc, char arg[])    的区别1. 字符和指针123456789101112131415161718191.char *a: 一级指针，a数据地址，*a指针指向的数据printf(&amp;quot;%c&amp;quot;,*a)输出一个字符，printf(&amp;quot;%s&amp;quot;,a)输出字符串举个栗">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-08T07:00:52.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="argc和argv">
+<meta name="twitter:description" content="int main(int argc, char *argv)和int main(int argc, char arg[])    的区别1. 字符和指针123456789101112131415161718191.char *a: 一级指针，a数据地址，*a指针指向的数据printf(&amp;quot;%c&amp;quot;,*a)输出一个字符，printf(&amp;quot;%s&amp;quot;,a)输出字符串举个栗">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,69 +161,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-argc和argv" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      argc和argv
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/07/ImageWatch/" class="archive-article-date">
-  	<time datetime="2018-05-07T13:23:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-07</time>
+
+        
+        <a href="/2018/05/08/argc和argv/" class="archive-article-date">
+  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
 </a>
 
 
-<a href="/2018/05/07/ImageWatch/" class="archive-article-date">
-  	<time datetime="2018-05-07T13:23:47.000Z" itemprop="datePublished">2018-05-07</time>
+<a href="/2018/05/08/argc和argv/" class="archive-article-date">
+  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished">2018-05-08</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
 </a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/07/ImageWatch/">ImageWatch</a>
-    </h1>
-  
+        
+      </header>
+    
 
-        <div class="article-info info-on-right">
-          
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="int-main-int-argc-char-argv-和int-main-int-argc-char-arg-的区别"><a href="#int-main-int-argc-char-argv-和int-main-int-argc-char-arg-的区别" class="headerlink" title="int main(int argc, char *argv)和int main(int argc, char arg[])    的区别"></a>int main(int argc, char *<em>argv)和int main(int argc, char </em>arg[])    的区别</h2><h3 id="1-字符和指针"><a href="#1-字符和指针" class="headerlink" title="1. 字符和指针"></a>1. 字符和指针</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1.char *a: 一级指针，a数据地址，*a指针指向的数据</span><br><span class="line">printf(&quot;%c&quot;,*a)输出一个字符，printf(&quot;%s&quot;,a)输出字符串</span><br><span class="line">举个栗子：</span><br><span class="line">char *p1,*p2</span><br><span class="line">char str[]=&quot;study&quot; 字符数组，内容可变</span><br><span class="line">p1=str      </span><br><span class="line">p2=&quot;hard&quot; 字符串，字符串以字符数组存储，以&apos;\0&apos;结束,内容不可变</span><br><span class="line"></span><br><span class="line">2.char **a: 二级指针，指向char *a[]</span><br><span class="line">printf(&quot;%c&quot;,**a)输出一个字符，printf(&quot;%s&quot;,*a)输出字符串</span><br><span class="line">举个栗子：</span><br><span class="line">char** w</span><br><span class="line">char *week=&#123;&quot;Moday&quot;,&quot;Tuesday&quot;,&quot;Thursday&quot;&#125;</span><br><span class="line">w=week</span><br><span class="line"></span><br><span class="line">3.char *a[]: a是一个数组，数组的元素是字符串地址，地址包含的值是字符型数据</span><br><span class="line">printf(&quot;%c&quot;,*a[i])输出一个字符，printf(&quot;%s&quot;,a[i]))输出字符串</span><br><span class="line">举个栗子：</span><br><span class="line">char *a[]=&#123;&quot;study&quot;,&quot;hard&quot;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-argc-和-argv"><a href="#2-argc-和-argv" class="headerlink" title="2. argc 和 argv"></a>2. argc 和 argv</h3><p>argc是命令行总的参数个数  <strong>argc 至少是1</strong>                                                                                argv[]是argc个参数  <strong>其中第0个参数是程序的全名</strong> 后面的参数是命令行用户输入的参数</p>
+<h3 id="3-int-main-int-argc-char-argv-和int-main-int-argc-char-arg-的区别，可以看做没区别"><a href="#3-int-main-int-argc-char-argv-和int-main-int-argc-char-arg-的区别，可以看做没区别" class="headerlink" title="3. int main(int argc, char *argv)和int main(int argc, char arg[])    的区别，可以看做没区别"></a>3. int main(int argc, char *<em>argv)和int main(int argc, char </em>arg[])    的区别，可以看做没区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(int argc,char *argv[])  argv指向字符串的指针数组</span><br><span class="line">(int argc,char **argv)   argv指向char *，即argv存的是指向字符串的指针数组的地址</span><br></pre></td></tr></table></figure>
+<h3 id="4-VS中如何使用argv"><a href="#4-VS中如何使用argv" class="headerlink" title="4. VS中如何使用argv"></a>4. VS中如何使用argv</h3><p>命令参数里输入参数，试一下下面这个简单例程就i理解了</p>
+<p><a href="https://blog.csdn.net/ly763124994/article/details/13627971" target="_blank" rel="noopener">https://blog.csdn.net/ly763124994/article/details/13627971</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/08/argc和argv/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/05/08/Hexo主题的优化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo主题的优化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#int-main-int-argc-char-argv-和int-main-int-argc-char-arg-的区别"><span class="toc-number">1.</span> <span class="toc-text">int main(int argc, char *argv)和int main(int argc, char arg[])    的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-字符和指针"><span class="toc-number">1.1.</span> <span class="toc-text">1. 字符和指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-argc-和-argv"><span class="toc-number">1.2.</span> <span class="toc-text">2. argc 和 argv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-int-main-int-argc-char-argv-和int-main-int-argc-char-arg-的区别，可以看做没区别"><span class="toc-number">1.3.</span> <span class="toc-text">3. int main(int argc, char *argv)和int main(int argc, char arg[])    的区别，可以看做没区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-VS中如何使用argv"><span class="toc-number">1.4.</span> <span class="toc-text">4. VS中如何使用argv</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
 
 
           </div>
@@ -256,9 +364,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
