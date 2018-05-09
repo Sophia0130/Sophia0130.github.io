@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>绿小蕤</title>
+  <title>python入门编程 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
-<meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解 https://blog.csdn.net/han_xiaoyang/article/details/49123419 12345678910111213141516171819#data1.py#用到包里的函数from numpy import loadtxt, where  from pylab import scatte">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python入门编程">
+<meta property="og:url" content="http://yoursite.com/2018/05/09/python入门编程/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解 https://blog.csdn.net/han_xiaoyang/article/details/49123419 12345678910111213141516171819#data1.py#用到包里的函数from numpy import loadtxt, where  from pylab import scatte">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2817%29.png">
+<meta property="og:updated_time" content="2018-05-09T09:20:28.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="python入门编程">
+<meta name="twitter:description" content="PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解 https://blog.csdn.net/han_xiaoyang/article/details/49123419 12345678910111213141516171819#data1.py#用到包里的函数from numpy import loadtxt, where  from pylab import scatte">
+<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2817%29.png">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,16 +163,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-python入门编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-python入门编程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/python入门编程/">python入门编程</a>
+    <h1 class="article-title" itemprop="name">
+      python入门编程
     </h1>
   
 
@@ -196,9 +197,12 @@
         <p>PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解</p>
 <p><a href="https://blog.csdn.net/han_xiaoyang/article/details/49123419" target="_blank" rel="noopener">https://blog.csdn.net/han_xiaoyang/article/details/49123419</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#data1.py</span></span><br><span class="line"><span class="comment">#用到包里的函数</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> loadtxt, where  </span><br><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> scatter, show, legend, xlabel, ylabel  </span><br><span class="line"></span><br><span class="line"><span class="comment">#load the dataset  </span></span><br><span class="line">data = loadtxt(<span class="string">'D:/机器学习/逻辑回归/data1.txt'</span>, delimiter=<span class="string">','</span>)  </span><br><span class="line">  </span><br><span class="line">X = data[:, <span class="number">0</span>:<span class="number">2</span>]  </span><br><span class="line">y = data[:, <span class="number">2</span>]  </span><br><span class="line">  </span><br><span class="line">pos = where(y == <span class="number">1</span>)  </span><br><span class="line">neg = where(y == <span class="number">0</span>)  </span><br><span class="line">scatter(X[pos, <span class="number">0</span>], X[pos, <span class="number">1</span>], marker=<span class="string">'o'</span>, c=<span class="string">'b'</span>)  </span><br><span class="line">scatter(X[neg, <span class="number">0</span>], X[neg, <span class="number">1</span>], marker=<span class="string">'x'</span>, c=<span class="string">'r'</span>)  </span><br><span class="line">xlabel(<span class="string">'Feature1/Exam 1 score'</span>)  </span><br><span class="line">ylabel(<span class="string">'Feature2/Exam 2 score'</span>)  </span><br><span class="line">legend([<span class="string">'Fail'</span>, <span class="string">'Pass'</span>])  </span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/05/09/python入门编程/#more">more >></a>
-        
+<a id="more"></a>
+<h2 id="用python-shell运行data1-py"><a href="#用python-shell运行data1-py" class="headerlink" title="用python shell运行data1.py"></a>用python shell运行data1.py</h2><p>1.打开python shell — new file 新建一个.py 文件并保存                                                                                                                                                                                                                                            2.run — run model 然后python shell 会出现相应的结果                                                                                                                                                                                                                        PS：嫌弃我讲的太敷衍可以参考这片百度知道哪~~~                                                                                                                                            <a href="https://zhidao.baidu.com/question/1958691628398602620.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/1958691628398602620.html</a></p>
+<h2 id="使用pip工具安装包"><a href="#使用pip工具安装包" class="headerlink" title="使用pip工具安装包"></a>使用pip工具安装包</h2><p>pip是python的一个非常好用的包管理工具，可以很方便地安装和管理各种三方库                                                                                                                                具体可以参考下面这篇博客~~                                                                                                                                                                                                                                                    <a href="https://blog.csdn.net/zhangxinyu11021130/article/details/50987631" target="_blank" rel="noopener">https://blog.csdn.net/zhangxinyu11021130/article/details/50987631</a></p>
+<p>注意事项：                                                                                                                                                                                            1.要设置系统变量                                                                                                                                                                                                                                                     2.要下载相应版本的包 我的是python3.5.2 64位</p>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2817%29.png" alt="data1结果"></p>
+
       
 
       
@@ -220,201 +224,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/09/python入门编程/">展开 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-opencv-tutorial-code-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/opencv-tutorial-code-一/">opencv tutorial_code(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/09/opencv-tutorial-code-一/" class="archive-article-date">
-  	<time datetime="2018-05-09T03:40:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
-</a>
-
-
-<a href="/2018/05/09/opencv-tutorial-code-一/" class="archive-article-date">
-  	<time datetime="2018-05-09T03:40:45.000Z" itemprop="datePublished">2018-05-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://github.com/opencv/opencv/tree/3.4/samples/cpp/tutorial_code" target="_blank" rel="noopener">https://github.com/opencv/opencv/tree/3.4/samples/cpp/tutorial_code</a></p>
-<h2 id="opencv-samples-cpp-tutorial-code"><a href="#opencv-samples-cpp-tutorial-code" class="headerlink" title="opencv/samples/cpp/tutorial_code"></a>opencv/samples/cpp/tutorial_code</h2><h3 id="1-HighGUI"><a href="#1-HighGUI" class="headerlink" title="1.HighGUI"></a>1.HighGUI</h3><p>PS：HighGUI 图形用户界面模块，包括图像和视频的读入显示、编码解码、图形交互界面接口(啥意思？后来想想可能是指滑动条这种可以产生交互的函数)</p>
-<p>(1) AddingImagesTrackbar.cpp 说明：创建滑动条将两张图片线性叠加</p>
-<p>(2) BasicLinearTransformsTrackbar.cpp 说明：创建两个滑动条(对比度、亮度)对图片做线性变化</p>
-<p><strong>滑动条的使用</strong>                                                                                 1.创建窗口       namedWindow()                                                                                                                     2.创建滑动条   createTrackbar()                                                                        3.回掉函数       on_trackbar()  函数原型必须是 void XX(int,void*)  第一个为轨迹位置，第二个为用户数据        滑动条位置改变，调用回掉函数</p>
-<p>PS：<strong>void* 表明该指针与一地址值有关，但不知道存储在此地址上的对象的类型</strong>                                              void*只支持有限的操作，<strong>向函数传递void<em>指针或者返回void\</em>指针，给另一个void*指针赋值</strong>                                                                 int i = 1   void *pi = &amp;i</p>
-        
-          <a class="article-more-a" href="/2018/05/09/opencv-tutorial-code-一/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/09/opencv-tutorial-code-一/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-CommandLineParse类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/CommandLineParse类/">CommandLineParse类</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      </div>
     </span>
-</a>
+  </div>
+</div>
 
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CommandLineParse类-命令行解析类"><a href="#CommandLineParse类-命令行解析类" class="headerlink" title="CommandLineParse类(命令行解析类)"></a>CommandLineParse类(命令行解析类)</h2><p>PS：看例程的时候特别不理解这个类是啥意思，可以看下面这个</p>
-<p><a href="https://blog.csdn.net/jkhere/article/details/8674019" target="_blank" rel="noopener">https://blog.csdn.net/jkhere/article/details/8674019</a></p>
-<p>但是我个人觉得用我自己写的程序更好理解 keys，这种简单明了的比较适合我们小白~~</p>
-        
-          <a class="article-more-a" href="/2018/05/08/CommandLineParse类/#more">more >></a>
-        
-      
-
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/09/python入门编程/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
+</div>
 
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/08/CommandLineParse类/">展开 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/09/opencv-tutorial-code-一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">opencv tutorial_code(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -429,668 +307,35 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-argc和argv" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/argc和argv/">argc和argv</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>int main(int argc, char **argv)和int main(int argc, char *arg[])的区别</p>
-<h3 id="1-字符和指针"><a href="#1-字符和指针" class="headerlink" title="1. 字符和指针"></a>1. 字符和指针</h3><p>1.char *a: 一级指针，a数据地址，*a指针指向的数据<br>printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串<br>举个栗子：<br>char *p1,*p2<br>char str[]=”study” 字符数组，内容可变<br>p1=str<br>p2=”hard” 字符串，字符串以字符数组存储，以’\0’结束,内容不可变</p>
-<p>2.char **a: 二级指针，指向char *a[]<br>printf(“%c”,**a)输出一个字符，printf(“%s”,*a)输出字符串<br>举个栗子：<br>char **w<br>char *week={“Moday”,”Tuesday”,”Thursday”}<br>w=week</p>
-<p>3.char *a[]: a是一个数组，数组的元素是字符串地址，地址包含的值是字符型数据<br>printf(“%c”,*a[i])输出一个字符，printf(“%s”,a[i]))输出字符串<br>举个栗子：<br>char *a[]={“study”,”hard”}</p>
-        
-          <a class="article-more-a" href="/2018/05/08/argc和argv/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/08/argc和argv/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用python-shell运行data1-py"><span class="toc-number">1.</span> <span class="toc-text">用python shell运行data1.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用pip工具安装包"><span class="toc-number">2.</span> <span class="toc-text">使用pip工具安装包</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-
-
-  
-    <article id="post-Hexo主题的优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/Hexo主题的优化/">Hexo主题的优化</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/08/Hexo主题的优化/" class="archive-article-date">
-  	<time datetime="2018-05-08T06:53:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/Hexo主题的优化/" class="archive-article-date">
-  	<time datetime="2018-05-08T06:53:54.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="主题优化"><a href="#主题优化" class="headerlink" title="主题优化"></a>主题优化</h1><p>不知道从哪几个方面来优化的可以参考以下案例~~</p>
-<p><a href="http://blog.magicwang.tech/post/Hexo-Yilia-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">http://blog.magicwang.tech/post/Hexo-Yilia-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93/</a></p>
-<p><a href="http://www.yfshare.vip/categories/Hexo/" target="_blank" rel="noopener">http://www.yfshare.vip/categories/Hexo/</a></p>
-        
-          <a class="article-more-a" href="/2018/05/08/Hexo主题的优化/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/08/Hexo主题的优化/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-ImageWatch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/07/ImageWatch/">ImageWatch</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/07/ImageWatch/" class="archive-article-date">
-  	<time datetime="2018-05-07T13:23:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-07</time>
-</a>
-
-
-<a href="/2018/05/07/ImageWatch/" class="archive-article-date">
-  	<time datetime="2018-05-07T13:23:47.000Z" itemprop="datePublished">2018-05-07</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="ImageWatch"><a href="#ImageWatch" class="headerlink" title="ImageWatch"></a>ImageWatch</h2><p>PS：师兄告诉我的一个调试小工具，哈哈哈~很满意</p>
-<p>Image Watch是一个VS插件，能够让你在调试一个OpenCV程序的时候，看到内存中的图像，<strong>不能在Release版本下调试</strong>，是显示不出图像的。</p>
-<p>mage Watch左上角有两个单选按钮Locals和Watch，分别对应两种模式 ：<br>Locals模式显示当前栈中所有的与变量，Watch模式显示用户手动添加的变量</p>
-<p><a href="https://blog.csdn.net/chaipp0607/article/details/71155601" target="_blank" rel="noopener">https://blog.csdn.net/chaipp0607/article/details/71155601</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/07/ImageWatch/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-天池比赛入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/07/天池比赛入门/">天池比赛入门</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/07/天池比赛入门/" class="archive-article-date">
-  	<time datetime="2018-05-07T01:59:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-07</time>
-</a>
-
-
-<a href="/2018/05/07/天池比赛入门/" class="archive-article-date">
-  	<time datetime="2018-05-07T01:59:32.000Z" itemprop="datePublished">2018-05-07</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="天池、Kaggle、DataCastle"><a href="#天池、Kaggle、DataCastle" class="headerlink" title="天池、Kaggle、DataCastle"></a>天池、Kaggle、DataCastle</h2><p>天池、Kaggle、DataCastle这几个大数据+机器学习的大赛平台初步了解。</p>
-<p><a href="https://www.zhihu.com/question/41450532/answer/91372849" target="_blank" rel="noopener">https://www.zhihu.com/question/41450532/answer/91372849</a></p>
-<p>加油！！！我一定可以做出来的！！！</p>
-<hr>
-<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>大神总结的机器学习是什么，简单而又醍醐灌顶：机器学习最大的特点，或者说它的发展方向，就是<strong>不要有人工干预</strong>，自己学习。通过迭代，降低自己的loss（error），提升自己的accuracy 。你只要告诉它学习的方向，剩下的就是开着它跑，给它时间，让它自己学完就好了。(满脸迷妹崇拜大神~)</p>
-<p>PS：实际上，机器大量时间花在数据处理上，小部分时间花在模型，模型都是现有的，具体做的就是，如何选择模型，如何调节参数。</p>
-        
-          <a class="article-more-a" href="/2018/05/07/天池比赛入门/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/07/天池比赛入门/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-编译器和解释器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/编译器和解释器/">编译器和解释器</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/04/编译器和解释器/" class="archive-article-date">
-  	<time datetime="2018-05-04T12:42:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-
-
-<a href="/2018/05/04/编译器和解释器/" class="archive-article-date">
-  	<time datetime="2018-05-04T12:42:04.000Z" itemprop="datePublished">2018-05-04</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="编译器、解释器"><a href="#编译器、解释器" class="headerlink" title="编译器、解释器"></a>编译器、解释器</h2><p>1.编译器：将源程序编译成机器语言，保存成二进制文件，运行速度快</p>
-<p>2.解释器：执程序时一条条解释成机器语言，运行速度慢</p>
-<h2 id="编译型语言、解释型语言"><a href="#编译型语言、解释型语言" class="headerlink" title="编译型语言、解释型语言"></a>编译型语言、解释型语言</h2><p>1.编译型语言：不能独立运行，使用了库函数，需要链接，最后输出可执行代码 (C、C++)</p>
-<p>缺点：编译成特定平台的机器码，无法将可执行文件移植到其它平台，可以移植也需要采用该平台的编译器重新编译</p>
-        
-          <a class="article-more-a" href="/2018/05/04/编译器和解释器/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/编译器和解释器/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-make和CMake" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/make和CMake/">make和CMake</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/04/make和CMake/" class="archive-article-date">
-  	<time datetime="2018-05-04T12:24:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-
-
-<a href="/2018/05/04/make和CMake/" class="archive-article-date">
-  	<time datetime="2018-05-04T12:24:18.000Z" itemprop="datePublished">2018-05-04</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="makefile-和-make"><a href="#makefile-和-make" class="headerlink" title="makefile 和 make"></a>makefile 和 make</h2><p>1.makefile 文件</p>
-<p>一个工程中有很多源文件，makefile定义了整个工程的编译规则，哪些文件先编译，哪些文件后编译，哪些文件重新编译。malefile是<strong>自动化编译</strong>，一旦写好，只需一个make，整个工程自动编译。</p>
-<p>windows平台下，VS开发环境自动生成makefile文件</p>
-<p>Linux平台下，Qt Creator自动生成了类似makeile的 .pro文件</p>
-        
-          <a class="article-more-a" href="/2018/05/04/make和CMake/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/make和CMake/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-GitHub-Hexo-搭建自己的博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/GitHub-Hexo-搭建自己的博客/">GitHub+Hexo 搭建自己的博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/04/GitHub-Hexo-搭建自己的博客/" class="archive-article-date">
-  	<time datetime="2018-05-04T09:24:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-
-
-<a href="/2018/05/04/GitHub-Hexo-搭建自己的博客/" class="archive-article-date">
-  	<time datetime="2018-05-04T09:24:31.000Z" itemprop="datePublished">2018-05-04</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <font color="gray" size="2">PS：参考网上各种大神的博客，作为一个小白，我真的东拼西凑，半懂不懂搭出来了自己的博客页面，所以看到这篇博文的你，一定要有信心~</font>
-
-<h2 id="搭建过程和遇到的问题"><a href="#搭建过程和遇到的问题" class="headerlink" title="搭建过程和遇到的问题"></a>搭建过程和遇到的问题</h2><p>自己搭的时候参考了好几篇，大神太多啦，推荐看这位的就够了</p>
-<p><a href="https://www.cnblogs.com/jackyroc/p/7681938.html" target="_blank" rel="noopener">https://www.cnblogs.com/jackyroc/p/7681938.html</a></p>
-<p>下面罗列一下几个遇到的问题：</p>
-<p>1.Node.js安装及环境配置之Windows，这位写得很详细啦~</p>
-<p><a href="https://www.cnblogs.com/zhouyu2017/p/6485265.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhouyu2017/p/6485265.html</a></p>
-<p>2.配置SSH Key到GitHub，在这个地方卡了好久，好多博文这里一笔带过写了，推荐下面这位啦~</p>
-<p><a href="https://blog.csdn.net/gulingfengze/article/details/69665223" target="_blank" rel="noopener">https://blog.csdn.net/gulingfengze/article/details/69665223</a></p>
-        
-          <a class="article-more-a" href="/2018/05/04/GitHub-Hexo-搭建自己的博客/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/GitHub-Hexo-搭建自己的博客/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
   
+
+  
+
+  
+
+  
+
+
 
 
           </div>
@@ -1123,8 +368,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
