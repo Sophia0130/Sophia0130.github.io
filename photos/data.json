@@ -1,1 +1,1 @@
-{"list":[{"date":"2017-10","arr":{"month":10,"link":["2017-10-12_test.jpg"],"year":2017,"text":["test"],"type":["image"]}},{"date":"2016-10","arr":{"month":10,"link":["2016-10-12_test.jpg"],"year":2016,"text":["test"],"type":["image"]}}]}
+{"list":[{"date":"2017-10","arr":{"link":["2017-10-12_test.jpg"],"type":["image"],"month":10,"text":["test"],"year":2017}},{"date":"2016-10","arr":{"link":["2016-10-12_test.jpg"],"type":["image"],"month":10,"text":["test"],"year":2016}}]}
