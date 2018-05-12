@@ -203,34 +203,10 @@
 <li><p>无监督学习(无标签)</p>
 </li>
 <li><p>半监督学习(一半有标签，一般无标签)</p>
-<p>​</p>
-</li>
-</ul>
-<h2 id="回归算法-Regression-Algorithms"><a href="#回归算法-Regression-Algorithms" class="headerlink" title="回归算法(Regression Algorithms)"></a>回归算法(Regression Algorithms)</h2><p>自变量与因变量之间的显著关系，下面列出了七种回归问题</p>
-<p><a href="https://www.jianshu.com/p/15dd20f8d02c" target="_blank" rel="noopener">https://www.jianshu.com/p/15dd20f8d02c</a></p>
-<h2 id="基于实例的算法-Instance-based-Algorithms"><a href="#基于实例的算法-Instance-based-Algorithms" class="headerlink" title="基于实例的算法(Instance-based Algorithms)"></a>基于实例的算法(Instance-based Algorithms)</h2><p><strong>最后建成的模型，对原始数据样本实例依旧有很强的依赖性</strong>。这类算法在做预测决策时，一般都是使用某类相似度准则，去<strong>比对待预测的样本和原始样本的相近度</strong>，再给出相应的预测结果。</p>
-<h2 id="决策树类算法-Decision-Tree-Algorithms"><a href="#决策树类算法-Decision-Tree-Algorithms" class="headerlink" title="决策树类算法(Decision Tree Algorithms)"></a>决策树类算法(Decision Tree Algorithms)</h2><p>决策树是一个树结构，每个非叶节点表示一个<strong>特征属性</strong>上的测试，每个分支代表这个特征属性在某个值域上的输出，而每个叶节点存放一个<strong>类别</strong>。使用决策树进行决策的过程就是从根节点开始，测试待分类项中相应的特征属性，并按照其值选择输出分支，直到到达叶子节点，<strong>将叶子节点存放的类别作为决策结果</strong>。                    PS：西瓜书里的这张图很好解释啥叫决策树，还好学了数据结构里的树结构，现在感觉学的东西都是相通的~~</p>
-<p><img src="https://pic3.zhimg.com/v2-39d109b46ea4f34d5efbf67edc11d57d_r.jpg" alt="决策树"></p>
-<h2 id="贝叶斯类算法-Bayesian-Algorithms"><a href="#贝叶斯类算法-Bayesian-Algorithms" class="headerlink" title="贝叶斯类算法(Bayesian Algorithms)"></a>贝叶斯类算法(Bayesian Algorithms)</h2><p>在分类和回归问题中，隐含使用了贝叶斯原理的算法</p>
-<p>PS：都是概率统计里的数学知识啊~概率服从一定的分布( y随x的变化规律)    <del>下面这篇博客写的简直太好了，用了一个栗子讲解朴素贝叶斯</del></p>
-<p><a href="https://blog.csdn.net/amds123/article/details/70173402" target="_blank" rel="noopener">https://blog.csdn.net/amds123/article/details/70173402</a></p>
-<p>用上面这篇博客里的栗子解释朴素贝叶斯：如果一对男女朋友，男生想女生求婚，男生的四个特点分别是不帅，性格不好，身高矮，不上进，请你判断一下女生是嫁还是不嫁？                                                                这是一个典型的分类问题，<strong>转为数学问题就是比较p(嫁|(不帅、性格不好、身高矮、不上进))与p(不嫁|(不帅、性格不好、身高矮、不上进))的概率</strong>，谁的概率大，我就能给出嫁或者不嫁的答案！    </p>
-<h2 id="聚类算法-Clustering-Algorithms"><a href="#聚类算法-Clustering-Algorithms" class="headerlink" title="聚类算法(Clustering Algorithms)"></a>聚类算法(Clustering Algorithms)</h2><p>用于进行数据分类，把不同的数据分到不同的群组</p>
-<p><a href="https://miketech.it/k-means/" target="_blank" rel="noopener">https://miketech.it/k-means/</a>        </p>
-<h2 id="关联规则算法-Association-Rule-Learning-Algorithms"><a href="#关联规则算法-Association-Rule-Learning-Algorithms" class="headerlink" title="关联规则算法(Association Rule Learning Algorithms)"></a>关联规则算法(Association Rule Learning Algorithms)</h2><p>抽取出最能解释观察到的训练样本之间关联关系的规则，也就是获取一个事件和其他事件之间依赖或关的知识                利用一些度量指标来分辨数据库中存在的强规则，也就是说<strong>关联规则挖掘是用于知识发现</strong>，而<strong>非预测</strong>，所以是属于<strong>无监督</strong>的机器学习方法                                                                                        <a href="https://www.jianshu.com/p/7d459ace31ab" target="_blank" rel="noopener">https://www.jianshu.com/p/7d459ace31ab</a></p>
-<h2 id="人工神经网络类算法-Artificial-Neural-Network-Algorithms"><a href="#人工神经网络类算法-Artificial-Neural-Network-Algorithms" class="headerlink" title="人工神经网络类算法(Artificial Neural Network Algorithms)"></a>人工神经网络类算法(Artificial Neural Network Algorithms)</h2><p>人工神经网络(ANN) ，简称神经网络(缩写)，模拟生物神经网络，是一类模式匹配算法。通常用于解决分类和回归问题，其中深度学习就是其中的一类算法</p>
-<h2 id="深度学习-Deep-Learning-Algorithms"><a href="#深度学习-Deep-Learning-Algorithms" class="headerlink" title="深度学习(Deep Learning Algorithms)"></a>深度学习(Deep Learning Algorithms)</h2><p>PS：Deap Learning和NN的区别，说实在的除了网络层级不同，下面的那个特征挑选，真没懂。</p>
-<p><a href="https://zhidao.baidu.com/question/554111494800207612.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/554111494800207612.html</a></p>
-<ul>
-<li>神经网络只有输入层、隐藏层、输出层<br>深度学习 输入层 - 卷积层 -降维层 -卷积层 - 降维层 – …. – 隐藏层 -输出层</li>
-<li>多层神经网络做的步骤是：特征-&gt;值，<strong>特征是人工挑选</strong>。<br>深度学习做的步骤是：信号-&gt;特征-&gt;值，<strong>特征是网络自己选择</strong>。</li>
-</ul>
-<h2 id="降维算法-Dimensionality-Reduction-Algorithms"><a href="#降维算法-Dimensionality-Reduction-Algorithms" class="headerlink" title="降维算法(Dimensionality Reduction Algorithms)"></a>降维算法(Dimensionality Reduction Algorithms)</h2><p>降维就是指采用某种映射方法，<strong>将原高维空间中的数据点映射到低维度的空间</strong>， 降维算法一般在数据的<strong>可视化</strong>，或者是降低数据计算空间有很大的作用。它作为一种机器学习的算法，很多时候用它先<strong>处理数据</strong>，再灌入别的机器学习算法学习。</p>
-<h2 id="模型融合算法-Ensemble-Algorithms"><a href="#模型融合算法-Ensemble-Algorithms" class="headerlink" title="模型融合算法(Ensemble Algorithms)"></a>模型融合算法(Ensemble Algorithms)</h2><p>融合不算是一种机器学习算法，而更像是一种<strong>优化手段</strong>，它通常是结合多个简单的弱机器学习算法，去做更可靠的决策。                                                                                                                                            拿分类问题举个例，直观的理解，就是单个分类器的分类是可能出错，不可靠的，但是如果<strong>多个分类器投票，那可靠度就会高很多</strong>。</p>
-<h1 id="机器学习算法使用图谱"><a href="#机器学习算法使用图谱" class="headerlink" title="机器学习算法使用图谱"></a>机器学习算法使用图谱</h1><p>scikit-learn作为一个丰富的python机器学习库，实现了绝大多数机器学习的算法。</p>
-<p><img src="https://img-blog.csdn.net/20160930051801241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>上图是scikit-learn的路径图，分成了分类、聚类、回归和降维四个方法</p>
-
+<p>
+        
+          <a class="article-more-a" href="/2018/05/11/机器学习算法大总结/#more">more >></a>
+        
       
 
       
@@ -1206,11 +1182,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1218,19 +1194,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
