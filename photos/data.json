@@ -1,1 +1,1 @@
-{"list":[{"date":"2017-10","arr":{"link":["2017-10-12_test.jpg"],"type":["image"],"month":10,"text":["test"],"year":2017}},{"date":"2016-10","arr":{"link":["2016-10-12_test.jpg"],"type":["image"],"month":10,"text":["test"],"year":2016}}]}
+{"list":[{"arr":{"month":10,"type":["image"],"link":["2016-10-12_test.jpg"],"text":["test"],"year":2016},"date":"2016-10"}]}
