@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-14T03:09:23.224Z</updated>
+  <updated>2018-05-14T03:38:53.823Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>opencv基本绘图</title>
+    <link href="http://yoursite.com/2018/05/14/opencv%E5%9F%BA%E6%9C%AC%E7%BB%98%E5%9B%BE/"/>
+    <id>http://yoursite.com/2018/05/14/opencv基本绘图/</id>
+    <published>2018-05-14T03:37:13.000Z</published>
+    <updated>2018-05-14T03:38:53.823Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：其实本来不想写这篇的，实在太简单了，但是当做个检索吧，以备不时之需~~</p><p><a href="https://blog.csdn.net/ubunfans/article/details/24421981" target="_blank" rel="noopener">https://blog.csdn.net/ubunfans/article/details/24421981</a></p><a id="more"></a><h3 id="Point"><a href="#Point" class="headerlink" title="Point"></a>Point</h3><h3 id="Scalar"><a href="#Scalar" class="headerlink" title="Scalar"></a>Scalar</h3><h3 id="Rectangle"><a href="#Rectangle" class="headerlink" title="Rectangle"></a>Rectangle</h3><h3 id="Line"><a href="#Line" class="headerlink" title="Line"></a>Line</h3><h3 id="Circle"><a href="#Circle" class="headerlink" title="Circle"></a>Circle</h3><h3 id="Ellipse"><a href="#Ellipse" class="headerlink" title="Ellipse"></a>Ellipse</h3><h3 id="PolyLine-多边形的绘制"><a href="#PolyLine-多边形的绘制" class="headerlink" title="PolyLine   多边形的绘制"></a>PolyLine   多边形的绘制</h3><h3 id="PutText-在窗口显示文本-但是只能显示英文，中文不支持"><a href="#PutText-在窗口显示文本-但是只能显示英文，中文不支持" class="headerlink" title="PutText     在窗口显示文本(但是只能显示英文，中文不支持)"></a>PutText     在窗口显示文本(但是<strong>只能显示英文</strong>，中文不支持)</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：其实本来不想写这篇的，实在太简单了，但是当做个检索吧，以备不时之需~~&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/ubunfans/article/details/24421981&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/ubunfans/article/details/24421981&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="opencv" scheme="http://yoursite.com/tags/opencv/"/>
+    
+  </entry>
   
   <entry>
     <title>图像读取的四种方法</title>

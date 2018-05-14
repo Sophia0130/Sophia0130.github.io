@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>argc和argv | 绿小蕤</title>
+  <title>opencv基本绘图 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="int main(int argc, char **argv)和int main(int argc, char *arg[])的区别 1. 字符和指针1.char *a: 一级指针，a数据地址，*a指针指向的数据printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串举个栗子：char *p1,*p2char str[]=”study” 字符数组，内容可变p1=strp2">
-<meta name="keywords" content="C++">
+  <meta name="description" content="PS：其实本来不想写这篇的，实在太简单了，但是当做个检索吧，以备不时之需~~ https://blog.csdn.net/ubunfans/article/details/24421981">
+<meta name="keywords" content="opencv">
 <meta property="og:type" content="article">
-<meta property="og:title" content="argc和argv">
-<meta property="og:url" content="http://yoursite.com/2018/05/08/argc和argv/index.html">
+<meta property="og:title" content="opencv基本绘图">
+<meta property="og:url" content="http://yoursite.com/2018/05/14/opencv基本绘图/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="int main(int argc, char **argv)和int main(int argc, char *arg[])的区别 1. 字符和指针1.char *a: 一级指针，a数据地址，*a指针指向的数据printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串举个栗子：char *p1,*p2char str[]=”study” 字符数组，内容可变p1=strp2">
+<meta property="og:description" content="PS：其实本来不想写这篇的，实在太简单了，但是当做个检索吧，以备不时之需~~ https://blog.csdn.net/ubunfans/article/details/24421981">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-08T11:57:39.773Z">
+<meta property="og:updated_time" content="2018-05-14T03:38:53.823Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="argc和argv">
-<meta name="twitter:description" content="int main(int argc, char **argv)和int main(int argc, char *arg[])的区别 1. 字符和指针1.char *a: 一级指针，a数据地址，*a指针指向的数据printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串举个栗子：char *p1,*p2char str[]=”study” 字符数组，内容可变p1=strp2">
+<meta name="twitter:title" content="opencv基本绘图">
+<meta name="twitter:description" content="PS：其实本来不想写这篇的，实在太简单了，但是当做个检索吧，以备不时之需~~ https://blog.csdn.net/ubunfans/article/details/24421981">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -161,25 +161,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-argc和argv" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-opencv基本绘图" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      argc和argv
+      opencv基本绘图
     </h1>
   
 
         
-        <a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
+        <a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
+  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
 </a>
 
 
-<a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished">2018-05-08</time>
+<a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
+  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished">2018-05-14</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -192,16 +192,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>int main(int argc, char **argv)和int main(int argc, char *arg[])的区别</p>
-<h3 id="1-字符和指针"><a href="#1-字符和指针" class="headerlink" title="1. 字符和指针"></a>1. 字符和指针</h3><p>1.char *a: 一级指针，a数据地址，*a指针指向的数据<br>printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串<br>举个栗子：<br>char *p1,*p2<br>char str[]=”study” 字符数组，内容可变<br>p1=str<br>p2=”hard” 字符串，字符串以字符数组存储，以’\0’结束,内容不可变</p>
-<p>2.char **a: 二级指针，指向char *a[]<br>printf(“%c”,**a)输出一个字符，printf(“%s”,*a)输出字符串<br>举个栗子：<br>char **w<br>char *week={“Moday”,”Tuesday”,”Thursday”}<br>w=week</p>
-<p>3.char *a[]: a是一个数组，数组的元素是字符串地址，地址包含的值是字符型数据<br>printf(“%c”,*a[i])输出一个字符，printf(“%s”,a[i]))输出字符串<br>举个栗子：<br>char *a[]={“study”,”hard”}</p>
+        <p>PS：其实本来不想写这篇的，实在太简单了，但是当做个检索吧，以备不时之需~~</p>
+<p><a href="https://blog.csdn.net/ubunfans/article/details/24421981" target="_blank" rel="noopener">https://blog.csdn.net/ubunfans/article/details/24421981</a></p>
 <a id="more"></a>
-<h3 id="2-argc-和-argv"><a href="#2-argc-和-argv" class="headerlink" title="2. argc 和 argv"></a>2. argc 和 argv</h3><p>argc是命令行总的参数个数  <strong>argc 至少是1</strong>                                                                                argv[]是argc个参数  <strong>其中第0个参数是程序的全名</strong> 后面的参数是命令行用户输入的参数</p>
-<h3 id="3-区别"><a href="#3-区别" class="headerlink" title="3. 区别"></a>3. 区别</h3><p>(int argc,char *argv[])  argv指向字符串的指针数组<br>(int argc,char **argv)   argv指向char *，即argv存的是指向字符串的指针数组的地址</p>
-<h3 id="4-VS中如何使用argv"><a href="#4-VS中如何使用argv" class="headerlink" title="4. VS中如何使用argv"></a>4. VS中如何使用argv</h3><p>命令参数里输入参数，试一下下面这个简单例程就理解了</p>
-<p><a href="https://blog.csdn.net/ly763124994/article/details/13627971" target="_blank" rel="noopener">https://blog.csdn.net/ly763124994/article/details/13627971</a></p>
-
+<h3 id="Point"><a href="#Point" class="headerlink" title="Point"></a>Point</h3><h3 id="Scalar"><a href="#Scalar" class="headerlink" title="Scalar"></a>Scalar</h3><h3 id="Rectangle"><a href="#Rectangle" class="headerlink" title="Rectangle"></a>Rectangle</h3><h3 id="Line"><a href="#Line" class="headerlink" title="Line"></a>Line</h3><h3 id="Circle"><a href="#Circle" class="headerlink" title="Circle"></a>Circle</h3><h3 id="Ellipse"><a href="#Ellipse" class="headerlink" title="Ellipse"></a>Ellipse</h3><h3 id="PolyLine-多边形的绘制"><a href="#PolyLine-多边形的绘制" class="headerlink" title="PolyLine   多边形的绘制"></a>PolyLine   多边形的绘制</h3><h3 id="PutText-在窗口显示文本-但是只能显示英文，中文不支持"><a href="#PutText-在窗口显示文本-但是只能显示英文，中文不支持" class="headerlink" title="PutText     在窗口显示文本(但是只能显示英文，中文不支持)"></a>PutText     在窗口显示文本(但是<strong>只能显示英文</strong>，中文不支持)</h3>
       
 
       
@@ -214,7 +208,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
         		</li>
       		
 		</ul>
@@ -270,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/08/argc和argv/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/14/opencv基本绘图/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +278,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/08/CommandLineParse类/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CommandLineParse类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/08/Hexo主题的优化/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hexo主题的优化</div>
+    <a href="/2018/05/14/图像读取的四种方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">图像读取的四种方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -322,7 +307,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-字符和指针"><span class="toc-number">1.</span> <span class="toc-text">1. 字符和指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-argc-和-argv"><span class="toc-number">2.</span> <span class="toc-text">2. argc 和 argv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-区别"><span class="toc-number">3.</span> <span class="toc-text">3. 区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-VS中如何使用argv"><span class="toc-number">4.</span> <span class="toc-text">4. VS中如何使用argv</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Point"><span class="toc-number">1.</span> <span class="toc-text">Point</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scalar"><span class="toc-number">2.</span> <span class="toc-text">Scalar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rectangle"><span class="toc-number">3.</span> <span class="toc-text">Rectangle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Line"><span class="toc-number">4.</span> <span class="toc-text">Line</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Circle"><span class="toc-number">5.</span> <span class="toc-text">Circle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ellipse"><span class="toc-number">6.</span> <span class="toc-text">Ellipse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PolyLine-多边形的绘制"><span class="toc-number">7.</span> <span class="toc-text">PolyLine   多边形的绘制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PutText-在窗口显示文本-但是只能显示英文，中文不支持"><span class="toc-number">8.</span> <span class="toc-text">PutText     在窗口显示文本(但是只能显示英文，中文不支持)</span></a></li></ol>
                     </div>
                 </span>
             </div>
