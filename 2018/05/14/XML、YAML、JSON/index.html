@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>绿小蕤</title>
+  <title>XML、YAML、JSON | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
-<meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="XML、YML 、JSON 是序列化数据格式PS：为什么要写这个呢，以为今天看opencv的时候讲到了XML、YAML 文件的输入输出，觉得这个经常听到名字但是不知道干啥用的~然后前几天搭博客，又一直出现JSON ~~ 心累，我的理解就是某种数据格式，方便数据的传输吧~~下面这篇篇博客讲了几个的简单区别，了解就可以了">
+<meta name="keywords" content="opencv 数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XML、YAML、JSON">
+<meta property="og:url" content="http://yoursite.com/2018/05/14/XML、YAML、JSON/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="XML、YML 、JSON 是序列化数据格式PS：为什么要写这个呢，以为今天看opencv的时候讲到了XML、YAML 文件的输入输出，觉得这个经常听到名字但是不知道干啥用的~然后前几天搭博客，又一直出现JSON ~~ 心累，我的理解就是某种数据格式，方便数据的传输吧~~下面这篇篇博客讲了几个的简单区别，了解就可以了">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-14T09:07:01.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="XML、YAML、JSON">
+<meta name="twitter:description" content="XML、YML 、JSON 是序列化数据格式PS：为什么要写这个呢，以为今天看opencv的时候讲到了XML、YAML 文件的输入输出，觉得这个经常听到名字但是不知道干啥用的~然后前几天搭博客，又一直出现JSON ~~ 心累，我的理解就是某种数据格式，方便数据的传输吧~~下面这篇篇博客讲了几个的简单区别，了解就可以了">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,16 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-XML、YAML、JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-XML、YAML、JSON" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/XML、YAML、JSON/">XML、YAML、JSON</a>
+    <h1 class="article-title" itemprop="name">
+      XML、YAML、JSON
     </h1>
   
 
@@ -194,9 +193,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="XML、YML-、JSON-是序列化数据格式"><a href="#XML、YML-、JSON-是序列化数据格式" class="headerlink" title="XML、YML 、JSON 是序列化数据格式"></a>XML、YML 、JSON 是序列化<strong>数据格式</strong></h2><p>PS：为什么要写这个呢，以为今天看opencv的时候讲到了XML、YAML 文件的输入输出，觉得这个经常听到名字但是不知道干啥用的~然后前几天搭博客，又一直出现JSON ~~ 心累，我的理解就是某种数据格式，方便数据的传输吧~~下面这篇篇博客讲了几个的简单区别，了解就可以了                                            <a href="http://rensanning.iteye.com/blog/2379083" target="_blank" rel="noopener">http://rensanning.iteye.com/blog/2379083</a></p>
-        
-          <a class="article-more-a" href="/2018/05/14/XML、YAML、JSON/#more">more >></a>
-        
+<a id="more"></a>
+<h2 id="OpenCV-使用XML和YAML实现文件输入和输出"><a href="#OpenCV-使用XML和YAML实现文件输入和输出" class="headerlink" title="OpenCV 使用XML和YAML实现文件输入和输出"></a>OpenCV 使用XML和YAML实现文件输入和输出</h2><p>为什么需要呢？因为当处理完图像后需要将数据保存到文件上。                                                                举个栗子：我们对一幅图像进行特征提取之后，需要把特征点信息保存到文件上，以供后面的机器学习分类操作。所以我们需要搭建<strong>小型数据库文件</strong>，将数据写到文件上，下次需要时从文件里读出。实现上述方法，需要使用xml和yml，具有可读性。</p>
+<p>PS：opencv 自带的教程实在是太复杂了可以直接看下面这篇的案例，简单好懂~~                                        <a href="http://www.cnblogs.com/skyfsm/p/7182313.html" target="_blank" rel="noopener">http://www.cnblogs.com/skyfsm/p/7182313.html</a></p>
+<p>XML/YAML文件在OpenCV中的数据结构为FileStorage</p>
+
       
 
       
@@ -218,198 +219,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/14/XML、YAML、JSON/">展开 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-傅里叶变换和图像处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/傅里叶变换和图像处理/">傅里叶变换和图像处理</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h2><p>原理：傅立叶变换是一个将函数分解的工具，任一函数都可以表示成无数个正弦和余弦函数的和的形式。对一张图像使用傅立叶变换就是将它分解成正弦和余弦两部分，也就是将图像从空间域(spatial domain)转换到频域(frequency domain)</p>
-<h2 id="离散傅里叶变化-DFT"><a href="#离散傅里叶变化-DFT" class="headerlink" title="离散傅里叶变化 DFT"></a>离散傅里叶变化 DFT</h2><p><strong>图像去噪</strong>： 当图像出现的噪声是有规律的，去某个频率的波，比如高斯噪声。但是当出现的噪声是没有规律的，随机出现的一些东西，DFT是没有作用的。</p>
-<h2 id="离散余弦变换-DCT"><a href="#离散余弦变换-DCT" class="headerlink" title="离散余弦变换 DCT"></a>离散余弦变换 DCT</h2><p>图像的余弦波由实偶函数组成</p>
-<p><strong>图像压缩</strong>：JPEG格式的图片就是用Huffman编码方式压缩图片的DCT的系数</p>
-        
-          <a class="article-more-a" href="/2018/05/14/傅里叶变换和图像处理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/14/傅里叶变换和图像处理/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-opencv基本绘图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/opencv基本绘图/">opencv基本绘图</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      </div>
     </span>
-</a>
+  </div>
+</div>
 
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：其实本来不想写这篇的，实在太简单了，但是当做个检索吧，以备不时之需~~</p>
-<p><a href="https://blog.csdn.net/ubunfans/article/details/24421981" target="_blank" rel="noopener">https://blog.csdn.net/ubunfans/article/details/24421981</a></p>
-        
-          <a class="article-more-a" href="/2018/05/14/opencv基本绘图/#more">more >></a>
-        
-      
-
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/14/XML、YAML、JSON/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
+</div>
 
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/14/opencv基本绘图/">展开 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/14/傅里叶变换和图像处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">傅里叶变换和图像处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -424,669 +302,35 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="w-图像读取的四种方法" class="article article-type-w  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/图像读取的四种方法/">图像读取的四种方法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/14/图像读取的四种方法/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/图像读取的四种方法/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:06:31.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="扫描、读取图像的四种方法"><a href="#扫描、读取图像的四种方法" class="headerlink" title="扫描、读取图像的四种方法"></a>扫描、读取图像的四种方法</h2><p>1.C operator [] 指针</p>
-<p>2.iterator 迭代法 用迭代器遍历 [推荐使用]</p>
-<p>3.on-the-fly address generation  .at()函数</p>
-<p>4.LUT function [推荐使用]</p>
-        
-          <a class="article-more-a" href="/2018/05/14/图像读取的四种方法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/14/图像读取的四种方法/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML、YML-、JSON-是序列化数据格式"><span class="toc-number">1.</span> <span class="toc-text">XML、YML 、JSON 是序列化数据格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV-使用XML和YAML实现文件输入和输出"><span class="toc-number">2.</span> <span class="toc-text">OpenCV 使用XML和YAML实现文件输入和输出</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-
-
-  
-    <article id="post-机器学习算法大总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/11/机器学习算法大总结/">机器学习算法大总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
-</a>
-
-
-<a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished">2018-05-11</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="机器学习算法分类"><a href="#机器学习算法分类" class="headerlink" title="机器学习算法分类"></a>机器学习算法分类</h1><ul>
-<li><p>监督学习(有标签)      根据预测结果分成两类</p>
-<ul>
-<li>分类问题-离散值</li>
-<li>回归问题-连续值</li>
-</ul>
-</li>
-<li><p>无监督学习(无标签)</p>
-</li>
-<li><p>半监督学习(一半有标签，一般无标签)</p>
-<p>
-        
-          <a class="article-more-a" href="/2018/05/11/机器学习算法大总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/11/机器学习算法大总结/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-opencv-二-imgproc-模块" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/opencv-二-imgproc-模块/">opencv(二) imgproc 模块</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/09/opencv-二-imgproc-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:37:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
-</a>
-
-
-<a href="/2018/05/09/opencv-二-imgproc-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:37:55.000Z" itemprop="datePublished">2018-05-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="imgproc模块"><a href="#imgproc模块" class="headerlink" title="imgproc模块"></a>imgproc模块</h2><ul>
-<li><p>PS：具体代码参考opencv /samples里的源码，这里不放了</p>
-<h2 id="1-平滑图像-模糊"><a href="#1-平滑图像-模糊" class="headerlink" title="1. 平滑图像/模糊"></a>1. 平滑图像/模糊</h2><p>(1)模糊 cv :: blur                                                                            (2)高斯平滑 cv :: GaussianBlur                                                                                                                                            (3)中值滤波 cv :: medianBlur                                                                                                                                                            (4)双边滤波 cv :: bilateralFilter</p>
-<p>​</p>
-<h2 id="2-腐蚀和膨胀"><a href="#2-腐蚀和膨胀" class="headerlink" title="2. 腐蚀和膨胀"></a>2. 腐蚀和膨胀</h2><p>看图理解膨胀腐蚀                                                                                                                                        (1)腐蚀 cv::erode  输出像素的值是原图被掩膜所覆盖的所有像素中取<strong>最小像素</strong>                                                                                                                                            <img src="https://img.w3cschool.cn/attachments/image/20170901/1504236679969494.png" alt="腐蚀">                                                                                                                                                            (2)膨胀 cv::dilate   输出像素的值是原图被掩膜所覆盖的所有像素中取<strong>最大像素</strong>                                                                                                    <img src="https://img.w3cschool.cn/attachments/image/20170901/1504236632842236.gif" alt="膨胀"></p>
-<p>​</p>
-<h2 id="3-更多形态变化"><a href="#3-更多形态变化" class="headerlink" title="3. 更多形态变化"></a>3. 更多形态变化</h2><p>cv :: morphologyEx<br>开运算 、闭运算 、形态梯度、 顶帽 、黑帽</p>
-        
-          <a class="article-more-a" href="/2018/05/09/opencv-二-imgproc-模块/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/09/opencv-二-imgproc-模块/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-opencv-一-HighGUI-模块" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/opencv-一-HighGUI-模块/">opencv(一) HighGUI 模块</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/09/opencv-一-HighGUI-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:36:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
-</a>
-
-
-<a href="/2018/05/09/opencv-一-HighGUI-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:36:05.000Z" itemprop="datePublished">2018-05-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HighGUI-模块"><a href="#HighGUI-模块" class="headerlink" title="HighGUI 模块"></a>HighGUI 模块</h2><p>PS：HighGUI 图形用户界面模块，包括图像和视频的读入显示、编码解码、图形交互界面接口(啥意思？后来想想可能是指滑动条这种可以产生交互的函数)</p>
-<p><strong>滑动条的使用</strong>                                                                                 1.创建窗口       namedWindow()                                                                                                                     2.创建滑动条   createTrackbar()                                                                        3.回掉函数       on_trackbar()  函数原型必须是 void XX(int,void*)  第一个为轨迹位置，第二个为用户数据        滑动条位置改变，调用回掉函数</p>
-<p>PS：<strong>void* 表明该指针与一地址值有关，但不知道存储在此地址上的对象的类型</strong>                                              void*只支持有限的操作，<strong>向函数传递void<em>指针或者返回void\</em>指针，给另一个void*指针赋值</strong>                                                                 int i = 1   void *pi = &amp;i</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/09/opencv-一-HighGUI-模块/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-python入门编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/python入门编程/">python入门编程</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/09/python入门编程/" class="archive-article-date">
-  	<time datetime="2018-05-09T09:19:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
-</a>
-
-
-<a href="/2018/05/09/python入门编程/" class="archive-article-date">
-  	<time datetime="2018-05-09T09:19:06.000Z" itemprop="datePublished">2018-05-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解</p>
-<p><a href="https://blog.csdn.net/han_xiaoyang/article/details/49123419" target="_blank" rel="noopener">https://blog.csdn.net/han_xiaoyang/article/details/49123419</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#data1.py</span></span><br><span class="line"><span class="comment">#用到包里的函数</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> loadtxt, where  </span><br><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> scatter, show, legend, xlabel, ylabel  </span><br><span class="line"></span><br><span class="line"><span class="comment">#load the dataset  </span></span><br><span class="line">data = loadtxt(<span class="string">'D:/机器学习/逻辑回归/data1.txt'</span>, delimiter=<span class="string">','</span>)  </span><br><span class="line">  </span><br><span class="line">X = data[:, <span class="number">0</span>:<span class="number">2</span>]  </span><br><span class="line">y = data[:, <span class="number">2</span>]  </span><br><span class="line">  </span><br><span class="line">pos = where(y == <span class="number">1</span>)  </span><br><span class="line">neg = where(y == <span class="number">0</span>)  </span><br><span class="line">scatter(X[pos, <span class="number">0</span>], X[pos, <span class="number">1</span>], marker=<span class="string">'o'</span>, c=<span class="string">'b'</span>)  </span><br><span class="line">scatter(X[neg, <span class="number">0</span>], X[neg, <span class="number">1</span>], marker=<span class="string">'x'</span>, c=<span class="string">'r'</span>)  </span><br><span class="line">xlabel(<span class="string">'Feature1/Exam 1 score'</span>)  </span><br><span class="line">ylabel(<span class="string">'Feature2/Exam 2 score'</span>)  </span><br><span class="line">legend([<span class="string">'Fail'</span>, <span class="string">'Pass'</span>])  </span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/05/09/python入门编程/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/09/python入门编程/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-CommandLineParse类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/CommandLineParse类/">CommandLineParse类</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CommandLineParse类-命令行解析类"><a href="#CommandLineParse类-命令行解析类" class="headerlink" title="CommandLineParse类(命令行解析类)"></a>CommandLineParse类(命令行解析类)</h2><p>PS：看例程的时候特别不理解这个类是啥意思，可以看下面这个</p>
-<p><a href="https://blog.csdn.net/jkhere/article/details/8674019" target="_blank" rel="noopener">https://blog.csdn.net/jkhere/article/details/8674019</a></p>
-<p>但是我个人觉得用我自己写的程序更好理解 keys，这种简单明了的比较适合我们小白~~</p>
-        
-          <a class="article-more-a" href="/2018/05/08/CommandLineParse类/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/08/CommandLineParse类/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-argc和argv" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/argc和argv/">argc和argv</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>int main(int argc, char **argv)和int main(int argc, char *arg[])的区别</p>
-<h3 id="1-字符和指针"><a href="#1-字符和指针" class="headerlink" title="1. 字符和指针"></a>1. 字符和指针</h3><p>1.char *a: 一级指针，a数据地址，*a指针指向的数据<br>printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串<br>举个栗子：<br>char *p1,*p2<br>char str[]=”study” 字符数组，内容可变<br>p1=str<br>p2=”hard” 字符串，字符串以字符数组存储，以’\0’结束,内容不可变</p>
-<p>2.char **a: 二级指针，指向char *a[]<br>printf(“%c”,**a)输出一个字符，printf(“%s”,*a)输出字符串<br>举个栗子：<br>char **w<br>char *week={“Moday”,”Tuesday”,”Thursday”}<br>w=week</p>
-<p>3.char *a[]: a是一个数组，数组的元素是字符串地址，地址包含的值是字符型数据<br>printf(“%c”,*a[i])输出一个字符，printf(“%s”,a[i]))输出字符串<br>举个栗子：<br>char *a[]={“study”,”hard”}</p>
-        
-          <a class="article-more-a" href="/2018/05/08/argc和argv/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/08/argc和argv/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
   
+
+  
+
+  
+
+  
+
+
 
 
           </div>
@@ -1119,8 +363,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
