@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-14T09:44:25.399Z</updated>
+  <updated>2018-05-16T12:48:07.284Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图像处理之坐标系和宽高</title>
+    <link href="http://yoursite.com/2018/05/16/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B%E5%9D%90%E6%A0%87%E7%B3%BB%E5%92%8C%E5%AE%BD%E9%AB%98/"/>
+    <id>http://yoursite.com/2018/05/16/图像处理之坐标系和宽高/</id>
+    <published>2018-05-16T12:31:13.000Z</published>
+    <updated>2018-05-16T12:48:07.284Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  <strong>坐标系-宽高-行列</strong>，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~</p><p><a href="https://blog.csdn.net/oqqenvy12/article/details/71933651" target="_blank" rel="noopener">https://blog.csdn.net/oqqenvy12/article/details/71933651</a></p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  &lt;strong&gt;坐标系-宽高-行列&lt;/strong&gt;，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https:
+      
+    
+    </summary>
+    
+    
+      <category term="opencv" scheme="http://yoursite.com/tags/opencv/"/>
+    
+  </entry>
   
   <entry>
     <title>XML、YAML、JSON</title>
