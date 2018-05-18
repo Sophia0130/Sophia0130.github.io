@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-16T12:48:07.284Z</updated>
+  <updated>2018-05-18T09:00:47.201Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>虚拟机和云(特别简陋的认识)</title>
+    <link href="http://yoursite.com/2018/05/18/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BA%91-%E7%89%B9%E5%88%AB%E7%AE%80%E9%99%8B%E7%9A%84%E8%AE%A4%E8%AF%86/"/>
+    <id>http://yoursite.com/2018/05/18/虚拟机和云-特别简陋的认识/</id>
+    <published>2018-05-18T09:00:10.000Z</published>
+    <updated>2018-05-18T09:00:47.201Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>PS：我不知道我为啥要写这篇博，单纯就想了解吧，所以记录得乱七八糟，因为自己也没接触这块过。</p><ol><li>宿主机：指要安装虚拟机软件的计算机，你花钱买的物理机。</li><li>虚拟机：利用虚拟机工具构造出的一整套硬件设备，有自己操作系统，应用软件。                    </li><li>虚拟机的简单应用</li></ol><p><a href="http://www.pc841.com/article/20120413-5731.html" target="_blank" rel="noopener">http://www.pc841.com/article/20120413-5731.html</a></p><a id="more"></a><p>1) 最简单我们电脑中没有光驱，如果要安装系统我们就可以<strong>使用虚拟机来安装系统，虚拟机内部拥有虚拟光驱，支持直接打开系统镜像文件安装系统</strong>。</p><p>2) 另外虚拟机技术在游戏爱好者朋友眼中也相当实用，很多游戏不支持同时多开，但我们可以在电脑中多创建几个虚拟机，那么在虚拟机系统中即可单独再运行程序了，这样即可实现一台电脑同时多开同一游戏了。</p><h2 id="虚拟机和云"><a href="#虚拟机和云" class="headerlink" title="虚拟机和云"></a>虚拟机和云</h2><p>这篇知乎写的还是很详细的，但是后面术语真的看不懂。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;虚拟机&quot;&gt;&lt;a href=&quot;#虚拟机&quot; class=&quot;headerlink&quot; title=&quot;虚拟机&quot;&gt;&lt;/a&gt;虚拟机&lt;/h2&gt;&lt;p&gt;PS：我不知道我为啥要写这篇博，单纯就想了解吧，所以记录得乱七八糟，因为自己也没接触这块过。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;宿主机：指要安装虚拟机软件的计算机，你花钱买的物理机。&lt;/li&gt;
+&lt;li&gt;虚拟机：利用虚拟机工具构造出的一整套硬件设备，有自己操作系统，应用软件。                    &lt;/li&gt;
+&lt;li&gt;虚拟机的简单应用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.pc841.com/article/20120413-5731.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.pc841.com/article/20120413-5731.html&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="云" scheme="http://yoursite.com/tags/%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>啥叫运营商</title>
+    <link href="http://yoursite.com/2018/05/18/%E5%95%A5%E5%8F%AB%E8%BF%90%E8%90%A5%E5%95%86/"/>
+    <id>http://yoursite.com/2018/05/18/啥叫运营商/</id>
+    <published>2018-05-18T07:21:14.000Z</published>
+    <updated>2018-05-18T07:21:52.920Z</updated>
+    
+    <content type="html"><![CDATA[<p>运营商是指<strong>提供网络服务的供应商</strong>，如中国联通、中国电信、 中国移动、中国移动这些公司，而诺基亚、三星等这些<strong>通信设备的生产厂家叫生产商</strong>，因为国家在电信管理方面相当严格，只有拥有工信部颁发的运营执照的公司才能架设网络，从通信行业来说，设备生产商和运营商是相互依存的。</p><p>不过今天看到一篇文章讲5G时代的到来对设备商和运营商的影响，感觉还是蛮有趣的，而且对两者会有更深刻的认识吧~                                                                                                            <a href="http://www.sohu.com/a/197243837_100030976" target="_blank" rel="noopener">http://www.sohu.com/a/197243837_100030976</a></p><a id="more"></a><p>随着技术的更新，运营商对于基站的建设可以说是投资巨大，稍有不慎可能全部打水漂，特别是当下技术还不成熟时，这让我想到了当年的液晶和等离子之争，现在的OLED和QLED之争，谁知道几年以后会发生如何的变迁，最重要的是站对阵营啊 ~</p><p>关于为什么要推动5G技术发展，引用文章种中的比喻还是很形象的，设备商是军火商，没有战争，怎么发财。没有新技术，怎么忽悠运营商。而运营商也希望通过网络技术来建筑竞争壁垒，获取技术红利。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;运营商是指&lt;strong&gt;提供网络服务的供应商&lt;/strong&gt;，如中国联通、中国电信、 中国移动、中国移动这些公司，而诺基亚、三星等这些&lt;strong&gt;通信设备的生产厂家叫生产商&lt;/strong&gt;，因为国家在电信管理方面相当严格，只有拥有工信部颁发的运营执照的公司才能架设网络，从通信行业来说，设备生产商和运营商是相互依存的。&lt;/p&gt;
+&lt;p&gt;不过今天看到一篇文章讲5G时代的到来对设备商和运营商的影响，感觉还是蛮有趣的，而且对两者会有更深刻的认识吧~                                                                                                            &lt;a href=&quot;http://www.sohu.com/a/197243837_100030976&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.sohu.com/a/197243837_100030976&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>图像处理之坐标系和宽高</title>
@@ -442,34 +487,6 @@
     
     
       <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello GitHub</title>
-    <link href="http://yoursite.com/2018/05/03/Hello-GitHub/"/>
-    <id>http://yoursite.com/2018/05/03/Hello-GitHub/</id>
-    <published>2018-05-03T10:35:23.000Z</published>
-    <updated>2018-05-08T07:22:32.541Z</updated>
-    
-    <content type="html"><![CDATA[<p>绿小蕤的第一篇Blog，花了一个下午+晚上，但是都是值得的~</p><p>开启小白之旅~</p><p>需要博客搭建教程的盆友，具体可以看我另一片博文 </p><p><a href="https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;绿小蕤的第一篇Blog，花了一个下午+晚上，但是都是值得的~&lt;/p&gt;
-&lt;p&gt;开启小白之旅~&lt;/p&gt;
-&lt;p&gt;需要博客搭建教程的盆友，具体可以看我另一片博文 &lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://sophia0130.github.io/2018/05/04/Git
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
-      <category term="纪念第一篇文章" scheme="http://yoursite.com/tags/%E7%BA%AA%E5%BF%B5%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   

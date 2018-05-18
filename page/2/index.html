@@ -162,6 +162,188 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python入门编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/09/python入门编程/">python入门编程</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/09/python入门编程/" class="archive-article-date">
+  	<time datetime="2018-05-09T09:19:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
+</a>
+
+
+<a href="/2018/05/09/python入门编程/" class="archive-article-date">
+  	<time datetime="2018-05-09T09:19:06.000Z" itemprop="datePublished">2018-05-09</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解</p>
+<p><a href="https://blog.csdn.net/han_xiaoyang/article/details/49123419" target="_blank" rel="noopener">https://blog.csdn.net/han_xiaoyang/article/details/49123419</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#data1.py</span></span><br><span class="line"><span class="comment">#用到包里的函数</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> loadtxt, where  </span><br><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> scatter, show, legend, xlabel, ylabel  </span><br><span class="line"></span><br><span class="line"><span class="comment">#load the dataset  </span></span><br><span class="line">data = loadtxt(<span class="string">'D:/机器学习/逻辑回归/data1.txt'</span>, delimiter=<span class="string">','</span>)  </span><br><span class="line">  </span><br><span class="line">X = data[:, <span class="number">0</span>:<span class="number">2</span>]  </span><br><span class="line">y = data[:, <span class="number">2</span>]  </span><br><span class="line">  </span><br><span class="line">pos = where(y == <span class="number">1</span>)  </span><br><span class="line">neg = where(y == <span class="number">0</span>)  </span><br><span class="line">scatter(X[pos, <span class="number">0</span>], X[pos, <span class="number">1</span>], marker=<span class="string">'o'</span>, c=<span class="string">'b'</span>)  </span><br><span class="line">scatter(X[neg, <span class="number">0</span>], X[neg, <span class="number">1</span>], marker=<span class="string">'x'</span>, c=<span class="string">'r'</span>)  </span><br><span class="line">xlabel(<span class="string">'Feature1/Exam 1 score'</span>)  </span><br><span class="line">ylabel(<span class="string">'Feature2/Exam 2 score'</span>)  </span><br><span class="line">legend([<span class="string">'Fail'</span>, <span class="string">'Pass'</span>])  </span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/05/09/python入门编程/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/09/python入门编程/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-CommandLineParse类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/08/CommandLineParse类/">CommandLineParse类</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
+  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
+</a>
+
+
+<a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
+  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished">2018-05-08</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CommandLineParse类-命令行解析类"><a href="#CommandLineParse类-命令行解析类" class="headerlink" title="CommandLineParse类(命令行解析类)"></a>CommandLineParse类(命令行解析类)</h2><p>PS：看例程的时候特别不理解这个类是啥意思，可以看下面这个</p>
+<p><a href="https://blog.csdn.net/jkhere/article/details/8674019" target="_blank" rel="noopener">https://blog.csdn.net/jkhere/article/details/8674019</a></p>
+<p>但是我个人觉得用我自己写的程序更好理解 keys，这种简单明了的比较适合我们小白~~</p>
+        
+          <a class="article-more-a" href="/2018/05/08/CommandLineParse类/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/08/CommandLineParse类/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-argc和argv" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -904,103 +1086,9 @@
 
 
   
-    <article id="post-Hello-GitHub" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/03/Hello-GitHub/">Hello GitHub</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/03/Hello-GitHub/" class="archive-article-date">
-  	<time datetime="2018-05-03T10:35:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
-</a>
-
-
-<a href="/2018/05/03/Hello-GitHub/" class="archive-article-date">
-  	<time datetime="2018-05-03T10:35:23.000Z" itemprop="datePublished">2018-05-03</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>绿小蕤的第一篇Blog，花了一个下午+晚上，但是都是值得的~</p>
-<p>开启小白之旅~</p>
-<p>需要博客搭建教程的盆友，具体可以看我另一片博文 </p>
-<p><a href="https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">纪念第一篇文章</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/03/Hello-GitHub/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1098,19 +1186,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1127,6 +1215,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
              
               <li class="article-tag-list-item">
