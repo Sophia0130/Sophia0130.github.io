@@ -17,7 +17,7 @@
 <meta property="og:description" content="PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解 https://blog.csdn.net/han_xiaoyang/article/details/49123419 12345678910111213141516171819#data1.py#用到包里的函数from numpy import loadtxt, where  from pylab import scatte">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2817%29.png">
-<meta property="og:updated_time" content="2018-05-22T11:48:11.785Z">
+<meta property="og:updated_time" content="2018-05-22T12:01:09.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python入门编程">
 <meta name="twitter:description" content="PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解 https://blog.csdn.net/han_xiaoyang/article/details/49123419 12345678910111213141516171819#data1.py#用到包里的函数from numpy import loadtxt, where  from pylab import scatte">
@@ -200,8 +200,12 @@
 <a id="more"></a>
 <p>代码运行的结果<img src="http://p8ge6t5tt.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%2817%29.png" alt="data1结果"></p>
 <hr>
-<h2 id="用-python-shell-运行data1-py"><a href="#用-python-shell-运行data1-py" class="headerlink" title="用 python shell 运行data1.py"></a>用 python shell 运行data1.py</h2><p>1.打开python shell — new file 新建一个.py 文件并保存                                                                                                                                                                                                                                            2.run — run model 然后python shell 会出现相应的结果                                                                                                                                                                                                                        PS：嫌弃我讲的太敷衍可以参考这片百度知道哪<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 使用pip工具安装包</span><br><span class="line"></span><br><span class="line">pip是python的一个非常好用的包管理工具，可以很方便地安装和管理各种三方库																																具体可以参考下面这篇博客~~																																																													https://blog.csdn.net/zhangxinyu11021130/article/details/50987631</span><br><span class="line"></span><br><span class="line">注意事项：																																															1.要设置系统变量 																																																													2.要下载相应版本的包 我的是python3.5.2 64位</span><br><span class="line"></span><br><span class="line">*********</span><br><span class="line"></span><br><span class="line">**下面是更新包的简单方法**																																1. 进入cmd cd D:/program/python/pythoninstall/Scripts																															2. pip install pandas																																			3. 进入python ，import  pandas 查看是否导入成功</span><br><span class="line"></span><br><span class="line">PyPi地址在国外，因为有墙的原因所以有些地区使用pip安装第三方库的时候会出现下载慢甚至严重的无法访问导致安装失败。通过更换pip镜像源为国内地址可以解决上述问题													开源软件镜像站  https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</span><br><span class="line"></span><br><span class="line">*****</span><br><span class="line"></span><br><span class="line">PS：下面是一条超级诡异的PS																															PS：真的是遇到一件超级诡异的事情，用pandas里面的describe没有反应，害我以为我pandas没有装好！但是在shell里面一条条指令输进去有结果，但是在.py文件里一口气run竟然不行！！！哇哦，要不是师兄，我还一个下午都在纠结我的包是不是没有装好</span><br></pre></td></tr></table></figure></p>
-<p>好了，这条诡异的PS总算解决了，因为我没有用print函数，当然不会输出结果 ~~ 哎 ~ 傻了吧唧的</p>
+<h2 id="用-python-shell-运行data1-py"><a href="#用-python-shell-运行data1-py" class="headerlink" title="用 python shell 运行data1.py"></a>用 python shell 运行data1.py</h2><ol>
+<li>打开python shell —new file 新建一个.py 文件并保存                                         </li>
+<li>run — run model 然后python shell 会出现相应的结果                                               </li>
+</ol>
+<p>PS：嫌弃我讲的太敷衍可以参考这片百度知道哪<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">https://zhidao.baidu.com/question/1958691628398602620.html</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">## 使用pip工具安装包</span><br><span class="line"></span><br><span class="line">pip是python的一个非常好用的包管理工具，可以很方便地安装和管理各种三方库    </span><br><span class="line"></span><br><span class="line">具体可以参考下面这篇博客~~</span><br><span class="line"></span><br><span class="line">https://blog.csdn.net/zhangxinyu11021130/article/details/50987631</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">注意事项：                                                                                                                    </span><br><span class="line"></span><br><span class="line">1. 要设置系统变量</span><br><span class="line">2. 要下载相应版本的包 我的是python3.5.264位</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">下面是更新包的简单方法    </span><br><span class="line"></span><br><span class="line">1. 进入cmd cd D:/program/python/pythoninstall/Scripts</span><br><span class="line">2. pip install pandas     </span><br><span class="line">3. 进入python ，import  pandas 查看是否导入成功</span><br><span class="line"></span><br><span class="line">PyPi地址在国外，因为有墙的原因所以有些地区使用pip安装第三方库的时候会出现下载慢甚至严重的无法访问导致安装失败。通过更换pip镜像源为国内地址可以解决上述问题       </span><br><span class="line"></span><br><span class="line">开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</span><br><span class="line"></span><br><span class="line">                                                                                       </span><br><span class="line"></span><br><span class="line">PS：真的是遇到一件超级诡异的事情，用pandas里面的describe没有反应，害我以为我pandas没有装好！但是在shell里面一条条指令输进去有结果，但是在.py文件里一口气run竟然不行！！！哇哦，要不是师兄，我还一个下午都在纠结我的包是不是没有装好</span><br></pre></td></tr></table></figure></p>
+<p>–好了，这条诡异的PS总算解决了，因为我没有用print函数，当然不会输出结果 ~~ 哎 ~ 傻了吧唧的–</p>
 
       
 
@@ -456,15 +460,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
