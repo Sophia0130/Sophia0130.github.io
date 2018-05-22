@@ -162,6 +162,95 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-opencv-一-HighGUI-模块" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/09/opencv-一-HighGUI-模块/">opencv(一) HighGUI 模块</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/09/opencv-一-HighGUI-模块/" class="archive-article-date">
+  	<time datetime="2018-05-09T13:36:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
+</a>
+
+
+<a href="/2018/05/09/opencv-一-HighGUI-模块/" class="archive-article-date">
+  	<time datetime="2018-05-09T13:36:05.000Z" itemprop="datePublished">2018-05-09</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HighGUI-模块"><a href="#HighGUI-模块" class="headerlink" title="HighGUI 模块"></a>HighGUI 模块</h2><p>PS：HighGUI 图形用户界面模块，包括图像和视频的读入显示、编码解码、图形交互界面接口(啥意思？后来想想可能是指滑动条这种可以产生交互的函数)</p>
+<p><strong>滑动条的使用</strong>                                                                                 1.创建窗口       namedWindow()                                                                                                                     2.创建滑动条   createTrackbar()                                                                        3.回掉函数       on_trackbar()  函数原型必须是 void XX(int,void*)  第一个为轨迹位置，第二个为用户数据        滑动条位置改变，调用回掉函数</p>
+<p>PS：<strong>void* 表明该指针与一地址值有关，但不知道存储在此地址上的对象的类型</strong>                                              void*只支持有限的操作，<strong>向函数传递void<em>指针或者返回void\</em>指针，给另一个void*指针赋值</strong>                                                                 int i = 1   void *pi = &amp;i</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/09/opencv-一-HighGUI-模块/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-python入门编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -992,100 +1081,6 @@
 
 
   
-    <article id="post-网络基础知识理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/网络基础知识理解/">网络基础知识理解</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/04/网络基础知识理解/" class="archive-article-date">
-  	<time datetime="2018-05-04T06:56:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-
-
-<a href="/2018/05/04/网络基础知识理解/" class="archive-article-date">
-  	<time datetime="2018-05-04T06:56:18.000Z" itemprop="datePublished">2018-05-04</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <font color="gray" size="2">PS：写这片博客的起因是，我只是想知道为什么用GitHub搭建自己的博客，自己不需要买域名，之前从来没有接触过网络方面的知识，看了很多大神的博客，复制粘贴成自己的理解。</font>
-
-<h2 id="外网IP和内网IP"><a href="#外网IP和内网IP" class="headerlink" title="外网IP和内网IP"></a>外网IP和内网IP</h2><p>IP可以不严谨的分为外网IP和内网IP(局域网)。 </p>
-<font color="gray" size="2">PS：这样分好像是不对的，我也不理解，网上的大神说入门级的小白可以先这样理解。</font>
-
-<p>1.外网IP：即因特网IP，其IP地址具有全球唯一性。但是全世界的IP地址数量是有限资源，日益增加的上网用户人数使得有限的IP地址资源紧张。为此，网络服务商采用了动态分配的办法，在用户上网的时侯分配一个IP，当不上网时，之前用的ip又很可能分配给别的上网用户。这样大大提高了IP的利用效率。<br>2.内网IP：相当于电脑在局域网里面的地址标识，一般是通过DHCP服务器进行动态分配的，机制其实与外网IP的分配相似，但在不引起IP地址冲突的情况下，可以设置成固定IP。</p>
-        
-          <a class="article-more-a" href="/2018/05/04/网络基础知识理解/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/网络基础知识理解/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1190,6 +1185,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -1198,19 +1201,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1218,11 +1209,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>
