@@ -284,7 +284,6 @@
       
         <p>PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解</p>
 <p><a href="https://blog.csdn.net/han_xiaoyang/article/details/49123419" target="_blank" rel="noopener">https://blog.csdn.net/han_xiaoyang/article/details/49123419</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#data1.py</span></span><br><span class="line"><span class="comment">#用到包里的函数</span></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> loadtxt, where  </span><br><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> scatter, show, legend, xlabel, ylabel  </span><br><span class="line"></span><br><span class="line"><span class="comment">#load the dataset  </span></span><br><span class="line">data = loadtxt(<span class="string">'D:/机器学习/逻辑回归/data1.txt'</span>, delimiter=<span class="string">','</span>)  </span><br><span class="line">  </span><br><span class="line">X = data[:, <span class="number">0</span>:<span class="number">2</span>]  </span><br><span class="line">y = data[:, <span class="number">2</span>]  </span><br><span class="line">  </span><br><span class="line">pos = where(y == <span class="number">1</span>)  </span><br><span class="line">neg = where(y == <span class="number">0</span>)  </span><br><span class="line">scatter(X[pos, <span class="number">0</span>], X[pos, <span class="number">1</span>], marker=<span class="string">'o'</span>, c=<span class="string">'b'</span>)  </span><br><span class="line">scatter(X[neg, <span class="number">0</span>], X[neg, <span class="number">1</span>], marker=<span class="string">'x'</span>, c=<span class="string">'r'</span>)  </span><br><span class="line">xlabel(<span class="string">'Feature1/Exam 1 score'</span>)  </span><br><span class="line">ylabel(<span class="string">'Feature2/Exam 2 score'</span>)  </span><br><span class="line">legend([<span class="string">'Fail'</span>, <span class="string">'Pass'</span>])  </span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2018/05/09/python入门编程/#more">more >></a>
         
@@ -1193,7 +1192,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1201,11 +1204,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
