@@ -45,7 +45,7 @@
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/Titanic27.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/Titanic28.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/Titanic29.png">
-<meta property="og:updated_time" content="2018-05-22T11:46:34.436Z">
+<meta property="og:updated_time" content="2018-05-22T11:54:31.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Titanic: Machine Learning from Disaster（一）">
 <meta name="twitter:description" content="PS：入门！！！这个赛题真的很适合小白入门，先做个 baseline model ，一定要每一步走完，不论最后成绩高低，都是一件很有成就感的事啊，而且实践是学习最好的方法，学再多机器学习算法原理，到头来发现别人都帮你把框架搭好了，最重要的还是特征分析和数据处理 ，这个认知转变真的是在实践才体会到 ~                  baseline model 基准模型（要研究一个新的模型，就是">
@@ -227,20 +227,14 @@
 <hr>
 <p>Kaggle流程：</p>
 <ol>
-<li><p>了解问题背景：对竞赛的背景进行了解</p>
-</li>
-<li><p>下载数据</p>
-</li>
-<li><p>分析数据：Explore Data Analysis</p>
-</li>
-<li><p>数据处理和特征工程：Data Process and FeatureEngineering</p>
-</li>
-<li><p>模型选择：Model Select</p>
-</li>
-<li><p>提交结果：Submission</p>
-<p>PS：因为真的是小白，所以看了很多博客，说实在真的没有耐心看大段代码的，下面两篇思路清晰，最重要的是不复杂，哎，后面做优化得看进阶版的，得耐下心来啊 ~                                                  <a href="https://www.kaggle.com/meiyfkaggle/titanic-data-solutions-translate-into-chinese" target="_blank" rel="noopener">https://www.kaggle.com/meiyfkaggle/titanic-data-solutions-translate-into-chinese</a>                          <a href="https://zhuanlan.zhihu.com/p/28586467" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28586467</a></p>
-</li>
+<li>了解问题背景：对竞赛的背景进行了解</li>
+<li>下载数据</li>
+<li>分析数据：Explore Data Analysis</li>
+<li>数据处理和特征工程：Data Process and FeatureEngineering</li>
+<li>模型选择：Model Select</li>
+<li>提交结果：Submission</li>
 </ol>
+<p>PS：因为真的是小白，所以看了很多博客，说实在真的没有耐心看大段代码的，下面两篇思路清晰，最重要的是不复杂，哎，后面做优化得看进阶版的，得耐下心来啊 ~                                                      <a href="https://www.kaggle.com/meiyfkaggle/titanic-data-solutions-translate-into-chinese" target="_blank" rel="noopener">https://www.kaggle.com/meiyfkaggle/titanic-data-solutions-translate-into-chinese</a>                              <a href="https://zhuanlan.zhihu.com/p/28586467" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28586467</a></p>
 <hr>
 <h2 id="问题和难题定义"><a href="#问题和难题定义" class="headerlink" title="问题和难题定义"></a>问题和难题定义</h2><p>从列出了在泰坦尼克号灾难中幸存下来或没有生存的乘客的一系列训练样本中学习后，模型能不能通过一个给定的不包含获救信息的测试集，预测测试集中的乘客是否获救。</p>
 <ul>
@@ -249,11 +243,11 @@
 <li>尽管这次沉船事件中有一些运气的原因，但一些像女人，孩子，上层人士这类人比其他人幸存的概率更大。</li>
 </ul>
 <h2 id="工作流阶段"><a href="#工作流阶段" class="headerlink" title="工作流阶段"></a>工作流阶段</h2><ul>
-<li>1.问题的定义</li>
-<li>2.采集训练集和测试集</li>
-<li>3.数据规整，预处理，清洗数据</li>
-<li>4.分析，识别模式和数据挖掘</li>
-<li>5.模型，预测和解决问题</li>
+<li>问题的定义</li>
+<li>采集训练集和测试集</li>
+<li>数据规整，预处理，清洗数据</li>
+<li>分析，识别模式和数据挖掘</li>
+<li>模型，预测和解决问题</li>
 </ul>
 <p>寒小阳大神的忠告：</p>
 <ul>
@@ -626,14 +620,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -646,11 +632,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
