@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-28T07:49:31.145Z</updated>
+  <updated>2018-05-28T08:55:41.159Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CryptoKitties</title>
+    <link href="http://yoursite.com/2018/05/28/CryptoKitties/"/>
+    <id>http://yoursite.com/2018/05/28/CryptoKitties/</id>
+    <published>2018-05-28T08:55:11.000Z</published>
+    <updated>2018-05-28T08:55:41.159Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CryptoKitties"><a href="#CryptoKitties" class="headerlink" title="CryptoKitties"></a>CryptoKitties</h1><p>PS：区块链的技术发展，颠覆了我对金融的全新认识 ~ CryptoKitties 基于以太坊的虚拟养猫游戏</p><p>PS：花生的回答，让我对以太坊游戏化应用有了透彻心扉的领悟，谁都不会觉得自己成为庞氏骗局的而接盘侠 ~     <a href="https://www.zhihu.com/question/263599712" target="_blank" rel="noopener">https://www.zhihu.com/question/263599712</a></p><p>新手买猫教程，一只猫这么贵，心疼小老百姓的钱，玩不起 <a href="https://zhuanlan.zhihu.com/p/32213293" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32213293</a></p><p>超级6啊，技术流派啊，用爬虫来选猫，哈哈哈 <a href="https://www.zhihu.com/question/263605805" target="_blank" rel="noopener">https://www.zhihu.com/question/263605805</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;CryptoKitties&quot;&gt;&lt;a href=&quot;#CryptoKitties&quot; class=&quot;headerlink&quot; title=&quot;CryptoKitties&quot;&gt;&lt;/a&gt;CryptoKitties&lt;/h1&gt;&lt;p&gt;PS：区块链的技术发展，颠覆了我对金融的全新认识 ~
+      
+    
+    </summary>
+    
+    
+      <category term="区块链" scheme="http://yoursite.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>2050大会——关于图像处理的收获</title>
@@ -448,29 +471,6 @@
 &lt;p&gt;2.解释器：执程序时一条条解释成机器语言，运行速度慢&lt;/p&gt;
 &lt;h2 id=&quot;编译型语言、解释型语言&quot;&gt;&lt;a href=&quot;#编译型语言、解释型语言&quot; class=&quot;headerlink&quot; title=&quot;编译型语言、解释型语言&quot;&gt;&lt;/a&gt;编译型语言、解释型语言&lt;/h2&gt;&lt;p&gt;1.编译型语言：不能独立运行，使用了库函数，需要链接，最后输出可执行代码 (C、C++)&lt;/p&gt;
 &lt;p&gt;缺点：编译成特定平台的机器码，无法将可执行文件移植到其它平台，可以移植也需要采用该平台的编译器重新编译&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="编译" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>make和CMake</title>
-    <link href="http://yoursite.com/2018/05/04/make%E5%92%8CCMake/"/>
-    <id>http://yoursite.com/2018/05/04/make和CMake/</id>
-    <published>2018-05-04T12:24:18.000Z</published>
-    <updated>2018-05-04T12:45:49.911Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="makefile-和-make"><a href="#makefile-和-make" class="headerlink" title="makefile 和 make"></a>makefile 和 make</h2><p>1.makefile 文件</p><p>一个工程中有很多源文件，makefile定义了整个工程的编译规则，哪些文件先编译，哪些文件后编译，哪些文件重新编译。malefile是<strong>自动化编译</strong>，一旦写好，只需一个make，整个工程自动编译。</p><p>windows平台下，VS开发环境自动生成makefile文件</p><p>Linux平台下，Qt Creator自动生成了类似makeile的 .pro文件</p><a id="more"></a><p>2.编译器和 make</p><p>编译器是编译一个文件</p><p>make是编译多个源文件的工具，解释makefile中的指令，看作是编译器的调度器</p><h2 id="CmakeList-txt-和-CMake"><a href="#CmakeList-txt-和-CMake" class="headerlink" title="CmakeList.txt 和 CMake"></a>CmakeList.txt 和 CMake</h2><p>CMake是种跨平台编译工具，Cmake 将 CMakeList.txt 转化为make 需要的 makefile 文件，用make编译</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;makefile-和-make&quot;&gt;&lt;a href=&quot;#makefile-和-make&quot; class=&quot;headerlink&quot; title=&quot;makefile 和 make&quot;&gt;&lt;/a&gt;makefile 和 make&lt;/h2&gt;&lt;p&gt;1.makefile 文件&lt;/p&gt;
-&lt;p&gt;一个工程中有很多源文件，makefile定义了整个工程的编译规则，哪些文件先编译，哪些文件后编译，哪些文件重新编译。malefile是&lt;strong&gt;自动化编译&lt;/strong&gt;，一旦写好，只需一个make，整个工程自动编译。&lt;/p&gt;
-&lt;p&gt;windows平台下，VS开发环境自动生成makefile文件&lt;/p&gt;
-&lt;p&gt;Linux平台下，Qt Creator自动生成了类似makeile的 .pro文件&lt;/p&gt;
     
     </summary>
     
