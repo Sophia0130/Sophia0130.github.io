@@ -162,6 +162,219 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Cygwin-安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/01/Cygwin-安装/">Cygwin 安装</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/01/Cygwin-安装/" class="archive-article-date">
+  	<time datetime="2018-06-01T09:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
+</a>
+
+
+<a href="/2018/06/01/Cygwin-安装/" class="archive-article-date">
+  	<time datetime="2018-06-01T09:12:21.000Z" itemprop="datePublished">2018-06-01</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了</p>
+<h2 id="Cygwin的安装"><a href="#Cygwin的安装" class="headerlink" title="Cygwin的安装"></a>Cygwin的安装</h2><ul>
+<li>Cygwin 用于各种版本的Microsoft Windows上，运行类UNIX系统。Cygwin的主要目的是通过重新编译，将POSIX系统（例如Linux、BSD，以及其他Unix系统）上的软件移植到Windows上。                     官网下载 <a href="http://www.cygwin.com/" target="_blank" rel="noopener">http://www.cygwin.com/</a></li>
+</ul>
+<p><a href="https://jingyan.baidu.com/article/6b97984d83dfe51ca2b0bf0e.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/6b97984d83dfe51ca2b0bf0e.html</a></p>
+<ul>
+<li>安装vim 之前只安装了gcc， 后面又重新进去安装，在之前那步就把选项给勾了。                        <a href="https://blog.csdn.net/u012247418/article/details/79719679" target="_blank" rel="noopener">https://blog.csdn.net/u012247418/article/details/79719679</a></li>
+</ul>
+<ul>
+<li>helloworld 验证 (难道就我觉得用起来这么不方便的吗)</li>
+</ul>
+<p><a href="https://jingyan.baidu.com/article/a948d6512fb5d70a2ccd2e6f.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/a948d6512fb5d70a2ccd2e6f.html</a></p>
+<h2 id="Cygwin-、虚拟机-、Win10-Linux子系统区别"><a href="#Cygwin-、虚拟机-、Win10-Linux子系统区别" class="headerlink" title="Cygwin 、虚拟机 、Win10 Linux子系统区别"></a>Cygwin 、虚拟机 、Win10 Linux子系统区别</h2><p>(1) Cygwin 和虚拟机的区别</p>
+<p>Cygwin 是一个 POSIX 兼容层，就是将linux平台上的系统调用转换成了windows API，使 Linux 的软件能够运行，应该可以称得上一种 Linux 发行版，而虚拟机则是虚拟了一个仿真的计算机环境，让Linux 认为虚拟机是一台机器，从而在上面安装 Linux</p>
+<p><strong>Cygwin并<em>不能直接运行</em>  Linux 中运行的程序，必须在Cygwin中<em>重新编译</em> 该程序源码后才能让该程序在windows中运行</strong>。</p>
+<p><a href="http://www.169it.com/tech-qa-linux/article-8333186796219879155.html" target="_blank" rel="noopener">http://www.169it.com/tech-qa-linux/article-8333186796219879155.html</a></p>
+<p>(2) Win10下的Linux子系统</p>
+<p><a href="http://www.cnblogs.com/micro-chen/p/5437316.html" target="_blank" rel="noopener">http://www.cnblogs.com/micro-chen/p/5437316.html</a></p>
+<p><a href="https://www.jianshu.com/p/bc38ed12da1d" target="_blank" rel="noopener">https://www.jianshu.com/p/bc38ed12da1d</a></p>
+<p>PS：下面是遇到的乱七八糟的总结，因为对OS实在不熟悉，遇到很多英文，真的搞不清楚这些是个啥</p>
+<hr>
+<h2 id="1-Linux-——-redhat、suse、debain、ubuntu、fedora版本区别"><a href="#1-Linux-——-redhat、suse、debain、ubuntu、fedora版本区别" class="headerlink" title="1. Linux —— redhat、suse、debain、ubuntu、fedora版本区别"></a>1. Linux —— <strong>redhat</strong>、suse、debain、<strong>ubuntu</strong>、fedora版本区别</h2><p><a href="https://blog.csdn.net/lzx1104/article/details/41776977" target="_blank" rel="noopener">https://blog.csdn.net/lzx1104/article/details/41776977</a></p>
+<h2 id="2-Linux和windows下的命令行解释器"><a href="#2-Linux和windows下的命令行解释器" class="headerlink" title="2. Linux和windows下的命令行解释器"></a>2. Linux和windows下的命令行解释器</h2><p>命令解释器，处于内核和用户之间，负责把用户的指令传递给内核并且把执行结果回显给用户</p>
+<h3 id="Linux："><a href="#Linux：" class="headerlink" title="Linux："></a>Linux：</h3><p> shell 是一个<strong>命令行解释器</strong>，是终端和Linux内核之间的接口程序，在提示符下输入的每个命令都由 shell 先解释然后传给Linux内核。                                                                               在Linux 和 UNIX系统里可以使用不同的shell，最常用的 Bourne shell (sh), C shell (csh),  Korn shell (ksh)。</p>
+<ul>
+<li><p>bash (Bourne Again shell)： Bourne shell 的扩展</p>
+<p>常见bash命令      <a href="http://blinkfox.com/chang-yong-bashming-ling-zheng-li-yi-cha-kan-wen-jian-he-mu-lu/" target="_blank" rel="noopener">http://blinkfox.com/chang-yong-bashming-ling-zheng-li-yi-cha-kan-wen-jian-he-mu-lu/</a></p>
+</li>
+<li><p>zsh：完美兼容bash，并且有比bash更强大的功能，用起来也比bash更优雅</p>
+</li>
+</ul>
+<h3 id="windows："><a href="#windows：" class="headerlink" title="windows："></a>windows：</h3><p>windows系统中见到的桌面即explorer.exe (文件资源管理器)是<strong>图形</strong>shell，而cmd就是命令行解释器(相当于Linux的bash),，windows也有强大的shell叫windows power shell</p>
+<p>git bash是Windows下的命令行工具，是基于cmd的，在windows下使用git命令的模拟终端，linux、unix可以直接使用git。</p>
+<h2 id="3-版本问题"><a href="#3-版本问题" class="headerlink" title="3. 版本问题"></a>3. 版本问题</h2><ul>
+<li>Alpha：内部测试版。α是希腊字母的第一个，表示最早的版本，这个版本包含很多BUG，功能也不全，主要是给开发人员和测试人员测试和找BUG用的。</li>
+<li>Beta：公开测试版。β是希腊字母的第二个，这个阶段的版本会一直加入新的功能。</li>
+<li>RC：(Release　Candidate) 候选版本，RC版不会再加入新的功能了，主要着重于除错。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Linux、装软件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/01/Cygwin-安装/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-Git-学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/01/Git-学习/">Git 学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/01/Git-学习/" class="archive-article-date">
+  	<time datetime="2018-06-01T09:05:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
+</a>
+
+
+<a href="/2018/06/01/Git-学习/" class="archive-article-date">
+  	<time datetime="2018-06-01T09:05:53.000Z" itemprop="datePublished">2018-06-01</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数</p>
+        
+          <a class="article-more-a" href="/2018/06/01/Git-学习/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/01/Git-学习/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-CryptoKitties" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -883,188 +1096,6 @@
 
 
   
-    <article id="post-opencv基本绘图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/opencv基本绘图/">opencv基本绘图</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：其实本来不想写这篇的，实在太简单了，但是当做个检索吧，以备不时之需~~</p>
-<p><a href="https://blog.csdn.net/ubunfans/article/details/24421981" target="_blank" rel="noopener">https://blog.csdn.net/ubunfans/article/details/24421981</a></p>
-        
-          <a class="article-more-a" href="/2018/05/14/opencv基本绘图/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/14/opencv基本绘图/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="w-图像读取的四种方法" class="article article-type-w  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/图像读取的四种方法/">图像读取的四种方法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/14/图像读取的四种方法/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/图像读取的四种方法/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:06:31.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="扫描、读取图像的四种方法"><a href="#扫描、读取图像的四种方法" class="headerlink" title="扫描、读取图像的四种方法"></a>扫描、读取图像的四种方法</h2><p>1.C operator [] 指针</p>
-<p>2.iterator 迭代法 用迭代器遍历 [推荐使用]</p>
-<p>3.on-the-fly address generation  .at()函数</p>
-<p>4.LUT function [推荐使用]</p>
-        
-          <a class="article-more-a" href="/2018/05/14/图像读取的四种方法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/14/图像读取的四种方法/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1165,23 +1196,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Linux、装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Hexo、装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1193,11 +1232,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1205,11 +1244,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
