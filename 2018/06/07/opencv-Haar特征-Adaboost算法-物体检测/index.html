@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: opencv | 绿小蕤</title>
+  <title>opencv Haar特征+Adaboost算法 物体检测 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
-<meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/tags/opencv/index.html">
+  <meta name="description" content="一、Haar 什么是Haar特征 如何计算Haar特征 积分图快速计算Haar特征 Haar特征值标准化">
+<meta name="keywords" content="opencv,c++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="opencv Haar特征+Adaboost算法 物体检测">
+<meta property="og:url" content="http://yoursite.com/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="一、Haar 什么是Haar特征 如何计算Haar特征 积分图快速计算Haar特征 Haar特征值标准化">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/xml1.JPG">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/xml2.JPG">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/opencv%E8%87%AA%E5%B8%A6%E7%9A%84xml.JPG">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/opencvtrain.JPG">
+<meta property="og:updated_time" content="2018-06-07T09:48:26.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="opencv Haar特征+Adaboost算法 物体检测">
+<meta name="twitter:description" content="一、Haar 什么是Haar特征 如何计算Haar特征 积分图快速计算Haar特征 Haar特征值标准化">
+<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/xml1.JPG">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,24 +166,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-opencv-Haar特征-Adaboost算法-物体检测" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      opencv Haar特征+Adaboost算法 物体检测
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/" class="archive-article-date">
+
+        
+        <a href="/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/" class="archive-article-date">
   	<time datetime="2018-06-07T09:45:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-07</time>
 </a>
 
@@ -189,16 +190,69 @@
     </span>
 </a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/">opencv Haar特征+Adaboost算法 物体检测</a>
-    </h1>
-  
+        
+      </header>
+    
 
-        <div class="article-info info-on-right">
-          
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Haar"><a href="#一、Haar" class="headerlink" title="一、Haar"></a>一、Haar</h2><ol>
+<li>什么是Haar特征</li>
+<li>如何计算Haar特征</li>
+<li>积分图快速计算Haar特征</li>
+<li>Haar特征值标准化</li>
+</ol>
+<a id="more"></a>
+<h2 id="二、级联分类器"><a href="#二、级联分类器" class="headerlink" title="二、级联分类器"></a>二、级联分类器</h2><ol>
+<li>级联分类器结构：弱分类器线性组合成为强分类器，强分类器用决策树的形式级联</li>
+<li>存储分类器的XML中的参数</li>
+</ol>
+<p>强弱分类器<img src="http://p8ge6t5tt.bkt.clouddn.com/xml1.JPG" alt=""></p>
+<p>Haar特征<img src="http://p8ge6t5tt.bkt.clouddn.com/xml2.JPG" alt=""></p>
+<h2 id="三、利用并查集合并窗口和丢弃零散分布的误检窗口"><a href="#三、利用并查集合并窗口和丢弃零散分布的误检窗口" class="headerlink" title="三、利用并查集合并窗口和丢弃零散分布的误检窗口"></a>三、利用并查集合并窗口和丢弃零散分布的误检窗口</h2><h2 id="四、AdaBoost-训练算法"><a href="#四、AdaBoost-训练算法" class="headerlink" title="四、AdaBoost 训练算法"></a>四、AdaBoost 训练算法</h2><ol>
+<li><p>查准率 Precision查全率 Recall，precision和recall都越高越好</p>
+</li>
+<li><p>命中率 hitRate，度量检测器对正样本的通过能力，越接近1越好  </p>
+<p>虚警率 falseAlarm，度量检测器对负样本的通过能力，越接近0越好</p>
+</li>
+</ol>
+<h3 id="AdaBoost-步骤"><a href="#AdaBoost-步骤" class="headerlink" title="AdaBoost 步骤"></a>AdaBoost 步骤</h3><ol>
+<li>寻找TP和FP作为训练样本</li>
+<li>计算每个Haar特征在当前权重下的Best split threshold+leftvalue+rightvalue，组成了一个个弱分类器</li>
+<li>通过WSE寻找最优的弱分类器</li>
+<li>更新权重</li>
+<li>按照minHitRate估计stageThreshold</li>
+<li>重复上述1-5步骤，直到falseAlarmRate到达要求，或弱分类器数量足够，停止循环，输出stage</li>
+<li>进入下一个stage训练</li>
+</ol>
+<h2 id="四、opencv-训练级联分类器"><a href="#四、opencv-训练级联分类器" class="headerlink" title="四、opencv 训练级联分类器"></a>四、opencv 训练级联分类器</h2><ol>
+<li>收集正、负样本，正样本固定大小、负样本任意大小</li>
+<li>生成正、负样本描述文件 .txt</li>
+<li>对正样品归一化处理，负样本不处理</li>
+<li>生成正样本特征文件 .vec</li>
+<li>样本训练级联分类器</li>
+</ol>
+<h2 id="五、HAAR与LBP区别"><a href="#五、HAAR与LBP区别" class="headerlink" title="五、HAAR与LBP区别"></a>五、HAAR与LBP区别</h2><ol>
+<li>HAAR特征是浮点数计算，LBP特征是整数计算；</li>
+<li>LBP训练需要的样本数量比HAAR大 </li>
+<li>LBP的速度一般比HAAR快 </li>
+<li>同样的样本HAAR训练出来的检测结果要比LBP准确</li>
+<li>扩大LBP的样本数据可达到HAAR的训练效果</li>
+</ol>
+<h2 id="六、opencv-提供的模型和工具"><a href="#六、opencv-提供的模型和工具" class="headerlink" title="六、opencv 提供的模型和工具"></a>六、opencv 提供的模型和工具</h2><p>1.opencv 自带的检测模型</p>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/opencv%E8%87%AA%E5%B8%A6%E7%9A%84xml.JPG" alt="img"></p>
+<p>2.opencv 自带的AdaBoost分类器</p>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/opencvtrain.JPG" alt="img"></p>
+<p>opencv_annotation        用来在一张大图中标定一个或多个需要检测的目标<br>opencv_createsamples  用来制作positive sample的vec<br>opencv_traincascade     用来训练得到需要的cascade.xml</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,446 +268,121 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/16/图像处理之坐标系和宽高/" class="archive-article-date">
-  	<time datetime="2018-05-16T12:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
+      
 
-
-<a href="/2018/05/16/图像处理之坐标系和宽高/" class="archive-article-date">
-  	<time datetime="2018-05-16T12:31:13.000Z" itemprop="datePublished">2018-05-16</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/16/图像处理之坐标系和宽高/">图像处理之坐标系和宽高</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/XML、YAML、JSON/" class="archive-article-date">
-  	<time datetime="2018-05-14T09:04:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/XML、YAML、JSON/" class="archive-article-date">
-  	<time datetime="2018-05-14T09:04:32.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      </div>
     </span>
-</a>
+  </div>
+</div>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/XML、YAML、JSON/">XML、YAML、JSON</a>
-    </h1>
-  
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/" alt="微信分享二维码">
+    </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/05/机器学习算法回顾目录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习算法回顾目录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-<a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/傅里叶变换和图像处理/">傅里叶变换和图像处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Haar"><span class="toc-number">1.</span> <span class="toc-text">一、Haar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、级联分类器"><span class="toc-number">2.</span> <span class="toc-text">二、级联分类器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、利用并查集合并窗口和丢弃零散分布的误检窗口"><span class="toc-number">3.</span> <span class="toc-text">三、利用并查集合并窗口和丢弃零散分布的误检窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、AdaBoost-训练算法"><span class="toc-number">4.</span> <span class="toc-text">四、AdaBoost 训练算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AdaBoost-步骤"><span class="toc-number">4.1.</span> <span class="toc-text">AdaBoost 步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、opencv-训练级联分类器"><span class="toc-number">5.</span> <span class="toc-text">四、opencv 训练级联分类器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、HAAR与LBP区别"><span class="toc-number">6.</span> <span class="toc-text">五、HAAR与LBP区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、opencv-提供的模型和工具"><span class="toc-number">7.</span> <span class="toc-text">六、opencv 提供的模型和工具</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
+        
+    </div>
+</aside>
 
 
-<a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/opencv基本绘图/">opencv基本绘图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-w">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/图像读取的四种方法/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/图像读取的四种方法/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:06:31.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/图像读取的四种方法/">图像读取的四种方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/09/opencv-二-imgproc-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:37:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
-</a>
-
-
-<a href="/2018/05/09/opencv-二-imgproc-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:37:55.000Z" itemprop="datePublished">2018-05-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/09/opencv-二-imgproc-模块/">opencv(二) imgproc 模块</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/09/opencv-一-HighGUI-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:36:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
-</a>
-
-
-<a href="/2018/05/09/opencv-一-HighGUI-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:36:05.000Z" itemprop="datePublished">2018-05-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/09/opencv-一-HighGUI-模块/">opencv(一) HighGUI 模块</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/08/CommandLineParse类/">CommandLineParse类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/07/ImageWatch/" class="archive-article-date">
-  	<time datetime="2018-05-07T13:23:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-07</time>
-</a>
-
-
-<a href="/2018/05/07/ImageWatch/" class="archive-article-date">
-  	<time datetime="2018-05-07T13:23:47.000Z" itemprop="datePublished">2018-05-07</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/07/ImageWatch/">ImageWatch</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+
+
 
 
           </div>
@@ -687,9 +416,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
