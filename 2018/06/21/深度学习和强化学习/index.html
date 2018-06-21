@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>图像处理之坐标系和宽高 | 绿小蕤</title>
+  <title>深度学习和强化学习 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  坐标系-宽高-行列，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~ https://blog.csdn.net/oqqenvy12/article/details/71933651">
-<meta name="keywords" content="opencv">
+  <meta name="description" content="神经网络神经网络是个模型，深度学习是一种方法。深度学习可以理解成用深度神经网络来进行机器学习，可以有效解决层数多的网络不好学习的问题。">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图像处理之坐标系和宽高">
-<meta property="og:url" content="http://yoursite.com/2018/05/16/图像处理之坐标系和宽高/index.html">
+<meta property="og:title" content="深度学习和强化学习">
+<meta property="og:url" content="http://yoursite.com/2018/06/21/深度学习和强化学习/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  坐标系-宽高-行列，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~ https://blog.csdn.net/oqqenvy12/article/details/71933651">
+<meta property="og:description" content="神经网络神经网络是个模型，深度学习是一种方法。深度学习可以理解成用深度神经网络来进行机器学习，可以有效解决层数多的网络不好学习的问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E5%9D%90%E6%A0%87%E7%B3%BB.png">
-<meta property="og:updated_time" content="2018-05-16T12:48:07.284Z">
+<meta property="og:updated_time" content="2018-06-21T07:07:12.516Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图像处理之坐标系和宽高">
-<meta name="twitter:description" content="PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  坐标系-宽高-行列，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~ https://blog.csdn.net/oqqenvy12/article/details/71933651">
-<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E5%9D%90%E6%A0%87%E7%B3%BB.png">
+<meta name="twitter:title" content="深度学习和强化学习">
+<meta name="twitter:description" content="神经网络神经网络是个模型，深度学习是一种方法。深度学习可以理解成用深度神经网络来进行机器学习，可以有效解决层数多的网络不好学习的问题。">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -163,25 +161,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-图像处理之坐标系和宽高" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-深度学习和强化学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      图像处理之坐标系和宽高
+      深度学习和强化学习
     </h1>
   
 
         
-        <a href="/2018/05/16/图像处理之坐标系和宽高/" class="archive-article-date">
-  	<time datetime="2018-05-16T12:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
+        <a href="/2018/06/21/深度学习和强化学习/" class="archive-article-date">
+  	<time datetime="2018-06-21T07:06:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-21</time>
 </a>
 
 
-<a href="/2018/05/16/图像处理之坐标系和宽高/" class="archive-article-date">
-  	<time datetime="2018-05-16T12:31:13.000Z" itemprop="datePublished">2018-05-16</time>
+<a href="/2018/06/21/深度学习和强化学习/" class="archive-article-date">
+  	<time datetime="2018-06-21T07:06:39.000Z" itemprop="datePublished">2018-06-21</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -194,9 +192,13 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  <strong>坐标系-宽高-行列</strong>，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~</p>
-<p><a href="https://blog.csdn.net/oqqenvy12/article/details/71933651" target="_blank" rel="noopener">https://blog.csdn.net/oqqenvy12/article/details/71933651</a></p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt=""></p>
+        <h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>神经网络是个模型，深度学习是一种方法。深度学习可以理解成用深度神经网络来进行机器学习，可以有效解决层数多的网络不好学习的问题。</p>
+<a id="more"></a>
+<h2 id="深度学习（Deep-Learning）"><a href="#深度学习（Deep-Learning）" class="headerlink" title="深度学习（Deep Learning）"></a>深度学习（Deep Learning）</h2><p><strong>DNN （深度神经网络）</strong>将原始信号（例如RGB像素值）<strong>直接</strong>输入DNN，而不需要创建任何域特定的输入功能。通过多层神经元，DNN可以“自动”通过每一层产生适当的特征，最后提供一个非常好的预测。这极大地消除了寻找”特征工程”的麻烦。</p>
+<p>DNN也演变成许多不同的网络拓扑结构，CNN（卷积神经网络），RNN（递归神经网络），LSTM（长期短期记忆），GAN（生成敌对网络），转移学习（Transfer Learning），注意模型（attention model）。</p>
+<p>深度学习模型：<a href="https://www.zhihu.com/question/38679133" target="_blank" rel="noopener">https://www.zhihu.com/question/38679133</a></p>
+<h2 id="强化学习（Reinforcement-Learning）"><a href="#强化学习（Reinforcement-Learning）" class="headerlink" title="强化学习（Reinforcement Learning）"></a>强化学习（Reinforcement Learning）</h2><p>强化学习有四个要素，环境模型、Agent（学习者）、回报函数、策略。其实就是一种<strong>奖惩机制</strong>，奖励那些适应性好的学习，惩罚那些适应性不好的学习。强化学习学习得非常快，因为每一个新的反馈都会影响随后的决定。</p>
+<h2 id="深度学习与强化学习的区别"><a href="#深度学习与强化学习的区别" class="headerlink" title="深度学习与强化学习的区别"></a>深度学习与强化学习的区别</h2><p>深度学习的学习过程是静态的，强化学习的学习过程是动态的。静态与动态的区别在于是否会与环境进行交互，深度学习是给什么样本就学什么，而强化学习是要和环境进行交互，再通过环境给出的奖惩来学习。<strong>深度学习解决的更多是感知问题，强化学习解决的主要是决策问题</strong>。</p>
 
       
 
@@ -210,7 +212,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
@@ -266,7 +268,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/16/图像处理之坐标系和宽高/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/21/深度学习和强化学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,18 +282,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/18/啥叫运营商/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          啥叫运营商
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/14/XML、YAML、JSON/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">XML、YAML、JSON</div>
+    <a href="/2018/06/20/Deep-Learning-吴恩达-作业（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Deep-Learning-吴恩达-作业（三）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -318,7 +311,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    懒得写目录啦~
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络"><span class="toc-number">1.</span> <span class="toc-text">神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深度学习（Deep-Learning）"><span class="toc-number">2.</span> <span class="toc-text">深度学习（Deep Learning）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#强化学习（Reinforcement-Learning）"><span class="toc-number">3.</span> <span class="toc-text">强化学习（Reinforcement Learning）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深度学习与强化学习的区别"><span class="toc-number">4.</span> <span class="toc-text">深度学习与强化学习的区别</span></a></li></ol>
                     </div>
                 </span>
             </div>
