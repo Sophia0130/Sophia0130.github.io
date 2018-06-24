@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-24T07:55:20.078Z</updated>
+  <updated>2018-06-24T07:58:37.548Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,21 +21,20 @@
     <link href="http://yoursite.com/2018/06/24/Deep-Learning-%E5%90%B4%E6%81%A9%E8%BE%BE-%E4%BD%9C%E4%B8%9A%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
     <id>http://yoursite.com/2018/06/24/Deep-Learning-吴恩达-作业（四）/</id>
     <published>2018-06-24T07:46:03.000Z</published>
-    <updated>2018-06-24T07:55:20.078Z</updated>
+    <updated>2018-06-24T07:58:37.548Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="initialization"><a href="#initialization" class="headerlink" title="initialization"></a>initialization</h2><p>三种不同的参数W、b的初始化方式，对于多次迭代后cost function下降效果的影响</p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/initization%E4%BD%9C%E4%B8%9A%E5%9B%9B.jpg" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="initialization"><a href="#initialization" class="headerlink" title="initialization"></a>initialization</h2><p>三种不同的参数W、b的初始化方式，对于多次迭代后cost function下降效果的影响</p><a id="more"></a><p><img src="http://p8ge6t5tt.bkt.clouddn.com/initization%E4%BD%9C%E4%B8%9A%E5%9B%9B.jpg" alt=""></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;initialization&quot;&gt;&lt;a href=&quot;#initialization&quot; class=&quot;headerlink&quot; title=&quot;initialization&quot;&gt;&lt;/a&gt;initialization&lt;/h2&gt;&lt;p&gt;三种不同的参数W、b的初始化方式，对于多次迭
-      
+      &lt;h2 id=&quot;initialization&quot;&gt;&lt;a href=&quot;#initialization&quot; class=&quot;headerlink&quot; title=&quot;initialization&quot;&gt;&lt;/a&gt;initialization&lt;/h2&gt;&lt;p&gt;三种不同的参数W、b的初始化方式，对于多次迭代后cost function下降效果的影响&lt;/p&gt;
     
     </summary>
     
     
-      <category term="深度学习、python" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%81python/"/>
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
