@@ -162,6 +162,206 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Deep-Learning-吴恩达-作业（五）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/">Deep-Learning-吴恩达-作业（五）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/" class="archive-article-date">
+  	<time datetime="2018-06-25T09:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
+</a>
+
+
+<a href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/" class="archive-article-date">
+  	<time datetime="2018-06-25T09:37:43.000Z" itemprop="datePublished">2018-06-25</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h1><p>PS：要明确的是正则化是对过拟合现象的修正，不是必须要做的</p>
+        
+          <a class="article-more-a" href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/">Deep-Learning-吴恩达-作业——关于plot_decision_boundary()函数的理解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/" class="archive-article-date">
+  	<time datetime="2018-06-25T08:24:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
+</a>
+
+
+<a href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/" class="archive-article-date">
+  	<time datetime="2018-06-25T08:24:17.000Z" itemprop="datePublished">2018-06-25</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊</p>
+<p>1.得到最终的预测结果0或者1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#得到最终的预测结果0或者1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict_dec</span><span class="params">(parameters, X)</span></span></span><br><span class="line"><span class="function">    """</span></span><br><span class="line"><span class="function">    <span class="title">Used</span> <span class="title">for</span> <span class="title">plotting</span> <span class="title">decision</span> <span class="title">boundary</span>.</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    <span class="title">Arguments</span>:</span></span><br><span class="line">    parameters -- python dictionary containing your parameters </span><br><span class="line">    X -- input data of size (m, K)</span><br><span class="line">    </span><br><span class="line">    Returns</span><br><span class="line">    predictions -- vector of predictions of our model (red: <span class="number">0</span> / blue: <span class="number">1</span>)</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    # Predict using forward propagation and a classification threshold of 0.5</span></span><br><span class="line"><span class="string">    a3, cache = forward_propagation(X, parameters)</span></span><br><span class="line"><span class="string">    predictions = (a3&gt;0.5)</span></span><br><span class="line"><span class="string">    return predictions</span></span><br></pre></td></tr></table></figure>
+<p>2.划分格子-得到每个格点的坐标-对每个格点的值进行预测(作为颜色区分)-画边界线-加上训练数据的散点图</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#划分格子-得到每个格点的坐标-对每个格点的值进行预测(作为颜色区分)-画边界线-加上训练数据的散点图</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_decision_boundary</span><span class="params">(model, X, y)</span>:</span></span><br><span class="line">    <span class="comment"># Set min and max values and give it some padding #生成网格x、y的范围，不是整幅图的范围</span></span><br><span class="line">    x_min, x_max = X[<span class="number">0</span>, :].min() - <span class="number">1</span>, X[<span class="number">0</span>, :].max() + <span class="number">1</span></span><br><span class="line">    y_min, y_max = X[<span class="number">1</span>, :].min() - <span class="number">1</span>, X[<span class="number">1</span>, :].max() + <span class="number">1</span></span><br><span class="line">    h = <span class="number">0.01</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Generate a grid of points with distance h between them #生成网格矩阵</span></span><br><span class="line">    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))   </span><br><span class="line">    <span class="comment">#画格子图理解：1.xx返回每个格点的x坐标  2.yy返回的是每个格点的y坐标</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Predict the function value for the whole grid</span></span><br><span class="line">    Z = model(np.c_[xx.ravel(), yy.ravel()]) </span><br><span class="line">    <span class="comment">#model()括号里的参数是每个格点的坐标  #model的功能得到对应格点的预测结果 0或者1</span></span><br><span class="line">    Z = Z.reshape(xx.shape)   </span><br><span class="line">    <span class="comment"># Plot the contour and training examples</span></span><br><span class="line">    plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral) <span class="comment">#找边界线</span></span><br><span class="line">    plt.ylabel(<span class="string">'x2'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'x1'</span>)</span><br><span class="line">    plt.scatter(X[<span class="number">0</span>, :], X[<span class="number">1</span>, :],  c=np.squeeze(y), cmap=plt.cm.Spectral)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#调用函数</span></span><br><span class="line">plot_decision_boundary(<span class="keyword">lambda</span> x: predict_dec(parameters, x.T), train_X, train_Y)</span><br></pre></td></tr></table></figure>
+<h2 id="1-lambda函数-匿名函数"><a href="#1-lambda函数-匿名函数" class="headerlink" title="1. lambda函数-匿名函数"></a>1. lambda函数-匿名函数</h2><p>匿名函数冒号前面的x表示函数参数。匿名函数有个限制，就是<strong>只能有一个表达式</strong>，不用写return，<strong>返回值就是该表达式的结果</strong></p>
+<p><code>list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9]))</code></p>
+<p><code>[1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
+<h2 id="2-np-c-和-np-r"><a href="#2-np-c-和-np-r" class="headerlink" title="2. np.c_ 和 np.r_"></a>2. np.c_ 和 np.r_</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([1, 2, 3])</span><br><span class="line">b = np.array([4, 5, 6])</span><br><span class="line"></span><br><span class="line">c=np.c_[a,b]</span><br><span class="line">d=np.r_[a,b]</span><br></pre></td></tr></table></figure>
+<p>我还是没有理解，简直喵了个咪的抓狂 ~</p>
+<h2 id="3-np-ravel和np-flatten"><a href="#3-np-ravel和np-flatten" class="headerlink" title="3. np.ravel和np.flatten"></a>3. np.ravel和np.flatten</h2><p>相同点：将多维数组降位一维      </p>
+<p>不同点：          </p>
+<ul>
+<li>numpy.flatten()返回的是拷贝，不会影响原始矩阵        </li>
+<li>numpy.ravel()返回的是view,通过ravel修改了矩阵，原来的矩阵会发生改变</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-Deep-Learning-吴恩达-作业（四）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,7 +393,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="initialization"><a href="#initialization" class="headerlink" title="initialization"></a>initialization</h2><p>三种不同的参数W、b的初始化方式，对于多次迭代后cost function下降效果的影响</p>
+        <h2 id="initialization"><a href="#initialization" class="headerlink" title="initialization"></a>initialization</h2><p>PS：参数初始化是为了缓解梯度消失和爆炸问题，加快梯度下降从而加快学习的速度</p>
+<p>下面是三种不同的参数W、b的初始化方式，对于多次迭代后 cost function下降效果的影响</p>
         
           <a class="article-more-a" href="/2018/06/24/Deep-Learning-吴恩达-作业（四）/#more">more >></a>
         
@@ -209,11 +410,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -400,11 +601,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -493,7 +694,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">深度学习，python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -582,7 +787,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">深度学习，python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -851,237 +1060,6 @@
 
 
   
-    <article id="post-opencv-Haar特征-Adaboost算法-物体检测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/">opencv Haar特征+Adaboost算法 物体检测</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/" class="archive-article-date">
-  	<time datetime="2018-06-07T09:45:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-07</time>
-</a>
-
-
-<a href="/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/" class="archive-article-date">
-  	<time datetime="2018-06-07T09:45:56.000Z" itemprop="datePublished">2018-06-07</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、Haar"><a href="#一、Haar" class="headerlink" title="一、Haar"></a>一、Haar</h2><ol>
-<li>什么是Haar特征</li>
-<li>如何计算Haar特征</li>
-<li>积分图快速计算Haar特征</li>
-<li>Haar特征值标准化</li>
-</ol>
-        
-          <a class="article-more-a" href="/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/07/opencv-Haar特征-Adaboost算法-物体检测/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-机器学习算法回顾目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/05/机器学习算法回顾目录/">机器学习算法回顾目录</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/05/机器学习算法回顾目录/" class="archive-article-date">
-  	<time datetime="2018-06-05T07:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-
-
-<a href="/2018/06/05/机器学习算法回顾目录/" class="archive-article-date">
-  	<time datetime="2018-06-05T07:32:56.000Z" itemprop="datePublished">2018-06-05</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、回归算法"><a href="#一、回归算法" class="headerlink" title="一、回归算法"></a>一、回归算法</h2><ol>
-<li>线性回归：预测连续值</li>
-<li>逻辑回归：预测离散值或分类</li>
-</ol>
-<h2 id="二、决策树-Decision-Tree-DT"><a href="#二、决策树-Decision-Tree-DT" class="headerlink" title="二、决策树 Decision Tree (DT)"></a>二、决策树 Decision Tree (DT)</h2><p>根据一个准则，选取最优划分属性 (最优划分属性：决策树的分支节点的类别尽可能纯，即尽可能属于同一类别)</p>
-<ol>
-<li>ID3：根据信息增益选取最优划分属性</li>
-<li>C4.5：根据信息增益和增益率选取最优划分属性</li>
-<li>CART (classification and regression tree) ：根据基尼指数选取最优划分属性</li>
-</ol>
-<h2 id="三、集成学习-ensemble-learning"><a href="#三、集成学习-ensemble-learning" class="headerlink" title="三、集成学习 (ensemble learning)"></a>三、集成学习 (ensemble learning)</h2><ol>
-<li>Boosting：个体学习器间有强依赖关系，必须串行生成的序列化方法 (训练集基于上一轮结果进行调整)</li>
-<li>Bagging：个体学习器间没有强依赖关系，可同时生成的并行化方法 (训练集互不相关</li>
-</ol>
-<h2 id="集成学习之-Boosting"><a href="#集成学习之-Boosting" class="headerlink" title="集成学习之 Boosting"></a>集成学习之 Boosting</h2><ol>
-<li><p><strong>弱学习器提升为强学习器的过程称为Boosting</strong>，Boosting产生一系列的学习器，后产生的学习器的训练集取决于之前的产生的学习器，之前被误判的示例在之后占据较大的概率。</p>
-</li>
-<li><p>不同的boosting实现，主要区别：</p>
-<p>(1) 弱学习算法本身不同</p>
-<p>(2) 在每一轮学习之前，改变训练数据的权值分布的方法不同</p>
-<p>(3) 将一组弱分类器组合成一个强分类器的方法不同</p>
-</li>
-<li><p>Boosting 算法总结</p>
-<ul>
-<li><p>AdaBoost</p>
-<p>AdaBoost 算法是模型为加法模型、损失函数为指数函数、学习算法为前向分步算法的学习方法</p>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><p>GBDT 梯度提升决策树 </p>
-<p>GBDT = Boosting Decision Tree 提升决策树 (DT)+ Gradient Boosting 梯度提升(GB) </p>
-<p>是一种迭代的决策树算法</p>
-</li>
-</ul>
-<ul>
-<li><p>XGBoost </p>
-<p>XGBoost是在GBDT的基础上对Boosting算法进行的改进，内部决策树使用的是回归树。</p>
-</li>
-</ul>
-<h2 id="集成学习之Bagging"><a href="#集成学习之Bagging" class="headerlink" title="集成学习之Bagging"></a>集成学习之Bagging</h2><p>Bagging是基于bootstrap sampling也称为自助采样法法，是一种有放回的抽样方法，目的为了得到统计量的分布以及置信区间。</p>
-<ul>
-<li><p>Random Forest 随机森林 (RF) 就是基于Bagging，进一步在训练过程中引入随机属性。随机森林简单来说就是用随机的方式建立一个森林，森林由很多的决策树组成，随机森林的每一棵决策树之间是没有关联的。</p>
-<p>​</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/05/机器学习算法回顾目录/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1186,7 +1164,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,19 +1184,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">深度学习，python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1226,7 +1208,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1235,14 +1217,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
