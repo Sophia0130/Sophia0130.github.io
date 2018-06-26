@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Deep-Learning-吴恩达-作业——关于plot_decision_boundary()函数的理解 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊 1.得到最终的预测结果0或者1 1234567891011121314151617#得到最终的预测结果0或者1def predict_dec(parameters, X)    &quot;&quot;&quot;    Used for plotting decision boundary.        Arguments:    par">
-<meta name="keywords" content="机器学习,python">
+  <meta name="description" content="PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊">
+<meta name="keywords" content="python,机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Deep-Learning-吴恩达-作业——关于plot_decision_boundary()函数的理解">
 <meta property="og:url" content="http://yoursite.com/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊 1.得到最终的预测结果0或者1 1234567891011121314151617#得到最终的预测结果0或者1def predict_dec(parameters, X)    &quot;&quot;&quot;    Used for plotting decision boundary.        Arguments:    par">
+<meta property="og:description" content="PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-25T08:54:35.125Z">
+<meta property="og:updated_time" content="2018-06-25T12:32:11.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep-Learning-吴恩达-作业——关于plot_decision_boundary()函数的理解">
-<meta name="twitter:description" content="PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊 1.得到最终的预测结果0或者1 1234567891011121314151617#得到最终的预测结果0或者1def predict_dec(parameters, X)    &quot;&quot;&quot;    Used for plotting decision boundary.        Arguments:    par">
+<meta name="twitter:description" content="PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -193,6 +193,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊</p>
+<a id="more"></a>
 <p>1.得到最终的预测结果0或者1</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#得到最终的预测结果0或者1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict_dec</span><span class="params">(parameters, X)</span></span></span><br><span class="line"><span class="function">    """</span></span><br><span class="line"><span class="function">    <span class="title">Used</span> <span class="title">for</span> <span class="title">plotting</span> <span class="title">decision</span> <span class="title">boundary</span>.</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    <span class="title">Arguments</span>:</span></span><br><span class="line">    parameters -- python dictionary containing your parameters </span><br><span class="line">    X -- input data of size (m, K)</span><br><span class="line">    </span><br><span class="line">    Returns</span><br><span class="line">    predictions -- vector of predictions of our model (red: <span class="number">0</span> / blue: <span class="number">1</span>)</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    # Predict using forward propagation and a classification threshold of 0.5</span></span><br><span class="line"><span class="string">    a3, cache = forward_propagation(X, parameters)</span></span><br><span class="line"><span class="string">    predictions = (a3&gt;0.5)</span></span><br><span class="line"><span class="string">    return predictions</span></span><br></pre></td></tr></table></figure>
 <p>2.划分格子-得到每个格点的坐标-对每个格点的值进行预测(作为颜色区分)-画边界线-加上训练数据的散点图</p>
@@ -222,11 +223,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
@@ -455,15 +456,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,15 +476,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,11 +488,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,7 +508,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">

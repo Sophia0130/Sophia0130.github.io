@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-25T12:20:40.030Z</updated>
+  <updated>2018-06-26T01:59:02.890Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Deep-Learning-吴恩达-作业（六）</title>
+    <link href="http://yoursite.com/2018/06/25/Deep-Learning-%E5%90%B4%E6%81%A9%E8%BE%BE-%E4%BD%9C%E4%B8%9A%EF%BC%88%E5%85%AD%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/06/25/Deep-Learning-吴恩达-作业（六）/</id>
+    <published>2018-06-25T12:49:20.000Z</published>
+    <updated>2018-06-26T01:59:02.890Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Gradient-Checking"><a href="#Gradient-Checking" class="headerlink" title="Gradient Checking"></a>Gradient Checking</h1><p>PS：用双边求导的结果与梯度的逼近程度来检查梯度是否计算错误，需要对每个神经元的W、b进行计算</p><a id="more"></a><h2 id="1-双边求导"><a href="#1-双边求导" class="headerlink" title="1.双边求导"></a>1.双边求导</h2><p><img src="http://p8ge6t5tt.bkt.clouddn.com/gradient%20checking1.JPG" alt=""></p><h2 id="2-逼近程度的判断"><a href="#2-逼近程度的判断" class="headerlink" title="2.逼近程度的判断"></a>2.逼近程度的判断</h2><p><img src="http://p8ge6t5tt.bkt.clouddn.com/gradient%20checking2.JPG" alt=""></p><h2 id="最后贴上我的作业"><a href="#最后贴上我的作业" class="headerlink" title="最后贴上我的作业"></a>最后贴上我的作业</h2><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E4%BD%9C%E4%B8%9A%E5%85%AD.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Gradient-Checking&quot;&gt;&lt;a href=&quot;#Gradient-Checking&quot; class=&quot;headerlink&quot; title=&quot;Gradient Checking&quot;&gt;&lt;/a&gt;Gradient Checking&lt;/h1&gt;&lt;p&gt;PS：用双边求导的结果与梯度的逼近程度来检查梯度是否计算错误，需要对每个神经元的W、b进行计算&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Deep-Learning-吴恩达-作业（五）</title>
     <link href="http://yoursite.com/2018/06/25/Deep-Learning-%E5%90%B4%E6%81%A9%E8%BE%BE-%E4%BD%9C%E4%B8%9A%EF%BC%88%E4%BA%94%EF%BC%89/"/>
     <id>http://yoursite.com/2018/06/25/Deep-Learning-吴恩达-作业（五）/</id>
     <published>2018-06-25T09:37:43.000Z</published>
-    <updated>2018-06-25T12:20:40.030Z</updated>
+    <updated>2018-06-25T12:51:46.705Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h1><p>PS：要明确的是正则化是对过拟合现象的修正，不是必须要做的</p><a id="more"></a><h2 id="1-L2-Regularization"><a href="#1-L2-Regularization" class="headerlink" title="1. L2 Regularization"></a>1. L2 Regularization</h2><p>1.每前向传播完成后计算 cost function 需要加上正则化项</p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/regulation5.JPG" alt=""></p><p>2.反向传播计算dW时也需要加上正则化项</p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/regulation6.JPG" alt=""></p><p>3.权重W变为较小的值，从而防止过拟合</p><h2 id="2-Dropout"><a href="#2-Dropout" class="headerlink" title="2. Dropout"></a>2. Dropout</h2><p>1.将前一层的输出同时是这一层的输入A[l]，以一定概率keep_prob丢弃，再将剩余的 <strong>A[l]除以keep_prob</strong>  (而不影响下一层的计算)</p><p>2.反向传播时，对于 dA[l] 进行同样的丢弃和缩放</p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E4%BD%9C%E4%B8%9A%E4%BA%94.jpg" alt=""></p>]]></content>
     
@@ -32,7 +54,7 @@
     </summary>
     
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
@@ -43,25 +65,20 @@
     <link href="http://yoursite.com/2018/06/25/Deep-Learning-%E5%90%B4%E6%81%A9%E8%BE%BE-%E4%BD%9C%E4%B8%9A%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8Eplot-decision-boundary-%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     <id>http://yoursite.com/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/</id>
     <published>2018-06-25T08:24:17.000Z</published>
-    <updated>2018-06-25T08:54:35.125Z</updated>
+    <updated>2018-06-25T12:32:11.643Z</updated>
     
-    <content type="html"><![CDATA[<p>PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊</p><p>1.得到最终的预测结果0或者1</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#得到最终的预测结果0或者1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict_dec</span><span class="params">(parameters, X)</span></span></span><br><span class="line"><span class="function">    """</span></span><br><span class="line"><span class="function">    <span class="title">Used</span> <span class="title">for</span> <span class="title">plotting</span> <span class="title">decision</span> <span class="title">boundary</span>.</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    <span class="title">Arguments</span>:</span></span><br><span class="line">    parameters -- python dictionary containing your parameters </span><br><span class="line">    X -- input data of size (m, K)</span><br><span class="line">    </span><br><span class="line">    Returns</span><br><span class="line">    predictions -- vector of predictions of our model (red: <span class="number">0</span> / blue: <span class="number">1</span>)</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    # Predict using forward propagation and a classification threshold of 0.5</span></span><br><span class="line"><span class="string">    a3, cache = forward_propagation(X, parameters)</span></span><br><span class="line"><span class="string">    predictions = (a3&gt;0.5)</span></span><br><span class="line"><span class="string">    return predictions</span></span><br></pre></td></tr></table></figure><p>2.划分格子-得到每个格点的坐标-对每个格点的值进行预测(作为颜色区分)-画边界线-加上训练数据的散点图</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#划分格子-得到每个格点的坐标-对每个格点的值进行预测(作为颜色区分)-画边界线-加上训练数据的散点图</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_decision_boundary</span><span class="params">(model, X, y)</span>:</span></span><br><span class="line">    <span class="comment"># Set min and max values and give it some padding #生成网格x、y的范围，不是整幅图的范围</span></span><br><span class="line">    x_min, x_max = X[<span class="number">0</span>, :].min() - <span class="number">1</span>, X[<span class="number">0</span>, :].max() + <span class="number">1</span></span><br><span class="line">    y_min, y_max = X[<span class="number">1</span>, :].min() - <span class="number">1</span>, X[<span class="number">1</span>, :].max() + <span class="number">1</span></span><br><span class="line">    h = <span class="number">0.01</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Generate a grid of points with distance h between them #生成网格矩阵</span></span><br><span class="line">    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))   </span><br><span class="line">    <span class="comment">#画格子图理解：1.xx返回每个格点的x坐标  2.yy返回的是每个格点的y坐标</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Predict the function value for the whole grid</span></span><br><span class="line">    Z = model(np.c_[xx.ravel(), yy.ravel()]) </span><br><span class="line">    <span class="comment">#model()括号里的参数是每个格点的坐标  #model的功能得到对应格点的预测结果 0或者1</span></span><br><span class="line">    Z = Z.reshape(xx.shape)   </span><br><span class="line">    <span class="comment"># Plot the contour and training examples</span></span><br><span class="line">    plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral) <span class="comment">#找边界线</span></span><br><span class="line">    plt.ylabel(<span class="string">'x2'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'x1'</span>)</span><br><span class="line">    plt.scatter(X[<span class="number">0</span>, :], X[<span class="number">1</span>, :],  c=np.squeeze(y), cmap=plt.cm.Spectral)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#调用函数</span></span><br><span class="line">plot_decision_boundary(<span class="keyword">lambda</span> x: predict_dec(parameters, x.T), train_X, train_Y)</span><br></pre></td></tr></table></figure><h2 id="1-lambda函数-匿名函数"><a href="#1-lambda函数-匿名函数" class="headerlink" title="1. lambda函数-匿名函数"></a>1. lambda函数-匿名函数</h2><p>匿名函数冒号前面的x表示函数参数。匿名函数有个限制，就是<strong>只能有一个表达式</strong>，不用写return，<strong>返回值就是该表达式的结果</strong></p><p><code>list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9]))</code></p><p><code>[1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p><h2 id="2-np-c-和-np-r"><a href="#2-np-c-和-np-r" class="headerlink" title="2. np.c_ 和 np.r_"></a>2. np.c_ 和 np.r_</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([1, 2, 3])</span><br><span class="line">b = np.array([4, 5, 6])</span><br><span class="line"></span><br><span class="line">c=np.c_[a,b]</span><br><span class="line">d=np.r_[a,b]</span><br></pre></td></tr></table></figure><p>我还是没有理解，简直喵了个咪的抓狂 ~</p><h2 id="3-np-ravel和np-flatten"><a href="#3-np-ravel和np-flatten" class="headerlink" title="3. np.ravel和np.flatten"></a>3. np.ravel和np.flatten</h2><p>相同点：将多维数组降位一维      </p><p>不同点：          </p><ul><li>numpy.flatten()返回的是拷贝，不会影响原始矩阵        </li><li>numpy.ravel()返回的是view,通过ravel修改了矩阵，原来的矩阵会发生改变</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊</p><a id="more"></a><p>1.得到最终的预测结果0或者1</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#得到最终的预测结果0或者1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict_dec</span><span class="params">(parameters, X)</span></span></span><br><span class="line"><span class="function">    """</span></span><br><span class="line"><span class="function">    <span class="title">Used</span> <span class="title">for</span> <span class="title">plotting</span> <span class="title">decision</span> <span class="title">boundary</span>.</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    <span class="title">Arguments</span>:</span></span><br><span class="line">    parameters -- python dictionary containing your parameters </span><br><span class="line">    X -- input data of size (m, K)</span><br><span class="line">    </span><br><span class="line">    Returns</span><br><span class="line">    predictions -- vector of predictions of our model (red: <span class="number">0</span> / blue: <span class="number">1</span>)</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    # Predict using forward propagation and a classification threshold of 0.5</span></span><br><span class="line"><span class="string">    a3, cache = forward_propagation(X, parameters)</span></span><br><span class="line"><span class="string">    predictions = (a3&gt;0.5)</span></span><br><span class="line"><span class="string">    return predictions</span></span><br></pre></td></tr></table></figure><p>2.划分格子-得到每个格点的坐标-对每个格点的值进行预测(作为颜色区分)-画边界线-加上训练数据的散点图</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#划分格子-得到每个格点的坐标-对每个格点的值进行预测(作为颜色区分)-画边界线-加上训练数据的散点图</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_decision_boundary</span><span class="params">(model, X, y)</span>:</span></span><br><span class="line">    <span class="comment"># Set min and max values and give it some padding #生成网格x、y的范围，不是整幅图的范围</span></span><br><span class="line">    x_min, x_max = X[<span class="number">0</span>, :].min() - <span class="number">1</span>, X[<span class="number">0</span>, :].max() + <span class="number">1</span></span><br><span class="line">    y_min, y_max = X[<span class="number">1</span>, :].min() - <span class="number">1</span>, X[<span class="number">1</span>, :].max() + <span class="number">1</span></span><br><span class="line">    h = <span class="number">0.01</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Generate a grid of points with distance h between them #生成网格矩阵</span></span><br><span class="line">    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))   </span><br><span class="line">    <span class="comment">#画格子图理解：1.xx返回每个格点的x坐标  2.yy返回的是每个格点的y坐标</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Predict the function value for the whole grid</span></span><br><span class="line">    Z = model(np.c_[xx.ravel(), yy.ravel()]) </span><br><span class="line">    <span class="comment">#model()括号里的参数是每个格点的坐标  #model的功能得到对应格点的预测结果 0或者1</span></span><br><span class="line">    Z = Z.reshape(xx.shape)   </span><br><span class="line">    <span class="comment"># Plot the contour and training examples</span></span><br><span class="line">    plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral) <span class="comment">#找边界线</span></span><br><span class="line">    plt.ylabel(<span class="string">'x2'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'x1'</span>)</span><br><span class="line">    plt.scatter(X[<span class="number">0</span>, :], X[<span class="number">1</span>, :],  c=np.squeeze(y), cmap=plt.cm.Spectral)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#调用函数</span></span><br><span class="line">plot_decision_boundary(<span class="keyword">lambda</span> x: predict_dec(parameters, x.T), train_X, train_Y)</span><br></pre></td></tr></table></figure><h2 id="1-lambda函数-匿名函数"><a href="#1-lambda函数-匿名函数" class="headerlink" title="1. lambda函数-匿名函数"></a>1. lambda函数-匿名函数</h2><p>匿名函数冒号前面的x表示函数参数。匿名函数有个限制，就是<strong>只能有一个表达式</strong>，不用写return，<strong>返回值就是该表达式的结果</strong></p><p><code>list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9]))</code></p><p><code>[1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p><h2 id="2-np-c-和-np-r"><a href="#2-np-c-和-np-r" class="headerlink" title="2. np.c_ 和 np.r_"></a>2. np.c_ 和 np.r_</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([1, 2, 3])</span><br><span class="line">b = np.array([4, 5, 6])</span><br><span class="line"></span><br><span class="line">c=np.c_[a,b]</span><br><span class="line">d=np.r_[a,b]</span><br></pre></td></tr></table></figure><p>我还是没有理解，简直喵了个咪的抓狂 ~</p><h2 id="3-np-ravel和np-flatten"><a href="#3-np-ravel和np-flatten" class="headerlink" title="3. np.ravel和np.flatten"></a>3. np.ravel和np.flatten</h2><p>相同点：将多维数组降位一维      </p><p>不同点：          </p><ul><li>numpy.flatten()返回的是拷贝，不会影响原始矩阵        </li><li>numpy.ravel()返回的是view,通过ravel修改了矩阵，原来的矩阵会发生改变</li></ul>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊&lt;/p&gt;
-&lt;p&gt;1.得到最终的预测结果0或者1&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre
-      
+      &lt;p&gt;PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊&lt;/p&gt;
     
     </summary>
     
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -82,9 +99,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -133,9 +150,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -155,9 +172,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -177,9 +194,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -460,28 +477,6 @@
     
     
       <category term="opencv" scheme="http://yoursite.com/tags/opencv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XML、YAML、JSON</title>
-    <link href="http://yoursite.com/2018/05/14/XML%E3%80%81YAML%E3%80%81JSON/"/>
-    <id>http://yoursite.com/2018/05/14/XML、YAML、JSON/</id>
-    <published>2018-05-14T09:04:32.000Z</published>
-    <updated>2018-05-14T09:44:25.399Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="XML、YML-、JSON-是序列化数据格式"><a href="#XML、YML-、JSON-是序列化数据格式" class="headerlink" title="XML、YML 、JSON 是序列化数据格式"></a>XML、YML 、JSON 是序列化<strong>数据格式</strong></h2><p>PS：为什么要写这个呢，以为今天看opencv的时候讲到了XML、YAML 文件的输入输出，觉得这个经常听到名字但是不知道干啥用的~然后前几天搭博客，又一直出现JSON ~~ 心累，我的理解就是某种数据格式，方便数据的传输吧~~下面这篇篇博客讲了几个的简单区别，了解就可以了                                            <a href="http://rensanning.iteye.com/blog/2379083" target="_blank" rel="noopener">http://rensanning.iteye.com/blog/2379083</a></p><a id="more"></a><h2 id="OpenCV-使用XML和YAML实现文件输入和输出"><a href="#OpenCV-使用XML和YAML实现文件输入和输出" class="headerlink" title="OpenCV 使用XML和YAML实现文件输入和输出"></a>OpenCV 使用XML和YAML实现文件输入和输出</h2><p>为什么需要呢？因为当处理完图像后需要将数据保存到文件上。                                                                举个栗子：我们对一幅图像进行特征提取之后，需要把特征点信息保存到文件上，以供后面的机器学习分类操作。所以我们需要搭建<strong>小型数据库文件</strong>，将数据写到文件上，下次需要时从文件里读出。实现上述方法，需要使用xml和yml，具有可读性。</p><p>PS：opencv 自带的教程实在是太复杂了可以直接看下面这篇的案例，简单好懂~~                                        <a href="http://www.cnblogs.com/skyfsm/p/7182313.html" target="_blank" rel="noopener">http://www.cnblogs.com/skyfsm/p/7182313.html</a></p><p>XML/YAML文件在OpenCV中的数据结构为FileStorage</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;XML、YML-、JSON-是序列化数据格式&quot;&gt;&lt;a href=&quot;#XML、YML-、JSON-是序列化数据格式&quot; class=&quot;headerlink&quot; title=&quot;XML、YML 、JSON 是序列化数据格式&quot;&gt;&lt;/a&gt;XML、YML 、JSON 是序列化&lt;strong&gt;数据格式&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;PS：为什么要写这个呢，以为今天看opencv的时候讲到了XML、YAML 文件的输入输出，觉得这个经常听到名字但是不知道干啥用的~然后前几天搭博客，又一直出现JSON ~~ 心累，我的理解就是某种数据格式，方便数据的传输吧~~下面这篇篇博客讲了几个的简单区别，了解就可以了                                            &lt;a href=&quot;http://rensanning.iteye.com/blog/2379083&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://rensanning.iteye.com/blog/2379083&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="opencv" scheme="http://yoursite.com/tags/opencv/"/>
-    
-      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
