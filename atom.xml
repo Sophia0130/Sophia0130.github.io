@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-26T01:59:02.890Z</updated>
+  <updated>2018-06-28T02:22:23.093Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Deep-Learning-吴恩达-作业（七）</title>
+    <link href="http://yoursite.com/2018/06/28/Deep-Learning-%E5%90%B4%E6%81%A9%E8%BE%BE-%E4%BD%9C%E4%B8%9A%EF%BC%88%E4%B8%83%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/06/28/Deep-Learning-吴恩达-作业（七）/</id>
+    <published>2018-06-28T02:17:34.000Z</published>
+    <updated>2018-06-28T02:22:23.093Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、对于训练集的处理"><a href="#一、对于训练集的处理" class="headerlink" title="一、对于训练集的处理"></a>一、对于训练集的处理</h2><h3 id="1-Mini-Batch"><a href="#1-Mini-Batch" class="headerlink" title="1.Mini-Batch"></a>1.Mini-Batch</h3><p>每次处理训练集的一部分进行梯度下降，避免了遍历完整个训练集才完成一次参数更新</p><h3 id="2-Batch-Gradient-Descent"><a href="#2-Batch-Gradient-Descent" class="headerlink" title="2.Batch Gradient Descent"></a>2.Batch Gradient Descent</h3><p>每次处理完所有训练集进行梯度下降</p><h3 id="3-Stochastic-Gradient-Descent"><a href="#3-Stochastic-Gradient-Descent" class="headerlink" title="3.Stochastic Gradient Descent"></a>3.Stochastic Gradient Descent</h3><p>每次处理完一个样本就进行梯度下降</p><h2 id="二、反向传播加速梯度下降的过程"><a href="#二、反向传播加速梯度下降的过程" class="headerlink" title="二、反向传播加速梯度下降的过程"></a>二、反向传播加速梯度下降的过程</h2><h3 id="1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）"><a href="#1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）" class="headerlink" title="1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）"></a>1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）</h3><h3 id="2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快"><a href="#2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快" class="headerlink" title="2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快"></a>2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快</h3><h3 id="3-Adam：将Momentum-和-RMS-Prop相结合"><a href="#3-Adam：将Momentum-和-RMS-Prop相结合" class="headerlink" title="3.Adam：将Momentum 和 RMS Prop相结合"></a>3.Adam：将Momentum 和 RMS Prop相结合</h3><a id="more"></a><p>下面是我的作业喽 ~</p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E4%BD%9C%E4%B8%9A%E4%B8%83.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、对于训练集的处理&quot;&gt;&lt;a href=&quot;#一、对于训练集的处理&quot; class=&quot;headerlink&quot; title=&quot;一、对于训练集的处理&quot;&gt;&lt;/a&gt;一、对于训练集的处理&lt;/h2&gt;&lt;h3 id=&quot;1-Mini-Batch&quot;&gt;&lt;a href=&quot;#1-Mini-Batch&quot; class=&quot;headerlink&quot; title=&quot;1.Mini-Batch&quot;&gt;&lt;/a&gt;1.Mini-Batch&lt;/h3&gt;&lt;p&gt;每次处理训练集的一部分进行梯度下降，避免了遍历完整个训练集才完成一次参数更新&lt;/p&gt;
+&lt;h3 id=&quot;2-Batch-Gradient-Descent&quot;&gt;&lt;a href=&quot;#2-Batch-Gradient-Descent&quot; class=&quot;headerlink&quot; title=&quot;2.Batch Gradient Descent&quot;&gt;&lt;/a&gt;2.Batch Gradient Descent&lt;/h3&gt;&lt;p&gt;每次处理完所有训练集进行梯度下降&lt;/p&gt;
+&lt;h3 id=&quot;3-Stochastic-Gradient-Descent&quot;&gt;&lt;a href=&quot;#3-Stochastic-Gradient-Descent&quot; class=&quot;headerlink&quot; title=&quot;3.Stochastic Gradient Descent&quot;&gt;&lt;/a&gt;3.Stochastic Gradient Descent&lt;/h3&gt;&lt;p&gt;每次处理完一个样本就进行梯度下降&lt;/p&gt;
+&lt;h2 id=&quot;二、反向传播加速梯度下降的过程&quot;&gt;&lt;a href=&quot;#二、反向传播加速梯度下降的过程&quot; class=&quot;headerlink&quot; title=&quot;二、反向传播加速梯度下降的过程&quot;&gt;&lt;/a&gt;二、反向传播加速梯度下降的过程&lt;/h2&gt;&lt;h3 id=&quot;1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）&quot;&gt;&lt;a href=&quot;#1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）&quot; class=&quot;headerlink&quot; title=&quot;1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）&quot;&gt;&lt;/a&gt;1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）&lt;/h3&gt;&lt;h3 id=&quot;2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快&quot;&gt;&lt;a href=&quot;#2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快&quot; class=&quot;headerlink&quot; title=&quot;2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快&quot;&gt;&lt;/a&gt;2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快&lt;/h3&gt;&lt;h3 id=&quot;3-Adam：将Momentum-和-RMS-Prop相结合&quot;&gt;&lt;a href=&quot;#3-Adam：将Momentum-和-RMS-Prop相结合&quot; class=&quot;headerlink&quot; title=&quot;3.Adam：将Momentum 和 RMS Prop相结合&quot;&gt;&lt;/a&gt;3.Adam：将Momentum 和 RMS Prop相结合&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Deep Learning 吴恩达 课程笔记大纲</title>
+    <link href="http://yoursite.com/2018/06/27/Deep-Learning-%E5%90%B4%E6%81%A9%E8%BE%BE-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%E5%A4%A7%E7%BA%B2/"/>
+    <id>http://yoursite.com/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/</id>
+    <published>2018-06-27T02:59:57.000Z</published>
+    <updated>2018-06-28T01:37:35.583Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization和Neural Networks and Deep Learning 两门课的课程笔记大纲梳理，我用我觉得的理解进行归类，方面以后查找 ~</p><a id="more"></a><h1 id="神经网络基础"><a href="#神经网络基础" class="headerlink" title="神经网络基础"></a>神经网络基础</h1><h2 id="一、以神经网络的结构看逻辑回归"><a href="#一、以神经网络的结构看逻辑回归" class="headerlink" title="一、以神经网络的结构看逻辑回归"></a>一、以神经网络的结构看逻辑回归</h2><ol><li><p>sigmoid函数</p></li><li><p>loss function 损失函数和 cost funcrion 代价函数</p></li><li><p>Gradient Descent 梯度下降法</p></li></ol><h2 id="二、向量化（Vectorization）-对应到硬件就是并行计算"><a href="#二、向量化（Vectorization）-对应到硬件就是并行计算" class="headerlink" title="二、向量化（Vectorization）(对应到硬件就是并行计算)"></a>二、向量化（Vectorization）(对应到硬件就是并行计算)</h2><h2 id="三、广播（broadcasting）"><a href="#三、广播（broadcasting）" class="headerlink" title="三、广播（broadcasting）"></a>三、广播（broadcasting）</h2><!--more--><h1 id="浅层神经网络"><a href="#浅层神经网络" class="headerlink" title="浅层神经网络"></a>浅层神经网络</h1><h2 id="一、计算神经网络的输出-数学角度"><a href="#一、计算神经网络的输出-数学角度" class="headerlink" title="一、计算神经网络的输出 (数学角度)"></a>一、计算神经网络的输出 (数学角度)</h2><h2 id="二、向量化实现-代码实现"><a href="#二、向量化实现-代码实现" class="headerlink" title="二、向量化实现 (代码实现)"></a>二、向量化实现 (代码实现)</h2><h2 id="三、激活函数"><a href="#三、激活函数" class="headerlink" title="三、激活函数"></a>三、激活函数</h2><h2 id="四、神经网络的反向梯度下降-数学和代码"><a href="#四、神经网络的反向梯度下降-数学和代码" class="headerlink" title="四、神经网络的反向梯度下降(数学和代码)"></a>四、神经网络的反向梯度下降(数学和代码)</h2><h2 id="五、参数随机初始化"><a href="#五、参数随机初始化" class="headerlink" title="五、参数随机初始化"></a>五、参数随机初始化</h2><h1 id="深层神经网络"><a href="#深层神经网络" class="headerlink" title="深层神经网络"></a>深层神经网络</h1><h2 id="一、使用深层表示的原因"><a href="#一、使用深层表示的原因" class="headerlink" title="一、使用深层表示的原因"></a>一、使用深层表示的原因</h2><h2 id="二、搭建深层神经网络块"><a href="#二、搭建深层神经网络块" class="headerlink" title="二、搭建深层神经网络块"></a>二、搭建深层神经网络块</h2><h2 id="三、矩阵的维度"><a href="#三、矩阵的维度" class="headerlink" title="三、矩阵的维度"></a>三、矩阵的维度</h2><hr><h1 id="优化（一）-—-过拟合"><a href="#优化（一）-—-过拟合" class="headerlink" title="优化（一） — 过拟合"></a>优化（一） — 过拟合</h1><h2 id="一、数据划分：训练-验证-测试集（训练之前）"><a href="#一、数据划分：训练-验证-测试集（训练之前）" class="headerlink" title="一、数据划分：训练 / 验证 / 测试集（训练之前）"></a>一、数据划分：训练 / 验证 / 测试集（训练之前）</h2><h2 id="二、模型估计：偏差-方差（训练之后，对训练结果的评估）"><a href="#二、模型估计：偏差-方差（训练之后，对训练结果的评估）" class="headerlink" title="二、模型估计：偏差 / 方差（训练之后，对训练结果的评估）"></a>二、模型估计：偏差 / 方差（训练之后，对训练结果的评估）</h2><h3 id="1-高偏差的解决："><a href="#1-高偏差的解决：" class="headerlink" title="1.高偏差的解决："></a>1.<strong>高偏差</strong>的解决：</h3><p>（1）扩大网络规模，如添加隐藏层或隐藏单元数目<br>（2）寻找合适的网络架构，使用更大的 NN 结构<br>（3）花费更长时间训练，增加迭代次数</p><h3 id="2-高方差的解决："><a href="#2-高方差的解决：" class="headerlink" title="2.高方差的解决："></a>2.<strong>高方差</strong>的解决：</h3><p>（1）获取更多的数据；<br>（2）正则化（regularization），防止过拟合<br>（3）寻找更合适的网络结构。</p><h2 id="三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）"><a href="#三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）" class="headerlink" title="三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）"></a>三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）</h2><p>正则化的方法</p><h3 id="1-L2"><a href="#1-L2" class="headerlink" title="1. L2"></a>1. <strong>L2</strong></h3><p>加入的正则化项，衰减了W的权重</p><h3 id="2-dropout"><a href="#2-dropout" class="headerlink" title="2. dropout"></a>2. <strong>dropout</strong></h3><p>神经元不会再特别依赖于任何一个输入特征。反向随机失活（Inverted dropout）是实现 dropout 的方法。</p><h3 id="3-数据扩增（Data-Augmentation）"><a href="#3-数据扩增（Data-Augmentation）" class="headerlink" title="3.数据扩增（Data Augmentation）"></a>3.数据扩增（Data Augmentation）</h3><h3 id="4-早停止法（Early-Stopping）"><a href="#4-早停止法（Early-Stopping）" class="headerlink" title="4.早停止法（Early Stopping）"></a>4.早停止法（Early Stopping）</h3><h1 id="优化（二）—-整个前向与反向的过程"><a href="#优化（二）—-整个前向与反向的过程" class="headerlink" title="优化（二）— 整个前向与反向的过程"></a>优化（二）— 整个前向与反向的过程</h1><h2 id="一、对于训练集的处理"><a href="#一、对于训练集的处理" class="headerlink" title="一、对于训练集的处理"></a>一、对于训练集的处理</h2><h3 id="1-Mini-Batch"><a href="#1-Mini-Batch" class="headerlink" title="1.Mini-Batch"></a>1.Mini-Batch</h3><p>每次处理训练集的一部分进行梯度下降，避免了遍历完整个训练集才完成一次参数更新</p><h3 id="2-标准化输入（Normalization）"><a href="#2-标准化输入（Normalization）" class="headerlink" title="2.标准化输入（Normalization）"></a>2.标准化输入（Normalization）</h3><h2 id="二、初始化参数"><a href="#二、初始化参数" class="headerlink" title="二、初始化参数"></a>二、初始化参数</h2><p>在参数W，b初始化时就进行优化，应对反向传播时会出现的<strong>梯度消失和梯度爆炸</strong>（vanishing/exploding gradient）问题</p><h3 id="1-He-Initialization"><a href="#1-He-Initialization" class="headerlink" title="1.He Initialization"></a>1.He Initialization</h3><p>激活函数使用 ReLU 时，Var(wi)=2/n[l-1] He Initialization</p><h3 id="2-Xavier-initialization"><a href="#2-Xavier-initialization" class="headerlink" title="2.Xavier initialization"></a>2.Xavier initialization</h3><p>激活函数使用 tanh 时，Var(wi)=1/n[l-1] Xavier initialization</p><h2 id="二、反向传播加速梯度下降的过程"><a href="#二、反向传播加速梯度下降的过程" class="headerlink" title="二、反向传播加速梯度下降的过程"></a>二、反向传播加速梯度下降的过程</h2><h3 id="1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）"><a href="#1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）" class="headerlink" title="1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）"></a>1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）</h3><h3 id="2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快"><a href="#2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快" class="headerlink" title="2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快"></a>2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快</h3><h3 id="3-Adam：将Momentum-和-RMS-Prop相结合"><a href="#3-Adam：将Momentum-和-RMS-Prop相结合" class="headerlink" title="3.Adam：将Momentum 和 RMS Prop相结合"></a>3.Adam：将Momentum 和 RMS Prop相结合</h3><h2 id="三、改变学习率加速收敛"><a href="#三、改变学习率加速收敛" class="headerlink" title="三、改变学习率加速收敛"></a>三、改变学习率加速收敛</h2><p>学习率衰减：初期学习率大，梯度下降快，后期学习步长小，有助于收敛至最优解</p><h1 id="优化（三）"><a href="#优化（三）" class="headerlink" title="优化（三）"></a>优化（三）</h1><h2 id="一、判断梯度计算是否正确"><a href="#一、判断梯度计算是否正确" class="headerlink" title="一、判断梯度计算是否正确"></a>一、判断梯度计算是否正确</h2><p>用梯度检验(只适用于debug，且不能和dropout同时使用)</p><h2 id="二、高维度优化遇到的问题"><a href="#二、高维度优化遇到的问题" class="headerlink" title="二、高维度优化遇到的问题"></a>二、高维度优化遇到的问题</h2><p>1.低维度：局部最优会阻碍找到全局最优的解</p><p>2.高维度：不存在局部最优的阻碍，但是鞍点会降低学习速度，通过Adama算法加速提高效率。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization和Neural Networks and Deep Learning 两门课的课程笔记大纲梳理，我用我觉得的理解进行归类，方面以后查找 ~&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>Deep-Learning-吴恩达-作业（六）</title>
@@ -434,49 +479,6 @@
     
     
       <category term="云" scheme="http://yoursite.com/tags/%E4%BA%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>啥叫运营商</title>
-    <link href="http://yoursite.com/2018/05/18/%E5%95%A5%E5%8F%AB%E8%BF%90%E8%90%A5%E5%95%86/"/>
-    <id>http://yoursite.com/2018/05/18/啥叫运营商/</id>
-    <published>2018-05-18T07:21:14.000Z</published>
-    <updated>2018-05-18T07:21:52.920Z</updated>
-    
-    <content type="html"><![CDATA[<p>运营商是指<strong>提供网络服务的供应商</strong>，如中国联通、中国电信、 中国移动、中国移动这些公司，而诺基亚、三星等这些<strong>通信设备的生产厂家叫生产商</strong>，因为国家在电信管理方面相当严格，只有拥有工信部颁发的运营执照的公司才能架设网络，从通信行业来说，设备生产商和运营商是相互依存的。</p><p>不过今天看到一篇文章讲5G时代的到来对设备商和运营商的影响，感觉还是蛮有趣的，而且对两者会有更深刻的认识吧~                                                                                                            <a href="http://www.sohu.com/a/197243837_100030976" target="_blank" rel="noopener">http://www.sohu.com/a/197243837_100030976</a></p><a id="more"></a><p>随着技术的更新，运营商对于基站的建设可以说是投资巨大，稍有不慎可能全部打水漂，特别是当下技术还不成熟时，这让我想到了当年的液晶和等离子之争，现在的OLED和QLED之争，谁知道几年以后会发生如何的变迁，最重要的是站对阵营啊 ~</p><p>关于为什么要推动5G技术发展，引用文章种中的比喻还是很形象的，设备商是军火商，没有战争，怎么发财。没有新技术，怎么忽悠运营商。而运营商也希望通过网络技术来建筑竞争壁垒，获取技术红利。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;运营商是指&lt;strong&gt;提供网络服务的供应商&lt;/strong&gt;，如中国联通、中国电信、 中国移动、中国移动这些公司，而诺基亚、三星等这些&lt;strong&gt;通信设备的生产厂家叫生产商&lt;/strong&gt;，因为国家在电信管理方面相当严格，只有拥有工信部颁发的运营执照的公司才能架设网络，从通信行业来说，设备生产商和运营商是相互依存的。&lt;/p&gt;
-&lt;p&gt;不过今天看到一篇文章讲5G时代的到来对设备商和运营商的影响，感觉还是蛮有趣的，而且对两者会有更深刻的认识吧~                                                                                                            &lt;a href=&quot;http://www.sohu.com/a/197243837_100030976&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.sohu.com/a/197243837_100030976&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>图像处理之坐标系和宽高</title>
-    <link href="http://yoursite.com/2018/05/16/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B%E5%9D%90%E6%A0%87%E7%B3%BB%E5%92%8C%E5%AE%BD%E9%AB%98/"/>
-    <id>http://yoursite.com/2018/05/16/图像处理之坐标系和宽高/</id>
-    <published>2018-05-16T12:31:13.000Z</published>
-    <updated>2018-05-16T12:48:07.284Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  <strong>坐标系-宽高-行列</strong>，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~</p><p><a href="https://blog.csdn.net/oqqenvy12/article/details/71933651" target="_blank" rel="noopener">https://blog.csdn.net/oqqenvy12/article/details/71933651</a></p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  &lt;strong&gt;坐标系-宽高-行列&lt;/strong&gt;，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https:
-      
-    
-    </summary>
-    
-    
-      <category term="opencv" scheme="http://yoursite.com/tags/opencv/"/>
     
   </entry>
   

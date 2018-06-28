@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/5 | 绿小蕤</title>
+  <title>Deep Learning 吴恩达 课程笔记大纲 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
-<meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/archives/2018/05/index.html">
+  <meta name="description" content="PS：Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization和Neural Networks and Deep Learning 两门课的课程笔记大纲梳理，我用我觉得的理解进行归类，方面以后查找 ~">
+<meta name="keywords" content="深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Learning 吴恩达 课程笔记大纲">
+<meta property="og:url" content="http://yoursite.com/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="PS：Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization和Neural Networks and Deep Learning 两门课的课程笔记大纲梳理，我用我觉得的理解进行归类，方面以后查找 ~">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-28T01:37:35.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="Deep Learning 吴恩达 课程笔记大纲">
+<meta name="twitter:description" content="PS：Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization和Neural Networks and Deep Learning 两门课的课程笔记大纲梳理，我用我觉得的理解进行归类，方面以后查找 ~">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,489 +161,205 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Deep-Learning-吴恩达-课程笔记大纲" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Deep Learning 吴恩达 课程笔记大纲
+    </h1>
+  
+
+        
+        <a href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/" class="archive-article-date">
+  	<time datetime="2018-06-27T02:59:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-27</time>
+</a>
+
+
+<a href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/" class="archive-article-date">
+  	<time datetime="2018-06-27T02:59:57.000Z" itemprop="datePublished">2018-06-27</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
     
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization和Neural Networks and Deep Learning 两门课的课程笔记大纲梳理，我用我觉得的理解进行归类，方面以后查找 ~</p>
+<a id="more"></a>
+<h1 id="神经网络基础"><a href="#神经网络基础" class="headerlink" title="神经网络基础"></a>神经网络基础</h1><h2 id="一、以神经网络的结构看逻辑回归"><a href="#一、以神经网络的结构看逻辑回归" class="headerlink" title="一、以神经网络的结构看逻辑回归"></a>一、以神经网络的结构看逻辑回归</h2><ol>
+<li><p>sigmoid函数</p>
+</li>
+<li><p>loss function 损失函数和 cost funcrion 代价函数</p>
+</li>
+<li><p>Gradient Descent 梯度下降法</p>
+</li>
+</ol>
+<h2 id="二、向量化（Vectorization）-对应到硬件就是并行计算"><a href="#二、向量化（Vectorization）-对应到硬件就是并行计算" class="headerlink" title="二、向量化（Vectorization）(对应到硬件就是并行计算)"></a>二、向量化（Vectorization）(对应到硬件就是并行计算)</h2><h2 id="三、广播（broadcasting）"><a href="#三、广播（broadcasting）" class="headerlink" title="三、广播（broadcasting）"></a>三、广播（broadcasting）</h2><!--more-->
+<h1 id="浅层神经网络"><a href="#浅层神经网络" class="headerlink" title="浅层神经网络"></a>浅层神经网络</h1><h2 id="一、计算神经网络的输出-数学角度"><a href="#一、计算神经网络的输出-数学角度" class="headerlink" title="一、计算神经网络的输出 (数学角度)"></a>一、计算神经网络的输出 (数学角度)</h2><h2 id="二、向量化实现-代码实现"><a href="#二、向量化实现-代码实现" class="headerlink" title="二、向量化实现 (代码实现)"></a>二、向量化实现 (代码实现)</h2><h2 id="三、激活函数"><a href="#三、激活函数" class="headerlink" title="三、激活函数"></a>三、激活函数</h2><h2 id="四、神经网络的反向梯度下降-数学和代码"><a href="#四、神经网络的反向梯度下降-数学和代码" class="headerlink" title="四、神经网络的反向梯度下降(数学和代码)"></a>四、神经网络的反向梯度下降(数学和代码)</h2><h2 id="五、参数随机初始化"><a href="#五、参数随机初始化" class="headerlink" title="五、参数随机初始化"></a>五、参数随机初始化</h2><h1 id="深层神经网络"><a href="#深层神经网络" class="headerlink" title="深层神经网络"></a>深层神经网络</h1><h2 id="一、使用深层表示的原因"><a href="#一、使用深层表示的原因" class="headerlink" title="一、使用深层表示的原因"></a>一、使用深层表示的原因</h2><h2 id="二、搭建深层神经网络块"><a href="#二、搭建深层神经网络块" class="headerlink" title="二、搭建深层神经网络块"></a>二、搭建深层神经网络块</h2><h2 id="三、矩阵的维度"><a href="#三、矩阵的维度" class="headerlink" title="三、矩阵的维度"></a>三、矩阵的维度</h2><hr>
+<h1 id="优化（一）-—-过拟合"><a href="#优化（一）-—-过拟合" class="headerlink" title="优化（一） — 过拟合"></a>优化（一） — 过拟合</h1><h2 id="一、数据划分：训练-验证-测试集（训练之前）"><a href="#一、数据划分：训练-验证-测试集（训练之前）" class="headerlink" title="一、数据划分：训练 / 验证 / 测试集（训练之前）"></a>一、数据划分：训练 / 验证 / 测试集（训练之前）</h2><h2 id="二、模型估计：偏差-方差（训练之后，对训练结果的评估）"><a href="#二、模型估计：偏差-方差（训练之后，对训练结果的评估）" class="headerlink" title="二、模型估计：偏差 / 方差（训练之后，对训练结果的评估）"></a>二、模型估计：偏差 / 方差（训练之后，对训练结果的评估）</h2><h3 id="1-高偏差的解决："><a href="#1-高偏差的解决：" class="headerlink" title="1.高偏差的解决："></a>1.<strong>高偏差</strong>的解决：</h3><p>（1）扩大网络规模，如添加隐藏层或隐藏单元数目<br>（2）寻找合适的网络架构，使用更大的 NN 结构<br>（3）花费更长时间训练，增加迭代次数</p>
+<h3 id="2-高方差的解决："><a href="#2-高方差的解决：" class="headerlink" title="2.高方差的解决："></a>2.<strong>高方差</strong>的解决：</h3><p>（1）获取更多的数据；<br>（2）正则化（regularization），防止过拟合<br>（3）寻找更合适的网络结构。</p>
+<h2 id="三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）"><a href="#三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）" class="headerlink" title="三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）"></a>三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）</h2><p>正则化的方法</p>
+<h3 id="1-L2"><a href="#1-L2" class="headerlink" title="1. L2"></a>1. <strong>L2</strong></h3><p>加入的正则化项，衰减了W的权重</p>
+<h3 id="2-dropout"><a href="#2-dropout" class="headerlink" title="2. dropout"></a>2. <strong>dropout</strong></h3><p>神经元不会再特别依赖于任何一个输入特征。反向随机失活（Inverted dropout）是实现 dropout 的方法。</p>
+<h3 id="3-数据扩增（Data-Augmentation）"><a href="#3-数据扩增（Data-Augmentation）" class="headerlink" title="3.数据扩增（Data Augmentation）"></a>3.数据扩增（Data Augmentation）</h3><h3 id="4-早停止法（Early-Stopping）"><a href="#4-早停止法（Early-Stopping）" class="headerlink" title="4.早停止法（Early Stopping）"></a>4.早停止法（Early Stopping）</h3><h1 id="优化（二）—-整个前向与反向的过程"><a href="#优化（二）—-整个前向与反向的过程" class="headerlink" title="优化（二）— 整个前向与反向的过程"></a>优化（二）— 整个前向与反向的过程</h1><h2 id="一、对于训练集的处理"><a href="#一、对于训练集的处理" class="headerlink" title="一、对于训练集的处理"></a>一、对于训练集的处理</h2><h3 id="1-Mini-Batch"><a href="#1-Mini-Batch" class="headerlink" title="1.Mini-Batch"></a>1.Mini-Batch</h3><p>每次处理训练集的一部分进行梯度下降，避免了遍历完整个训练集才完成一次参数更新</p>
+<h3 id="2-标准化输入（Normalization）"><a href="#2-标准化输入（Normalization）" class="headerlink" title="2.标准化输入（Normalization）"></a>2.标准化输入（Normalization）</h3><h2 id="二、初始化参数"><a href="#二、初始化参数" class="headerlink" title="二、初始化参数"></a>二、初始化参数</h2><p>在参数W，b初始化时就进行优化，应对反向传播时会出现的<strong>梯度消失和梯度爆炸</strong>（vanishing/exploding gradient）问题</p>
+<h3 id="1-He-Initialization"><a href="#1-He-Initialization" class="headerlink" title="1.He Initialization"></a>1.He Initialization</h3><p>激活函数使用 ReLU 时，Var(wi)=2/n[l-1] He Initialization</p>
+<h3 id="2-Xavier-initialization"><a href="#2-Xavier-initialization" class="headerlink" title="2.Xavier initialization"></a>2.Xavier initialization</h3><p>激活函数使用 tanh 时，Var(wi)=1/n[l-1] Xavier initialization</p>
+<h2 id="二、反向传播加速梯度下降的过程"><a href="#二、反向传播加速梯度下降的过程" class="headerlink" title="二、反向传播加速梯度下降的过程"></a>二、反向传播加速梯度下降的过程</h2><h3 id="1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）"><a href="#1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）" class="headerlink" title="1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）"></a>1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）</h3><h3 id="2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快"><a href="#2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快" class="headerlink" title="2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快"></a>2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快</h3><h3 id="3-Adam：将Momentum-和-RMS-Prop相结合"><a href="#3-Adam：将Momentum-和-RMS-Prop相结合" class="headerlink" title="3.Adam：将Momentum 和 RMS Prop相结合"></a>3.Adam：将Momentum 和 RMS Prop相结合</h3><h2 id="三、改变学习率加速收敛"><a href="#三、改变学习率加速收敛" class="headerlink" title="三、改变学习率加速收敛"></a>三、改变学习率加速收敛</h2><p>学习率衰减：初期学习率大，梯度下降快，后期学习步长小，有助于收敛至最优解</p>
+<h1 id="优化（三）"><a href="#优化（三）" class="headerlink" title="优化（三）"></a>优化（三）</h1><h2 id="一、判断梯度计算是否正确"><a href="#一、判断梯度计算是否正确" class="headerlink" title="一、判断梯度计算是否正确"></a>一、判断梯度计算是否正确</h2><p>用梯度检验(只适用于debug，且不能和dropout同时使用)</p>
+<h2 id="二、高维度优化遇到的问题"><a href="#二、高维度优化遇到的问题" class="headerlink" title="二、高维度优化遇到的问题"></a>二、高维度优化遇到的问题</h2><p>1.低维度：局部最优会阻碍找到全局最优的解</p>
+<p>2.高维度：不存在局部最优的阻碍，但是鞍点会降低学习速度，通过Adama算法加速提高效率。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/28/CryptoKitties/" class="archive-article-date">
-  	<time datetime="2018-05-28T08:55:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-28</time>
-</a>
-
-
-<a href="/2018/05/28/CryptoKitties/" class="archive-article-date">
-  	<time datetime="2018-05-28T08:55:11.000Z" itemprop="datePublished">2018-05-28</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/28/CryptoKitties/">CryptoKitties</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/28/2050大会——关于图像处理的收获/" class="archive-article-date">
-  	<time datetime="2018-05-28T07:46:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-28</time>
-</a>
+      
 
-
-<a href="/2018/05/28/2050大会——关于图像处理的收获/" class="archive-article-date">
-  	<time datetime="2018-05-28T07:46:21.000Z" itemprop="datePublished">2018-05-28</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/28/2050大会——关于图像处理的收获/">2050大会——关于图像处理的收获</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Advanced Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/18/虚拟机和云-特别简陋的认识/" class="archive-article-date">
-  	<time datetime="2018-05-18T09:00:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-18</time>
-</a>
-
-
-<a href="/2018/05/18/虚拟机和云-特别简陋的认识/" class="archive-article-date">
-  	<time datetime="2018-05-18T09:00:10.000Z" itemprop="datePublished">2018-05-18</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      </div>
     </span>
-</a>
+  </div>
+</div>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/18/虚拟机和云-特别简陋的认识/">虚拟机和云(特别简陋的认识)</a>
-    </h1>
-  
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/" alt="微信分享二维码">
+    </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">云</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/18/啥叫运营商/" class="archive-article-date">
-  	<time datetime="2018-05-18T07:21:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-18</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/06/28/Deep-Learning-吴恩达-作业（七）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Deep-Learning-吴恩达-作业（七）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/25/Deep-Learning-吴恩达-作业（六）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Deep-Learning-吴恩达-作业（六）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-<a href="/2018/05/18/啥叫运营商/" class="archive-article-date">
-  	<time datetime="2018-05-18T07:21:14.000Z" itemprop="datePublished">2018-05-18</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/18/啥叫运营商/">啥叫运营商</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#神经网络基础"><span class="toc-number">1.</span> <span class="toc-text">神经网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、以神经网络的结构看逻辑回归"><span class="toc-number">1.1.</span> <span class="toc-text">一、以神经网络的结构看逻辑回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、向量化（Vectorization）-对应到硬件就是并行计算"><span class="toc-number">1.2.</span> <span class="toc-text">二、向量化（Vectorization）(对应到硬件就是并行计算)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、广播（broadcasting）"><span class="toc-number">1.3.</span> <span class="toc-text">三、广播（broadcasting）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浅层神经网络"><span class="toc-number">2.</span> <span class="toc-text">浅层神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、计算神经网络的输出-数学角度"><span class="toc-number">2.1.</span> <span class="toc-text">一、计算神经网络的输出 (数学角度)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、向量化实现-代码实现"><span class="toc-number">2.2.</span> <span class="toc-text">二、向量化实现 (代码实现)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、激活函数"><span class="toc-number">2.3.</span> <span class="toc-text">三、激活函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、神经网络的反向梯度下降-数学和代码"><span class="toc-number">2.4.</span> <span class="toc-text">四、神经网络的反向梯度下降(数学和代码)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、参数随机初始化"><span class="toc-number">2.5.</span> <span class="toc-text">五、参数随机初始化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#深层神经网络"><span class="toc-number">3.</span> <span class="toc-text">深层神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、使用深层表示的原因"><span class="toc-number">3.1.</span> <span class="toc-text">一、使用深层表示的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、搭建深层神经网络块"><span class="toc-number">3.2.</span> <span class="toc-text">二、搭建深层神经网络块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、矩阵的维度"><span class="toc-number">3.3.</span> <span class="toc-text">三、矩阵的维度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化（一）-—-过拟合"><span class="toc-number">4.</span> <span class="toc-text">优化（一） — 过拟合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、数据划分：训练-验证-测试集（训练之前）"><span class="toc-number">4.1.</span> <span class="toc-text">一、数据划分：训练 / 验证 / 测试集（训练之前）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、模型估计：偏差-方差（训练之后，对训练结果的评估）"><span class="toc-number">4.2.</span> <span class="toc-text">二、模型估计：偏差 / 方差（训练之后，对训练结果的评估）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-高偏差的解决："><span class="toc-number">4.2.1.</span> <span class="toc-text">1.高偏差的解决：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-高方差的解决："><span class="toc-number">4.2.2.</span> <span class="toc-text">2.高方差的解决：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）"><span class="toc-number">4.3.</span> <span class="toc-text">三、解决高方差的方法：正则化（regularization），防止过拟合（对于训练结果不理想的解决方法）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-L2"><span class="toc-number">4.3.1.</span> <span class="toc-text">1. L2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-dropout"><span class="toc-number">4.3.2.</span> <span class="toc-text">2. dropout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-数据扩增（Data-Augmentation）"><span class="toc-number">4.3.3.</span> <span class="toc-text">3.数据扩增（Data Augmentation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-早停止法（Early-Stopping）"><span class="toc-number">4.3.4.</span> <span class="toc-text">4.早停止法（Early Stopping）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化（二）—-整个前向与反向的过程"><span class="toc-number">5.</span> <span class="toc-text">优化（二）— 整个前向与反向的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、对于训练集的处理"><span class="toc-number">5.1.</span> <span class="toc-text">一、对于训练集的处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Mini-Batch"><span class="toc-number">5.1.1.</span> <span class="toc-text">1.Mini-Batch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-标准化输入（Normalization）"><span class="toc-number">5.1.2.</span> <span class="toc-text">2.标准化输入（Normalization）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、初始化参数"><span class="toc-number">5.2.</span> <span class="toc-text">二、初始化参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-He-Initialization"><span class="toc-number">5.2.1.</span> <span class="toc-text">1.He Initialization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Xavier-initialization"><span class="toc-number">5.2.2.</span> <span class="toc-text">2.Xavier initialization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、反向传播加速梯度下降的过程"><span class="toc-number">5.3.</span> <span class="toc-text">二、反向传播加速梯度下降的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）"><span class="toc-number">5.3.1.</span> <span class="toc-text">1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快"><span class="toc-number">5.3.2.</span> <span class="toc-text">2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Adam：将Momentum-和-RMS-Prop相结合"><span class="toc-number">5.3.3.</span> <span class="toc-text">3.Adam：将Momentum 和 RMS Prop相结合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、改变学习率加速收敛"><span class="toc-number">5.4.</span> <span class="toc-text">三、改变学习率加速收敛</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化（三）"><span class="toc-number">6.</span> <span class="toc-text">优化（三）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、判断梯度计算是否正确"><span class="toc-number">6.1.</span> <span class="toc-text">一、判断梯度计算是否正确</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、高维度优化遇到的问题"><span class="toc-number">6.2.</span> <span class="toc-text">二、高维度优化遇到的问题</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/16/图像处理之坐标系和宽高/" class="archive-article-date">
-  	<time datetime="2018-05-16T12:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
+        
+    </div>
+</aside>
 
 
-<a href="/2018/05/16/图像处理之坐标系和宽高/" class="archive-article-date">
-  	<time datetime="2018-05-16T12:31:13.000Z" itemprop="datePublished">2018-05-16</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/16/图像处理之坐标系和宽高/">图像处理之坐标系和宽高</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/XML、YAML、JSON/" class="archive-article-date">
-  	<time datetime="2018-05-14T09:04:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/XML、YAML、JSON/" class="archive-article-date">
-  	<time datetime="2018-05-14T09:04:32.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/XML、YAML、JSON/">XML、YAML、JSON</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/傅里叶变换和图像处理/">傅里叶变换和图像处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/opencv基本绘图/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:37:13.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/opencv基本绘图/">opencv基本绘图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-w">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/图像读取的四种方法/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/图像读取的四种方法/" class="archive-article-date">
-  	<time datetime="2018-05-14T03:06:31.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/图像读取的四种方法/">图像读取的四种方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
-</a>
-
-
-<a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished">2018-05-11</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/11/机器学习算法大总结/">机器学习算法大总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/05/page/2/">2</a><a class="page-number" href="/archives/2018/05/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/05/page/2/">Next &raquo;</a>
-    </nav>
   
+
+  
+
+  
+
+
 
 
           </div>
@@ -676,8 +393,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
