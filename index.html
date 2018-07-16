@@ -162,6 +162,391 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cs231n笔记（三）——分段式反向传播求梯度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/">cs231n笔记（三）——分段式反向传播求梯度</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/" class="archive-article-date">
+  	<time datetime="2018-07-16T08:50:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+
+
+<a href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/" class="archive-article-date">
+  	<time datetime="2018-07-16T08:50:13.000Z" itemprop="datePublished">2018-07-16</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>1.反向传播</p>
+<p>反向传播是利用<strong>链式法则</strong> ，递归计算梯度的方法</p>
+<p>2.<strong>分段反向传播求梯度</strong>  (重点)</p>
+<p><strong>不需要关于输入变量的明确的函数来计算导数</strong>，因为需要求的是梯度值。只需要将表达式分成不同的可以求导的模块，然后在反向传播中一步一步地计算<strong>梯度</strong>。</p>
+<p>3.加法、乘法和取最大值在反向传播中关于梯度的理解</p>
+<p>4.用向量化计算梯度</p>
+        
+          <a class="article-more-a" href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="w-cs231n笔记（二）——最优化" class="article article-type-w  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/cs231n笔记（二）——最优化/">cs231n笔记（二）——最优化</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/16/cs231n笔记（二）——最优化/" class="archive-article-date">
+  	<time datetime="2018-07-16T05:02:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+
+
+<a href="/2018/07/16/cs231n笔记（二）——最优化/" class="archive-article-date">
+  	<time datetime="2018-07-16T05:02:17.000Z" itemprop="datePublished">2018-07-16</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、分类问题三步骤"><a href="#一、分类问题三步骤" class="headerlink" title="一、分类问题三步骤"></a>一、分类问题三步骤</h2><p><strong>1. 评分函数（score function）</strong> ：将原始图像数据<strong>映射为各个类别的得分</strong>，得分高低代表图像属于该类别的可能性高低。</p>
+<p>线性分类评分函数的线性映射：<img src="https://www.zhihu.com/equation?tex=%5Cdisplaystyle+f%28x_i%2CW%2Cb%29%3DWx_i%2Bb" alt="\displaystyle f(x_i,W,b)=Wx_i+b"></p>
+<p><strong>2. 损失函数（loss function）</strong> ：量化分类标签的得分与真实标签之间一致性。也就是<strong>量化某个具体权重集W的质量</strong> 。</p>
+<p><strong>3.最优化（Optimization）</strong> ：找到能够最小化损失函数值的W。</p>
+<h2 id="二、最优化-Optimization"><a href="#二、最优化-Optimization" class="headerlink" title="二、最优化 Optimization"></a>二、最优化 Optimization</h2><h3 id="1-随机搜索"><a href="#1-随机搜索" class="headerlink" title="1.随机搜索"></a>1.随机搜索</h3><p>尝试了若干随机生成的权重矩阵W，其中某些的损失值较小，而另一些的损失值大些。我们可以把这次随机搜索中找到的最好的权重W取出，然后去跑测试集</p>
+<h3 id="2-随机本地搜索"><a href="#2-随机本地搜索" class="headerlink" title="2.随机本地搜索"></a>2.随机本地搜索</h3><p>从一个随机<img src="http://www.zhihu.com/equation?tex=W" alt="W">开始，然后生成一个随机的扰动<img src="http://www.zhihu.com/equation?tex=%5Cdelta+W" alt="\delta W"> ，只有当<img src="http://www.zhihu.com/equation?tex=W%2B%5Cdelta+W" alt="W+\delta W">的损失值变低，才更新。</p>
+<h3 id="3-梯度下降"><a href="#3-梯度下降" class="headerlink" title="3.梯度下降"></a>3.梯度下降</h3><p>前两个方法中，我们是尝试在权重空间中找到一个方向，沿着该方向能降低损失函数的损失值。其实<strong>不需要随机寻找方向</strong>，可以直接计算出最陡峭的方向，这个方向就是损失函数的梯度（gradient）。</p>
+<p>方向导数：某个方向上的导数</p>
+<p>梯度：是一个矢量，是方向导数中取到最大值的方向，梯度的值是方向导数的最大值。</p>
+<h2 id="三、计算梯度"><a href="#三、计算梯度" class="headerlink" title="三、计算梯度"></a>三、计算梯度</h2><p>计算梯度有两种方法，一个是缓慢的近似方法（数值梯度法），但实现相对简单。另一个方法（分析梯度法）计算迅速，结果精确，但是实现时容易出错，且需要使用微分。</p>
+<h3 id="1-数值计算梯度法"><a href="#1-数值计算梯度法" class="headerlink" title="1.数值计算梯度法"></a>1.数值计算梯度法</h3><p>使用有限差值近似计算梯度   <img src="http://www.zhihu.com/equation?tex=%5Cdisplaystyle%5Cfrac%7Bdf%28x%29%7D%7Bdx%7D%3D%5Clim_%7Bh%5Cto+0%7D%5Cfrac%7Bf%28x%2Bh%29-f%28x%29%7D%7Bh%7D" alt="\displaystyle\frac{df(x)}{dx}=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}"></p>
+<p>对所有维度进行迭代，在每个维度上产生一个很小的变化h，计算函数在该维度上的偏导数。</p>
+<p>注意在数学公式中，<strong>h</strong>的取值是趋近于0的，然而在实际中，用一个很小的数值（比如1e-5）。还有，实际中用中心差值公式（<strong>centered difference formula）</strong><img src="http://www.zhihu.com/equation?tex=%5Bf%28x%2Bh%29-f%28x-h%29%5D%2F2h" alt="[f(x+h)-f(x-h)]/2h">效果较好。</p>
+<p><strong>缺点是效率低</strong>：计算数值梯度的复杂性和参数的量线性相关。如果有30730个参数，损失函数每走一步就需要计算30731次损失函数的梯度。现代神经网络很容易就有上千万的参数，显然这个策略不适合大规模数据。</p>
+<h3 id="2-微分分析计算梯度"><a href="#2-微分分析计算梯度" class="headerlink" title="2.微分分析计算梯度"></a>2.微分分析计算梯度</h3><p>利用微分来分析，能得到计算梯度的公式（不是近似），用公式计算梯度速度很快，唯一不好的就是实现的时候容易出错。</p>
+<h3 id="3-梯度检查"><a href="#3-梯度检查" class="headerlink" title="3.梯度检查"></a>3.梯度检查</h3><p>由于微分分析计算梯度容易出错 ，实际操作时常常<strong>将分析梯度法的结果和数值梯度法的结果作比较</strong>，以此来<strong>检查其实现的正确性</strong>，这个步骤叫做<strong>梯度检查</strong>。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/16/cs231n笔记（二）——最优化/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-cs231n笔记（一）——线性回归、逻辑回归、多分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/">cs231n笔记（一）——线性回归、逻辑回归、多分类</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/" class="archive-article-date">
+  	<time datetime="2018-07-15T13:23:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+</a>
+
+
+<a href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/" class="archive-article-date">
+  	<time datetime="2018-07-15T13:23:33.000Z" itemprop="datePublished">2018-07-15</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>一、线性回归</p>
+<p>二、逻辑回归</p>
+<p>三、多分类</p>
+<p>1.根据像素差异分类</p>
+<p>2.线性分类</p>
+<p>   （1）多类SVM分类器-折叶损失</p>
+<p>   （2）softmax分类器-交叉熵损失</p>
+        
+          <a class="article-more-a" href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-显卡" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/15/显卡/">显卡</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/15/显卡/" class="archive-article-date">
+  	<time datetime="2018-07-15T03:28:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+</a>
+
+
+<a href="/2018/07/15/显卡/" class="archive-article-date">
+  	<time datetime="2018-07-15T03:28:11.000Z" itemprop="datePublished">2018-07-15</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS ：最近想入一个显示屏，结果发现自己连显卡是什么都搞不清楚，我真是菜的不行</p>
+<h2 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h2><p>显卡是电脑进行数模信号转换的设备，承担输出显示图形的任务。</p>
+<p>1.显存：又叫帧缓存，作用是用来<strong>存储</strong>GPU处理过或者即将提取的渲染数据</p>
+<p>2.GPU（Graphic Processing Unit）：是显卡的核心引擎，专为图形渲染设计的，并行处理方面，浮点运算方面功能强大。</p>
+<p>3.理解显存和GPU：GPU相当于电脑的CPU，显存相当于电脑的内存</p>
+        
+          <a class="article-more-a" href="/2018/07/15/显卡/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/15/显卡/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-程序是怎样跑起来的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -379,11 +764,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -561,11 +946,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -654,11 +1039,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -669,384 +1054,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/">Deep-Learning-吴恩达-作业——关于plot_decision_boundary()函数的理解</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/" class="archive-article-date">
-  	<time datetime="2018-06-25T08:24:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-
-
-<a href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/" class="archive-article-date">
-  	<time datetime="2018-06-25T08:24:17.000Z" itemprop="datePublished">2018-06-25</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊</p>
-        
-          <a class="article-more-a" href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-Deep-Learning-吴恩达-作业（四）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/24/Deep-Learning-吴恩达-作业（四）/">Deep-Learning-吴恩达-作业（四）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/24/Deep-Learning-吴恩达-作业（四）/" class="archive-article-date">
-  	<time datetime="2018-06-24T07:46:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-24</time>
-</a>
-
-
-<a href="/2018/06/24/Deep-Learning-吴恩达-作业（四）/" class="archive-article-date">
-  	<time datetime="2018-06-24T07:46:03.000Z" itemprop="datePublished">2018-06-24</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="initialization"><a href="#initialization" class="headerlink" title="initialization"></a>initialization</h2><p>PS：参数初始化是为了缓解梯度消失和爆炸问题，加快梯度下降从而加快学习的速度</p>
-<p>下面是三种不同的参数W、b的初始化方式，对于多次迭代后 cost function下降效果的影响</p>
-        
-          <a class="article-more-a" href="/2018/06/24/Deep-Learning-吴恩达-作业（四）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/24/Deep-Learning-吴恩达-作业（四）/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-深度学习和强化学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/深度学习和强化学习/">深度学习和强化学习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/21/深度学习和强化学习/" class="archive-article-date">
-  	<time datetime="2018-06-21T07:06:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-21</time>
-</a>
-
-
-<a href="/2018/06/21/深度学习和强化学习/" class="archive-article-date">
-  	<time datetime="2018-06-21T07:06:39.000Z" itemprop="datePublished">2018-06-21</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>神经网络是个模型，深度学习是一种方法。深度学习可以理解成用深度神经网络来进行机器学习，可以有效解决层数多的网络不好学习的问题。</p>
-        
-          <a class="article-more-a" href="/2018/06/21/深度学习和强化学习/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/21/深度学习和强化学习/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-Deep-Learning-吴恩达-作业（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/Deep-Learning-吴恩达-作业（三）/">Deep-Learning-吴恩达-作业（三）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/20/Deep-Learning-吴恩达-作业（三）/" class="archive-article-date">
-  	<time datetime="2018-06-20T12:54:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
-</a>
-
-
-<a href="/2018/06/20/Deep-Learning-吴恩达-作业（三）/" class="archive-article-date">
-  	<time datetime="2018-06-20T12:54:48.000Z" itemprop="datePublished">2018-06-20</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="hdf5文件"><a href="#hdf5文件" class="headerlink" title="hdf5文件"></a>hdf5文件</h2><p>PS：第一次接触这种文件格式，可以参考下面两篇博文快速知道其存储形式 ~</p>
-<p><a href="https://blog.csdn.net/yudf2010/article/details/50353292" target="_blank" rel="noopener">https://blog.csdn.net/yudf2010/article/details/50353292</a></p>
-<p><a href="http://docs.h5py.org/en/latest/quick.html#quick" target="_blank" rel="noopener">http://docs.h5py.org/en/latest/quick.html#quick</a></p>
-<p>h5py文件是存放两类对象的容器</p>
-<ul>
-<li>数据集(dataset)：像数组类的数据集合，和numpy的数组差不多。</li>
-</ul>
-<ul>
-<li>组(group)：像文件夹一样的容器，类似python中的 dict，有键(key)和值(value)。group中可以存放dataset或者其他的group。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/06/20/Deep-Learning-吴恩达-作业（三）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/20/Deep-Learning-吴恩达-作业（三）/">展开 >></a>
         </p>
       
 
@@ -1178,6 +1185,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
@@ -1194,7 +1205,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1202,11 +1213,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1218,15 +1225,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,11 +1237,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>

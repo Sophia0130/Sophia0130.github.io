@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-14T08:48:58.913Z</updated>
+  <updated>2018-07-16T08:55:01.788Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cs231n笔记（三）——分段式反向传播求梯度</title>
+    <link href="http://yoursite.com/2018/07/16/cs231n%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%88%86%E6%AE%B5%E5%BC%8F%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E6%B1%82%E6%A2%AF%E5%BA%A6/"/>
+    <id>http://yoursite.com/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/</id>
+    <published>2018-07-16T08:50:13.000Z</published>
+    <updated>2018-07-16T08:55:01.788Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>1.反向传播</p><p>反向传播是利用<strong>链式法则</strong> ，递归计算梯度的方法</p><p>2.<strong>分段反向传播求梯度</strong>  (重点)</p><p><strong>不需要关于输入变量的明确的函数来计算导数</strong>，因为需要求的是梯度值。只需要将表达式分成不同的可以求导的模块，然后在反向传播中一步一步地计算<strong>梯度</strong>。</p><p>3.加法、乘法和取最大值在反向传播中关于梯度的理解</p><p>4.用向量化计算梯度</p><a id="more"></a><h2 id="一、反向传播"><a href="#一、反向传播" class="headerlink" title="一、反向传播"></a>一、反向传播</h2><p>反向传播是利用<strong>链式法则</strong>递归计算表达式的梯度的方法，链式法则是指用相乘将梯度表达式链接起来。</p><h2 id="二、分段反向传播求梯度"><a href="#二、分段反向传播求梯度" class="headerlink" title="二、分段反向传播求梯度"></a>二、分段反向传播求梯度</h2><p>不需要关于输入变量的明确的函数来计算导数，需要求的是梯度值。</p><p>分段计算是指将函数分成不同的模块，这样计算局部梯度相对容易，然后基于链式法则将其“链”起来。实际上<strong>并不需要关于输入变量的明确的函数来计算导数</strong>，只需要将表达式分成不同的可以求导的模块，然后在反向传播中一步一步地计算<strong>梯度</strong>。</p><p>假设有如下函数：</p><p><img src="http://www.zhihu.com/equation?tex=%5Cdisplaystyle+f%28x%2Cy%29%3D%5Cfrac%7Bx%2B%5Csigma%28y%29%7D%7B%5Csigma%28x%29%2B%28x%2By%29%5E2%7D" alt="\displaystyle f(x,y)=\frac{x+\sigma(y)}{\sigma(x)+(x+y)^2}"></p><p>（1）前向传播计算每个门的输出：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = 3 # 例子数值</span><br><span class="line">y = -4</span><br><span class="line"></span><br><span class="line"># 前向传播</span><br><span class="line">sigy = 1.0 / (1 + math.exp(-y)) # 分子中的sigmoi          #(1)</span><br><span class="line">num = x + sigy # 分子                                    #(2)</span><br><span class="line">sigx = 1.0 / (1 + math.exp(-x)) # 分母中的sigmoid         #(3)</span><br><span class="line">xpy = x + y                                              #(4)</span><br><span class="line">xpysqr = xpy**2                                          #(5)</span><br><span class="line">den = sigx + xpysqr # 分母                                #(6)</span><br><span class="line">invden = 1.0 / den                                       #(7)</span><br><span class="line">f = num * invden #                                  #(8)</span><br></pre></td></tr></table></figure><p>前向传播时创建了多个中间变量，每个都是比较简单的表达式，它们计算局部梯度的方法是已知的。当对前向传播时产生每个变量(<strong>sigy, num, sigx, xpy, xpysqr, den, invden</strong>)进行回传。我们会有同样数量的变量，但是都以<strong>d</strong>开头，需要存储对应变量的梯度。然后根据使用链式法则乘以上游梯度。</p><p>（2）反向传播计算每个门的梯度：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 回传 f = num * invden</span><br><span class="line">dnum = invden # 分子的梯度                                         #(8)</span><br><span class="line">dinvden = num                                                     #(8)</span><br><span class="line"># 回传 invden = 1.0 / den </span><br><span class="line">dden = (-1.0 / (den**2)) * dinvden                                #(7)</span><br><span class="line"># 回传 den = sigx + xpysqr</span><br><span class="line">dsigx = (1) * dden                                                #(6)</span><br><span class="line">dxpysqr = (1) * dden                                              #(6)</span><br><span class="line"># 回传 xpysqr = xpy**2</span><br><span class="line">dxpy = (2 * xpy) * dxpysqr                                        #(5)</span><br><span class="line"># 回传 xpy = x + y</span><br><span class="line">dx = (1) * dxpy                                                   #(4)</span><br><span class="line">dy = (1) * dxpy                                                   #(4)</span><br><span class="line"># 回传 sigx = 1.0 / (1 + math.exp(-x))</span><br><span class="line">dx += ((1 - sigx) * sigx) * dsigx # Notice += !!                  #(3)</span><br><span class="line"># 回传 num = x + sigy</span><br><span class="line">dx += (1) * dnum                                                  #(2)</span><br><span class="line">dsigy = (1) * dnum                                                #(2)</span><br><span class="line"># 回传 sigy = 1.0 / (1 + math.exp(-y))</span><br><span class="line">dy += ((1 - sigy) * sigy) * dsigy                                 #(1)</span><br></pre></td></tr></table></figure><p><strong>（3）注意</strong></p><p><strong>对前向传播变量进行缓存</strong>：在计算反向传播时，前向传播过程中得到的一些中间变量非常有用。</p><p><strong>变量在不同分支的梯度要累加</strong>：如果变量x，y在前向传播的表达式中出现多次，那么进行反向传播的时候就要非常小心，使用+=而不是=来累计这些变量的梯度（不然就会造成覆写）。<strong>如果变量在线路中分支走向不同的部分，那么梯度在回传的时候，就应该进行累加</strong>。看（3）理解。</p><h2 id="三、加法、乘法和取最大值在反向传播中关于梯度的理解"><a href="#三、加法、乘法和取最大值在反向传播中关于梯度的理解" class="headerlink" title="三、加法、乘法和取最大值在反向传播中关于梯度的理解"></a>三、加法、乘法和取最大值在反向传播中关于梯度的理解</h2><p>神经网络中最常用的加法、乘法和取最大值这三个门单元，它们在反向传播过程中的行为都有非常简单的解释。</p><p>2<em>[x</em>y+max(w,z)]</p><p><img src="https://pic2.zhimg.com/80/39162d0c528144362cc09f1965d710d1_hd.jpg" alt="img"></p><p><strong>加法门单元</strong>：把输出的梯度相等地分发给它所有的输入。上例中，加法门把梯度2.00相等地路由给了两个输入。</p><p><strong>取最大值门单元</strong>对：将输出梯度转给前向传播中值最大的那个输入，其余的输入的梯度为0。上例中，取最大值门将梯度2.00转给了z变量，因为z的值比w高，于是w的梯度保持为0。</p><p><strong>乘法门单元</strong>：局部梯度就是交换之后的输入值，然后根据链式法则乘以输出值的梯度。上例中，x的梯度是-4.00x2.00=-8.00。</p><p>注意一种比较特殊的情况，如果乘法门单元的其中一个输入非常小，而另一个输入非常大，它将会把大的梯度分配给小的输入，把小的梯度分配给大的输入。这说明输入数据的大小对于权重梯度的大小有影响。例如，在计算过程中对所有输入数据样本<img src="http://www.zhihu.com/equation?tex=x_i" alt="x_i">乘以1000，那么权重的梯度将会增大1000倍，这样就必须降低学习率来弥补，所以数据预处理很重要。</p><h2 id="四、用向量化计算梯度"><a href="#四、用向量化计算梯度" class="headerlink" title="四、用向量化计算梯度"></a>四、用向量化计算梯度</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;p&gt;1.反向传播&lt;/p&gt;
+&lt;p&gt;反向传播是利用&lt;strong&gt;链式法则&lt;/strong&gt; ，递归计算梯度的方法&lt;/p&gt;
+&lt;p&gt;2.&lt;strong&gt;分段反向传播求梯度&lt;/strong&gt;  (重点)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不需要关于输入变量的明确的函数来计算导数&lt;/strong&gt;，因为需要求的是梯度值。只需要将表达式分成不同的可以求导的模块，然后在反向传播中一步一步地计算&lt;strong&gt;梯度&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;3.加法、乘法和取最大值在反向传播中关于梯度的理解&lt;/p&gt;
+&lt;p&gt;4.用向量化计算梯度&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="cs231n" scheme="http://yoursite.com/tags/cs231n/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cs231n笔记（二）——最优化</title>
+    <link href="http://yoursite.com/2018/07/16/cs231n%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    <id>http://yoursite.com/2018/07/16/cs231n笔记（二）——最优化/</id>
+    <published>2018-07-16T05:02:17.000Z</published>
+    <updated>2018-07-16T08:55:17.127Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、分类问题三步骤"><a href="#一、分类问题三步骤" class="headerlink" title="一、分类问题三步骤"></a>一、分类问题三步骤</h2><p><strong>1. 评分函数（score function）</strong> ：将原始图像数据<strong>映射为各个类别的得分</strong>，得分高低代表图像属于该类别的可能性高低。</p><p>线性分类评分函数的线性映射：<img src="https://www.zhihu.com/equation?tex=%5Cdisplaystyle+f%28x_i%2CW%2Cb%29%3DWx_i%2Bb" alt="\displaystyle f(x_i,W,b)=Wx_i+b"></p><p><strong>2. 损失函数（loss function）</strong> ：量化分类标签的得分与真实标签之间一致性。也就是<strong>量化某个具体权重集W的质量</strong> 。</p><p><strong>3.最优化（Optimization）</strong> ：找到能够最小化损失函数值的W。</p><h2 id="二、最优化-Optimization"><a href="#二、最优化-Optimization" class="headerlink" title="二、最优化 Optimization"></a>二、最优化 Optimization</h2><h3 id="1-随机搜索"><a href="#1-随机搜索" class="headerlink" title="1.随机搜索"></a>1.随机搜索</h3><p>尝试了若干随机生成的权重矩阵W，其中某些的损失值较小，而另一些的损失值大些。我们可以把这次随机搜索中找到的最好的权重W取出，然后去跑测试集</p><h3 id="2-随机本地搜索"><a href="#2-随机本地搜索" class="headerlink" title="2.随机本地搜索"></a>2.随机本地搜索</h3><p>从一个随机<img src="http://www.zhihu.com/equation?tex=W" alt="W">开始，然后生成一个随机的扰动<img src="http://www.zhihu.com/equation?tex=%5Cdelta+W" alt="\delta W"> ，只有当<img src="http://www.zhihu.com/equation?tex=W%2B%5Cdelta+W" alt="W+\delta W">的损失值变低，才更新。</p><h3 id="3-梯度下降"><a href="#3-梯度下降" class="headerlink" title="3.梯度下降"></a>3.梯度下降</h3><p>前两个方法中，我们是尝试在权重空间中找到一个方向，沿着该方向能降低损失函数的损失值。其实<strong>不需要随机寻找方向</strong>，可以直接计算出最陡峭的方向，这个方向就是损失函数的梯度（gradient）。</p><p>方向导数：某个方向上的导数</p><p>梯度：是一个矢量，是方向导数中取到最大值的方向，梯度的值是方向导数的最大值。</p><h2 id="三、计算梯度"><a href="#三、计算梯度" class="headerlink" title="三、计算梯度"></a>三、计算梯度</h2><p>计算梯度有两种方法，一个是缓慢的近似方法（数值梯度法），但实现相对简单。另一个方法（分析梯度法）计算迅速，结果精确，但是实现时容易出错，且需要使用微分。</p><h3 id="1-数值计算梯度法"><a href="#1-数值计算梯度法" class="headerlink" title="1.数值计算梯度法"></a>1.数值计算梯度法</h3><p>使用有限差值近似计算梯度   <img src="http://www.zhihu.com/equation?tex=%5Cdisplaystyle%5Cfrac%7Bdf%28x%29%7D%7Bdx%7D%3D%5Clim_%7Bh%5Cto+0%7D%5Cfrac%7Bf%28x%2Bh%29-f%28x%29%7D%7Bh%7D" alt="\displaystyle\frac{df(x)}{dx}=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}"></p><p>对所有维度进行迭代，在每个维度上产生一个很小的变化h，计算函数在该维度上的偏导数。</p><p>注意在数学公式中，<strong>h</strong>的取值是趋近于0的，然而在实际中，用一个很小的数值（比如1e-5）。还有，实际中用中心差值公式（<strong>centered difference formula）</strong><img src="http://www.zhihu.com/equation?tex=%5Bf%28x%2Bh%29-f%28x-h%29%5D%2F2h" alt="[f(x+h)-f(x-h)]/2h">效果较好。</p><p><strong>缺点是效率低</strong>：计算数值梯度的复杂性和参数的量线性相关。如果有30730个参数，损失函数每走一步就需要计算30731次损失函数的梯度。现代神经网络很容易就有上千万的参数，显然这个策略不适合大规模数据。</p><h3 id="2-微分分析计算梯度"><a href="#2-微分分析计算梯度" class="headerlink" title="2.微分分析计算梯度"></a>2.微分分析计算梯度</h3><p>利用微分来分析，能得到计算梯度的公式（不是近似），用公式计算梯度速度很快，唯一不好的就是实现的时候容易出错。</p><h3 id="3-梯度检查"><a href="#3-梯度检查" class="headerlink" title="3.梯度检查"></a>3.梯度检查</h3><p>由于微分分析计算梯度容易出错 ，实际操作时常常<strong>将分析梯度法的结果和数值梯度法的结果作比较</strong>，以此来<strong>检查其实现的正确性</strong>，这个步骤叫做<strong>梯度检查</strong>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一、分类问题三步骤&quot;&gt;&lt;a href=&quot;#一、分类问题三步骤&quot; class=&quot;headerlink&quot; title=&quot;一、分类问题三步骤&quot;&gt;&lt;/a&gt;一、分类问题三步骤&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1. 评分函数（score function）&lt;/strong&gt; ：
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="cs231n" scheme="http://yoursite.com/tags/cs231n/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cs231n笔记（一）——线性回归、逻辑回归、多分类</title>
+    <link href="http://yoursite.com/2018/07/15/cs231n%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E3%80%81%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E3%80%81%E5%A4%9A%E5%88%86%E7%B1%BB/"/>
+    <id>http://yoursite.com/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/</id>
+    <published>2018-07-15T13:23:33.000Z</published>
+    <updated>2018-07-16T08:55:28.515Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>一、线性回归</p><p>二、逻辑回归</p><p>三、多分类</p><p>1.根据像素差异分类</p><p>2.线性分类</p><p>   （1）多类SVM分类器-折叶损失</p><p>   （2）softmax分类器-交叉熵损失</p><a id="more"></a><h1 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h1><p>即对于多维空间中存在的样本点，我们用特征的线性组合去拟合空间中点的分布和轨迹，用于对连续值结果进行预测。</p><p>线性回归的代价函数</p><p><img src="https://camo.githubusercontent.com/90f8b2963cbd56650a13d0568166905d9805f480/687474703a2f2f696d616765732e636e6974626c6f672e636f6d2f626c6f672f3537353537322f3230313331312f30393038313430352d39623439326363393533376434653662623461393739616166363430653836322e706e67" alt="img"></p><h1 id="逻辑回归（二分类）"><a href="#逻辑回归（二分类）" class="headerlink" title="逻辑回归（二分类）"></a>逻辑回归（二分类）</h1><p>1.过程</p><ul><li>输入特征x</li><li>用激活函数计算逻辑回归的输出 hθ(x)</li><li>计算hθ(x)的代价函数Jθ(x)</li><li>用梯度下降法结合Jθ(x)调整参数θ使得Jθ(x)最小</li><li>得出最终结果θ</li></ul><p>2.激活函数</p><p>3.逻辑回归的代价函数</p><p><img src="https://camo.githubusercontent.com/974a671827e2e3d36cd26c76c05ad600ec5502bc/687474703a2f2f696d616765732e636e6974626c6f672e636f6d2f626c6f672f3537353537322f3230313331312f30393038313433372d33306165393937633465633834303161396461663237366365646537346263372e706e67" alt="img"></p><p><img src="https://camo.githubusercontent.com/7766af8da33ce8b9bf8ca7b2c6308e78e5656693/687474703a2f2f696d616765732e636e6974626c6f672e636f6d2f626c6f672f3537353537322f3230313331312f30393038313731332d30613263623061333134613234333431396135623331623366333732393133342e706e67" alt="img"></p><p>不用线性回归的代价函数，是因为会有“非凸”函数的问题，就是这个函数有很多个局部最低点。</p><h1 id="多分类"><a href="#多分类" class="headerlink" title="多分类"></a>多分类</h1><h2 id="（一）通过像素差异分类"><a href="#（一）通过像素差异分类" class="headerlink" title="（一）通过像素差异分类"></a>（一）通过像素差异分类</h2><p>1.NN 最近邻分类器</p><p><strong>（1）Nearest Neighbor ：</strong>拿着测试图片和训练集中每一张图片去比较，然后将它认为最相似的那个训练集图片的标签赋给这张测试图片。</p><p><strong>（2）k-Nearest Neighbor分类器</strong>：找最相似的k个图片的标签，然后让他们针对测试图片进行投票，最后把票数最高的标签作为对测试图片的预测。</p><p>2.像素差异分类的缺点：图像更多的是按照背景和颜色被分类，而不是语义主体本身。</p><h2 id="（二）线性分类"><a href="#（二）线性分类" class="headerlink" title="（二）线性分类"></a>（二）线性分类</h2><h2 id="一、分类三个步骤"><a href="#一、分类三个步骤" class="headerlink" title="一、分类三个步骤"></a>一、分类三个步骤</h2><p>由三部分组成：</p><p><strong>1. 评分函数（score function）</strong> ：将原始图像数据映射为各个类别的得分，得分高低代表图像属于该类别的可能性高低。</p><p>线性分类评分函数为线性映射：<img src="https://www.zhihu.com/equation?tex=%5Cdisplaystyle+f%28x_i%2CW%2Cb%29%3DWx_i%2Bb" alt="\displaystyle f(x_i,W,b)=Wx_i+b"></p><p><strong>2. 损失函数（loss function）</strong> ：量化分类标签的得分与真实标签之间一致性。也就是<strong>量化某个具体权重集W的质量</strong> 。</p><p><strong>3.最优化（Optimization）</strong> ：找到能够最小化损失函数值的W。</p><h2 id="二、损失函数正则化"><a href="#二、损失函数正则化" class="headerlink" title="二、损失函数正则化"></a>二、损失函数正则化</h2><p>1.为什么正则化</p><p>向损失函数增加一个正则化惩罚（regularization penalty）<img src="https://www.zhihu.com/equation?tex=R%28W%29" alt="R(W)">部分。可以提升其泛化能力，因为这就意味着没有哪个维度能够独自对于整体分值有过大的影响，并避免过拟合。</p><p>注意：通常只对权重<img src="https://www.zhihu.com/equation?tex=W" alt="W">正则化，而不正则化偏差<img src="https://www.zhihu.com/equation?tex=b" alt="b">。</p><p>2.完整的损失函数</p><p>数据损失（data loss），即所有样例的的平均损失<img src="https://www.zhihu.com/equation?tex=L_i" alt="L_i">，和正则化损失（regularization loss）组成</p><p><img src="https://www.zhihu.com/equation?tex=L%3D%5Cdisplaystyle+%5Cunderbrace%7B+%5Cfrac%7B1%7D%7BN%7D%5Csum_i+L_i%7D_%7Bdata+%5C++loss%7D%2B%5Cunderbrace%7B%5Clambda+R%28W%29%7D_%7Bregularization+%5C+loss%7D" alt="L=\displaystyle \underbrace{ \frac{1}{N}\sum_i L_i}_{data \  loss}+\underbrace{\lambda R(W)}_{regularization \ loss}"></p><h2 id="三、损失函数分类"><a href="#三、损失函数分类" class="headerlink" title="三、损失函数分类"></a>三、损失函数分类</h2><p>1.多类SVM</p><p>（1）多类SVM</p><p><strong>希望正确分类类别<img src="https://www.zhihu.com/equation?tex=y_i" alt="y_i">的分数比不正确类别分数高，而且至少要高<img src="https://www.zhihu.com/equation?tex=%5CDelta" alt="\Delta">，如果不满足这点，就开始计算损失值。</strong></p><p>（2）损失函数</p><p><strong>折叶损失（hinge loss）</strong>：<img src="https://www.zhihu.com/equation?tex=%5Cdisplaystyle+L_i%3D%5Csum_%7Bj%5Cnot%3Dy_i%7Dmax%280%2Cs_j-s_%7By_i%7D%2B%5CDelta%29" alt="\displaystyle L_i=\sum_{j\not=y_i}max(0,s_j-s_{y_i}+\Delta)">  </p><p>2.Softmax分类器</p><p>（1）Softmax分类器</p><p>是逻辑回归分类器即二分类，面对多个分类的一般化归纳。</p><p>（2）损失函数</p><p><strong>交叉熵损失</strong>（<strong>cross-entropy loss）</strong> ：<img src="http://www.zhihu.com/equation?tex=%5Cdisplaystyle+Li%3D-log%28%5Cfrac%7Be%5E%7Bf_%7By_i%7D%7D%7D%7B%5Csum_je%5E%7Bf_j%7D%7D%29" alt="\displaystyle Li=-log(\frac{e^{f_{y_i}}}{\sum_je^{f_j}})"></p><p>其中<img src="http://www.zhihu.com/equation?tex=f_j%28z%29%3D%5Cfrac%7Be%5E%7Bz_j%7D%7D%7B%5Csum_ke%5E%7Bz_k%7D%7D" alt="f_j(z)=\frac{e^{z_j}}{\sum_ke^{z_k}}">是softmax 函数</p><p>softmax 函数：<strong>将原始分类评分变成正的归一化数值，所有数值和为1，这样处理后交叉熵损失才能应用</strong>。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;p&gt;一、线性回归&lt;/p&gt;
+&lt;p&gt;二、逻辑回归&lt;/p&gt;
+&lt;p&gt;三、多分类&lt;/p&gt;
+&lt;p&gt;1.根据像素差异分类&lt;/p&gt;
+&lt;p&gt;2.线性分类&lt;/p&gt;
+&lt;p&gt;   （1）多类SVM分类器-折叶损失&lt;/p&gt;
+&lt;p&gt;   （2）softmax分类器-交叉熵损失&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="cs231n" scheme="http://yoursite.com/tags/cs231n/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>显卡</title>
+    <link href="http://yoursite.com/2018/07/15/%E6%98%BE%E5%8D%A1/"/>
+    <id>http://yoursite.com/2018/07/15/显卡/</id>
+    <published>2018-07-15T03:28:11.000Z</published>
+    <updated>2018-07-15T03:39:00.213Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS ：最近想入一个显示屏，结果发现自己连显卡是什么都搞不清楚，我真是菜的不行</p><h2 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h2><p>显卡是电脑进行数模信号转换的设备，承担输出显示图形的任务。</p><p>1.显存：又叫帧缓存，作用是用来<strong>存储</strong>GPU处理过或者即将提取的渲染数据</p><p>2.GPU（Graphic Processing Unit）：是显卡的核心引擎，专为图形渲染设计的，并行处理方面，浮点运算方面功能强大。</p><p>3.理解显存和GPU：GPU相当于电脑的CPU，显存相当于电脑的内存</p><a id="more"></a><h2 id="显卡分类"><a href="#显卡分类" class="headerlink" title="显卡分类"></a>显卡分类</h2><p>1.集显：集成显卡，显示核心集成在主板上</p><p>2.核显：就是集成在CPU里，也算是集显的一种</p><p>3.独显：相对集显而已，最明显的一个特性，就是<strong>自带显存</strong>，<strong>集显是共享内存的</strong>，性能上比集显要好很多</p><p>4.双显：一般是指笔记本同时配置有独显和集显（核显），可以在这两个显卡之间来回切换使用</p><h2 id="图形渲染"><a href="#图形渲染" class="headerlink" title="图形渲染"></a>图形渲染</h2><p>我的理解就是将图形尽量接近真实场景，逼真地呈现</p><p><a href="http://imgtec.eetrend.com/blog/9825" target="_blank" rel="noopener">http://imgtec.eetrend.com/blog/9825</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS ：最近想入一个显示屏，结果发现自己连显卡是什么都搞不清楚，我真是菜的不行&lt;/p&gt;
+&lt;h2 id=&quot;显卡&quot;&gt;&lt;a href=&quot;#显卡&quot; class=&quot;headerlink&quot; title=&quot;显卡&quot;&gt;&lt;/a&gt;显卡&lt;/h2&gt;&lt;p&gt;显卡是电脑进行数模信号转换的设备，承担输出显示图形的任务。&lt;/p&gt;
+&lt;p&gt;1.显存：又叫帧缓存，作用是用来&lt;strong&gt;存储&lt;/strong&gt;GPU处理过或者即将提取的渲染数据&lt;/p&gt;
+&lt;p&gt;2.GPU（Graphic Processing Unit）：是显卡的核心引擎，专为图形渲染设计的，并行处理方面，浮点运算方面功能强大。&lt;/p&gt;
+&lt;p&gt;3.理解显存和GPU：GPU相当于电脑的CPU，显存相当于电脑的内存&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>程序是怎样跑起来的</title>
@@ -77,9 +179,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -119,9 +221,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -141,9 +243,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -163,9 +265,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -186,9 +288,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -237,9 +339,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -259,9 +361,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -281,9 +383,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -327,20 +429,6 @@
         &lt;p&gt;PS：暂时没有深入学习的需求，但是老是看到，所有就想了解一下。&lt;strong&gt;正则表达式 (regular expression) 描述了一种字符串匹配的模式(pattern)&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://deerchao.net/tu
       
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2018/06/11/Titanic-Machine-Learning-from-Disaster/"/>
-    <id>http://yoursite.com/2018/06/11/Titanic-Machine-Learning-from-Disaster/</id>
-    <published>2018-06-11T06:36:57.500Z</published>
-    <updated>2018-06-20T12:19:49.572Z</updated>
-    
-    <summary type="html">
     
     </summary>
     
@@ -398,82 +486,6 @@
     
     
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cygwin 安装</title>
-    <link href="http://yoursite.com/2018/06/01/Cygwin-%E5%AE%89%E8%A3%85/"/>
-    <id>http://yoursite.com/2018/06/01/Cygwin-安装/</id>
-    <published>2018-06-01T09:12:21.000Z</published>
-    <updated>2018-06-01T09:17:06.917Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了</p><h2 id="Cygwin的安装"><a href="#Cygwin的安装" class="headerlink" title="Cygwin的安装"></a>Cygwin的安装</h2><ul><li>Cygwin 用于各种版本的Microsoft Windows上，运行类UNIX系统。Cygwin的主要目的是通过重新编译，将POSIX系统（例如Linux、BSD，以及其他Unix系统）上的软件移植到Windows上。                     官网下载 <a href="http://www.cygwin.com/" target="_blank" rel="noopener">http://www.cygwin.com/</a></li></ul><p><a href="https://jingyan.baidu.com/article/6b97984d83dfe51ca2b0bf0e.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/6b97984d83dfe51ca2b0bf0e.html</a></p><ul><li>安装vim 之前只安装了gcc， 后面又重新进去安装，在之前那步就把选项给勾了。                        <a href="https://blog.csdn.net/u012247418/article/details/79719679" target="_blank" rel="noopener">https://blog.csdn.net/u012247418/article/details/79719679</a></li></ul><ul><li>helloworld 验证 (难道就我觉得用起来这么不方便的吗)</li></ul><p><a href="https://jingyan.baidu.com/article/a948d6512fb5d70a2ccd2e6f.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/a948d6512fb5d70a2ccd2e6f.html</a></p><a id="more"></a><h2 id="Cygwin-、虚拟机-、Win10-Linux子系统区别"><a href="#Cygwin-、虚拟机-、Win10-Linux子系统区别" class="headerlink" title="Cygwin 、虚拟机 、Win10 Linux子系统区别"></a>Cygwin 、虚拟机 、Win10 Linux子系统区别</h2><p>(1) Cygwin 和虚拟机的区别</p><p>Cygwin 是一个 POSIX 兼容层，就是将linux平台上的系统调用转换成了windows API，使 Linux 的软件能够运行，应该可以称得上一种 Linux 发行版，而虚拟机则是虚拟了一个仿真的计算机环境，让Linux 认为虚拟机是一台机器，从而在上面安装 Linux</p><p><strong>Cygwin并<em>不能直接运行</em>  Linux 中运行的程序，必须在Cygwin中<em>重新编译</em> 该程序源码后才能让该程序在windows中运行</strong>。</p><p><a href="http://www.169it.com/tech-qa-linux/article-8333186796219879155.html" target="_blank" rel="noopener">http://www.169it.com/tech-qa-linux/article-8333186796219879155.html</a></p><p>(2) Win10下的Linux子系统</p><p><a href="http://www.cnblogs.com/micro-chen/p/5437316.html" target="_blank" rel="noopener">http://www.cnblogs.com/micro-chen/p/5437316.html</a></p><p><a href="https://www.jianshu.com/p/bc38ed12da1d" target="_blank" rel="noopener">https://www.jianshu.com/p/bc38ed12da1d</a></p><p>PS：下面是遇到的乱七八糟的总结，因为对OS实在不熟悉，遇到很多英文，真的搞不清楚这些是个啥</p><hr><h2 id="1-Linux-——-redhat、suse、debain、ubuntu、fedora版本区别"><a href="#1-Linux-——-redhat、suse、debain、ubuntu、fedora版本区别" class="headerlink" title="1. Linux —— redhat、suse、debain、ubuntu、fedora版本区别"></a>1. Linux —— <strong>redhat</strong>、suse、debain、<strong>ubuntu</strong>、fedora版本区别</h2><p><a href="https://blog.csdn.net/lzx1104/article/details/41776977" target="_blank" rel="noopener">https://blog.csdn.net/lzx1104/article/details/41776977</a></p><h2 id="2-Linux和windows下的命令行解释器"><a href="#2-Linux和windows下的命令行解释器" class="headerlink" title="2. Linux和windows下的命令行解释器"></a>2. Linux和windows下的命令行解释器</h2><p>命令解释器，处于内核和用户之间，负责把用户的指令传递给内核并且把执行结果回显给用户</p><h3 id="Linux："><a href="#Linux：" class="headerlink" title="Linux："></a>Linux：</h3><p> shell 是一个<strong>命令行解释器</strong>，是终端和Linux内核之间的接口程序，在提示符下输入的每个命令都由 shell 先解释然后传给Linux内核。                                                                               在Linux 和 UNIX系统里可以使用不同的shell，最常用的 Bourne shell (sh), C shell (csh),  Korn shell (ksh)。</p><ul><li><p>bash (Bourne Again shell)： Bourne shell 的扩展</p><p>常见bash命令      <a href="http://blinkfox.com/chang-yong-bashming-ling-zheng-li-yi-cha-kan-wen-jian-he-mu-lu/" target="_blank" rel="noopener">http://blinkfox.com/chang-yong-bashming-ling-zheng-li-yi-cha-kan-wen-jian-he-mu-lu/</a></p></li><li><p>zsh：完美兼容bash，并且有比bash更强大的功能，用起来也比bash更优雅</p></li></ul><h3 id="windows："><a href="#windows：" class="headerlink" title="windows："></a>windows：</h3><p>windows系统中见到的桌面即explorer.exe (文件资源管理器)是<strong>图形</strong>shell，而cmd就是命令行解释器(相当于Linux的bash),，windows也有强大的shell叫windows power shell</p><p>git bash是Windows下的命令行工具，是基于cmd的，在windows下使用git命令的模拟终端，linux、unix可以直接使用git。</p><h2 id="3-版本问题"><a href="#3-版本问题" class="headerlink" title="3. 版本问题"></a>3. 版本问题</h2><ul><li>Alpha：内部测试版。α是希腊字母的第一个，表示最早的版本，这个版本包含很多BUG，功能也不全，主要是给开发人员和测试人员测试和找BUG用的。</li><li>Beta：公开测试版。β是希腊字母的第二个，这个阶段的版本会一直加入新的功能。</li><li>RC：(Release　Candidate) 候选版本，RC版不会再加入新的功能了，主要着重于除错。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了&lt;/p&gt;
-&lt;h2 id=&quot;Cygwin的安装&quot;&gt;&lt;a href=&quot;#Cygwin的安装&quot; class=&quot;headerlink&quot; title=&quot;Cygwin的安装&quot;&gt;&lt;/a&gt;Cygwin的安装&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Cygwin 用于各种版本的Microsoft Windows上，运行类UNIX系统。Cygwin的主要目的是通过重新编译，将POSIX系统（例如Linux、BSD，以及其他Unix系统）上的软件移植到Windows上。                     官网下载 &lt;a href=&quot;http://www.cygwin.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.cygwin.com/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&quot;https://jingyan.baidu.com/article/6b97984d83dfe51ca2b0bf0e.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jingyan.baidu.com/article/6b97984d83dfe51ca2b0bf0e.html&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;安装vim 之前只安装了gcc， 后面又重新进去安装，在之前那步就把选项给勾了。                        &lt;a href=&quot;https://blog.csdn.net/u012247418/article/details/79719679&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/u012247418/article/details/79719679&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;helloworld 验证 (难道就我觉得用起来这么不方便的吗)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&quot;https://jingyan.baidu.com/article/a948d6512fb5d70a2ccd2e6f.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jingyan.baidu.com/article/a948d6512fb5d70a2ccd2e6f.html&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-      <category term="装软件" scheme="http://yoursite.com/tags/%E8%A3%85%E8%BD%AF%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git 学习</title>
-    <link href="http://yoursite.com/2018/06/01/Git-%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2018/06/01/Git-学习/</id>
-    <published>2018-06-01T09:05:53.000Z</published>
-    <updated>2018-06-01T09:07:33.373Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数</p><a id="more"></a><h2 id="1-Git-版本控制系统"><a href="#1-Git-版本控制系统" class="headerlink" title="1. Git 版本控制系统"></a>1. Git 版本控制系统</h2><ul><li>集中式的版本控制系统：CVS及SVN                                                                                                                                            版本库是集中存放在中央服务器的，，要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。最大缺点就是必须联网才能工作。</li></ul><ul><li>分布式版本控制系统：Git                                                                                                                        每个人的电脑上都是一个完整的版本库，就不需要联网，因为版本库就在自己的电脑上。对于多人协作的方式，只需把各自的修改推送给对方，就可以互相看到对方的修改。</li></ul><p>所有的版本控制系统<strong>只能跟踪文本文件的改动</strong>，txt，网页，程序代码等等。而图片、视频这些二进制文件，虽然也能由版本控制系统管理，但没法跟踪文件的变化，也就是只知道图片从100KB改成了120KB，但到底改了啥，版本控制系统不知道。而Microsoft的Word格式是二进制格式，因此，版本控制系统是没法跟踪Word文件的改动的，如果要真正使用版本控制系统，就要以纯文本方式编写文件。</p><p>文本文件与二进制文件的区在编码层次上</p><ul><li>文本文件是基于字符编码的文件，常见的编码有ASCII编码，UNICODE编码</li><li>二进制文件是基于值编码的文件</li></ul><p>文本文件编码基于字符定长，译码容易些；二进制文件编码变长，存储利用率要高，译码难一些</p><p>PS：Git 查看和修改用户名和邮箱 <a href="https://www.jianshu.com/p/d24e791a7679" target="_blank" rel="noopener">https://www.jianshu.com/p/d24e791a7679</a></p><h2 id="2-Git仓库修改版本"><a href="#2-Git仓库修改版本" class="headerlink" title="2. Git仓库修改版本"></a>2. Git仓库修改版本</h2><h3 id="1-工作区"><a href="#1-工作区" class="headerlink" title="1) 工作区"></a>1) 工作区</h3><p>看的见的文件目录，放自己的文件</p><h3 id="2-版本库或仓库-repository"><a href="#2-版本库或仓库-repository" class="headerlink" title="2) 版本库或仓库 (repository)"></a>2) 版本库或仓库 (repository)</h3><p>理解成一个目录，这个目录里每个文件的修改、删除，Git都能跟踪   <u>！划重点！</u>  <strong>Git管理的是修改不是文件</strong></p><h3 id="3-添加文件到仓库的具体步骤"><a href="#3-添加文件到仓库的具体步骤" class="headerlink" title="3) 添加文件到仓库的具体步骤"></a>3) 添加文件到仓库的具体步骤</h3><p>1.创建空的仓库                                                                                                                                                        2.在工作区目录下新建文件      <code>touch create_repository.txt</code>                                                                                                                        3.将这个文件添加到<strong>暂存区</strong>     <code>git add create_repository.txt</code>                                                            4.将<strong>暂存区所有内容提交到当前分支 master</strong>  <code>git commit -m &quot;本次提交说明&quot;</code>  commit就是保存一个文件快照</p><p>文件提交到版本库里分两步，暂存区和分支    <u>！划重点！</u> 所以每次修改，如果不用<code>git add</code>到暂存区，那就不会加到 <code>commit</code> 中</p><h3 id="4）修改仓库版本"><a href="#4）修改仓库版本" class="headerlink" title="4）修改仓库版本"></a>4）修改仓库版本</h3><p>查看版本历史  <code>git log</code>     查看命令修改历史  <code>git reflog</code>   </p><p>回到上一版本   <code>git reset --hard Head^</code>                                                                                         回到上上个版本   <code>git reset --hard Head^^</code>                                                                                            回到往上的100个版本   <code>git reset --hard Head~100</code>        指定到指定的版本   <code>git reset --hard 版本号</code>   </p><h2 id="3-远程仓库"><a href="#3-远程仓库" class="headerlink" title="3.远程仓库"></a>3.远程仓库</h2><p>Git是分布式版本控制系统，同一个Git仓库，可以分布到不同的机器上，且每台机器的版本库其实都是一样的。</p><p>实际情况是找一台电脑当服务器，每天24小时开机，每个人都从这个服务器仓库里克隆一份到自己的电脑上，并且各自把各自的提交推送到服务器仓库里，也从服务器仓库中拉取别人的提交。</p><p>只要注册一个GitHub账号，就可以免费获得Git远程仓库，本地Git仓库和GitHub仓库之间的传输是通过SSH加密。</p><p>1) SSH (Secure Shell) 安全外壳协议                                                                                                                     </p><p><a href="https://www.jianshu.com/p/33461b619d53" target="_blank" rel="noopener">https://www.jianshu.com/p/33461b619d53</a> 嗯~看不懂~不想看</p><p>1) 本地仓库同步到远程仓库</p><ul><li><p>GitHub 创建一个新的仓库</p></li><li><p>将本地仓库与远程仓库关联 <code>git remote add origin https://github.com/Sophia0130/LearnGit.git</code></p><p>下面两条tips：</p><p>1&gt; 提示出错信息：fatal: remote origin already exists.      输入  <code>git remote rm origin</code> 再进行关联</p><p>2&gt; 第一次推送master分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</p></li></ul><ul><li>把本地库的所有内容推送到远程库上 <code>git push -u origin master</code></li><li>要本地作了提交，通过 <code>git push origin master</code>  把本地master分支的最新修改推送至GitHub</li></ul><p>2) 从远程仓库克隆</p><h2 id="4-分支管理"><a href="#4-分支管理" class="headerlink" title="4. 分支管理"></a>4. 分支管理</h2><p>PS：这部分内容画 branch 分支图比较好理解</p><ul><li><p>创建一个分支，即增加一个分支的指针，并将Head指向该分支</p><p><code>git branch dev</code>  创建了一个分支dev，<code>git checkout dev</code>将Head指向这个分支</p></li></ul><ul><li><p>对工作区的修改和提交就是针对dev分支了，新提交一次后，dev指针往前移动一步，而master指针不变</p><p><code>git add</code> 和 <code>git commit -m &quot;xxxx&quot;</code>提交当前分支</p></li></ul><ul><li><p>在dev上的工作完成后，把master指向当前的dev,完成合并</p><p><code>git merge dev</code></p></li></ul><ul><li><p>删除dev分支，即把dev指针删除</p><p><code>git branch -d dev</code></p></li></ul><p>查看分支：<code>git branch</code>列出所有分支，当前分支前面会标一个<code>*</code>号</p><p>创建分支：<code>git branch</code></p><p>切换分支：<code>git checkout</code></p><p>创建+切换分支：<code>git checkout -b</code></p><p>合并某分支到当前分支：<code>git merge</code></p><p>删除分支：<code>git branch -d</code></p><p>PS：后面还有很多分支管理的内容，但是我觉得我够用了，就不看了，别骂我懒 ~</p><h2 id="5-标签管理"><a href="#5-标签管理" class="headerlink" title="5. 标签管理"></a>5. 标签管理</h2><p>由于版本号那串东西太复杂了，所以打标签可以更容易区分，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。</p><p>切换到需要打标签的分支上</p><p><code>git tag v0.0</code>用于新建一个标签</p><p><code>git tag -a  -m &quot;xxx&quot;</code>可以指定标签信息</p><p><code>git tag</code>查看所有标签</p><p>PS：后面还有操作标签的内容，我也懒得看了 ~</p><h2 id="6-搭建Git服务器"><a href="#6-搭建Git服务器" class="headerlink" title="6. 搭建Git服务器"></a>6. 搭建Git服务器</h2><p>搭建Git服务器需要准备一台运行Linux的机器，需要管理每个人的公钥和控制权限 </p><p> 现在也用不到啊</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CryptoKitties</title>
-    <link href="http://yoursite.com/2018/05/28/CryptoKitties/"/>
-    <id>http://yoursite.com/2018/05/28/CryptoKitties/</id>
-    <published>2018-05-28T08:55:11.000Z</published>
-    <updated>2018-05-28T08:55:41.159Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="CryptoKitties"><a href="#CryptoKitties" class="headerlink" title="CryptoKitties"></a>CryptoKitties</h1><p>PS：区块链的技术发展，颠覆了我对金融的全新认识 ~ CryptoKitties 基于以太坊的虚拟养猫游戏</p><p>PS：花生的回答，让我对以太坊游戏化应用有了透彻心扉的领悟，谁都不会觉得自己成为庞氏骗局的而接盘侠 ~     <a href="https://www.zhihu.com/question/263599712" target="_blank" rel="noopener">https://www.zhihu.com/question/263599712</a></p><p>新手买猫教程，一只猫这么贵，心疼小老百姓的钱，玩不起 <a href="https://zhuanlan.zhihu.com/p/32213293" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32213293</a></p><p>超级6啊，技术流派啊，用爬虫来选猫，哈哈哈 <a href="https://www.zhihu.com/question/263605805" target="_blank" rel="noopener">https://www.zhihu.com/question/263605805</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;CryptoKitties&quot;&gt;&lt;a href=&quot;#CryptoKitties&quot; class=&quot;headerlink&quot; title=&quot;CryptoKitties&quot;&gt;&lt;/a&gt;CryptoKitties&lt;/h1&gt;&lt;p&gt;PS：区块链的技术发展，颠覆了我对金融的全新认识 ~
-      
-    
-    </summary>
-    
-    
-      <category term="区块链" scheme="http://yoursite.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     
   </entry>
   
