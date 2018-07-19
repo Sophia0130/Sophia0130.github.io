@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>opencv(一) HighGUI 模块 | 绿小蕤</title>
+  <title>TensorFlow(一)——两层神经网络预测线性回归 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HighGUI 模块PS：HighGUI 图形用户界面模块，包括图像和视频的读入显示、编码解码、图形交互界面接口(啥意思？后来想想可能是指滑动条这种可以产生交互的函数) 滑动条的使用                                                                                 1.创建窗口       namedWindow()">
-<meta name="keywords" content="opencv">
+  <meta name="description" content="PS：仿照莫烦大神的例子3写了个两层神经网络做线性回归，并且对具体数据做出预测 之前 Deep Learning 课程是看Andrew的，所以关于参数维度的规范也沿用了课程的思路，个人更喜欢Andrew的维度规范，所以莫烦写的 y=w*x+b 这部分，我做了改动。 莫烦的视频  https://morvanzhou.github.io/tutorials/machine-learning/tens">
+<meta name="keywords" content="python,tensorflow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="opencv(一) HighGUI 模块">
-<meta property="og:url" content="http://yoursite.com/2018/05/09/opencv-一-HighGUI-模块/index.html">
+<meta property="og:title" content="TensorFlow(一)——两层神经网络预测线性回归">
+<meta property="og:url" content="http://yoursite.com/2018/07/19/TensorFlow-一-——两层神经网络预测线性回归/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="HighGUI 模块PS：HighGUI 图形用户界面模块，包括图像和视频的读入显示、编码解码、图形交互界面接口(啥意思？后来想想可能是指滑动条这种可以产生交互的函数) 滑动条的使用                                                                                 1.创建窗口       namedWindow()">
+<meta property="og:description" content="PS：仿照莫烦大神的例子3写了个两层神经网络做线性回归，并且对具体数据做出预测 之前 Deep Learning 课程是看Andrew的，所以关于参数维度的规范也沿用了课程的思路，个人更喜欢Andrew的维度规范，所以莫烦写的 y=w*x+b 这部分，我做了改动。 莫烦的视频  https://morvanzhou.github.io/tutorials/machine-learning/tens">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-09T13:36:43.859Z">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E7%9F%A9%E9%98%B5%E7%BB%B4%E5%BA%A6.png">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/tensorflow%E7%A8%8B%E5%BA%8F1.jpg">
+<meta property="og:updated_time" content="2018-07-19T11:37:20.549Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv(一) HighGUI 模块">
-<meta name="twitter:description" content="HighGUI 模块PS：HighGUI 图形用户界面模块，包括图像和视频的读入显示、编码解码、图形交互界面接口(啥意思？后来想想可能是指滑动条这种可以产生交互的函数) 滑动条的使用                                                                                 1.创建窗口       namedWindow()">
+<meta name="twitter:title" content="TensorFlow(一)——两层神经网络预测线性回归">
+<meta name="twitter:description" content="PS：仿照莫烦大神的例子3写了个两层神经网络做线性回归，并且对具体数据做出预测 之前 Deep Learning 课程是看Andrew的，所以关于参数维度的规范也沿用了课程的思路，个人更喜欢Andrew的维度规范，所以莫烦写的 y=w*x+b 这部分，我做了改动。 莫烦的视频  https://morvanzhou.github.io/tutorials/machine-learning/tens">
+<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E7%9F%A9%E9%98%B5%E7%BB%B4%E5%BA%A6.png">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -161,25 +164,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-opencv-一-HighGUI-模块" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-TensorFlow-一-——两层神经网络预测线性回归" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      opencv(一) HighGUI 模块
+      TensorFlow(一)——两层神经网络预测线性回归
     </h1>
   
 
         
-        <a href="/2018/05/09/opencv-一-HighGUI-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:36:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
+        <a href="/2018/07/19/TensorFlow-一-——两层神经网络预测线性回归/" class="archive-article-date">
+  	<time datetime="2018-07-19T11:22:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
 </a>
 
 
-<a href="/2018/05/09/opencv-一-HighGUI-模块/" class="archive-article-date">
-  	<time datetime="2018-05-09T13:36:05.000Z" itemprop="datePublished">2018-05-09</time>
+<a href="/2018/07/19/TensorFlow-一-——两层神经网络预测线性回归/" class="archive-article-date">
+  	<time datetime="2018-07-19T11:22:51.000Z" itemprop="datePublished">2018-07-19</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -192,9 +195,13 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="HighGUI-模块"><a href="#HighGUI-模块" class="headerlink" title="HighGUI 模块"></a>HighGUI 模块</h2><p>PS：HighGUI 图形用户界面模块，包括图像和视频的读入显示、编码解码、图形交互界面接口(啥意思？后来想想可能是指滑动条这种可以产生交互的函数)</p>
-<p><strong>滑动条的使用</strong>                                                                                 1.创建窗口       namedWindow()                                                                                                                     2.创建滑动条   createTrackbar()                                                                        3.回掉函数       on_trackbar()  函数原型必须是 void XX(int,void*)  第一个为轨迹位置，第二个为用户数据        滑动条位置改变，调用回掉函数</p>
-<p>PS：<strong>void* 表明该指针与一地址值有关，但不知道存储在此地址上的对象的类型</strong>                                              void*只支持有限的操作，<strong>向函数传递void<em>指针或者返回void\</em>指针，给另一个void*指针赋值</strong>                                                                 int i = 1   void *pi = &amp;i</p>
+        <p>PS：仿照莫烦大神的例子3写了个两层神经网络做线性回归，并且对具体数据做出预测</p>
+<p>之前 Deep Learning 课程是看Andrew的，所以关于参数维度的规范也沿用了课程的思路，个人更喜欢Andrew的维度规范，所以莫烦写的 y=w*x+b 这部分，我做了改动。</p>
+<p>莫烦的视频  <a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/3-2-create-NN/" target="_blank" rel="noopener">https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/3-2-create-NN/</a></p>
+<a id="more"></a>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E7%9F%A9%E9%98%B5%E7%BB%B4%E5%BA%A6.png" alt=""></p>
+<p>一个下午的成果 ~</p>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/tensorflow%E7%A8%8B%E5%BA%8F1.jpg" alt=""></p>
 
       
 
@@ -208,7 +215,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
         		</li>
       		
 		</ul>
@@ -264,7 +275,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/09/opencv-一-HighGUI-模块/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/19/TensorFlow-一-——两层神经网络预测线性回归/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,18 +289,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/09/opencv-二-imgproc-模块/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          opencv(二) imgproc 模块
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/09/python入门编程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python入门编程</div>
+    <a href="/2018/07/18/cs231n笔记-四-——神经网络/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cs231n笔记(四)——神经网络</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -316,7 +318,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HighGUI-模块"><span class="toc-number">1.</span> <span class="toc-text">HighGUI 模块</span></a></li></ol>
+                    懒得写目录啦~
                     </div>
                 </span>
             </div>
