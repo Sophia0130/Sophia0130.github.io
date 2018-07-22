@@ -291,54 +291,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、回归算法"><a href="#一、回归算法" class="headerlink" title="一、回归算法"></a>一、回归算法</h2><ol>
-<li>线性回归：预测连续值</li>
-<li>逻辑回归：预测离散值或分类</li>
-</ol>
-<h2 id="二、决策树-Decision-Tree-DT"><a href="#二、决策树-Decision-Tree-DT" class="headerlink" title="二、决策树 Decision Tree (DT)"></a>二、决策树 Decision Tree (DT)</h2><p>根据一个准则，选取最优划分属性 (最优划分属性：决策树的分支节点的类别尽可能纯，即尽可能属于同一类别)</p>
-<ol>
-<li>ID3：根据信息增益选取最优划分属性</li>
-<li>C4.5：根据信息增益和增益率选取最优划分属性</li>
-<li>CART (classification and regression tree) ：根据基尼指数选取最优划分属性</li>
-</ol>
-<h2 id="三、集成学习-ensemble-learning"><a href="#三、集成学习-ensemble-learning" class="headerlink" title="三、集成学习 (ensemble learning)"></a>三、集成学习 (ensemble learning)</h2><ol>
-<li>Boosting：个体学习器间有强依赖关系，必须串行生成的序列化方法 (训练集基于上一轮结果进行调整)</li>
-<li>Bagging：个体学习器间没有强依赖关系，可同时生成的并行化方法 (训练集互不相关</li>
-</ol>
-<h2 id="集成学习之-Boosting"><a href="#集成学习之-Boosting" class="headerlink" title="集成学习之 Boosting"></a>集成学习之 Boosting</h2><ol>
-<li><p><strong>弱学习器提升为强学习器的过程称为Boosting</strong>，Boosting产生一系列的学习器，后产生的学习器的训练集取决于之前的产生的学习器，之前被误判的示例在之后占据较大的概率。</p>
-</li>
-<li><p>不同的boosting实现，主要区别：</p>
-<p>(1) 弱学习算法本身不同</p>
-<p>(2) 在每一轮学习之前，改变训练数据的权值分布的方法不同</p>
-<p>(3) 将一组弱分类器组合成一个强分类器的方法不同</p>
-</li>
-<li><p>Boosting 算法总结</p>
-<ul>
-<li><p>AdaBoost</p>
-<p>AdaBoost 算法是模型为加法模型、损失函数为指数函数、学习算法为前向分步算法的学习方法</p>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><p>GBDT 梯度提升决策树 </p>
-<p>GBDT = Boosting Decision Tree 提升决策树 (DT)+ Gradient Boosting 梯度提升(GB) </p>
-<p>是一种迭代的决策树算法</p>
-</li>
-</ul>
-<ul>
-<li><p>XGBoost </p>
-<p>XGBoost是在GBDT的基础上对Boosting算法进行的改进，内部决策树使用的是回归树。</p>
-</li>
-</ul>
-<h2 id="集成学习之Bagging"><a href="#集成学习之Bagging" class="headerlink" title="集成学习之Bagging"></a>集成学习之Bagging</h2><p>Bagging是基于bootstrap sampling也称为自助采样法法，是一种有放回的抽样方法，目的为了得到统计量的分布以及置信区间。</p>
-<ul>
-<li><p>Random Forest 随机森林 (RF) 就是基于Bagging，进一步在训练过程中引入随机属性。随机森林简单来说就是用随机的方式建立一个森林，森林由很多的决策树组成，随机森林的每一棵决策树之间是没有关联的。</p>
-<p>​</p>
-</li>
-</ul>
-
+        <p>这篇博文用来记录已经学习了的机器学习算法，持续更 ~ （哎，学了太容易忘）</p>
+        
+          <a class="article-more-a" href="/2018/06/05/机器学习算法回顾目录/#more">more >></a>
+        
       
 
       
@@ -440,11 +396,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">装软件</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">装软件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -1211,23 +1167,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,11 +1183,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1255,19 +1227,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1279,15 +1239,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>

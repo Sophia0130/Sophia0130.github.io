@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B01.jpg">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B02.png">
-<meta property="og:updated_time" content="2018-07-22T02:50:32.270Z">
+<meta property="og:updated_time" content="2018-07-22T12:02:15.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cs231n笔记(四)——神经网络">
 <meta name="twitter:description" content="神经网络知识点大纲总结，还没有看完，所以持续更新 ~">
@@ -208,9 +208,11 @@
 <p><br></p>
 <p><br></p>
 <h2 id="二、数据预处理"><a href="#二、数据预处理" class="headerlink" title="二、数据预处理"></a>二、数据预处理</h2><h3 id="1-均值减法（Mean-subtraction）"><a href="#1-均值减法（Mean-subtraction）" class="headerlink" title="1.均值减法（Mean subtraction）"></a>1.均值减法（Mean subtraction）</h3><p>每个独立特征减去平均值，从几何上可以理解为在每个维度上都<strong>将数据云的中心都迁移到原点</strong>。</p>
+<p><br></p>
 <h3 id="2-归一化（Normalization）"><a href="#2-归一化（Normalization）" class="headerlink" title="2.归一化（Normalization）"></a>2.归一化（Normalization）</h3><p>做零中心化（zero-centered）处理，然后每个维度都除以其标准差。</p>
 <p>第一种是对整幅图像做零中心化（zero-centered）处理，然后每个维度都除以其标准差</p>
 <p>第二种是对每个维度都做归一化，使得每个维度的最大和最小值是1和-1。</p>
+<p><br></p>
 <h3 id="2-PCA和白化（Whitening）"><a href="#2-PCA和白化（Whitening）" class="headerlink" title="2.PCA和白化（Whitening）"></a>2.PCA和白化（Whitening）</h3><p><strong>注意：</strong></p>
 <p>1.进行预处理很重要的一点是：任何预处理策略（比如数据均值）都只能在训练集数据上进行计算，算法训练完毕后再应用到验证集或者测试集上。</p>
 <p>例如，如果先计算整个数据集图像的平均值然后每张图片都减去平均值，最后将整个数据集分成训练/验证/测试集，那么这个做法是错误的。<strong>应该先分成训练/验证/测试集，只是从训练集中求图片平均值，然后各个集（训练/验证/测试集）中的图像再减去这个平均值。</strong></p>
@@ -218,10 +220,13 @@
 <p><br></p>
 <p><br></p>
 <h2 id="三、权重初始化"><a href="#三、权重初始化" class="headerlink" title="三、权重初始化"></a>三、权重初始化</h2><h3 id="1-错误：全零初始化"><a href="#1-错误：全零初始化" class="headerlink" title="1.错误：全零初始化"></a>1.错误：全零初始化</h3><p>具有对称性</p>
-<h3 id="2-小随机数初始化"><a href="#2-小随机数初始化" class="headerlink" title="2.小随机数初始化"></a>2.小随机数初始化</h3><p>初始化为小数：权重太小，随着网络的层次加深，激励函数的结果接近于0，也就是下一层的输入接近于0，那么在反向传播的时候就会计算出非常小的梯度。</p>
-<p>初始化为太大的数：会发生饱和使梯度消失</p>
+<p><br></p>
+<h3 id="2-随机数初始化"><a href="#2-随机数初始化" class="headerlink" title="2.随机数初始化"></a>2.随机数初始化</h3><p><strong>初始化为小数</strong>：权重太小，随着网络的层次加深，激励函数的结果接近于0，也就是下一层的输入接近于0，那么在反向传播的时候就会计算出非常小的梯度。</p>
+<p><strong>初始化为太大的数</strong>：会发生饱和使梯度消失</p>
+<p><br></p>
 <h3 id="3-Xavier-initialization"><a href="#3-Xavier-initialization" class="headerlink" title="3.Xavier initialization"></a>3.Xavier initialization</h3><p>Var(wi)=1/n[l-1]     n输入的神经元个数</p>
-<p>为了得到较小的 wi，设置Var(wi)=1/n。就是将wi的方差设为1/n，标准差设为sqrt(1/n) 。</p>
+<p>为了得到较小的 wi，设置Var(wi)=1/n。就是将wi的方差设为1/n，标准差设为sqrt(1/n) </p>
+<p><br></p>
 <h3 id="4-He-Initialization"><a href="#4-He-Initialization" class="headerlink" title="4.He Initialization"></a>4.He Initialization</h3><p>Var(wi)=2/n[l-1]     n输入的神经元个数</p>
 <p><br></p>
 <p><br></p>
@@ -229,9 +234,20 @@
 <p>2.减小不同的样本分布（Covariate Shift ）对后面几层网络的影响，使整体网络更加健壮。</p>
 <p><br></p>
 <p><br></p>
-<h2 id="五、正则化-Regularization"><a href="#五、正则化-Regularization" class="headerlink" title="五、正则化 Regularization"></a>五、正则化 Regularization</h2><h3 id="方法一：L2"><a href="#方法一：L2" class="headerlink" title="方法一：L2"></a>方法一：L2</h3><h3 id="方法二：droupout"><a href="#方法二：droupout" class="headerlink" title="方法二：droupout"></a>方法二：droupout</h3><p>随机失活是<strong>为每个神经元结点设置一个随机消除的概率</strong>，多地被使用在计算机视觉领域。</p>
+<h2 id="五、过拟合Overfitting的解决方式正则化-Regularization"><a href="#五、过拟合Overfitting的解决方式正则化-Regularization" class="headerlink" title="五、过拟合Overfitting的解决方式正则化 Regularization"></a>五、过拟合Overfitting的解决方式正则化 Regularization</h2><h3 id="方法一：L2-Regularization-正则化"><a href="#方法一：L2-Regularization-正则化" class="headerlink" title="方法一：L2  Regularization 正则化"></a>方法一：L2  Regularization 正则化</h3><p>PS：<strong>过拟合时的权重很大，正则化就是让权重不那么大</strong></p>
+<p>1.<strong>过拟合的时候权重会很大</strong></p>
+<p>过拟合，就是拟合函数需要顾忌每一个点，最终形成的拟合函数波动很大，从而使得很小的区间里，函数值的变化很剧烈，即导数值的绝对值非常大。由于自变量值可大可小，所以只有系数足够大，才能保证导数值很大。</p>
+<p>2.正则化防止过拟合的原因</p>
+<p>正则化项对于原权重是个衰减项，从而使得权重不会变得太大</p>
+<p><br></p>
+<h3 id="方法二：droupout"><a href="#方法二：droupout" class="headerlink" title="方法二：droupout"></a>方法二：droupout</h3><p>随机失活是<strong>为每个神经元结点设置一个随机消除的概率</strong>，多地被使用在计算机视觉领域。</p>
 <p><strong>注意，在测试阶段不要使用 dropout</strong></p>
-<h3 id="方法三：数据扩增（Data-Augmentation）"><a href="#方法三：数据扩增（Data-Augmentation）" class="headerlink" title="方法三：数据扩增（Data Augmentation）"></a>方法三：数据扩增（Data Augmentation）</h3><h3 id="方法四：早停止法（Early-Stopping）"><a href="#方法四：早停止法（Early-Stopping）" class="headerlink" title="方法四：早停止法（Early Stopping）"></a>方法四：早停止法（Early Stopping）</h3><h3 id="方法五：Drop-Connect"><a href="#方法五：Drop-Connect" class="headerlink" title="方法五：Drop Connect"></a>方法五：Drop Connect</h3><h3 id="方法六：Fractional-Max-Pooling"><a href="#方法六：Fractional-Max-Pooling" class="headerlink" title="方法六：Fractional Max Pooling"></a>方法六：Fractional Max Pooling</h3><h3 id="方法七：Stochastic-Depth"><a href="#方法七：Stochastic-Depth" class="headerlink" title="方法七：Stochastic Depth"></a>方法七：Stochastic Depth</h3><p><br></p>
+<p><br></p>
+<h3 id="方法三：数据扩增（Data-Augmentation）"><a href="#方法三：数据扩增（Data-Augmentation）" class="headerlink" title="方法三：数据扩增（Data Augmentation）"></a>方法三：数据扩增（Data Augmentation）</h3><p><br></p>
+<h3 id="方法四：早停止法（Early-Stopping）"><a href="#方法四：早停止法（Early-Stopping）" class="headerlink" title="方法四：早停止法（Early Stopping）"></a>方法四：早停止法（Early Stopping）</h3><p><br></p>
+<h3 id="方法五：Drop-Connect"><a href="#方法五：Drop-Connect" class="headerlink" title="方法五：Drop Connect"></a>方法五：Drop Connect</h3><p><br></p>
+<h3 id="方法六：Fractional-Max-Pooling"><a href="#方法六：Fractional-Max-Pooling" class="headerlink" title="方法六：Fractional Max Pooling"></a>方法六：Fractional Max Pooling</h3><p><br></p>
+<h3 id="方法七：Stochastic-Depth"><a href="#方法七：Stochastic-Depth" class="headerlink" title="方法七：Stochastic Depth"></a>方法七：Stochastic Depth</h3><p><br></p>
 <p><br></p>
 <h2 id="六、超参数的选择"><a href="#六、超参数的选择" class="headerlink" title="六、超参数的选择"></a>六、超参数的选择</h2><h3 id="1-交叉验证"><a href="#1-交叉验证" class="headerlink" title="1.交叉验证"></a>1.交叉验证</h3><p><br></p>
 <h3 id="2-随机搜索优于网格搜索"><a href="#2-随机搜索优于网格搜索" class="headerlink" title="2.随机搜索优于网格搜索"></a>2.随机搜索优于网格搜索</h3><p><br></p>
@@ -244,7 +260,10 @@
 <p><br></p>
 <p><br></p>
 <h2 id="七、梯度下降的更新方法"><a href="#七、梯度下降的更新方法" class="headerlink" title="七、梯度下降的更新方法"></a>七、梯度下降的更新方法</h2><p><strong>加速神经网络的训练</strong></p>
-<h3 id="1-SGD（随机梯度下降），Momentum动量，Nesterov动量"><a href="#1-SGD（随机梯度下降），Momentum动量，Nesterov动量" class="headerlink" title="1.SGD（随机梯度下降），Momentum动量，Nesterov动量"></a>1.SGD（随机梯度下降），Momentum动量，Nesterov动量</h3><h3 id="2-学习率退火"><a href="#2-学习率退火" class="headerlink" title="2.学习率退火"></a>2.学习率退火</h3><h3 id="3-二阶方法"><a href="#3-二阶方法" class="headerlink" title="3.二阶方法"></a>3.二阶方法</h3><h3 id="4-逐参数适应学习率方法（Adagrad，RMSProp）"><a href="#4-逐参数适应学习率方法（Adagrad，RMSProp）" class="headerlink" title="4.逐参数适应学习率方法（Adagrad，RMSProp）"></a>4.逐参数适应学习率方法（Adagrad，RMSProp）</h3>
+<h3 id="1-SGD（随机梯度下降），Momentum动量，Nesterov动量"><a href="#1-SGD（随机梯度下降），Momentum动量，Nesterov动量" class="headerlink" title="1.SGD（随机梯度下降），Momentum动量，Nesterov动量"></a>1.SGD（随机梯度下降），Momentum动量，Nesterov动量</h3><p><br></p>
+<h3 id="2-学习率退火"><a href="#2-学习率退火" class="headerlink" title="2.学习率退火"></a>2.学习率退火</h3><p><br></p>
+<h3 id="3-二阶方法"><a href="#3-二阶方法" class="headerlink" title="3.二阶方法"></a>3.二阶方法</h3><p><br></p>
+<h3 id="4-逐参数适应学习率方法（Adagrad，RMSProp）"><a href="#4-逐参数适应学习率方法（Adagrad，RMSProp）" class="headerlink" title="4.逐参数适应学习率方法（Adagrad，RMSProp）"></a>4.逐参数适应学习率方法（Adagrad，RMSProp）</h3>
       
 
       
@@ -369,7 +388,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、非线性激活函数"><span class="toc-number">1.</span> <span class="toc-text">一、非线性激活函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Sigmoid"><span class="toc-number">1.1.</span> <span class="toc-text">1.Sigmoid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-tanh"><span class="toc-number">1.2.</span> <span class="toc-text">2.tanh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-ReLU"><span class="toc-number">1.3.</span> <span class="toc-text">3.ReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Leaky-ReLU"><span class="toc-number">1.4.</span> <span class="toc-text">4.Leaky ReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PReLU"><span class="toc-number">1.5.</span> <span class="toc-text">5.PReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-EReLU"><span class="toc-number">1.6.</span> <span class="toc-text">6.EReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-maxout"><span class="toc-number">1.7.</span> <span class="toc-text">7.maxout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、数据预处理"><span class="toc-number">2.</span> <span class="toc-text">二、数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-均值减法（Mean-subtraction）"><span class="toc-number">2.1.</span> <span class="toc-text">1.均值减法（Mean subtraction）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-归一化（Normalization）"><span class="toc-number">2.2.</span> <span class="toc-text">2.归一化（Normalization）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PCA和白化（Whitening）"><span class="toc-number">2.3.</span> <span class="toc-text">2.PCA和白化（Whitening）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、权重初始化"><span class="toc-number">3.</span> <span class="toc-text">三、权重初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-错误：全零初始化"><span class="toc-number">3.1.</span> <span class="toc-text">1.错误：全零初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-小随机数初始化"><span class="toc-number">3.2.</span> <span class="toc-text">2.小随机数初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Xavier-initialization"><span class="toc-number">3.3.</span> <span class="toc-text">3.Xavier initialization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-He-Initialization"><span class="toc-number">3.4.</span> <span class="toc-text">4.He Initialization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Batch-Normalization（BN）"><span class="toc-number">4.</span> <span class="toc-text">四、Batch Normalization（BN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、正则化-Regularization"><span class="toc-number">5.</span> <span class="toc-text">五、正则化 Regularization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：L2"><span class="toc-number">5.1.</span> <span class="toc-text">方法一：L2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：droupout"><span class="toc-number">5.2.</span> <span class="toc-text">方法二：droupout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法三：数据扩增（Data-Augmentation）"><span class="toc-number">5.3.</span> <span class="toc-text">方法三：数据扩增（Data Augmentation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法四：早停止法（Early-Stopping）"><span class="toc-number">5.4.</span> <span class="toc-text">方法四：早停止法（Early Stopping）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法五：Drop-Connect"><span class="toc-number">5.5.</span> <span class="toc-text">方法五：Drop Connect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法六：Fractional-Max-Pooling"><span class="toc-number">5.6.</span> <span class="toc-text">方法六：Fractional Max Pooling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法七：Stochastic-Depth"><span class="toc-number">5.7.</span> <span class="toc-text">方法七：Stochastic Depth</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、超参数的选择"><span class="toc-number">6.</span> <span class="toc-text">六、超参数的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-交叉验证"><span class="toc-number">6.1.</span> <span class="toc-text">1.交叉验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-随机搜索优于网格搜索"><span class="toc-number">6.2.</span> <span class="toc-text">2.随机搜索优于网格搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-为参数选择合适的范围"><span class="toc-number">6.3.</span> <span class="toc-text">3.为参数选择合适的范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-计算资源来决定训练模型的方式"><span class="toc-number">6.4.</span> <span class="toc-text">4.计算资源来决定训练模型的方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、梯度下降的更新方法"><span class="toc-number">7.</span> <span class="toc-text">七、梯度下降的更新方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SGD（随机梯度下降），Momentum动量，Nesterov动量"><span class="toc-number">7.1.</span> <span class="toc-text">1.SGD（随机梯度下降），Momentum动量，Nesterov动量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-学习率退火"><span class="toc-number">7.2.</span> <span class="toc-text">2.学习率退火</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-二阶方法"><span class="toc-number">7.3.</span> <span class="toc-text">3.二阶方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-逐参数适应学习率方法（Adagrad，RMSProp）"><span class="toc-number">7.4.</span> <span class="toc-text">4.逐参数适应学习率方法（Adagrad，RMSProp）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、非线性激活函数"><span class="toc-number">1.</span> <span class="toc-text">一、非线性激活函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Sigmoid"><span class="toc-number">1.1.</span> <span class="toc-text">1.Sigmoid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-tanh"><span class="toc-number">1.2.</span> <span class="toc-text">2.tanh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-ReLU"><span class="toc-number">1.3.</span> <span class="toc-text">3.ReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Leaky-ReLU"><span class="toc-number">1.4.</span> <span class="toc-text">4.Leaky ReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PReLU"><span class="toc-number">1.5.</span> <span class="toc-text">5.PReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-EReLU"><span class="toc-number">1.6.</span> <span class="toc-text">6.EReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-maxout"><span class="toc-number">1.7.</span> <span class="toc-text">7.maxout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、数据预处理"><span class="toc-number">2.</span> <span class="toc-text">二、数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-均值减法（Mean-subtraction）"><span class="toc-number">2.1.</span> <span class="toc-text">1.均值减法（Mean subtraction）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-归一化（Normalization）"><span class="toc-number">2.2.</span> <span class="toc-text">2.归一化（Normalization）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PCA和白化（Whitening）"><span class="toc-number">2.3.</span> <span class="toc-text">2.PCA和白化（Whitening）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、权重初始化"><span class="toc-number">3.</span> <span class="toc-text">三、权重初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-错误：全零初始化"><span class="toc-number">3.1.</span> <span class="toc-text">1.错误：全零初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-随机数初始化"><span class="toc-number">3.2.</span> <span class="toc-text">2.随机数初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Xavier-initialization"><span class="toc-number">3.3.</span> <span class="toc-text">3.Xavier initialization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-He-Initialization"><span class="toc-number">3.4.</span> <span class="toc-text">4.He Initialization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Batch-Normalization（BN）"><span class="toc-number">4.</span> <span class="toc-text">四、Batch Normalization（BN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、过拟合Overfitting的解决方式正则化-Regularization"><span class="toc-number">5.</span> <span class="toc-text">五、过拟合Overfitting的解决方式正则化 Regularization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：L2-Regularization-正则化"><span class="toc-number">5.1.</span> <span class="toc-text">方法一：L2  Regularization 正则化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：droupout"><span class="toc-number">5.2.</span> <span class="toc-text">方法二：droupout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法三：数据扩增（Data-Augmentation）"><span class="toc-number">5.3.</span> <span class="toc-text">方法三：数据扩增（Data Augmentation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法四：早停止法（Early-Stopping）"><span class="toc-number">5.4.</span> <span class="toc-text">方法四：早停止法（Early Stopping）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法五：Drop-Connect"><span class="toc-number">5.5.</span> <span class="toc-text">方法五：Drop Connect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法六：Fractional-Max-Pooling"><span class="toc-number">5.6.</span> <span class="toc-text">方法六：Fractional Max Pooling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法七：Stochastic-Depth"><span class="toc-number">5.7.</span> <span class="toc-text">方法七：Stochastic Depth</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、超参数的选择"><span class="toc-number">6.</span> <span class="toc-text">六、超参数的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-交叉验证"><span class="toc-number">6.1.</span> <span class="toc-text">1.交叉验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-随机搜索优于网格搜索"><span class="toc-number">6.2.</span> <span class="toc-text">2.随机搜索优于网格搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-为参数选择合适的范围"><span class="toc-number">6.3.</span> <span class="toc-text">3.为参数选择合适的范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-计算资源来决定训练模型的方式"><span class="toc-number">6.4.</span> <span class="toc-text">4.计算资源来决定训练模型的方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、梯度下降的更新方法"><span class="toc-number">7.</span> <span class="toc-text">七、梯度下降的更新方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SGD（随机梯度下降），Momentum动量，Nesterov动量"><span class="toc-number">7.1.</span> <span class="toc-text">1.SGD（随机梯度下降），Momentum动量，Nesterov动量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-学习率退火"><span class="toc-number">7.2.</span> <span class="toc-text">2.学习率退火</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-二阶方法"><span class="toc-number">7.3.</span> <span class="toc-text">3.二阶方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-逐参数适应学习率方法（Adagrad，RMSProp）"><span class="toc-number">7.4.</span> <span class="toc-text">4.逐参数适应学习率方法（Adagrad，RMSProp）</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -486,23 +505,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +521,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,19 +565,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,15 +577,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>
