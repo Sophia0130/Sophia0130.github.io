@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Cygwin 安装 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了 Cygwin的安装 Cygwin 用于各种版本的Microsoft Windows上，运行类UNIX系统。Cygwin的主要目的是通过重新编译，将POSIX系统（例如Linux、BSD，以及其他Unix系统）上的软件移植到Windows上。                     官网下载 http://www.cygw">
+  <meta name="description" content="PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了">
 <meta name="keywords" content="Linux,装软件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cygwin 安装">
 <meta property="og:url" content="http://yoursite.com/2018/06/01/Cygwin-安装/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了 Cygwin的安装 Cygwin 用于各种版本的Microsoft Windows上，运行类UNIX系统。Cygwin的主要目的是通过重新编译，将POSIX系统（例如Linux、BSD，以及其他Unix系统）上的软件移植到Windows上。                     官网下载 http://www.cygw">
+<meta property="og:description" content="PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-01T09:17:06.917Z">
+<meta property="og:updated_time" content="2018-07-22T03:16:56.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cygwin 安装">
-<meta name="twitter:description" content="PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了 Cygwin的安装 Cygwin 用于各种版本的Microsoft Windows上，运行类UNIX系统。Cygwin的主要目的是通过重新编译，将POSIX系统（例如Linux、BSD，以及其他Unix系统）上的软件移植到Windows上。                     官网下载 http://www.cygw">
+<meta name="twitter:description" content="PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -193,6 +193,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了</p>
+<a id="more"></a>
+<p><br></p>
 <h2 id="Cygwin的安装"><a href="#Cygwin的安装" class="headerlink" title="Cygwin的安装"></a>Cygwin的安装</h2><ul>
 <li>Cygwin 用于各种版本的Microsoft Windows上，运行类UNIX系统。Cygwin的主要目的是通过重新编译，将POSIX系统（例如Linux、BSD，以及其他Unix系统）上的软件移植到Windows上。                     官网下载 <a href="http://www.cygwin.com/" target="_blank" rel="noopener">http://www.cygwin.com/</a></li>
 </ul>
@@ -204,17 +206,20 @@
 <li>helloworld 验证 (难道就我觉得用起来这么不方便的吗)</li>
 </ul>
 <p><a href="https://jingyan.baidu.com/article/a948d6512fb5d70a2ccd2e6f.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/a948d6512fb5d70a2ccd2e6f.html</a></p>
-<a id="more"></a>
+<p><br></p>
 <h2 id="Cygwin-、虚拟机-、Win10-Linux子系统区别"><a href="#Cygwin-、虚拟机-、Win10-Linux子系统区别" class="headerlink" title="Cygwin 、虚拟机 、Win10 Linux子系统区别"></a>Cygwin 、虚拟机 、Win10 Linux子系统区别</h2><p>(1) Cygwin 和虚拟机的区别</p>
 <p>Cygwin 是一个 POSIX 兼容层，就是将linux平台上的系统调用转换成了windows API，使 Linux 的软件能够运行，应该可以称得上一种 Linux 发行版，而虚拟机则是虚拟了一个仿真的计算机环境，让Linux 认为虚拟机是一台机器，从而在上面安装 Linux</p>
-<p><strong>Cygwin并<em>不能直接运行</em>  Linux 中运行的程序，必须在Cygwin中<em>重新编译</em> 该程序源码后才能让该程序在windows中运行</strong>。</p>
+<p><strong>Cygwin并不能直接运行 Linux 中运行的程序，必须在Cygwin中重新编译 该程序源码后才能让该程序在windows中运行</strong>。</p>
 <p><a href="http://www.169it.com/tech-qa-linux/article-8333186796219879155.html" target="_blank" rel="noopener">http://www.169it.com/tech-qa-linux/article-8333186796219879155.html</a></p>
 <p>(2) Win10下的Linux子系统</p>
 <p><a href="http://www.cnblogs.com/micro-chen/p/5437316.html" target="_blank" rel="noopener">http://www.cnblogs.com/micro-chen/p/5437316.html</a></p>
 <p><a href="https://www.jianshu.com/p/bc38ed12da1d" target="_blank" rel="noopener">https://www.jianshu.com/p/bc38ed12da1d</a></p>
+<p><br></p>
+<p><br></p>
 <p>PS：下面是遇到的乱七八糟的总结，因为对OS实在不熟悉，遇到很多英文，真的搞不清楚这些是个啥</p>
 <hr>
 <h2 id="1-Linux-——-redhat、suse、debain、ubuntu、fedora版本区别"><a href="#1-Linux-——-redhat、suse、debain、ubuntu、fedora版本区别" class="headerlink" title="1. Linux —— redhat、suse、debain、ubuntu、fedora版本区别"></a>1. Linux —— <strong>redhat</strong>、suse、debain、<strong>ubuntu</strong>、fedora版本区别</h2><p><a href="https://blog.csdn.net/lzx1104/article/details/41776977" target="_blank" rel="noopener">https://blog.csdn.net/lzx1104/article/details/41776977</a></p>
+<p><br></p>
 <h2 id="2-Linux和windows下的命令行解释器"><a href="#2-Linux和windows下的命令行解释器" class="headerlink" title="2. Linux和windows下的命令行解释器"></a>2. Linux和windows下的命令行解释器</h2><p>命令解释器，处于内核和用户之间，负责把用户的指令传递给内核并且把执行结果回显给用户</p>
 <h3 id="Linux："><a href="#Linux：" class="headerlink" title="Linux："></a>Linux：</h3><p> shell 是一个<strong>命令行解释器</strong>，是终端和Linux内核之间的接口程序，在提示符下输入的每个命令都由 shell 先解释然后传给Linux内核。                                                                               在Linux 和 UNIX系统里可以使用不同的shell，最常用的 Bourne shell (sh), C shell (csh),  Korn shell (ksh)。</p>
 <ul>
@@ -226,6 +231,7 @@
 </ul>
 <h3 id="windows："><a href="#windows：" class="headerlink" title="windows："></a>windows：</h3><p>windows系统中见到的桌面即explorer.exe (文件资源管理器)是<strong>图形</strong>shell，而cmd就是命令行解释器(相当于Linux的bash),，windows也有强大的shell叫windows power shell</p>
 <p>git bash是Windows下的命令行工具，是基于cmd的，在windows下使用git命令的模拟终端，linux、unix可以直接使用git。</p>
+<p><br></p>
 <h2 id="3-版本问题"><a href="#3-版本问题" class="headerlink" title="3. 版本问题"></a>3. 版本问题</h2><ul>
 <li>Alpha：内部测试版。α是希腊字母的第一个，表示最早的版本，这个版本包含很多BUG，功能也不全，主要是给开发人员和测试人员测试和找BUG用的。</li>
 <li>Beta：公开测试版。β是希腊字母的第二个，这个阶段的版本会一直加入新的功能。</li>
@@ -477,7 +483,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,35 +507,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,7 +519,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,11 +531,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>

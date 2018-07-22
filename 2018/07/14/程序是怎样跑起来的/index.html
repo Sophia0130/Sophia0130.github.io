@@ -9,7 +9,7 @@
   <title>程序是怎样跑起来的 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="程序是怎样跑起来的PS：超级感谢师兄把这本书借给我，因为我的硬件基础实在是太差，这本书让我对硬件、操作系统有了个基本的概念。 这篇博就是记录读书笔记，有些章节我比较熟悉，就跳过了">
-<meta name="keywords" content="程序媛">
+<meta name="keywords" content="硬件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="程序是怎样跑起来的">
 <meta property="og:url" content="http://yoursite.com/2018/07/14/程序是怎样跑起来的/index.html">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-b5d44cc4d1f293d07826fc052b20213c_hd.jpg">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/virtual%20memory.JPG">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E4%B8%AD%E9%97%B4%E4%BB%B6.png">
-<meta property="og:updated_time" content="2018-07-14T08:48:58.913Z">
+<meta property="og:updated_time" content="2018-07-22T03:20:16.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="程序是怎样跑起来的">
 <meta name="twitter:description" content="程序是怎样跑起来的PS：超级感谢师兄把这本书借给我，因为我的硬件基础实在是太差，这本书让我对硬件、操作系统有了个基本的概念。 这篇博就是记录读书笔记，有些章节我比较熟悉，就跳过了">
@@ -202,6 +202,7 @@
         <h1 id="程序是怎样跑起来的"><a href="#程序是怎样跑起来的" class="headerlink" title="程序是怎样跑起来的"></a>程序是怎样跑起来的</h1><p>PS：超级感谢师兄把这本书借给我，因为我的硬件基础实在是太差，这本书让我对硬件、操作系统有了个基本的概念。</p>
 <p>这篇博就是记录读书笔记，有些章节我比较熟悉，就跳过了</p>
 <a id="more"></a>
+<p><br></p>
 <h2 id="一、CPU"><a href="#一、CPU" class="headerlink" title="一、CPU"></a>一、CPU</h2><h3 id="1-CPU内部结构"><a href="#1-CPU内部结构" class="headerlink" title="1.CPU内部结构"></a>1.CPU内部结构</h3><ol>
 <li>寄存器：暂存指令、数据</li>
 <li>控制器：将内存中的指令、数据读入寄存器，根据运算结果控制计算机（如显示器的输入输出）</li>
@@ -215,7 +216,9 @@
 <p>（2）程序计数器被设定为要调用的函数的入口地址</p>
 <p>（3）RETURN指令：调用函数执行完后，把栈里的地址取出，将程序计数器设定为该地址</p>
 <h3 id="5-内存地址的查看"><a href="#5-内存地址的查看" class="headerlink" title="5.内存地址的查看"></a>5.内存地址的查看</h3><p>内存地址通过基址寄存器+变址寄存器来查看更方便，相当于<strong>二维数组的索引</strong>。</p>
-<h3 id="6-CPU能直接识别和执行的只有机器语言"><a href="#6-CPU能直接识别和执行的只有机器语言" class="headerlink" title="6. CPU能直接识别和执行的只有机器语言"></a>6. CPU能直接识别和执行的只有机器语言</h3><h2 id="二、计算机信息用二进制数表示"><a href="#二、计算机信息用二进制数表示" class="headerlink" title="二、计算机信息用二进制数表示"></a>二、计算机信息用二进制数表示</h2><p>1.内存和磁盘都是用字节单位来存储和读写数据，所以字节是信息的基本单位，位是最小单位</p>
+<h3 id="6-CPU能直接识别和执行的只有机器语言"><a href="#6-CPU能直接识别和执行的只有机器语言" class="headerlink" title="6. CPU能直接识别和执行的只有机器语言"></a>6. CPU能直接识别和执行的只有机器语言</h3><p><br></p>
+<p><br></p>
+<h2 id="二、计算机信息用二进制数表示"><a href="#二、计算机信息用二进制数表示" class="headerlink" title="二、计算机信息用二进制数表示"></a>二、计算机信息用二进制数表示</h2><p>1.内存和磁盘都是用字节单位来存储和读写数据，所以字节是信息的基本单位，位是最小单位</p>
 <p>2.计算机中的小数计算错误：是因为有些十进制的小数无法转换为二进制数</p>
 <p>举个例子：十进制0.1转为二进制会变成0.00011001100……(1100循环) 。实际上，计算机不会这样处理小数。</p>
 <p><img src="http://p8ge6t5tt.bkt.clouddn.com/error.JPG" alt=""></p>
@@ -238,36 +241,50 @@
 <p>5.EXCESS系统</p>
 <p>指数：用的是EXCESS系统表，为的是<strong>表示负数时不使用符号位</strong>（通过将指数部分表示范围的中间值设为0）</p>
 <p>举个例子：ABCDEFG　D表示0，那么E表示1，C表示-1</p>
+<p><br></p>
+<p><br></p>
 <h2 id="三、内存"><a href="#三、内存" class="headerlink" title="三、内存"></a>三、内存</h2><h3 id="1-内存的物理机制"><a href="#1-内存的物理机制" class="headerlink" title="1.内存的物理机制"></a>1.内存的物理机制</h3><p>内存IC中有电源、地址信号、数据信号、控制信号 (读写操作)。</p>
 <p> 内存，包括随机存储器（RAM），只读存储器（<strong>ROM</strong>），以及高速缓存（CACHE）。 只不过因为RAM是其中最重要的存储器。 通常所说的内即指电脑系统中的RAM。</p>
+<p><br></p>
 <h3 id="2-数据在内存中的存储"><a href="#2-数据在内存中的存储" class="headerlink" title="2.数据在内存中的存储"></a>2.数据在内存中的存储</h3><p>数据类型在内存中看就是，占据内存的大小(当然符号位先不管)</p>
 <p>字节序</p>
 <ul>
 <li>Big endian ：按照从低地址到高地址的顺序存放数据的高位字节到低位字节</li>
 <li>Little endian：按照从低地址到高地址的顺序存放据的低位字节到高位字节</li>
 </ul>
+<p><br></p>
 <h3 id="3-指针"><a href="#3-指针" class="headerlink" title="3.指针"></a>3.指针</h3><p>存储数据的内存地址</p>
 <p><code>char *d</code>  char 表示一次能从地址中读取一个字节的数据</p>
 <p> <code>long *l</code> long 表示一次能从地址中读取四个字节的数据</p>
+<p><br></p>
 <h3 id="4-数组"><a href="#4-数组" class="headerlink" title="4.数组"></a>4.数组</h3><p>数组和内存的物理构造是一样的，数组使编程工作更高效</p>
+<p><br></p>
 <h3 id="5-栈、队列、环形缓冲区（不需要指定地址和索引）"><a href="#5-栈、队列、环形缓冲区（不需要指定地址和索引）" class="headerlink" title="5.栈、队列、环形缓冲区（不需要指定地址和索引）"></a>5.栈、队列、环形缓冲区（不需要指定地址和索引）</h3><p>栈：数据只能在栈顶插入(push)或删除(pop)  ，对内存中的数据读写 LIFO (last in first out)</p>
 <p>队列：队尾插入数据，队头删除数据 ，对内存中的数据读写 FIFO (first in first out)</p>
 <p>队列一般是以环状缓冲区的形式实现，使数据的写入和读出循环起来</p>
+<p><br></p>
 <h3 id="6-链表"><a href="#6-链表" class="headerlink" title="6.链表"></a>6.链表</h3><p>使元素插入、删除更容易，不像数组那样需要一部分数据整体都移动</p>
+<p><br></p>
 <h3 id="7-二叉查找树（数据搜索）"><a href="#7-二叉查找树（数据搜索）" class="headerlink" title="7.二叉查找树（数据搜索）"></a>7.二叉查找树（数据搜索）</h3><p>在链表的基础上插入、删除元素，考虑数据大小，将其分成左右两个方向</p>
+<p><br></p>
+<p><br></p>
 <h2 id="四、磁盘"><a href="#四、磁盘" class="headerlink" title="四、磁盘"></a>四、磁盘</h2><h3 id="1-内存和磁盘"><a href="#1-内存和磁盘" class="headerlink" title="1.内存和磁盘"></a>1.内存和磁盘</h3><p>都可以用来存储程序命令和数据。</p>
 <ul>
 <li>内存：用电流来实现存储，高速小容量</li>
 <li>磁盘：用磁效应来实现存储，低速高容量</li>
 </ul>
 <p>内存主要是指主内存 (存储CPU中运行的程序指令和数据)，磁盘主要是指硬盘</p>
-<h3 id="2-存储程序方式-程序内置方式"><a href="#2-存储程序方式-程序内置方式" class="headerlink" title="2.存储程序方式 (程序内置方式)"></a>2.存储程序方式 (程序内置方式)</h3><p><strong>磁盘中存储的程序，必须要加载到内存才能运行</strong>，因为CPU运行和解析程序的时候要通过<strong>程序计数器</strong>指定内存地址来读取程序。</p>
+<p><br></p>
+<h3 id="2-存储程序方式-程序内置方式"><a href="#2-存储程序方式-程序内置方式" class="headerlink" title="2.存储程序方式 (程序内置方式)"></a>2.存储程序方式 (程序内置方式)</h3><p><strong>磁盘中存储的程序，必须要加载到内存才能运行</strong>，因为CPU运行和解析程序的时候要通过<strong>程序计数器</strong>指定内存地址来读取程序</p>
+<p><br></p>
 <h3 id="3-磁盘缓存-假想的磁盘"><a href="#3-磁盘缓存-假想的磁盘" class="headerlink" title="3.磁盘缓存 (假想的磁盘)"></a>3.磁盘缓存 (假想的磁盘)</h3><p>磁盘缓存：从磁盘中读取数据到内存中存储的方式，从而加快访问速度。</p>
 <p>这种将低速设备中的数据保存到高速设备中的<strong>缓存</strong>方式，其它情况也会用到。Web浏览器通过远程Web服务器获取数据，在显示较大的图片或视频时，其实先将文件缓存在硬盘里，等到需要时从硬盘读取。(应该就是视频已经缓存到硬盘里，等你点开播放键，再从硬盘读取，这样读取速度会快)</p>
+<p><br></p>
 <h3 id="4-虚拟内存-假想的内存"><a href="#4-虚拟内存-假想的内存" class="headerlink" title="4.虚拟内存(假想的内存)"></a>4.虚拟内存(假想的内存)</h3><p>将磁盘的一部分作为内存使用，在<strong>内存不足时也能运行程序</strong>，其实是<strong>将实际内存与磁盘虚拟内存中的内容置换</strong>得以运行程序。</p>
 <p>虚拟内存有分段式和分页式。<strong>分页式</strong>是指不考虑程序构造，将程序按照页(page)的大小进行分割，然后按照页大小在磁盘的虚拟内存和内存之间进行置换。</p>
 <p>page file 1920MB</p>
 <p><img src="http://p8ge6t5tt.bkt.clouddn.com/virtual%20memory.JPG" alt=""></p>
+<p><br></p>
 <h3 id="5-节约内存的编程方法"><a href="#5-节约内存的编程方法" class="headerlink" title="5.节约内存的编程方法"></a>5.节约内存的编程方法</h3><p>(1) DLL(Dynamic Link Library) 多个应用可以共用同一个DLL文件，从而节约了内存</p>
 <p>(2) C语言编程可以通过调用_stdcall</p>
 <p>C语言在调用函数后需要进行栈清理处理 </p>
@@ -275,40 +292,62 @@
 <li>在调用方处理：多次进行相同的栈清理处理</li>
 <li>在被调用方处理：只进行一次栈清理</li>
 </ul>
+<p><br></p>
 <h3 id="6-磁盘划分"><a href="#6-磁盘划分" class="headerlink" title="6. 磁盘划分"></a>6. 磁盘划分</h3><p>磁盘的划分有扇区和可变长</p>
 <ul>
 <li>扇区是硬盘上最小的读写单位</li>
 <li>簇是<strong>文件系统</strong>的最小读写单位，是扇区的倍数，簇可以保证里面的扇区是连续的</li>
 </ul>
 <p><strong>文件系统</strong>：是操作系统在存储设备上组织文件的方法。Windows 98 以前所使用的是文件系统是 FAT，Windows 2000 以后的版本有所谓的 NTFS 。</p>
+<p><br></p>
 <h3 id="7-驱动"><a href="#7-驱动" class="headerlink" title="7.驱动"></a>7.驱动</h3><p>驱动程序就是运行在操作系统和硬件之间，用来协助<strong>操作系统控制硬件的程序</strong></p>
 <p>操作系统只与输入输出设备的驱动打交道，比如显卡、声卡，与硬件直接打交道的是驱动程序</p>
-<h2 id="五、程序的运行环境"><a href="#五、程序的运行环境" class="headerlink" title="五、程序的运行环境"></a>五、程序的运行环境</h2><h3 id="1-操作系统和硬件共同决定了程序的运行环境"><a href="#1-操作系统和硬件共同决定了程序的运行环境" class="headerlink" title="1. 操作系统和硬件共同决定了程序的运行环境"></a>1. 操作系统和硬件共同决定了程序的运行环境</h3><h3 id="2-机器语言"><a href="#2-机器语言" class="headerlink" title="2.机器语言"></a>2.机器语言</h3><p>机器语言是用<strong>二进制代码</strong>表示的计算机能直接识别和执行的一种<strong>机器指令的集合</strong>。这种指令集称为机器码或原生码。<strong>不同种类的计算机其机器语言是不相通的</strong>，按某种计算机的机器指令编制的程序不能在另一种计算机上执行。</p>
+<p><br></p>
+<p><br></p>
+<h2 id="五、程序的运行环境"><a href="#五、程序的运行环境" class="headerlink" title="五、程序的运行环境"></a>五、程序的运行环境</h2><h3 id="1-操作系统和硬件共同决定了程序的运行环境"><a href="#1-操作系统和硬件共同决定了程序的运行环境" class="headerlink" title="1. 操作系统和硬件共同决定了程序的运行环境"></a>1. 操作系统和硬件共同决定了程序的运行环境</h3><p><br></p>
+<h3 id="2-机器语言"><a href="#2-机器语言" class="headerlink" title="2.机器语言"></a>2.机器语言</h3><p>机器语言是用<strong>二进制代码</strong>表示的计算机能直接识别和执行的一种<strong>机器指令的集合</strong>。这种指令集称为机器码或原生码。<strong>不同种类的计算机其机器语言是不相通的</strong>，按某种计算机的机器指令编制的程序不能在另一种计算机上执行。</p>
 <p>对于<strong>源代码</strong>进行编译后得到<strong>本地代码</strong>，即机器语言的程序。</p>
+<p><br></p>
 <h3 id="3-不同操作系统API不同"><a href="#3-不同操作系统API不同" class="headerlink" title="3. 不同操作系统API不同"></a>3. 不同操作系统API不同</h3><p>应用软件需要根据不同的操作系统来开发，<strong>应用程序向操作系统传递指令的途径叫API</strong>，像鼠标输入、显示器输出等</p>
-<h3 id="4-利用虚拟机软件运行其它操作系统下才能运行的应用"><a href="#4-利用虚拟机软件运行其它操作系统下才能运行的应用" class="headerlink" title="4. 利用虚拟机软件运行其它操作系统下才能运行的应用"></a>4. 利用虚拟机软件运行其它操作系统下才能运行的应用</h3><h3 id="5-Java虚拟机"><a href="#5-Java虚拟机" class="headerlink" title="5. Java虚拟机"></a>5. Java虚拟机</h3><p>Java编译后生成的不是特定CPU使用的本地代码，而是<strong>字节代码</strong>，Java虚拟机为字节代码的运行提供了运行环境，即<strong>一边编译为本地代码一边运行</strong>。</p>
+<p><br></p>
+<h3 id="4-利用虚拟机软件运行其它操作系统下才能运行的应用"><a href="#4-利用虚拟机软件运行其它操作系统下才能运行的应用" class="headerlink" title="4. 利用虚拟机软件运行其它操作系统下才能运行的应用"></a>4. 利用虚拟机软件运行其它操作系统下才能运行的应用</h3><p><br></p>
+<h3 id="5-Java虚拟机"><a href="#5-Java虚拟机" class="headerlink" title="5. Java虚拟机"></a>5. Java虚拟机</h3><p>Java编译后生成的不是特定CPU使用的本地代码，而是<strong>字节代码</strong>，Java虚拟机为字节代码的运行提供了运行环境，即<strong>一边编译为本地代码一边运行</strong>。</p>
 <p>Java虚拟机看作是不依赖于特定硬件及操作系统的运行环境</p>
+<p><br></p>
 <h3 id="6-BIOS"><a href="#6-BIOS" class="headerlink" title="6. BIOS"></a>6. BIOS</h3><p><strong>BIOS放在内存中的ROM里</strong> ，掉电不丢失</p>
 <p>BIOS (Basic Input Output System ) 记录了控制外围设备的程序和数据。开机后，BIOS首先确认硬件是否正常运行，没有问题后，会启动<strong>硬盘里的引导程序</strong>。</p>
-<h2 id="六、源文件到可执行文件"><a href="#六、源文件到可执行文件" class="headerlink" title="六、源文件到可执行文件"></a>六、源文件到可执行文件</h2><h3 id="1-计算机只能运行本地代码"><a href="#1-计算机只能运行本地代码" class="headerlink" title="1.计算机只能运行本地代码"></a>1.计算机只能运行本地代码</h3><h3 id="2-编译器"><a href="#2-编译器" class="headerlink" title="2.编译器"></a>2.编译器</h3><p>编译器与编程语言还与CPU的种类有关，将源代码转换为本地代码 </p>
+<p><br></p>
+<p><br></p>
+<h2 id="六、源文件到可执行文件"><a href="#六、源文件到可执行文件" class="headerlink" title="六、源文件到可执行文件"></a>六、源文件到可执行文件</h2><h3 id="1-计算机只能运行本地代码"><a href="#1-计算机只能运行本地代码" class="headerlink" title="1.计算机只能运行本地代码"></a>1.计算机只能运行本地代码</h3><p><br></p>
+<h3 id="2-编译器"><a href="#2-编译器" class="headerlink" title="2.编译器"></a>2.编译器</h3><p>编译器与编程语言还与CPU的种类有关，将源代码转换为本地代码 </p>
 <p>所以对于源文件编译生成的目标文件 .obj ，其内容是本地代码</p>
 <p><strong>交叉编译器</strong>：在一种计算机环境中运行的编译程序，能编译出<strong>另外一种环境下运行的代码</strong> </p>
+<p><br></p>
 <h3 id="3-链接器"><a href="#3-链接器" class="headerlink" title="3.链接器"></a>3.链接器</h3><p>编译后生成的目标文件无法直接运行，需要用链接器将多个目标文件结合，才能生成课执行文件.exe</p>
+<p><br></p>
 <h3 id="4-库文件"><a href="#4-库文件" class="headerlink" title="4.库文件"></a>4.库文件</h3><p>库文件：将多个目标文件集中保存到一个文件中的形式，链接时将指定的目标文件抽取出。静态数据库(.lib文件)和动态数据库(.dll文件)。</p>
 <p><strong>静态链接</strong>：lib 即包括函数位置信息的索引，也包括实现，在编译时直接将代码加入程序当中</p>
 <p><strong>动态链接</strong>：需要用到两个文件，一个是 lib文件，包含 dll 中的函数名称和位置。另一个是dll文件，包含实际的函数和数据，应用程序通过 lib 文件链接到 dll 文件</p>
+<p><br></p>
 <h3 id="5-可执行文件的运行"><a href="#5-可执行文件的运行" class="headerlink" title="5.可执行文件的运行"></a>5.可执行文件的运行</h3><p>1）可执行文件是放在硬盘中的，需要将程序加载进内存后运行</p>
 <p>2）本地代码处理变量或函数时，跳转到的是变量或函数在内存中的地址，但是可执行文件中并没有指定变量或函数的实际内存地址。可执行文件中变量或函数的实际地址如何表示？</p>
 <p>可执行文件中给变量或函数分配的是<strong>虚拟内存的地址</strong>，程序运行时，会将虚拟内存的地址转为实际内存的地址，这需要<strong>再配置信息</strong>（为这种地址转换提供的信息）</p>
+<p><br></p>
 <h3 id="6-程序加载生成堆和栈"><a href="#6-程序加载生成堆和栈" class="headerlink" title="6.程序加载生成堆和栈"></a>6.程序加载生成堆和栈</h3><p>可执行文件中包括再配置信息、函数、数据，<strong>不存在堆和栈</strong></p>
 <p>堆和栈需要的内存空间是在可执行文件运行时分配的</p>
+<p><br></p>
 <h3 id="7-栈"><a href="#7-栈" class="headerlink" title="7.栈"></a>7.栈</h3><p>存储函数内部的局部变量和方法调用所用参数的内存区域</p>
 <p><strong>自动申请和分配</strong></p>
+<p><br></p>
 <h3 id="8-堆"><a href="#8-堆" class="headerlink" title="8.堆"></a>8.堆</h3><p>通过malloc和new等<strong>动态申请</strong>内存的语句使用，也需要用户<strong>手动释放</strong></p>
+<p><br></p>
+<p><br></p>
 <h2 id="七、操作系统和应用"><a href="#七、操作系统和应用" class="headerlink" title="七、操作系统和应用"></a>七、操作系统和应用</h2><h3 id="1-监控程序"><a href="#1-监控程序" class="headerlink" title="1.监控程序"></a>1.监控程序</h3><p>监控程序：操作系统的原型，具有加载和运行的功能，即将各种应用程序加载到内存中运行</p>
 <p>初期的操作系统：任何程序的输入输出部分都是一样的，所以将这一部分加入到监控程序中形成初期操作系统</p>
+<p><br></p>
 <h3 id="2-系统调用"><a href="#2-系统调用" class="headerlink" title="2.系统调用"></a>2.系统调用</h3><p>系统调用：操作系统的硬件控制功能</p>
 <p>高级语言的<strong>可移植性</strong>：高级语言程序编译后生成相应操作系统的系统调用，即生成利用系统调用的本地代码</p>
+<p><br></p>
 <h3 id="3-Windows操作系统的特征"><a href="#3-Windows操作系统的特征" class="headerlink" title="3.Windows操作系统的特征"></a>3.Windows操作系统的特征</h3><h4 id="（1）API"><a href="#（1）API" class="headerlink" title="（1）API"></a>（1）API</h4><p>API：应用程序接口，将应用程序和操作系统相连接，由多个DLL文件提供</p>
 <h4 id="（2）GUI-图形用户界面"><a href="#（2）GUI-图形用户界面" class="headerlink" title="（2）GUI 图形用户界面"></a>（2）GUI 图形用户界面</h4><h4 id="（3）-WYSIWYG"><a href="#（3）-WYSIWYG" class="headerlink" title="（3） WYSIWYG"></a>（3） WYSIWYG</h4><p>what you see is what you get 所见即所得 ：显示器和打印机作为同等的输出设备处理</p>
 <h4 id="（4）多任务"><a href="#（4）多任务" class="headerlink" title="（4）多任务"></a>（4）多任务</h4><p>通过时钟切割，使得多个程序同时运行，即在短时间内让多个程序切换运行，看起来就像多个程序同时运行</p>
@@ -316,25 +355,37 @@
 <p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E4%B8%AD%E9%97%B4%E4%BB%B6.png" alt=""></p>
 <h4 id="6-即插即用-PNP（plug-and-play）"><a href="#6-即插即用-PNP（plug-and-play）" class="headerlink" title="(6)即插即用 PNP（plug and play）"></a>(6)即插即用 PNP（plug and play）</h4><p>新的设备连接到计算机，系统会自动安装和设定设备的驱动程序</p>
 <p>基本的驱动装系统的时候都是自动安装的，但是大部分的硬件驱动是要自己安装的，比如升级的显卡、声卡</p>
+<p><br></p>
+<p><br></p>
 <h2 id="八、汇编语言"><a href="#八、汇编语言" class="headerlink" title="八、汇编语言"></a>八、汇编语言</h2><p>汇编语言使用助记符 </p>
 <p>汇编语言编译为本地代码的过程叫汇编，反之，叫反汇编</p>
 <p>汇编语言与本地代码一一对应，高级语言反编译是无法做到完全还原</p>
+<p><br></p>
+<p><br></p>
 <h2 id="九、硬件"><a href="#九、硬件" class="headerlink" title="九、硬件"></a>九、硬件</h2><h3 id="1-系统调用"><a href="#1-系统调用" class="headerlink" title="1.系统调用"></a>1.系统调用</h3><p>系统调用实现对硬件的控制，而API则是调用的函数，函数实体存储在DLL文件中</p>
+<p><br></p>
 <h3 id="2-IN、OUT"><a href="#2-IN、OUT" class="headerlink" title="2.IN、OUT"></a>2.IN、OUT</h3><p>向外围设备进行输入输出操作的指令</p>
 <p>IN：将指定端口号的端口数据输入到CPU寄存器</p>
 <p>OUT：将CPU寄存器中的数据输出到指定端口号的端口</p>
+<p><br></p>
 <h3 id="3-I-O-控制器"><a href="#3-I-O-控制器" class="headerlink" title="3.I/O 控制器"></a>3.I/O 控制器</h3><p>主机附带了连接外围设备的连接器，连接器内部有I/O控制器，I/O控制器是用来交换主机与外围设备电流特性的IC，因为电压不同、数字信号与模拟信号的电流特性不同，主机与外围设备无法直接连接</p>
 <p><strong>I/O控制器可以控制多个外围设备</strong></p>
+<p><br></p>
 <h3 id="4-端口-port"><a href="#4-端口-port" class="headerlink" title="4.端口 port"></a>4.端口 port</h3><p>端口是I/O控制器中用于临时保存数据的内存，也叫寄存器（CPU内部的寄存器主要用于数据运算，I/O寄存器主要用于临时存储数据）</p>
 <p>端口号又叫I/O地址，用于区分端口</p>
 <p><strong>IN OUT指令在指定了端口号的端口和CPU之间进行数据的输入输出，和通过内存地址的内存与CPU进行数据交换其实是一样的</strong> </p>
+<p><br></p>
 <h3 id="5-中断请求-IRQ（Interrupt-Request）"><a href="#5-中断请求-IRQ（Interrupt-Request）" class="headerlink" title="5.中断请求 IRQ（Interrupt Request）"></a>5.中断请求 IRQ（Interrupt Request）</h3><p>外围设备向CPU请求中断，使用<strong>中断编号</strong>对不同设备区分</p>
 <p>操作系统和BIOS提供响应中断编号的<strong>中断处理程序</strong></p>
 <p><strong>中断控制器</strong>将多个设备发出的中断请求有序的发给CPU</p>
 <p>利用中断可以实现对数据的实时处理</p>
+<p><br></p>
 <h3 id="6-直接内存存取-DMA（Direct-Memory-Access）"><a href="#6-直接内存存取-DMA（Direct-Memory-Access）" class="headerlink" title="6.直接内存存取 DMA（Direct Memory Access）"></a>6.直接内存存取 DMA（Direct Memory Access）</h3><p>外围设备直接与主内存进行数据传输，<strong>不需要通过CPU</strong>，节约了时间</p>
 <p>PS：I/O端口号、中断号、DMA通道用于识别外围设备</p>
+<p><br></p>
 <h3 id="7-显示机制"><a href="#7-显示机制" class="headerlink" title="7.显示机制"></a>7.显示机制</h3><p>与主内存相独立的VRAM中存储显示器显示的信息，通过中断实现数据的显示</p>
+<p><br></p>
+<p><br></p>
 <h2 id="十、随机数"><a href="#十、随机数" class="headerlink" title="十、随机数"></a>十、随机数</h2><p>1.随机数：用程序来<strong>表示人类的直觉</strong>的一种方法</p>
 <p>2.<strong>伪随机数</strong>：借助公式产生具有一定规律性的随机数</p>
 <p>3.<strong>随机数的种子</strong></p>
@@ -349,6 +400,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">硬件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -572,7 +634,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,35 +658,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,7 +670,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,11 +682,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>

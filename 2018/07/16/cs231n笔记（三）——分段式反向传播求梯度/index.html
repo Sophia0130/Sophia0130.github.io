@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://www.zhihu.com/equation?tex=%5Cdisplaystyle+f%28x%2Cy%29%3D%5Cfrac%7Bx%2B%5Csigma%28y%29%7D%7B%5Csigma%28x%29%2B%28x%2By%29%5E2%7D">
 <meta property="og:image" content="https://pic2.zhimg.com/80/39162d0c528144362cc09f1965d710d1_hd.jpg">
 <meta property="og:image" content="http://www.zhihu.com/equation?tex=x_i">
-<meta property="og:updated_time" content="2018-07-16T08:55:01.788Z">
+<meta property="og:updated_time" content="2018-07-22T02:58:32.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cs231n笔记（三）——分段式反向传播求梯度">
 <meta name="twitter:description" content="目录1.反向传播 反向传播是利用链式法则 ，递归计算梯度的方法 2.分段反向传播求梯度  (重点) 不需要关于输入变量的明确的函数来计算导数，因为需要求的是梯度值。只需要将表达式分成不同的可以求导的模块，然后在反向传播中一步一步地计算梯度。 3.加法、乘法和取最大值在反向传播中关于梯度的理解 4.用向量化计算梯度">
@@ -203,7 +203,10 @@
 <p>3.加法、乘法和取最大值在反向传播中关于梯度的理解</p>
 <p>4.用向量化计算梯度</p>
 <a id="more"></a>
+<p><br></p>
 <h2 id="一、反向传播"><a href="#一、反向传播" class="headerlink" title="一、反向传播"></a>一、反向传播</h2><p>反向传播是利用<strong>链式法则</strong>递归计算表达式的梯度的方法，链式法则是指用相乘将梯度表达式链接起来。</p>
+<p><br></p>
+<p><br></p>
 <h2 id="二、分段反向传播求梯度"><a href="#二、分段反向传播求梯度" class="headerlink" title="二、分段反向传播求梯度"></a>二、分段反向传播求梯度</h2><p>不需要关于输入变量的明确的函数来计算导数，需要求的是梯度值。</p>
 <p>分段计算是指将函数分成不同的模块，这样计算局部梯度相对容易，然后基于链式法则将其“链”起来。实际上<strong>并不需要关于输入变量的明确的函数来计算导数</strong>，只需要将表达式分成不同的可以求导的模块，然后在反向传播中一步一步地计算<strong>梯度</strong>。</p>
 <p>假设有如下函数：</p>
@@ -216,13 +219,17 @@
 <p><strong>（3）注意</strong></p>
 <p><strong>对前向传播变量进行缓存</strong>：在计算反向传播时，前向传播过程中得到的一些中间变量非常有用。</p>
 <p><strong>变量在不同分支的梯度要累加</strong>：如果变量x，y在前向传播的表达式中出现多次，那么进行反向传播的时候就要非常小心，使用+=而不是=来累计这些变量的梯度（不然就会造成覆写）。<strong>如果变量在线路中分支走向不同的部分，那么梯度在回传的时候，就应该进行累加</strong>。看（3）理解。</p>
+<p><br></p>
+<p><br></p>
 <h2 id="三、加法、乘法和取最大值在反向传播中关于梯度的理解"><a href="#三、加法、乘法和取最大值在反向传播中关于梯度的理解" class="headerlink" title="三、加法、乘法和取最大值在反向传播中关于梯度的理解"></a>三、加法、乘法和取最大值在反向传播中关于梯度的理解</h2><p>神经网络中最常用的加法、乘法和取最大值这三个门单元，它们在反向传播过程中的行为都有非常简单的解释。</p>
-<p>2<em>[x</em>y+max(w,z)]</p>
+<p>2<em>[x\</em>y+max(w,z)]</p>
 <p><img src="https://pic2.zhimg.com/80/39162d0c528144362cc09f1965d710d1_hd.jpg" alt="img"></p>
 <p><strong>加法门单元</strong>：把输出的梯度相等地分发给它所有的输入。上例中，加法门把梯度2.00相等地路由给了两个输入。</p>
 <p><strong>取最大值门单元</strong>对：将输出梯度转给前向传播中值最大的那个输入，其余的输入的梯度为0。上例中，取最大值门将梯度2.00转给了z变量，因为z的值比w高，于是w的梯度保持为0。</p>
 <p><strong>乘法门单元</strong>：局部梯度就是交换之后的输入值，然后根据链式法则乘以输出值的梯度。上例中，x的梯度是-4.00x2.00=-8.00。</p>
 <p>注意一种比较特殊的情况，如果乘法门单元的其中一个输入非常小，而另一个输入非常大，它将会把大的梯度分配给小的输入，把小的梯度分配给大的输入。这说明输入数据的大小对于权重梯度的大小有影响。例如，在计算过程中对所有输入数据样本<img src="http://www.zhihu.com/equation?tex=x_i" alt="x_i">乘以1000，那么权重的梯度将会增大1000倍，这样就必须降低学习率来弥补，所以数据预处理很重要。</p>
+<p><br></p>
+<p><br></p>
 <h2 id="四、用向量化计算梯度"><a href="#四、用向量化计算梯度" class="headerlink" title="四、用向量化计算梯度"></a>四、用向量化计算梯度</h2>
       
 
@@ -469,7 +476,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,35 +500,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,7 +512,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,11 +524,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>

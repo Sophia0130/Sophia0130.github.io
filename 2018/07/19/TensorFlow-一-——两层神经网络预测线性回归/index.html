@@ -8,21 +8,25 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>TensorFlow(一)——两层神经网络预测线性回归 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PS：仿照莫烦大神的例子3写了个两层神经网络做线性回归，并且对具体数据做出预测 之前 Deep Learning 课程是看Andrew的，所以关于参数维度的规范也沿用了课程的思路，个人更喜欢Andrew的维度规范，所以莫烦写的 y=w*x+b 这部分，我做了改动。 莫烦的视频  https://morvanzhou.github.io/tutorials/machine-learning/tens">
+  <meta name="description" content="PS：两层的神经网络训练线性回归，代码参考了莫烦的，GitHub上有，然后又往里面加了关于Timeline的部分">
 <meta name="keywords" content="python,tensorflow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow(一)——两层神经网络预测线性回归">
 <meta property="og:url" content="http://yoursite.com/2018/07/19/TensorFlow-一-——两层神经网络预测线性回归/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="PS：仿照莫烦大神的例子3写了个两层神经网络做线性回归，并且对具体数据做出预测 之前 Deep Learning 课程是看Andrew的，所以关于参数维度的规范也沿用了课程的思路，个人更喜欢Andrew的维度规范，所以莫烦写的 y=w*x+b 这部分，我做了改动。 莫烦的视频  https://morvanzhou.github.io/tutorials/machine-learning/tens">
+<meta property="og:description" content="PS：两层的神经网络训练线性回归，代码参考了莫烦的，GitHub上有，然后又往里面加了关于Timeline的部分">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E7%9F%A9%E9%98%B5%E7%BB%B4%E5%BA%A6.png">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/tensorflow%E7%A8%8B%E5%BA%8F1.jpg">
-<meta property="og:updated_time" content="2018-07-19T11:37:20.549Z">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/nonlinerregression.jpg">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/tf_scalar.jpg">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/tf_distribution.jpg">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/tf_histogram.jpg">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/tf_graph.png">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/tf_timeline.png">
+<meta property="og:updated_time" content="2018-07-22T02:35:11.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow(一)——两层神经网络预测线性回归">
-<meta name="twitter:description" content="PS：仿照莫烦大神的例子3写了个两层神经网络做线性回归，并且对具体数据做出预测 之前 Deep Learning 课程是看Andrew的，所以关于参数维度的规范也沿用了课程的思路，个人更喜欢Andrew的维度规范，所以莫烦写的 y=w*x+b 这部分，我做了改动。 莫烦的视频  https://morvanzhou.github.io/tutorials/machine-learning/tens">
-<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E7%9F%A9%E9%98%B5%E7%BB%B4%E5%BA%A6.png">
+<meta name="twitter:description" content="PS：两层的神经网络训练线性回归，代码参考了莫烦的，GitHub上有，然后又往里面加了关于Timeline的部分">
+<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/nonlinerregression.jpg">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -195,13 +199,55 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>PS：仿照莫烦大神的例子3写了个两层神经网络做线性回归，并且对具体数据做出预测</p>
-<p>之前 Deep Learning 课程是看Andrew的，所以关于参数维度的规范也沿用了课程的思路，个人更喜欢Andrew的维度规范，所以莫烦写的 y=w*x+b 这部分，我做了改动。</p>
-<p>莫烦的视频  <a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/3-2-create-NN/" target="_blank" rel="noopener">https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/3-2-create-NN/</a></p>
+        <p>PS：两层的神经网络训练线性回归，代码参考了莫烦的，GitHub上有，然后又往里面加了关于Timeline的部分</p>
 <a id="more"></a>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E7%9F%A9%E9%98%B5%E7%BB%B4%E5%BA%A6.png" alt=""></p>
-<p>一个下午的成果 ~</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/tensorflow%E7%A8%8B%E5%BA%8F1.jpg" alt=""></p>
+<p><br></p>
+<h2 id="一、代码"><a href="#一、代码" class="headerlink" title="一、代码"></a>一、代码</h2><p><img src="http://p8ge6t5tt.bkt.clouddn.com/nonlinerregression.jpg" alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="二、tensorboard"><a href="#二、tensorboard" class="headerlink" title="二、tensorboard"></a>二、tensorboard</h2><p>PS ：真心不是很会看这个分析图，可以看看下面这篇博客</p>
+<p><a href="https://blog.csdn.net/u010099080/article/details/77426577" target="_blank" rel="noopener">https://blog.csdn.net/u010099080/article/details/77426577</a></p>
+<p><br></p>
+<h3 id="SCALAR"><a href="#SCALAR" class="headerlink" title="SCALAR"></a>SCALAR</h3><p><img src="http://p8ge6t5tt.bkt.clouddn.com/tf_scalar.jpg" alt=""></p>
+<ol>
+<li>图的左下角的3 个小图标，第一个：查看大图，第二个：是否对 y 轴对数化，第三个：是放大和复原</li>
+<li>术语解释：</li>
+</ol>
+<p>Smoothing ： 指的是作图时曲线的平滑程度，使用类似指数平滑的处理方法，默认是 0.6。</p>
+<p>STEP：横轴显示的是训练迭代次数</p>
+<p>RELATIVE：训练的相对时间，相对于训练开始的时间</p>
+<p>WALL：训练的绝对时间</p>
+<p><br></p>
+<p><br></p>
+<h3 id="DISTRIBUTIONS"><a href="#DISTRIBUTIONS" class="headerlink" title="DISTRIBUTIONS"></a>DISTRIBUTIONS</h3><p><img src="http://p8ge6t5tt.bkt.clouddn.com/tf_distribution.jpg" alt=""></p>
+<p>从上到下的折线，随着横轴训练次数，纵轴参数的多分位数图</p>
+<p>从上到下表示不同的分位数  [maximum, 93%, 84%, 69%, 50%, 31%, 16%, 7%, minimum]</p>
+<p><br></p>
+<p><br></p>
+<h3 id="HISTOGRAMS"><a href="#HISTOGRAMS" class="headerlink" title="HISTOGRAMS"></a>HISTOGRAMS</h3><p><img src="http://p8ge6t5tt.bkt.clouddn.com/tf_histogram.jpg" alt=""></p>
+<ol>
+<li>HISTOGRAMS 和 DISTRIBUTIONS 是对同一数据不同方式的展现。HISTOGRAMS是 频数分布直方图的堆叠，横轴表示权重值，纵轴表示训练步数。颜色越深表示时间越早，越浅表示越接近训练结束</li>
+<li>两种模式：都是横轴为权重值，纵轴为频数</li>
+</ol>
+<p>OVERLAY  二维表示</p>
+<p>OFFSET 三维表示</p>
+<p><br></p>
+<p><br></p>
+<h3 id="GRAPH"><a href="#GRAPH" class="headerlink" title="GRAPH"></a>GRAPH</h3><p><img src="http://p8ge6t5tt.bkt.clouddn.com/tf_graph.png" alt=""></p>
+<ol>
+<li><p>图像颜色两种模式：</p>
+<p>基于结构的模式（Structure），相同的节点会有同样的颜色</p>
+<p>基于硬件（Device），同一个硬件上的会有相同颜色</p>
+</li>
+<li><p>术语解释：</p>
+<p>Run 创建了几个不同的Session（改变了超参数），对应的计算图</p>
+<p>Session runs：一个session里，不同训练次数，对应的计算图</p>
+</li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h2 id="三、Timeline"><a href="#三、Timeline" class="headerlink" title="三、Timeline"></a>三、Timeline</h2><p>真心看不懂</p>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/tf_timeline.png" alt=""></p>
 
       
 
@@ -318,7 +364,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    懒得写目录啦~
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、代码"><span class="toc-number">1.</span> <span class="toc-text">一、代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、tensorboard"><span class="toc-number">2.</span> <span class="toc-text">二、tensorboard</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SCALAR"><span class="toc-number">2.1.</span> <span class="toc-text">SCALAR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DISTRIBUTIONS"><span class="toc-number">2.2.</span> <span class="toc-text">DISTRIBUTIONS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HISTOGRAMS"><span class="toc-number">2.3.</span> <span class="toc-text">HISTOGRAMS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GRAPH"><span class="toc-number">2.4.</span> <span class="toc-text">GRAPH</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Timeline"><span class="toc-number">3.</span> <span class="toc-text">三、Timeline</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -439,7 +485,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,35 +509,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,7 +521,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,11 +533,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>

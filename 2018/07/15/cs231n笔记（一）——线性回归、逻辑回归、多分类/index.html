@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cdisplaystyle+L_i%3D%5Csum_%7Bj%5Cnot%3Dy_i%7Dmax%280%2Cs_j-s_%7By_i%7D%2B%5CDelta%29">
 <meta property="og:image" content="http://www.zhihu.com/equation?tex=%5Cdisplaystyle+Li%3D-log%28%5Cfrac%7Be%5E%7Bf_%7By_i%7D%7D%7D%7B%5Csum_je%5E%7Bf_j%7D%7D%29">
 <meta property="og:image" content="http://www.zhihu.com/equation?tex=f_j%28z%29%3D%5Cfrac%7Be%5E%7Bz_j%7D%7D%7B%5Csum_ke%5E%7Bz_k%7D%7D">
-<meta property="og:updated_time" content="2018-07-16T08:55:28.515Z">
+<meta property="og:updated_time" content="2018-07-22T02:57:45.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cs231n笔记（一）——线性回归、逻辑回归、多分类">
 <meta name="twitter:description" content="目录一、线性回归 二、逻辑回归 三、多分类 1.根据像素差异分类 2.线性分类    （1）多类SVM分类器-折叶损失    （2）softmax分类器-交叉熵损失">
@@ -215,10 +215,15 @@
 <p>   （1）多类SVM分类器-折叶损失</p>
 <p>   （2）softmax分类器-交叉熵损失</p>
 <a id="more"></a>
-<h1 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h1><p>即对于多维空间中存在的样本点，我们用特征的线性组合去拟合空间中点的分布和轨迹，用于对连续值结果进行预测。</p>
+<p><br></p>
+<h1 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h1><p><br></p>
+<p>即对于多维空间中存在的样本点，我们用特征的线性组合去拟合空间中点的分布和轨迹，用于对连续值结果进行预测。</p>
 <p>线性回归的代价函数</p>
 <p><img src="https://camo.githubusercontent.com/90f8b2963cbd56650a13d0568166905d9805f480/687474703a2f2f696d616765732e636e6974626c6f672e636f6d2f626c6f672f3537353537322f3230313331312f30393038313430352d39623439326363393533376434653662623461393739616166363430653836322e706e67" alt="img"></p>
-<h1 id="逻辑回归（二分类）"><a href="#逻辑回归（二分类）" class="headerlink" title="逻辑回归（二分类）"></a>逻辑回归（二分类）</h1><p>1.过程</p>
+<p><br></p>
+<p><br></p>
+<h1 id="逻辑回归（二分类）"><a href="#逻辑回归（二分类）" class="headerlink" title="逻辑回归（二分类）"></a>逻辑回归（二分类）</h1><p><br></p>
+<p>1.过程</p>
 <ul>
 <li>输入特征x</li>
 <li>用激活函数计算逻辑回归的输出 hθ(x)</li>
@@ -231,26 +236,34 @@
 <p><img src="https://camo.githubusercontent.com/974a671827e2e3d36cd26c76c05ad600ec5502bc/687474703a2f2f696d616765732e636e6974626c6f672e636f6d2f626c6f672f3537353537322f3230313331312f30393038313433372d33306165393937633465633834303161396461663237366365646537346263372e706e67" alt="img"></p>
 <p><img src="https://camo.githubusercontent.com/7766af8da33ce8b9bf8ca7b2c6308e78e5656693/687474703a2f2f696d616765732e636e6974626c6f672e636f6d2f626c6f672f3537353537322f3230313331312f30393038313731332d30613263623061333134613234333431396135623331623366333732393133342e706e67" alt="img"></p>
 <p>不用线性回归的代价函数，是因为会有“非凸”函数的问题，就是这个函数有很多个局部最低点。</p>
-<h1 id="多分类"><a href="#多分类" class="headerlink" title="多分类"></a>多分类</h1><h2 id="（一）通过像素差异分类"><a href="#（一）通过像素差异分类" class="headerlink" title="（一）通过像素差异分类"></a>（一）通过像素差异分类</h2><p>1.NN 最近邻分类器</p>
+<p><br></p>
+<p><br></p>
+<h1 id="多分类"><a href="#多分类" class="headerlink" title="多分类"></a>多分类</h1><p><br></p>
+<h2 id="（一）通过像素差异分类"><a href="#（一）通过像素差异分类" class="headerlink" title="（一）通过像素差异分类"></a>（一）通过像素差异分类</h2><p>1.NN 最近邻分类器</p>
 <p><strong>（1）Nearest Neighbor ：</strong>拿着测试图片和训练集中每一张图片去比较，然后将它认为最相似的那个训练集图片的标签赋给这张测试图片。</p>
 <p><strong>（2）k-Nearest Neighbor分类器</strong>：找最相似的k个图片的标签，然后让他们针对测试图片进行投票，最后把票数最高的标签作为对测试图片的预测。</p>
 <p>2.像素差异分类的缺点：图像更多的是按照背景和颜色被分类，而不是语义主体本身。</p>
-<h2 id="（二）线性分类"><a href="#（二）线性分类" class="headerlink" title="（二）线性分类"></a>（二）线性分类</h2><h2 id="一、分类三个步骤"><a href="#一、分类三个步骤" class="headerlink" title="一、分类三个步骤"></a>一、分类三个步骤</h2><p>由三部分组成：</p>
+<p><br></p>
+<h2 id="（二）线性分类"><a href="#（二）线性分类" class="headerlink" title="（二）线性分类"></a>（二）线性分类</h2><p><br></p>
+<h3 id="一、分类三个步骤"><a href="#一、分类三个步骤" class="headerlink" title="一、分类三个步骤"></a>一、分类三个步骤</h3><p>由三部分组成：</p>
 <p><strong>1. 评分函数（score function）</strong> ：将原始图像数据映射为各个类别的得分，得分高低代表图像属于该类别的可能性高低。</p>
 <p>线性分类评分函数为线性映射：<img src="https://www.zhihu.com/equation?tex=%5Cdisplaystyle+f%28x_i%2CW%2Cb%29%3DWx_i%2Bb" alt="\displaystyle f(x_i,W,b)=Wx_i+b"></p>
 <p><strong>2. 损失函数（loss function）</strong> ：量化分类标签的得分与真实标签之间一致性。也就是<strong>量化某个具体权重集W的质量</strong> 。</p>
 <p><strong>3.最优化（Optimization）</strong> ：找到能够最小化损失函数值的W。</p>
-<h2 id="二、损失函数正则化"><a href="#二、损失函数正则化" class="headerlink" title="二、损失函数正则化"></a>二、损失函数正则化</h2><p>1.为什么正则化</p>
+<p><br></p>
+<h3 id="二、损失函数正则化"><a href="#二、损失函数正则化" class="headerlink" title="二、损失函数正则化"></a>二、损失函数正则化</h3><p>1.为什么正则化</p>
 <p>向损失函数增加一个正则化惩罚（regularization penalty）<img src="https://www.zhihu.com/equation?tex=R%28W%29" alt="R(W)">部分。可以提升其泛化能力，因为这就意味着没有哪个维度能够独自对于整体分值有过大的影响，并避免过拟合。</p>
 <p>注意：通常只对权重<img src="https://www.zhihu.com/equation?tex=W" alt="W">正则化，而不正则化偏差<img src="https://www.zhihu.com/equation?tex=b" alt="b">。</p>
 <p>2.完整的损失函数</p>
 <p>数据损失（data loss），即所有样例的的平均损失<img src="https://www.zhihu.com/equation?tex=L_i" alt="L_i">，和正则化损失（regularization loss）组成</p>
 <p><img src="https://www.zhihu.com/equation?tex=L%3D%5Cdisplaystyle+%5Cunderbrace%7B+%5Cfrac%7B1%7D%7BN%7D%5Csum_i+L_i%7D_%7Bdata+%5C++loss%7D%2B%5Cunderbrace%7B%5Clambda+R%28W%29%7D_%7Bregularization+%5C+loss%7D" alt="L=\displaystyle \underbrace{ \frac{1}{N}\sum_i L_i}_{data \  loss}+\underbrace{\lambda R(W)}_{regularization \ loss}"></p>
-<h2 id="三、损失函数分类"><a href="#三、损失函数分类" class="headerlink" title="三、损失函数分类"></a>三、损失函数分类</h2><p>1.多类SVM</p>
+<p><br></p>
+<h3 id="三、损失函数分类"><a href="#三、损失函数分类" class="headerlink" title="三、损失函数分类"></a>三、损失函数分类</h3><p>1.多类SVM</p>
 <p>（1）多类SVM</p>
 <p><strong>希望正确分类类别<img src="https://www.zhihu.com/equation?tex=y_i" alt="y_i">的分数比不正确类别分数高，而且至少要高<img src="https://www.zhihu.com/equation?tex=%5CDelta" alt="\Delta">，如果不满足这点，就开始计算损失值。</strong></p>
 <p>（2）损失函数</p>
 <p><strong>折叶损失（hinge loss）</strong>：<img src="https://www.zhihu.com/equation?tex=%5Cdisplaystyle+L_i%3D%5Csum_%7Bj%5Cnot%3Dy_i%7Dmax%280%2Cs_j-s_%7By_i%7D%2B%5CDelta%29" alt="\displaystyle L_i=\sum_{j\not=y_i}max(0,s_j-s_{y_i}+\Delta)">  </p>
+<p><br></p>
 <p>2.Softmax分类器</p>
 <p>（1）Softmax分类器</p>
 <p>是逻辑回归分类器即二分类，面对多个分类的一般化归纳。</p>
@@ -383,7 +396,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线性回归"><span class="toc-number"></span> <span class="toc-text">线性回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逻辑回归（二分类）"><span class="toc-number"></span> <span class="toc-text">逻辑回归（二分类）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多分类"><span class="toc-number"></span> <span class="toc-text">多分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）通过像素差异分类"><span class="toc-number">1.</span> <span class="toc-text">（一）通过像素差异分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）线性分类"><span class="toc-number">2.</span> <span class="toc-text">（二）线性分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、分类三个步骤"><span class="toc-number">3.</span> <span class="toc-text">一、分类三个步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、损失函数正则化"><span class="toc-number">4.</span> <span class="toc-text">二、损失函数正则化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、损失函数分类"><span class="toc-number">5.</span> <span class="toc-text">三、损失函数分类</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线性回归"><span class="toc-number"></span> <span class="toc-text">线性回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逻辑回归（二分类）"><span class="toc-number"></span> <span class="toc-text">逻辑回归（二分类）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多分类"><span class="toc-number"></span> <span class="toc-text">多分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）通过像素差异分类"><span class="toc-number">1.</span> <span class="toc-text">（一）通过像素差异分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）线性分类"><span class="toc-number">2.</span> <span class="toc-text">（二）线性分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、分类三个步骤"><span class="toc-number">2.1.</span> <span class="toc-text">一、分类三个步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、损失函数正则化"><span class="toc-number">2.2.</span> <span class="toc-text">二、损失函数正则化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、损失函数分类"><span class="toc-number">2.3.</span> <span class="toc-text">三、损失函数分类</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -504,7 +517,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,35 +541,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,7 +553,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,11 +565,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>
