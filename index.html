@@ -162,6 +162,149 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cs231n笔记（五）——卷积神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/cs231n笔记（五）——卷积神经网络/">cs231n笔记（五）——卷积神经网络</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/25/cs231n笔记（五）——卷积神经网络/" class="archive-article-date">
+  	<time datetime="2018-07-25T03:35:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
+</a>
+
+
+<a href="/2018/07/25/cs231n笔记（五）——卷积神经网络/" class="archive-article-date">
+  	<time datetime="2018-07-25T03:35:57.000Z" itemprop="datePublished">2018-07-25</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><h3 id="一、自相关、互相关"><a href="#一、自相关、互相关" class="headerlink" title="一、自相关、互相关"></a>一、自相关、互相关</h3><p>两个相关函数都是对相似性的度量</p>
+<ul>
+<li><p>自相关：R(u)=f(t)*f(-t)</p>
+<p>函数自身的周期性强弱</p>
+</li>
+</ul>
+<ul>
+<li><p>互相关：R(u)=f(t)*g(-t)</p>
+<p>两个函数在不同的相对位置上互相匹配的程度</p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="二、卷积层与全连接层的共同点和不同点"><a href="#二、卷积层与全连接层的共同点和不同点" class="headerlink" title="二、卷积层与全连接层的共同点和不同点"></a>二、卷积层与全连接层的共同点和不同点</h3><p>1.全连接层</p>
+<p>权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配程度越高。</p>
+<p>2.卷积层</p>
+<p>卷积神经网络中，卷积核是多维特征模板，但是不是整幅图像与模板匹配，而是图像的一部分与模板匹配，点积越大，也就是说匹配程度越大。</p>
+<p><br></p>
+<h3 id="三、点积与叉积"><a href="#三、点积与叉积" class="headerlink" title="三、点积与叉积"></a>三、点积与叉积</h3><h4 id="1-点积、内积、数量积"><a href="#1-点积、内积、数量积" class="headerlink" title="1.点积、内积、数量积"></a>1.点积、内积、数量积</h4><p>$$<br>\mathbf{a}\cdot \mathbf{b} = \sum_{i=1}^n a_ib_i = a_1b_1 + a_2b_2 + \cdots + a_nb_n<br>$$</p>
+<p>几何意义：b在a方向上的投影</p>
+<p><br></p>
+<h4 id="2-叉积、外积、向量积"><a href="#2-叉积、外积、向量积" class="headerlink" title="2.叉积、外积、向量积"></a>2.叉积、外积、向量积</h4><p>$$<br>\mathbf{a} \cdot \mathbf{b} = \mathbf{a} \mathbf{b}^T<br>$$</p>
+<p>几何意义：a和b构成的平行四边形的面积</p>
+<p><br></p>
+<p><br></p>
+<h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><p><br></p>
+<h3 id="一、卷积层的处理"><a href="#一、卷积层的处理" class="headerlink" title="一、卷积层的处理"></a>一、卷积层的处理</h3><h4 id="1-padding：对原始图片在边界上进行填充填充"><a href="#1-padding：对原始图片在边界上进行填充填充" class="headerlink" title="1.padding：对原始图片在边界上进行填充填充"></a>1.padding：对原始图片在边界上进行填充填充</h4><p>每个方向扩展像素点数量为 p，填充后原始图片的大小为 (n+2p) <em> (n+2p)，滤波器保持 f </em> f不变，则输出图片大小为 (n+2p-f+1) * (n+2p-f+1)</p>
+<p><br></p>
+<ul>
+<li><strong>Valid 卷积</strong>：不填充，直接卷积，结果大小为 (n-f+1) * (n-f+1)</li>
+<li><strong>Same 卷积</strong>：进行填充，使得卷积后结果大小与输入一致 n+2p-f+1 = n ，得出 p =（f-1）/2</li>
+</ul>
+<p><br></p>
+<h4 id="2-stride：卷积走的步长"><a href="#2-stride：卷积走的步长" class="headerlink" title="2.stride：卷积走的步长"></a>2.stride：卷积走的步长</h4><p>设步长为 s，填充长度为 p，输入图片大小为 n <em> n，滤波器大小为 f </em> f，则卷积后图片的尺寸为：</p>
+<p>⌊（n+2p-f）/s+1⌋×⌊（n+2p-f）/s+1⌋⌊n+2p−fs+1⌋×⌊n+2p−fs+1⌋</p>
+<p>⌊ ⌋ ：<strong>向下取整</strong>的符号</p>
+<p><br></p>
+<h3 id="二、卷积神经网络（CNN）中的三种层"><a href="#二、卷积神经网络（CNN）中的三种层" class="headerlink" title="二、卷积神经网络（CNN）中的三种层"></a>二、卷积神经网络（CNN）中的三种层</h3><h4 id="1-卷积层（Convolution-layer）"><a href="#1-卷积层（Convolution-layer）" class="headerlink" title="1.卷积层（Convolution layer）"></a>1.卷积层（Convolution layer）</h4><p>卷积核在上一级输入层上通过逐一滑动窗口计算而得，卷积核中的每一个参数都相当于传统神经网络中的权值参数，与对应的局部像素相连接，将卷积核的各个参数与对应的局部像素值相乘之和，通常还要再<strong>加上一个偏置参数</strong>。</p>
+<p><br></p>
+<h4 id="2-池化-采样层（Pooling-layer）"><a href="#2-池化-采样层（Pooling-layer）" class="headerlink" title="2.池化/采样层（Pooling layer）"></a>2.池化/采样层（Pooling layer）</h4><p>往往在卷积层后面，<strong>通过池化来降低卷积层输出的特征向量，不易出现过拟合</strong><br><br><br><strong>Max Pooling</strong>: 选择Pooling窗口中的最大值作为采样值<br><strong>Mean Pooling</strong>: 将Pooling窗口中的所有值相加取平均，以平均值作为采样值</p>
+<p><br></p>
+<h4 id="3-全连接层（Fully-Connected-layer）"><a href="#3-全连接层（Fully-Connected-layer）" class="headerlink" title="3.全连接层（Fully Connected layer）"></a>3.全连接层（Fully Connected layer）</h4><p>每一个结点都与上一层的所有结点相连，用来把前边提取到的特征综合起来<br><br></p>
+<h4 id="4-三种层在参数上的区别"><a href="#4-三种层在参数上的区别" class="headerlink" title="4.三种层在参数上的区别"></a>4.三种层在参数上的区别</h4><p>卷积层——仅有少量的参数<br>池化层——没有参数<br>全连接层——存在大量的参数</p>
+<p><br></p>
+<h4 id="5-注意"><a href="#5-注意" class="headerlink" title="5.注意"></a>5.注意</h4><ol>
+<li>在计算神经网络的层数时，通常<strong>只统计具有权重和参数的层</strong>，因此<strong>池化层通常和之前的卷积层共同计为一层</strong>。</li>
+<li>随着网络的深入，<strong>提取的特征图片大小将会逐渐减小，但同时通道数量应随之增加</strong></li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h3 id="三、卷积运算参数少的机制"><a href="#三、卷积运算参数少的机制" class="headerlink" title="三、卷积运算参数少的机制"></a>三、卷积运算参数少的机制</h3><p>PS：卷积神经网络的参数少，从而解决了，一般神经网络处理图像数据时，需要用大大量参数的问题</p>
+<p><br></p>
+<p><strong>１．参数共享</strong>（Parameter sharing）：<strong>在卷积过程中，不管输入有多大，一个滤波器能对整个输入的某一特征进行探测</strong><br>２．<strong>稀疏连接</strong>（Sparsity of connections）：滤波器的尺寸限制使得，<strong>每个输出值只取决于输入在局部的一小部分的值</strong>，稀疏连接不同于全连接，每个输出综合了所有的输入特征</p>
+<p><br></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/25/cs231n笔记（五）——卷积神经网络/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-TensorFlow-一-——两层神经网络预测线性回归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -255,24 +398,24 @@
 
 
   
-    <article id="post-cs231n笔记-四-——神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-cs231n笔记（四）——神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/18/cs231n笔记-四-——神经网络/">cs231n笔记(四)——神经网络</a>
+      <a class="article-title" href="/2018/07/18/cs231n笔记（四）——神经网络/">cs231n笔记（四）——神经网络</a>
     </h1>
   
 
         
-        <a href="/2018/07/18/cs231n笔记-四-——神经网络/" class="archive-article-date">
+        <a href="/2018/07/18/cs231n笔记（四）——神经网络/" class="archive-article-date">
   	<time datetime="2018-07-18T01:46:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
 </a>
 
 
-<a href="/2018/07/18/cs231n笔记-四-——神经网络/" class="archive-article-date">
+<a href="/2018/07/18/cs231n笔记（四）——神经网络/" class="archive-article-date">
   	<time datetime="2018-07-18T01:46:56.000Z" itemprop="datePublished">2018-07-18</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
@@ -288,7 +431,7 @@
       
         <p>神经网络知识点大纲总结，还没有看完，所以持续更新 ~ </p>
         
-          <a class="article-more-a" href="/2018/07/18/cs231n笔记-四-——神经网络/#more">more >></a>
+          <a class="article-more-a" href="/2018/07/18/cs231n笔记（四）——神经网络/#more">more >></a>
         
       
 
@@ -316,7 +459,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/18/cs231n笔记-四-——神经网络/">展开 >></a>
+          <a class="article-more-a" href="/2018/07/18/cs231n笔记（四）——神经网络/">展开 >></a>
         </p>
       
 
@@ -967,11 +1110,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -982,95 +1125,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/28/Deep-Learning-吴恩达-作业（七）/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-Deep-Learning-吴恩达-课程笔记大纲" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/">Deep Learning 吴恩达 课程笔记大纲</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/" class="archive-article-date">
-  	<time datetime="2018-06-27T02:59:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-27</time>
-</a>
-
-
-<a href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/" class="archive-article-date">
-  	<time datetime="2018-06-27T02:59:57.000Z" itemprop="datePublished">2018-06-27</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization和Neural Networks and Deep Learning 两门课的课程笔记大纲梳理，我用我觉得的理解进行归类，方面以后查找 ~</p>
-        
-          <a class="article-more-a" href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/">展开 >></a>
         </p>
       
 
@@ -1206,43 +1260,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1250,7 +1272,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1258,11 +1300,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1274,11 +1328,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>

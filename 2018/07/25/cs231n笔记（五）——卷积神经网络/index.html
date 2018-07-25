@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>机器学习算法大总结 | 绿小蕤</title>
+  <title>cs231n笔记（五）——卷积神经网络 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="机器学习算法分类 监督学习(有标签)      根据预测结果分成两类  分类问题-离散值 回归问题-连续值   无监督学习(无标签)  半监督学习(一半有标签，一般无标签)  强化学习">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="卷积一、自相关、互相关两个相关函数都是对相似性的度量  自相关：R(u)=f(t)*f(-t) 函数自身的周期性强弱    互相关：R(u)=f(t)*g(-t) 两个函数在不同的相对位置上互相匹配的程度    二、卷积层与全连接层的共同点和不同点1.全连接层 权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配">
+<meta name="keywords" content="深度学习,cs231n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习算法大总结">
-<meta property="og:url" content="http://yoursite.com/2018/05/11/机器学习算法大总结/index.html">
+<meta property="og:title" content="cs231n笔记（五）——卷积神经网络">
+<meta property="og:url" content="http://yoursite.com/2018/07/25/cs231n笔记（五）——卷积神经网络/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="机器学习算法分类 监督学习(有标签)      根据预测结果分成两类  分类问题-离散值 回归问题-连续值   无监督学习(无标签)  半监督学习(一半有标签，一般无标签)  强化学习">
+<meta property="og:description" content="卷积一、自相关、互相关两个相关函数都是对相似性的度量  自相关：R(u)=f(t)*f(-t) 函数自身的周期性强弱    互相关：R(u)=f(t)*g(-t) 两个函数在不同的相对位置上互相匹配的程度    二、卷积层与全连接层的共同点和不同点1.全连接层 权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/20160930051801241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-07-22T12:07:36.072Z">
+<meta property="og:updated_time" content="2018-07-25T03:36:32.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习算法大总结">
-<meta name="twitter:description" content="机器学习算法分类 监督学习(有标签)      根据预测结果分成两类  分类问题-离散值 回归问题-连续值   无监督学习(无标签)  半监督学习(一半有标签，一般无标签)  强化学习">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20160930051801241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="cs231n笔记（五）——卷积神经网络">
+<meta name="twitter:description" content="卷积一、自相关、互相关两个相关函数都是对相似性的度量  自相关：R(u)=f(t)*f(-t) 函数自身的周期性强弱    互相关：R(u)=f(t)*g(-t) 两个函数在不同的相对位置上互相匹配的程度    二、卷积层与全连接层的共同点和不同点1.全连接层 权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -163,25 +161,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-机器学习算法大总结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-cs231n笔记（五）——卷积神经网络" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      机器学习算法大总结
+      cs231n笔记（五）——卷积神经网络
     </h1>
   
 
         
-        <a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
+        <a href="/2018/07/25/cs231n笔记（五）——卷积神经网络/" class="archive-article-date">
+  	<time datetime="2018-07-25T03:35:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
 </a>
 
 
-<a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished">2018-05-11</time>
+<a href="/2018/07/25/cs231n笔记（五）——卷积神经网络/" class="archive-article-date">
+  	<time datetime="2018-07-25T03:35:57.000Z" itemprop="datePublished">2018-07-25</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -194,67 +192,59 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="机器学习算法分类"><a href="#机器学习算法分类" class="headerlink" title="机器学习算法分类"></a>机器学习算法分类</h2><ul>
-<li><p>监督学习(有标签)      根据预测结果分成两类</p>
+        <h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><h3 id="一、自相关、互相关"><a href="#一、自相关、互相关" class="headerlink" title="一、自相关、互相关"></a>一、自相关、互相关</h3><p>两个相关函数都是对相似性的度量</p>
 <ul>
-<li>分类问题-离散值</li>
-<li>回归问题-连续值</li>
-</ul>
-</li>
-<li><p>无监督学习(无标签)</p>
-</li>
-<li><p>半监督学习(一半有标签，一般无标签)</p>
-</li>
-<li><p>强化学习</p>
-<a id="more"></a>
+<li><p>自相关：R(u)=f(t)*f(-t)</p>
+<p>函数自身的周期性强弱</p>
 </li>
 </ul>
-<p><br></p>
-<h2 id="如何决定使用哪种机器学习算法"><a href="#如何决定使用哪种机器学习算法" class="headerlink" title="如何决定使用哪种机器学习算法"></a>如何决定使用哪种机器学习算法</h2><p>scikit-learn作为一个丰富的python机器学习库，实现了绝大多数机器学习的算法。</p>
-<p><img src="https://img-blog.csdn.net/20160930051801241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>上图是scikit-learn的路径图，分成了分类、聚类、回归和降维四个方法</p>
-<p><br></p>
-<p><br></p>
-<h2 id="常用机器学习算法"><a href="#常用机器学习算法" class="headerlink" title="常用机器学习算法"></a>常用机器学习算法</h2><p>1.线性回归 (Linear Regression)</p>
-<p>2.逻辑回归 (Logistic Regression)</p>
-<p>3.决策树 (Decision Tree)</p>
-<p>4.支持向量机（SVM）</p>
-<p>5.朴素贝叶斯 (Naive Bayes)</p>
-<p>6.K邻近算法（KNN）</p>
-<p>7.K-均值算法（K-means）</p>
-<p>8.随机森林 (Random Forest)</p>
-<p>9.降低维度算法（Dimensionality Reduction Algorithms）</p>
-<p>10.Gradient Boost和Adaboost算法</p>
-<p>这篇总结的很全面了 <a href="https://blog.csdn.net/han_xiaoyang/article/details/51191386" target="_blank" rel="noopener">https://blog.csdn.net/han_xiaoyang/article/details/51191386</a></p>
-<p><br></p>
-<p><br></p>
-<h2 id="机器学习工作流程"><a href="#机器学习工作流程" class="headerlink" title="机器学习工作流程"></a>机器学习工作流程</h2><h3 id="1-抽象成数学问题"><a href="#1-抽象成数学问题" class="headerlink" title="1 抽象成数学问题"></a>1 <strong>抽象成数学问题</strong></h3><p><strong>明确问题是进行机器学习的第一步</strong>。这里的抽象成数学问题，指的我们明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题，如果都不是的话，如果划归为其中的某类问题。</p>
-<p><br></p>
-<h3 id="2-获取数据"><a href="#2-获取数据" class="headerlink" title="2 获取数据"></a>2 <strong>获取数据</strong></h3><ul>
-<li><strong>数据决定了机器学习结果的上限，而算法只是尽可能逼近这个上限。</strong>数据要有<strong>代表性</strong>，否则必然会过拟合。</li>
-<li>而且对于分类问题，<strong>数据偏斜不能过于严重</strong>，不同类别的数据数量不要有数个数量级的差距。</li>
-<li>而且还要对<strong>数据的量级有一个评估</strong>，多少个样本，多少个特征，可以估算出其<strong>对内存的消耗程度</strong>，判断训练过程中内存是否能够放得下。如果放不下就得考虑改进算法或者使用一些降维的技巧了。如果数据量实在太大，那就要考虑分布式了。</li>
-</ul>
-<p><br></p>
-<h3 id="3-特征预处理与特征选择"><a href="#3-特征预处理与特征选择" class="headerlink" title="3.特征预处理与特征选择"></a>3.特征预处理与特征选择</h3><ul>
-<li>良好的数据要能够提取出<strong>良好的特征才能真正发挥效力</strong>。</li>
-<li>特征预处理、数据清洗是很关键的步骤，往往能够使得算法的效果和性能得到显著提高。<strong>归一化、离散化、因子化、缺失值处理、去除共线性等</strong>，数据挖掘过程中很多时间就花在它们上面。</li>
-<li>筛选出显著特征、摒弃非显著特征，这对很多结果有决定性的影响。这需要运用<strong>特征有效性分析</strong>的相关技术，如<strong>相关系数、卡方检验、平均互信息、条件熵、后验概率、逻辑回归权重</strong>等方法。</li>
-</ul>
-<p><br></p>
-<h3 id="4-训练模型与调优"><a href="#4-训练模型与调优" class="headerlink" title="4 训练模型与调优"></a>4 <strong>训练模型与调优</strong></h3><p>算法训练，现在很多算法都能够封装成黑盒供人使用。但是真正考验水平的是调整这些算法的（超）参数，使得结果变得更加优良。</p>
-<p><br></p>
-<h3 id="5-模型诊断"><a href="#5-模型诊断" class="headerlink" title="5 模型诊断"></a>5 <strong>模型诊断</strong></h3><p>这就需要对模型进行诊断的技术。</p>
 <ul>
-<li><strong>过拟合、欠拟合</strong> 判断是模型诊断中至关重要的一步。常见的方法如<strong>交叉验证，绘制学习曲线</strong>等。过拟合的基本调优思路是<strong>增加数据量，降低模型复杂度</strong>。欠拟合的基本调优思路是<strong>提高特征数量和质量，增加模型复杂度</strong>。</li>
-<li><strong>误差分析</strong> 也是机器学习至关重要的步骤。通过观察误差样本，全面分析误差产生误差的原因，<strong>是参数的问题还是算法选择的问题，是特征的问题还是数据本身的问题</strong>……</li>
-<li>诊断后的模型需要进行调优，调优后的新模型需要重新进行诊断，<strong>这是一个反复迭代不断逼近的过程，需要不断地尝试，</strong> 进而达到最优状态。</li>
+<li><p>互相关：R(u)=f(t)*g(-t)</p>
+<p>两个函数在不同的相对位置上互相匹配的程度</p>
+</li>
 </ul>
 <p><br></p>
-<h3 id="6-模型融合"><a href="#6-模型融合" class="headerlink" title="6 模型融合"></a>6 <strong>模型融合</strong></h3><ul>
-<li>一般来说，<strong>模型融合后都能使得效果有一定提升</strong>。</li>
-<li><strong>工程上，主要提升算法准确度的方法是分别在模型的前端（特征清洗和预处理，不同的采样模式）与后端（模型融合）上下功夫</strong>。而直接调参的工作不会很多，毕竟大量数据训练起来太慢了，而且效果难以保证。</li>
+<h3 id="二、卷积层与全连接层的共同点和不同点"><a href="#二、卷积层与全连接层的共同点和不同点" class="headerlink" title="二、卷积层与全连接层的共同点和不同点"></a>二、卷积层与全连接层的共同点和不同点</h3><p>1.全连接层</p>
+<p>权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配程度越高。</p>
+<p>2.卷积层</p>
+<p>卷积神经网络中，卷积核是多维特征模板，但是不是整幅图像与模板匹配，而是图像的一部分与模板匹配，点积越大，也就是说匹配程度越大。</p>
+<p><br></p>
+<h3 id="三、点积与叉积"><a href="#三、点积与叉积" class="headerlink" title="三、点积与叉积"></a>三、点积与叉积</h3><h4 id="1-点积、内积、数量积"><a href="#1-点积、内积、数量积" class="headerlink" title="1.点积、内积、数量积"></a>1.点积、内积、数量积</h4><p>$$<br>\mathbf{a}\cdot \mathbf{b} = \sum_{i=1}^n a_ib_i = a_1b_1 + a_2b_2 + \cdots + a_nb_n<br>$$</p>
+<p>几何意义：b在a方向上的投影</p>
+<p><br></p>
+<h4 id="2-叉积、外积、向量积"><a href="#2-叉积、外积、向量积" class="headerlink" title="2.叉积、外积、向量积"></a>2.叉积、外积、向量积</h4><p>$$<br>\mathbf{a} \cdot \mathbf{b} = \mathbf{a} \mathbf{b}^T<br>$$</p>
+<p>几何意义：a和b构成的平行四边形的面积</p>
+<p><br></p>
+<p><br></p>
+<h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><p><br></p>
+<h3 id="一、卷积层的处理"><a href="#一、卷积层的处理" class="headerlink" title="一、卷积层的处理"></a>一、卷积层的处理</h3><h4 id="1-padding：对原始图片在边界上进行填充填充"><a href="#1-padding：对原始图片在边界上进行填充填充" class="headerlink" title="1.padding：对原始图片在边界上进行填充填充"></a>1.padding：对原始图片在边界上进行填充填充</h4><p>每个方向扩展像素点数量为 p，填充后原始图片的大小为 (n+2p) <em> (n+2p)，滤波器保持 f </em> f不变，则输出图片大小为 (n+2p-f+1) * (n+2p-f+1)</p>
+<p><br></p>
+<ul>
+<li><strong>Valid 卷积</strong>：不填充，直接卷积，结果大小为 (n-f+1) * (n-f+1)</li>
+<li><strong>Same 卷积</strong>：进行填充，使得卷积后结果大小与输入一致 n+2p-f+1 = n ，得出 p =（f-1）/2</li>
 </ul>
+<p><br></p>
+<h4 id="2-stride：卷积走的步长"><a href="#2-stride：卷积走的步长" class="headerlink" title="2.stride：卷积走的步长"></a>2.stride：卷积走的步长</h4><p>设步长为 s，填充长度为 p，输入图片大小为 n <em> n，滤波器大小为 f </em> f，则卷积后图片的尺寸为：</p>
+<p>⌊（n+2p-f）/s+1⌋×⌊（n+2p-f）/s+1⌋⌊n+2p−fs+1⌋×⌊n+2p−fs+1⌋</p>
+<p>⌊ ⌋ ：<strong>向下取整</strong>的符号</p>
+<p><br></p>
+<h3 id="二、卷积神经网络（CNN）中的三种层"><a href="#二、卷积神经网络（CNN）中的三种层" class="headerlink" title="二、卷积神经网络（CNN）中的三种层"></a>二、卷积神经网络（CNN）中的三种层</h3><h4 id="1-卷积层（Convolution-layer）"><a href="#1-卷积层（Convolution-layer）" class="headerlink" title="1.卷积层（Convolution layer）"></a>1.卷积层（Convolution layer）</h4><p>卷积核在上一级输入层上通过逐一滑动窗口计算而得，卷积核中的每一个参数都相当于传统神经网络中的权值参数，与对应的局部像素相连接，将卷积核的各个参数与对应的局部像素值相乘之和，通常还要再<strong>加上一个偏置参数</strong>。</p>
+<p><br></p>
+<h4 id="2-池化-采样层（Pooling-layer）"><a href="#2-池化-采样层（Pooling-layer）" class="headerlink" title="2.池化/采样层（Pooling layer）"></a>2.池化/采样层（Pooling layer）</h4><p>往往在卷积层后面，<strong>通过池化来降低卷积层输出的特征向量，不易出现过拟合</strong><br><br><br><strong>Max Pooling</strong>: 选择Pooling窗口中的最大值作为采样值<br><strong>Mean Pooling</strong>: 将Pooling窗口中的所有值相加取平均，以平均值作为采样值</p>
+<p><br></p>
+<h4 id="3-全连接层（Fully-Connected-layer）"><a href="#3-全连接层（Fully-Connected-layer）" class="headerlink" title="3.全连接层（Fully Connected layer）"></a>3.全连接层（Fully Connected layer）</h4><p>每一个结点都与上一层的所有结点相连，用来把前边提取到的特征综合起来<br><br></p>
+<h4 id="4-三种层在参数上的区别"><a href="#4-三种层在参数上的区别" class="headerlink" title="4.三种层在参数上的区别"></a>4.三种层在参数上的区别</h4><p>卷积层——仅有少量的参数<br>池化层——没有参数<br>全连接层——存在大量的参数</p>
+<p><br></p>
+<h4 id="5-注意"><a href="#5-注意" class="headerlink" title="5.注意"></a>5.注意</h4><ol>
+<li>在计算神经网络的层数时，通常<strong>只统计具有权重和参数的层</strong>，因此<strong>池化层通常和之前的卷积层共同计为一层</strong>。</li>
+<li>随着网络的深入，<strong>提取的特征图片大小将会逐渐减小，但同时通道数量应随之增加</strong></li>
+</ol>
+<p><br></p>
+<p><br></p>
+<h3 id="三、卷积运算参数少的机制"><a href="#三、卷积运算参数少的机制" class="headerlink" title="三、卷积运算参数少的机制"></a>三、卷积运算参数少的机制</h3><p>PS：卷积神经网络的参数少，从而解决了，一般神经网络处理图像数据时，需要用大大量参数的问题</p>
+<p><br></p>
+<p><strong>１．参数共享</strong>（Parameter sharing）：<strong>在卷积过程中，不管输入有多大，一个滤波器能对整个输入的某一特征进行探测</strong><br>２．<strong>稀疏连接</strong>（Sparsity of connections）：滤波器的尺寸限制使得，<strong>每个输出值只取决于输入在局部的一小部分的值</strong>，稀疏连接不同于全连接，每个输出综合了所有的输入特征</p>
+<p><br></p>
 
       
 
@@ -268,7 +258,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
         		</li>
       		
 		</ul>
@@ -324,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/11/机器学习算法大总结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/25/cs231n笔记（五）——卷积神经网络/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -338,18 +332,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/14/图像读取的四种方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          图像读取的四种方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/09/opencv-二-imgproc-模块/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">opencv(二) imgproc 模块</div>
+    <a href="/2018/07/19/TensorFlow-一-——两层神经网络预测线性回归/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TensorFlow(一)——两层神经网络预测线性回归</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -376,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习算法分类"><span class="toc-number">1.</span> <span class="toc-text">机器学习算法分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何决定使用哪种机器学习算法"><span class="toc-number">2.</span> <span class="toc-text">如何决定使用哪种机器学习算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用机器学习算法"><span class="toc-number">3.</span> <span class="toc-text">常用机器学习算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习工作流程"><span class="toc-number">4.</span> <span class="toc-text">机器学习工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-抽象成数学问题"><span class="toc-number">4.1.</span> <span class="toc-text">1 抽象成数学问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-获取数据"><span class="toc-number">4.2.</span> <span class="toc-text">2 获取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-特征预处理与特征选择"><span class="toc-number">4.3.</span> <span class="toc-text">3.特征预处理与特征选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-训练模型与调优"><span class="toc-number">4.4.</span> <span class="toc-text">4 训练模型与调优</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-模型诊断"><span class="toc-number">4.5.</span> <span class="toc-text">5 模型诊断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-模型融合"><span class="toc-number">4.6.</span> <span class="toc-text">6 模型融合</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积"><span class="toc-number">1.</span> <span class="toc-text">卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、自相关、互相关"><span class="toc-number">1.1.</span> <span class="toc-text">一、自相关、互相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、卷积层与全连接层的共同点和不同点"><span class="toc-number">1.2.</span> <span class="toc-text">二、卷积层与全连接层的共同点和不同点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、点积与叉积"><span class="toc-number">1.3.</span> <span class="toc-text">三、点积与叉积</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-点积、内积、数量积"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.点积、内积、数量积</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-叉积、外积、向量积"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.叉积、外积、向量积</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积神经网络"><span class="toc-number">2.</span> <span class="toc-text">卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、卷积层的处理"><span class="toc-number">2.1.</span> <span class="toc-text">一、卷积层的处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-padding：对原始图片在边界上进行填充填充"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.padding：对原始图片在边界上进行填充填充</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-stride：卷积走的步长"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.stride：卷积走的步长</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、卷积神经网络（CNN）中的三种层"><span class="toc-number">2.2.</span> <span class="toc-text">二、卷积神经网络（CNN）中的三种层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-卷积层（Convolution-layer）"><span class="toc-number">2.2.1.</span> <span class="toc-text">1.卷积层（Convolution layer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-池化-采样层（Pooling-layer）"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.池化/采样层（Pooling layer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-全连接层（Fully-Connected-layer）"><span class="toc-number">2.2.3.</span> <span class="toc-text">3.全连接层（Fully Connected layer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-三种层在参数上的区别"><span class="toc-number">2.2.4.</span> <span class="toc-text">4.三种层在参数上的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-注意"><span class="toc-number">2.2.5.</span> <span class="toc-text">5.注意</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、卷积运算参数少的机制"><span class="toc-number">2.3.</span> <span class="toc-text">三、卷积运算参数少的机制</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

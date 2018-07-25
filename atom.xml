@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-22T02:35:11.497Z</updated>
+  <updated>2018-07-25T03:36:32.581Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cs231n笔记（五）——卷积神经网络</title>
+    <link href="http://yoursite.com/2018/07/25/cs231n%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <id>http://yoursite.com/2018/07/25/cs231n笔记（五）——卷积神经网络/</id>
+    <published>2018-07-25T03:35:57.000Z</published>
+    <updated>2018-07-25T03:36:32.581Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><h3 id="一、自相关、互相关"><a href="#一、自相关、互相关" class="headerlink" title="一、自相关、互相关"></a>一、自相关、互相关</h3><p>两个相关函数都是对相似性的度量</p><ul><li><p>自相关：R(u)=f(t)*f(-t)</p><p>函数自身的周期性强弱</p></li></ul><ul><li><p>互相关：R(u)=f(t)*g(-t)</p><p>两个函数在不同的相对位置上互相匹配的程度</p></li></ul><p><br></p><h3 id="二、卷积层与全连接层的共同点和不同点"><a href="#二、卷积层与全连接层的共同点和不同点" class="headerlink" title="二、卷积层与全连接层的共同点和不同点"></a>二、卷积层与全连接层的共同点和不同点</h3><p>1.全连接层</p><p>权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配程度越高。</p><p>2.卷积层</p><p>卷积神经网络中，卷积核是多维特征模板，但是不是整幅图像与模板匹配，而是图像的一部分与模板匹配，点积越大，也就是说匹配程度越大。</p><p><br></p><h3 id="三、点积与叉积"><a href="#三、点积与叉积" class="headerlink" title="三、点积与叉积"></a>三、点积与叉积</h3><h4 id="1-点积、内积、数量积"><a href="#1-点积、内积、数量积" class="headerlink" title="1.点积、内积、数量积"></a>1.点积、内积、数量积</h4><p>$$<br>\mathbf{a}\cdot \mathbf{b} = \sum_{i=1}^n a_ib_i = a_1b_1 + a_2b_2 + \cdots + a_nb_n<br>$$</p><p>几何意义：b在a方向上的投影</p><p><br></p><h4 id="2-叉积、外积、向量积"><a href="#2-叉积、外积、向量积" class="headerlink" title="2.叉积、外积、向量积"></a>2.叉积、外积、向量积</h4><p>$$<br>\mathbf{a} \cdot \mathbf{b} = \mathbf{a} \mathbf{b}^T<br>$$</p><p>几何意义：a和b构成的平行四边形的面积</p><p><br></p><p><br></p><h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><p><br></p><h3 id="一、卷积层的处理"><a href="#一、卷积层的处理" class="headerlink" title="一、卷积层的处理"></a>一、卷积层的处理</h3><h4 id="1-padding：对原始图片在边界上进行填充填充"><a href="#1-padding：对原始图片在边界上进行填充填充" class="headerlink" title="1.padding：对原始图片在边界上进行填充填充"></a>1.padding：对原始图片在边界上进行填充填充</h4><p>每个方向扩展像素点数量为 p，填充后原始图片的大小为 (n+2p) <em> (n+2p)，滤波器保持 f </em> f不变，则输出图片大小为 (n+2p-f+1) * (n+2p-f+1)</p><p><br></p><ul><li><strong>Valid 卷积</strong>：不填充，直接卷积，结果大小为 (n-f+1) * (n-f+1)</li><li><strong>Same 卷积</strong>：进行填充，使得卷积后结果大小与输入一致 n+2p-f+1 = n ，得出 p =（f-1）/2</li></ul><p><br></p><h4 id="2-stride：卷积走的步长"><a href="#2-stride：卷积走的步长" class="headerlink" title="2.stride：卷积走的步长"></a>2.stride：卷积走的步长</h4><p>设步长为 s，填充长度为 p，输入图片大小为 n <em> n，滤波器大小为 f </em> f，则卷积后图片的尺寸为：</p><p>⌊（n+2p-f）/s+1⌋×⌊（n+2p-f）/s+1⌋⌊n+2p−fs+1⌋×⌊n+2p−fs+1⌋</p><p>⌊ ⌋ ：<strong>向下取整</strong>的符号</p><p><br></p><h3 id="二、卷积神经网络（CNN）中的三种层"><a href="#二、卷积神经网络（CNN）中的三种层" class="headerlink" title="二、卷积神经网络（CNN）中的三种层"></a>二、卷积神经网络（CNN）中的三种层</h3><h4 id="1-卷积层（Convolution-layer）"><a href="#1-卷积层（Convolution-layer）" class="headerlink" title="1.卷积层（Convolution layer）"></a>1.卷积层（Convolution layer）</h4><p>卷积核在上一级输入层上通过逐一滑动窗口计算而得，卷积核中的每一个参数都相当于传统神经网络中的权值参数，与对应的局部像素相连接，将卷积核的各个参数与对应的局部像素值相乘之和，通常还要再<strong>加上一个偏置参数</strong>。</p><p><br></p><h4 id="2-池化-采样层（Pooling-layer）"><a href="#2-池化-采样层（Pooling-layer）" class="headerlink" title="2.池化/采样层（Pooling layer）"></a>2.池化/采样层（Pooling layer）</h4><p>往往在卷积层后面，<strong>通过池化来降低卷积层输出的特征向量，不易出现过拟合</strong><br><br><br><strong>Max Pooling</strong>: 选择Pooling窗口中的最大值作为采样值<br><strong>Mean Pooling</strong>: 将Pooling窗口中的所有值相加取平均，以平均值作为采样值</p><p><br></p><h4 id="3-全连接层（Fully-Connected-layer）"><a href="#3-全连接层（Fully-Connected-layer）" class="headerlink" title="3.全连接层（Fully Connected layer）"></a>3.全连接层（Fully Connected layer）</h4><p>每一个结点都与上一层的所有结点相连，用来把前边提取到的特征综合起来<br><br></p><h4 id="4-三种层在参数上的区别"><a href="#4-三种层在参数上的区别" class="headerlink" title="4.三种层在参数上的区别"></a>4.三种层在参数上的区别</h4><p>卷积层——仅有少量的参数<br>池化层——没有参数<br>全连接层——存在大量的参数</p><p><br></p><h4 id="5-注意"><a href="#5-注意" class="headerlink" title="5.注意"></a>5.注意</h4><ol><li>在计算神经网络的层数时，通常<strong>只统计具有权重和参数的层</strong>，因此<strong>池化层通常和之前的卷积层共同计为一层</strong>。</li><li>随着网络的深入，<strong>提取的特征图片大小将会逐渐减小，但同时通道数量应随之增加</strong></li></ol><p><br></p><p><br></p><h3 id="三、卷积运算参数少的机制"><a href="#三、卷积运算参数少的机制" class="headerlink" title="三、卷积运算参数少的机制"></a>三、卷积运算参数少的机制</h3><p>PS：卷积神经网络的参数少，从而解决了，一般神经网络处理图像数据时，需要用大大量参数的问题</p><p><br></p><p><strong>１．参数共享</strong>（Parameter sharing）：<strong>在卷积过程中，不管输入有多大，一个滤波器能对整个输入的某一特征进行探测</strong><br>２．<strong>稀疏连接</strong>（Sparsity of connections）：滤波器的尺寸限制使得，<strong>每个输出值只取决于输入在局部的一小部分的值</strong>，稀疏连接不同于全连接，每个输出综合了所有的输入特征</p><p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;卷积&quot;&gt;&lt;a href=&quot;#卷积&quot; class=&quot;headerlink&quot; title=&quot;卷积&quot;&gt;&lt;/a&gt;卷积&lt;/h2&gt;&lt;h3 id=&quot;一、自相关、互相关&quot;&gt;&lt;a href=&quot;#一、自相关、互相关&quot; class=&quot;headerlink&quot; title=&quot;一、自相关、互
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="cs231n" scheme="http://yoursite.com/tags/cs231n/"/>
+    
+  </entry>
   
   <entry>
     <title>TensorFlow(一)——两层神经网络预测线性回归</title>
@@ -39,11 +64,11 @@
   </entry>
   
   <entry>
-    <title>cs231n笔记(四)——神经网络</title>
-    <link href="http://yoursite.com/2018/07/18/cs231n%E7%AC%94%E8%AE%B0-%E5%9B%9B-%E2%80%94%E2%80%94%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    <id>http://yoursite.com/2018/07/18/cs231n笔记-四-——神经网络/</id>
+    <title>cs231n笔记（四）——神经网络</title>
+    <link href="http://yoursite.com/2018/07/18/cs231n%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <id>http://yoursite.com/2018/07/18/cs231n笔记（四）——神经网络/</id>
     <published>2018-07-18T01:46:56.000Z</published>
-    <updated>2018-07-22T12:02:15.330Z</updated>
+    <updated>2018-07-25T03:32:57.189Z</updated>
     
     <content type="html"><![CDATA[<p>神经网络知识点大纲总结，还没有看完，所以持续更新 ~ </p><a id="more"></a><p><br></p><h2 id="一、非线性激活函数"><a href="#一、非线性激活函数" class="headerlink" title="一、非线性激活函数"></a>一、非线性激活函数</h2><h3 id="1-Sigmoid"><a href="#1-Sigmoid" class="headerlink" title="1.Sigmoid"></a>1.Sigmoid</h3><h3 id="2-tanh"><a href="#2-tanh" class="headerlink" title="2.tanh"></a>2.tanh</h3><h3 id="3-ReLU"><a href="#3-ReLU" class="headerlink" title="3.ReLU"></a>3.ReLU</h3><h3 id="4-Leaky-ReLU"><a href="#4-Leaky-ReLU" class="headerlink" title="4.Leaky ReLU"></a>4.Leaky ReLU</h3><h3 id="5-PReLU"><a href="#5-PReLU" class="headerlink" title="5.PReLU"></a>5.PReLU</h3><h3 id="6-EReLU"><a href="#6-EReLU" class="headerlink" title="6.EReLU"></a>6.EReLU</h3><h3 id="7-maxout"><a href="#7-maxout" class="headerlink" title="7.maxout"></a>7.maxout</h3><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B01.jpg" alt=""></p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B02.png" alt=""></p><p><strong>使用非线性激活函数的原因</strong></p><p>激活函数是线性，比如，f(x) = x，那么每一层输出都是上层输入的线性函数，无论你神经网络有多少层，输出都是输入的线性组合，与没有隐藏层效果一样</p><p><br></p><p><strong>使用非线性函数的注意点</strong></p><p>ReLU非线性函数。注意设置好<strong>学习率</strong>，或许可以监控你的网络中死亡的神经元占的比例。如果单元死亡问题困扰，就试试Leaky ReLU或者Maxout，不要再用sigmoid。</p><p><br></p><p><br></p><h2 id="二、数据预处理"><a href="#二、数据预处理" class="headerlink" title="二、数据预处理"></a>二、数据预处理</h2><h3 id="1-均值减法（Mean-subtraction）"><a href="#1-均值减法（Mean-subtraction）" class="headerlink" title="1.均值减法（Mean subtraction）"></a>1.均值减法（Mean subtraction）</h3><p>每个独立特征减去平均值，从几何上可以理解为在每个维度上都<strong>将数据云的中心都迁移到原点</strong>。</p><p><br></p><h3 id="2-归一化（Normalization）"><a href="#2-归一化（Normalization）" class="headerlink" title="2.归一化（Normalization）"></a>2.归一化（Normalization）</h3><p>做零中心化（zero-centered）处理，然后每个维度都除以其标准差。</p><p>第一种是对整幅图像做零中心化（zero-centered）处理，然后每个维度都除以其标准差</p><p>第二种是对每个维度都做归一化，使得每个维度的最大和最小值是1和-1。</p><p><br></p><h3 id="2-PCA和白化（Whitening）"><a href="#2-PCA和白化（Whitening）" class="headerlink" title="2.PCA和白化（Whitening）"></a>2.PCA和白化（Whitening）</h3><p><strong>注意：</strong></p><p>1.进行预处理很重要的一点是：任何预处理策略（比如数据均值）都只能在训练集数据上进行计算，算法训练完毕后再应用到验证集或者测试集上。</p><p>例如，如果先计算整个数据集图像的平均值然后每张图片都减去平均值，最后将整个数据集分成训练/验证/测试集，那么这个做法是错误的。<strong>应该先分成训练/验证/测试集，只是从训练集中求图片平均值，然后各个集（训练/验证/测试集）中的图像再减去这个平均值。</strong></p><p>2.实际上在卷积神经网络中并不会采用PCA和白化变换。然而对数据进行零中心化操作还是非常重要的，对每个像素进行归一化也很常见。</p><p><br></p><p><br></p><h2 id="三、权重初始化"><a href="#三、权重初始化" class="headerlink" title="三、权重初始化"></a>三、权重初始化</h2><h3 id="1-错误：全零初始化"><a href="#1-错误：全零初始化" class="headerlink" title="1.错误：全零初始化"></a>1.错误：全零初始化</h3><p>具有对称性</p><p><br></p><h3 id="2-随机数初始化"><a href="#2-随机数初始化" class="headerlink" title="2.随机数初始化"></a>2.随机数初始化</h3><p><strong>初始化为小数</strong>：权重太小，随着网络的层次加深，激励函数的结果接近于0，也就是下一层的输入接近于0，那么在反向传播的时候就会计算出非常小的梯度。</p><p><strong>初始化为太大的数</strong>：会发生饱和使梯度消失</p><p><br></p><h3 id="3-Xavier-initialization"><a href="#3-Xavier-initialization" class="headerlink" title="3.Xavier initialization"></a>3.Xavier initialization</h3><p>Var(wi)=1/n[l-1]     n输入的神经元个数</p><p>为了得到较小的 wi，设置Var(wi)=1/n。就是将wi的方差设为1/n，标准差设为sqrt(1/n) </p><p><br></p><h3 id="4-He-Initialization"><a href="#4-He-Initialization" class="headerlink" title="4.He Initialization"></a>4.He Initialization</h3><p>Var(wi)=2/n[l-1]     n输入的神经元个数</p><p><br></p><p><br></p><h2 id="四、Batch-Normalization（BN）"><a href="#四、Batch-Normalization（BN）" class="headerlink" title="四、Batch Normalization（BN）"></a>四、Batch Normalization（BN）</h2><p>1.对各神经元的输入做类似的标准化处理，提高神经网络训练速度</p><p>2.减小不同的样本分布（Covariate Shift ）对后面几层网络的影响，使整体网络更加健壮。</p><p><br></p><p><br></p><h2 id="五、过拟合Overfitting的解决方式正则化-Regularization"><a href="#五、过拟合Overfitting的解决方式正则化-Regularization" class="headerlink" title="五、过拟合Overfitting的解决方式正则化 Regularization"></a>五、过拟合Overfitting的解决方式正则化 Regularization</h2><h3 id="方法一：L2-Regularization-正则化"><a href="#方法一：L2-Regularization-正则化" class="headerlink" title="方法一：L2  Regularization 正则化"></a>方法一：L2  Regularization 正则化</h3><p>PS：<strong>过拟合时的权重很大，正则化就是让权重不那么大</strong></p><p>1.<strong>过拟合的时候权重会很大</strong></p><p>过拟合，就是拟合函数需要顾忌每一个点，最终形成的拟合函数波动很大，从而使得很小的区间里，函数值的变化很剧烈，即导数值的绝对值非常大。由于自变量值可大可小，所以只有系数足够大，才能保证导数值很大。</p><p>2.正则化防止过拟合的原因</p><p>正则化项对于原权重是个衰减项，从而使得权重不会变得太大</p><p><br></p><h3 id="方法二：droupout"><a href="#方法二：droupout" class="headerlink" title="方法二：droupout"></a>方法二：droupout</h3><p>随机失活是<strong>为每个神经元结点设置一个随机消除的概率</strong>，多地被使用在计算机视觉领域。</p><p><strong>注意，在测试阶段不要使用 dropout</strong></p><p><br></p><h3 id="方法三：数据扩增（Data-Augmentation）"><a href="#方法三：数据扩增（Data-Augmentation）" class="headerlink" title="方法三：数据扩增（Data Augmentation）"></a>方法三：数据扩增（Data Augmentation）</h3><p><br></p><h3 id="方法四：早停止法（Early-Stopping）"><a href="#方法四：早停止法（Early-Stopping）" class="headerlink" title="方法四：早停止法（Early Stopping）"></a>方法四：早停止法（Early Stopping）</h3><p><br></p><h3 id="方法五：Drop-Connect"><a href="#方法五：Drop-Connect" class="headerlink" title="方法五：Drop Connect"></a>方法五：Drop Connect</h3><p><br></p><h3 id="方法六：Fractional-Max-Pooling"><a href="#方法六：Fractional-Max-Pooling" class="headerlink" title="方法六：Fractional Max Pooling"></a>方法六：Fractional Max Pooling</h3><p><br></p><h3 id="方法七：Stochastic-Depth"><a href="#方法七：Stochastic-Depth" class="headerlink" title="方法七：Stochastic Depth"></a>方法七：Stochastic Depth</h3><p><br></p><p><br></p><h2 id="六、超参数的选择"><a href="#六、超参数的选择" class="headerlink" title="六、超参数的选择"></a>六、超参数的选择</h2><h3 id="1-交叉验证"><a href="#1-交叉验证" class="headerlink" title="1.交叉验证"></a>1.交叉验证</h3><p><br></p><h3 id="2-随机搜索优于网格搜索"><a href="#2-随机搜索优于网格搜索" class="headerlink" title="2.随机搜索优于网格搜索"></a>2.随机搜索优于网格搜索</h3><p><br></p><h3 id="3-为参数选择合适的范围"><a href="#3-为参数选择合适的范围" class="headerlink" title="3.为参数选择合适的范围"></a>3.为参数选择合适的范围</h3><p>有一些超参数做均匀随机取值是不合适的，需要按照一定的比例在不同的小范围内进行均匀随机取值。</p><p><br></p><h3 id="4-计算资源来决定训练模型的方式"><a href="#4-计算资源来决定训练模型的方式" class="headerlink" title="4.计算资源来决定训练模型的方式"></a>4.计算资源来决定训练模型的方式</h3><ul><li>Panda（熊猫方式）：<strong>受计算能力所限</strong>，同时试验大量模型比较困难。可以专注于<strong>试验一个或一小批模型</strong>，初始化，试着让其工作运转，观察它的表现，不断调整参数。</li><li>Caviar（鱼子酱方式）：拥有足够的计算能力去<strong>平行试验很多模型</strong>，尝试很多不同的超参数，选取效果最好的模型。</li></ul><p><br></p><p><br></p><h2 id="七、梯度下降的更新方法"><a href="#七、梯度下降的更新方法" class="headerlink" title="七、梯度下降的更新方法"></a>七、梯度下降的更新方法</h2><p><strong>加速神经网络的训练</strong></p><h3 id="1-SGD（随机梯度下降），Momentum动量，Nesterov动量"><a href="#1-SGD（随机梯度下降），Momentum动量，Nesterov动量" class="headerlink" title="1.SGD（随机梯度下降），Momentum动量，Nesterov动量"></a>1.SGD（随机梯度下降），Momentum动量，Nesterov动量</h3><p><br></p><h3 id="2-学习率退火"><a href="#2-学习率退火" class="headerlink" title="2.学习率退火"></a>2.学习率退火</h3><p><br></p><h3 id="3-二阶方法"><a href="#3-二阶方法" class="headerlink" title="3.二阶方法"></a>3.二阶方法</h3><p><br></p><h3 id="4-逐参数适应学习率方法（Adagrad，RMSProp）"><a href="#4-逐参数适应学习率方法（Adagrad，RMSProp）" class="headerlink" title="4.逐参数适应学习率方法（Adagrad，RMSProp）"></a>4.逐参数适应学习率方法（Adagrad，RMSProp）</h3>]]></content>
     
@@ -230,9 +255,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -272,9 +297,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -294,9 +319,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -316,9 +341,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
@@ -339,9 +364,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -390,9 +415,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -412,9 +437,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -434,9 +459,9 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -461,28 +486,6 @@
     
     
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式</title>
-    <link href="http://yoursite.com/2018/06/11/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://yoursite.com/2018/06/11/正则表达式/</id>
-    <published>2018-06-11T08:31:41.000Z</published>
-    <updated>2018-06-11T08:35:37.805Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：暂时没有深入学习的需求，但是老是看到，所有就想了解一下。<strong>正则表达式 (regular expression) 描述了一种字符串匹配的模式(pattern)</strong>。</p><p><a href="http://deerchao.net/tutorials/regex/regex.htm#mission" target="_blank" rel="noopener">http://deerchao.net/tutorials/regex/regex.htm#mission</a></p><p>字符可能是字母，数字，标点符号，空格，换行符，汉字等等。</p><p>字符串是0个或更多个字符的序列。文本也就是字符串。</p><p><strong>字符串匹配正则表达式</strong>，是指这个字符串里有一部分（或几部分）<strong>能满足表达式给出的条件</strong>。</p><p><strong>正则表达式就是记录文本规则的代码，用来进行文本匹配的工具。</strong></p><p>（比如，你可以编写一个正则表达式，用来查找所有以0开头，后面跟着2-3个数字，然后是一个连字号“-”，最后是7或8位数字的字符串像 010-12345678或0376-7654321)。</p><p>re 模块使 Python 语言拥有全部的正则表达式功能。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;PS：暂时没有深入学习的需求，但是老是看到，所有就想了解一下。&lt;strong&gt;正则表达式 (regular expression) 描述了一种字符串匹配的模式(pattern)&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://deerchao.net/tu
-      
-    
-    </summary>
-    
     
   </entry>
   

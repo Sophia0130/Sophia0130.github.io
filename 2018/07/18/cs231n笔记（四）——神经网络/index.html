@@ -6,22 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>机器学习算法大总结 | 绿小蕤</title>
+  <title>cs231n笔记（四）——神经网络 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="机器学习算法分类 监督学习(有标签)      根据预测结果分成两类  分类问题-离散值 回归问题-连续值   无监督学习(无标签)  半监督学习(一半有标签，一般无标签)  强化学习">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="神经网络知识点大纲总结，还没有看完，所以持续更新 ~">
+<meta name="keywords" content="深度学习,cs231n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习算法大总结">
-<meta property="og:url" content="http://yoursite.com/2018/05/11/机器学习算法大总结/index.html">
+<meta property="og:title" content="cs231n笔记（四）——神经网络">
+<meta property="og:url" content="http://yoursite.com/2018/07/18/cs231n笔记（四）——神经网络/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="机器学习算法分类 监督学习(有标签)      根据预测结果分成两类  分类问题-离散值 回归问题-连续值   无监督学习(无标签)  半监督学习(一半有标签，一般无标签)  强化学习">
+<meta property="og:description" content="神经网络知识点大纲总结，还没有看完，所以持续更新 ~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/20160930051801241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-07-22T12:07:36.072Z">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B01.jpg">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B02.png">
+<meta property="og:updated_time" content="2018-07-25T03:32:57.189Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习算法大总结">
-<meta name="twitter:description" content="机器学习算法分类 监督学习(有标签)      根据预测结果分成两类  分类问题-离散值 回归问题-连续值   无监督学习(无标签)  半监督学习(一半有标签，一般无标签)  强化学习">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20160930051801241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="cs231n笔记（四）——神经网络">
+<meta name="twitter:description" content="神经网络知识点大纲总结，还没有看完，所以持续更新 ~">
+<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B01.jpg">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -163,25 +164,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-机器学习算法大总结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-cs231n笔记（四）——神经网络" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      机器学习算法大总结
+      cs231n笔记（四）——神经网络
     </h1>
   
 
         
-        <a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
+        <a href="/2018/07/18/cs231n笔记（四）——神经网络/" class="archive-article-date">
+  	<time datetime="2018-07-18T01:46:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
 </a>
 
 
-<a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished">2018-05-11</time>
+<a href="/2018/07/18/cs231n笔记（四）——神经网络/" class="archive-article-date">
+  	<time datetime="2018-07-18T01:46:56.000Z" itemprop="datePublished">2018-07-18</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -194,68 +195,75 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="机器学习算法分类"><a href="#机器学习算法分类" class="headerlink" title="机器学习算法分类"></a>机器学习算法分类</h2><ul>
-<li><p>监督学习(有标签)      根据预测结果分成两类</p>
-<ul>
-<li>分类问题-离散值</li>
-<li>回归问题-连续值</li>
-</ul>
-</li>
-<li><p>无监督学习(无标签)</p>
-</li>
-<li><p>半监督学习(一半有标签，一般无标签)</p>
-</li>
-<li><p>强化学习</p>
+        <p>神经网络知识点大纲总结，还没有看完，所以持续更新 ~ </p>
 <a id="more"></a>
-</li>
+<p><br></p>
+<h2 id="一、非线性激活函数"><a href="#一、非线性激活函数" class="headerlink" title="一、非线性激活函数"></a>一、非线性激活函数</h2><h3 id="1-Sigmoid"><a href="#1-Sigmoid" class="headerlink" title="1.Sigmoid"></a>1.Sigmoid</h3><h3 id="2-tanh"><a href="#2-tanh" class="headerlink" title="2.tanh"></a>2.tanh</h3><h3 id="3-ReLU"><a href="#3-ReLU" class="headerlink" title="3.ReLU"></a>3.ReLU</h3><h3 id="4-Leaky-ReLU"><a href="#4-Leaky-ReLU" class="headerlink" title="4.Leaky ReLU"></a>4.Leaky ReLU</h3><h3 id="5-PReLU"><a href="#5-PReLU" class="headerlink" title="5.PReLU"></a>5.PReLU</h3><h3 id="6-EReLU"><a href="#6-EReLU" class="headerlink" title="6.EReLU"></a>6.EReLU</h3><h3 id="7-maxout"><a href="#7-maxout" class="headerlink" title="7.maxout"></a>7.maxout</h3><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B01.jpg" alt=""></p>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B02.png" alt=""></p>
+<p><strong>使用非线性激活函数的原因</strong></p>
+<p>激活函数是线性，比如，f(x) = x，那么每一层输出都是上层输入的线性函数，无论你神经网络有多少层，输出都是输入的线性组合，与没有隐藏层效果一样</p>
+<p><br></p>
+<p><strong>使用非线性函数的注意点</strong></p>
+<p>ReLU非线性函数。注意设置好<strong>学习率</strong>，或许可以监控你的网络中死亡的神经元占的比例。如果单元死亡问题困扰，就试试Leaky ReLU或者Maxout，不要再用sigmoid。</p>
+<p><br></p>
+<p><br></p>
+<h2 id="二、数据预处理"><a href="#二、数据预处理" class="headerlink" title="二、数据预处理"></a>二、数据预处理</h2><h3 id="1-均值减法（Mean-subtraction）"><a href="#1-均值减法（Mean-subtraction）" class="headerlink" title="1.均值减法（Mean subtraction）"></a>1.均值减法（Mean subtraction）</h3><p>每个独立特征减去平均值，从几何上可以理解为在每个维度上都<strong>将数据云的中心都迁移到原点</strong>。</p>
+<p><br></p>
+<h3 id="2-归一化（Normalization）"><a href="#2-归一化（Normalization）" class="headerlink" title="2.归一化（Normalization）"></a>2.归一化（Normalization）</h3><p>做零中心化（zero-centered）处理，然后每个维度都除以其标准差。</p>
+<p>第一种是对整幅图像做零中心化（zero-centered）处理，然后每个维度都除以其标准差</p>
+<p>第二种是对每个维度都做归一化，使得每个维度的最大和最小值是1和-1。</p>
+<p><br></p>
+<h3 id="2-PCA和白化（Whitening）"><a href="#2-PCA和白化（Whitening）" class="headerlink" title="2.PCA和白化（Whitening）"></a>2.PCA和白化（Whitening）</h3><p><strong>注意：</strong></p>
+<p>1.进行预处理很重要的一点是：任何预处理策略（比如数据均值）都只能在训练集数据上进行计算，算法训练完毕后再应用到验证集或者测试集上。</p>
+<p>例如，如果先计算整个数据集图像的平均值然后每张图片都减去平均值，最后将整个数据集分成训练/验证/测试集，那么这个做法是错误的。<strong>应该先分成训练/验证/测试集，只是从训练集中求图片平均值，然后各个集（训练/验证/测试集）中的图像再减去这个平均值。</strong></p>
+<p>2.实际上在卷积神经网络中并不会采用PCA和白化变换。然而对数据进行零中心化操作还是非常重要的，对每个像素进行归一化也很常见。</p>
+<p><br></p>
+<p><br></p>
+<h2 id="三、权重初始化"><a href="#三、权重初始化" class="headerlink" title="三、权重初始化"></a>三、权重初始化</h2><h3 id="1-错误：全零初始化"><a href="#1-错误：全零初始化" class="headerlink" title="1.错误：全零初始化"></a>1.错误：全零初始化</h3><p>具有对称性</p>
+<p><br></p>
+<h3 id="2-随机数初始化"><a href="#2-随机数初始化" class="headerlink" title="2.随机数初始化"></a>2.随机数初始化</h3><p><strong>初始化为小数</strong>：权重太小，随着网络的层次加深，激励函数的结果接近于0，也就是下一层的输入接近于0，那么在反向传播的时候就会计算出非常小的梯度。</p>
+<p><strong>初始化为太大的数</strong>：会发生饱和使梯度消失</p>
+<p><br></p>
+<h3 id="3-Xavier-initialization"><a href="#3-Xavier-initialization" class="headerlink" title="3.Xavier initialization"></a>3.Xavier initialization</h3><p>Var(wi)=1/n[l-1]     n输入的神经元个数</p>
+<p>为了得到较小的 wi，设置Var(wi)=1/n。就是将wi的方差设为1/n，标准差设为sqrt(1/n) </p>
+<p><br></p>
+<h3 id="4-He-Initialization"><a href="#4-He-Initialization" class="headerlink" title="4.He Initialization"></a>4.He Initialization</h3><p>Var(wi)=2/n[l-1]     n输入的神经元个数</p>
+<p><br></p>
+<p><br></p>
+<h2 id="四、Batch-Normalization（BN）"><a href="#四、Batch-Normalization（BN）" class="headerlink" title="四、Batch Normalization（BN）"></a>四、Batch Normalization（BN）</h2><p>1.对各神经元的输入做类似的标准化处理，提高神经网络训练速度</p>
+<p>2.减小不同的样本分布（Covariate Shift ）对后面几层网络的影响，使整体网络更加健壮。</p>
+<p><br></p>
+<p><br></p>
+<h2 id="五、过拟合Overfitting的解决方式正则化-Regularization"><a href="#五、过拟合Overfitting的解决方式正则化-Regularization" class="headerlink" title="五、过拟合Overfitting的解决方式正则化 Regularization"></a>五、过拟合Overfitting的解决方式正则化 Regularization</h2><h3 id="方法一：L2-Regularization-正则化"><a href="#方法一：L2-Regularization-正则化" class="headerlink" title="方法一：L2  Regularization 正则化"></a>方法一：L2  Regularization 正则化</h3><p>PS：<strong>过拟合时的权重很大，正则化就是让权重不那么大</strong></p>
+<p>1.<strong>过拟合的时候权重会很大</strong></p>
+<p>过拟合，就是拟合函数需要顾忌每一个点，最终形成的拟合函数波动很大，从而使得很小的区间里，函数值的变化很剧烈，即导数值的绝对值非常大。由于自变量值可大可小，所以只有系数足够大，才能保证导数值很大。</p>
+<p>2.正则化防止过拟合的原因</p>
+<p>正则化项对于原权重是个衰减项，从而使得权重不会变得太大</p>
+<p><br></p>
+<h3 id="方法二：droupout"><a href="#方法二：droupout" class="headerlink" title="方法二：droupout"></a>方法二：droupout</h3><p>随机失活是<strong>为每个神经元结点设置一个随机消除的概率</strong>，多地被使用在计算机视觉领域。</p>
+<p><strong>注意，在测试阶段不要使用 dropout</strong></p>
+<p><br></p>
+<h3 id="方法三：数据扩增（Data-Augmentation）"><a href="#方法三：数据扩增（Data-Augmentation）" class="headerlink" title="方法三：数据扩增（Data Augmentation）"></a>方法三：数据扩增（Data Augmentation）</h3><p><br></p>
+<h3 id="方法四：早停止法（Early-Stopping）"><a href="#方法四：早停止法（Early-Stopping）" class="headerlink" title="方法四：早停止法（Early Stopping）"></a>方法四：早停止法（Early Stopping）</h3><p><br></p>
+<h3 id="方法五：Drop-Connect"><a href="#方法五：Drop-Connect" class="headerlink" title="方法五：Drop Connect"></a>方法五：Drop Connect</h3><p><br></p>
+<h3 id="方法六：Fractional-Max-Pooling"><a href="#方法六：Fractional-Max-Pooling" class="headerlink" title="方法六：Fractional Max Pooling"></a>方法六：Fractional Max Pooling</h3><p><br></p>
+<h3 id="方法七：Stochastic-Depth"><a href="#方法七：Stochastic-Depth" class="headerlink" title="方法七：Stochastic Depth"></a>方法七：Stochastic Depth</h3><p><br></p>
+<p><br></p>
+<h2 id="六、超参数的选择"><a href="#六、超参数的选择" class="headerlink" title="六、超参数的选择"></a>六、超参数的选择</h2><h3 id="1-交叉验证"><a href="#1-交叉验证" class="headerlink" title="1.交叉验证"></a>1.交叉验证</h3><p><br></p>
+<h3 id="2-随机搜索优于网格搜索"><a href="#2-随机搜索优于网格搜索" class="headerlink" title="2.随机搜索优于网格搜索"></a>2.随机搜索优于网格搜索</h3><p><br></p>
+<h3 id="3-为参数选择合适的范围"><a href="#3-为参数选择合适的范围" class="headerlink" title="3.为参数选择合适的范围"></a>3.为参数选择合适的范围</h3><p>有一些超参数做均匀随机取值是不合适的，需要按照一定的比例在不同的小范围内进行均匀随机取值。</p>
+<p><br></p>
+<h3 id="4-计算资源来决定训练模型的方式"><a href="#4-计算资源来决定训练模型的方式" class="headerlink" title="4.计算资源来决定训练模型的方式"></a>4.计算资源来决定训练模型的方式</h3><ul>
+<li>Panda（熊猫方式）：<strong>受计算能力所限</strong>，同时试验大量模型比较困难。可以专注于<strong>试验一个或一小批模型</strong>，初始化，试着让其工作运转，观察它的表现，不断调整参数。</li>
+<li>Caviar（鱼子酱方式）：拥有足够的计算能力去<strong>平行试验很多模型</strong>，尝试很多不同的超参数，选取效果最好的模型。</li>
 </ul>
 <p><br></p>
-<h2 id="如何决定使用哪种机器学习算法"><a href="#如何决定使用哪种机器学习算法" class="headerlink" title="如何决定使用哪种机器学习算法"></a>如何决定使用哪种机器学习算法</h2><p>scikit-learn作为一个丰富的python机器学习库，实现了绝大多数机器学习的算法。</p>
-<p><img src="https://img-blog.csdn.net/20160930051801241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>上图是scikit-learn的路径图，分成了分类、聚类、回归和降维四个方法</p>
 <p><br></p>
-<p><br></p>
-<h2 id="常用机器学习算法"><a href="#常用机器学习算法" class="headerlink" title="常用机器学习算法"></a>常用机器学习算法</h2><p>1.线性回归 (Linear Regression)</p>
-<p>2.逻辑回归 (Logistic Regression)</p>
-<p>3.决策树 (Decision Tree)</p>
-<p>4.支持向量机（SVM）</p>
-<p>5.朴素贝叶斯 (Naive Bayes)</p>
-<p>6.K邻近算法（KNN）</p>
-<p>7.K-均值算法（K-means）</p>
-<p>8.随机森林 (Random Forest)</p>
-<p>9.降低维度算法（Dimensionality Reduction Algorithms）</p>
-<p>10.Gradient Boost和Adaboost算法</p>
-<p>这篇总结的很全面了 <a href="https://blog.csdn.net/han_xiaoyang/article/details/51191386" target="_blank" rel="noopener">https://blog.csdn.net/han_xiaoyang/article/details/51191386</a></p>
-<p><br></p>
-<p><br></p>
-<h2 id="机器学习工作流程"><a href="#机器学习工作流程" class="headerlink" title="机器学习工作流程"></a>机器学习工作流程</h2><h3 id="1-抽象成数学问题"><a href="#1-抽象成数学问题" class="headerlink" title="1 抽象成数学问题"></a>1 <strong>抽象成数学问题</strong></h3><p><strong>明确问题是进行机器学习的第一步</strong>。这里的抽象成数学问题，指的我们明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题，如果都不是的话，如果划归为其中的某类问题。</p>
-<p><br></p>
-<h3 id="2-获取数据"><a href="#2-获取数据" class="headerlink" title="2 获取数据"></a>2 <strong>获取数据</strong></h3><ul>
-<li><strong>数据决定了机器学习结果的上限，而算法只是尽可能逼近这个上限。</strong>数据要有<strong>代表性</strong>，否则必然会过拟合。</li>
-<li>而且对于分类问题，<strong>数据偏斜不能过于严重</strong>，不同类别的数据数量不要有数个数量级的差距。</li>
-<li>而且还要对<strong>数据的量级有一个评估</strong>，多少个样本，多少个特征，可以估算出其<strong>对内存的消耗程度</strong>，判断训练过程中内存是否能够放得下。如果放不下就得考虑改进算法或者使用一些降维的技巧了。如果数据量实在太大，那就要考虑分布式了。</li>
-</ul>
-<p><br></p>
-<h3 id="3-特征预处理与特征选择"><a href="#3-特征预处理与特征选择" class="headerlink" title="3.特征预处理与特征选择"></a>3.特征预处理与特征选择</h3><ul>
-<li>良好的数据要能够提取出<strong>良好的特征才能真正发挥效力</strong>。</li>
-<li>特征预处理、数据清洗是很关键的步骤，往往能够使得算法的效果和性能得到显著提高。<strong>归一化、离散化、因子化、缺失值处理、去除共线性等</strong>，数据挖掘过程中很多时间就花在它们上面。</li>
-<li>筛选出显著特征、摒弃非显著特征，这对很多结果有决定性的影响。这需要运用<strong>特征有效性分析</strong>的相关技术，如<strong>相关系数、卡方检验、平均互信息、条件熵、后验概率、逻辑回归权重</strong>等方法。</li>
-</ul>
-<p><br></p>
-<h3 id="4-训练模型与调优"><a href="#4-训练模型与调优" class="headerlink" title="4 训练模型与调优"></a>4 <strong>训练模型与调优</strong></h3><p>算法训练，现在很多算法都能够封装成黑盒供人使用。但是真正考验水平的是调整这些算法的（超）参数，使得结果变得更加优良。</p>
-<p><br></p>
-<h3 id="5-模型诊断"><a href="#5-模型诊断" class="headerlink" title="5 模型诊断"></a>5 <strong>模型诊断</strong></h3><p>这就需要对模型进行诊断的技术。</p>
-<ul>
-<li><strong>过拟合、欠拟合</strong> 判断是模型诊断中至关重要的一步。常见的方法如<strong>交叉验证，绘制学习曲线</strong>等。过拟合的基本调优思路是<strong>增加数据量，降低模型复杂度</strong>。欠拟合的基本调优思路是<strong>提高特征数量和质量，增加模型复杂度</strong>。</li>
-<li><strong>误差分析</strong> 也是机器学习至关重要的步骤。通过观察误差样本，全面分析误差产生误差的原因，<strong>是参数的问题还是算法选择的问题，是特征的问题还是数据本身的问题</strong>……</li>
-<li>诊断后的模型需要进行调优，调优后的新模型需要重新进行诊断，<strong>这是一个反复迭代不断逼近的过程，需要不断地尝试，</strong> 进而达到最优状态。</li>
-</ul>
-<p><br></p>
-<h3 id="6-模型融合"><a href="#6-模型融合" class="headerlink" title="6 模型融合"></a>6 <strong>模型融合</strong></h3><ul>
-<li>一般来说，<strong>模型融合后都能使得效果有一定提升</strong>。</li>
-<li><strong>工程上，主要提升算法准确度的方法是分别在模型的前端（特征清洗和预处理，不同的采样模式）与后端（模型融合）上下功夫</strong>。而直接调参的工作不会很多，毕竟大量数据训练起来太慢了，而且效果难以保证。</li>
-</ul>
-
+<h2 id="七、梯度下降的更新方法"><a href="#七、梯度下降的更新方法" class="headerlink" title="七、梯度下降的更新方法"></a>七、梯度下降的更新方法</h2><p><strong>加速神经网络的训练</strong></p>
+<h3 id="1-SGD（随机梯度下降），Momentum动量，Nesterov动量"><a href="#1-SGD（随机梯度下降），Momentum动量，Nesterov动量" class="headerlink" title="1.SGD（随机梯度下降），Momentum动量，Nesterov动量"></a>1.SGD（随机梯度下降），Momentum动量，Nesterov动量</h3><p><br></p>
+<h3 id="2-学习率退火"><a href="#2-学习率退火" class="headerlink" title="2.学习率退火"></a>2.学习率退火</h3><p><br></p>
+<h3 id="3-二阶方法"><a href="#3-二阶方法" class="headerlink" title="3.二阶方法"></a>3.二阶方法</h3><p><br></p>
+<h3 id="4-逐参数适应学习率方法（Adagrad，RMSProp）"><a href="#4-逐参数适应学习率方法（Adagrad，RMSProp）" class="headerlink" title="4.逐参数适应学习率方法（Adagrad，RMSProp）"></a>4.逐参数适应学习率方法（Adagrad，RMSProp）</h3>
       
 
       
@@ -268,7 +276,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
         		</li>
       		
 		</ul>
@@ -324,7 +336,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/11/机器学习算法大总结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/18/cs231n笔记（四）——神经网络/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -338,18 +350,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/14/图像读取的四种方法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/19/TensorFlow-一-——两层神经网络预测线性回归/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          图像读取的四种方法
+          TensorFlow(一)——两层神经网络预测线性回归
         
       </div>
     </a>
   
   
-    <a href="/2018/05/09/opencv-二-imgproc-模块/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">opencv(二) imgproc 模块</div>
+    <a href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cs231n笔记（三）——分段式反向传播求梯度</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -376,7 +388,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习算法分类"><span class="toc-number">1.</span> <span class="toc-text">机器学习算法分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何决定使用哪种机器学习算法"><span class="toc-number">2.</span> <span class="toc-text">如何决定使用哪种机器学习算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用机器学习算法"><span class="toc-number">3.</span> <span class="toc-text">常用机器学习算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习工作流程"><span class="toc-number">4.</span> <span class="toc-text">机器学习工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-抽象成数学问题"><span class="toc-number">4.1.</span> <span class="toc-text">1 抽象成数学问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-获取数据"><span class="toc-number">4.2.</span> <span class="toc-text">2 获取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-特征预处理与特征选择"><span class="toc-number">4.3.</span> <span class="toc-text">3.特征预处理与特征选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-训练模型与调优"><span class="toc-number">4.4.</span> <span class="toc-text">4 训练模型与调优</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-模型诊断"><span class="toc-number">4.5.</span> <span class="toc-text">5 模型诊断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-模型融合"><span class="toc-number">4.6.</span> <span class="toc-text">6 模型融合</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、非线性激活函数"><span class="toc-number">1.</span> <span class="toc-text">一、非线性激活函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Sigmoid"><span class="toc-number">1.1.</span> <span class="toc-text">1.Sigmoid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-tanh"><span class="toc-number">1.2.</span> <span class="toc-text">2.tanh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-ReLU"><span class="toc-number">1.3.</span> <span class="toc-text">3.ReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Leaky-ReLU"><span class="toc-number">1.4.</span> <span class="toc-text">4.Leaky ReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PReLU"><span class="toc-number">1.5.</span> <span class="toc-text">5.PReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-EReLU"><span class="toc-number">1.6.</span> <span class="toc-text">6.EReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-maxout"><span class="toc-number">1.7.</span> <span class="toc-text">7.maxout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、数据预处理"><span class="toc-number">2.</span> <span class="toc-text">二、数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-均值减法（Mean-subtraction）"><span class="toc-number">2.1.</span> <span class="toc-text">1.均值减法（Mean subtraction）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-归一化（Normalization）"><span class="toc-number">2.2.</span> <span class="toc-text">2.归一化（Normalization）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PCA和白化（Whitening）"><span class="toc-number">2.3.</span> <span class="toc-text">2.PCA和白化（Whitening）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、权重初始化"><span class="toc-number">3.</span> <span class="toc-text">三、权重初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-错误：全零初始化"><span class="toc-number">3.1.</span> <span class="toc-text">1.错误：全零初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-随机数初始化"><span class="toc-number">3.2.</span> <span class="toc-text">2.随机数初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Xavier-initialization"><span class="toc-number">3.3.</span> <span class="toc-text">3.Xavier initialization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-He-Initialization"><span class="toc-number">3.4.</span> <span class="toc-text">4.He Initialization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Batch-Normalization（BN）"><span class="toc-number">4.</span> <span class="toc-text">四、Batch Normalization（BN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、过拟合Overfitting的解决方式正则化-Regularization"><span class="toc-number">5.</span> <span class="toc-text">五、过拟合Overfitting的解决方式正则化 Regularization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：L2-Regularization-正则化"><span class="toc-number">5.1.</span> <span class="toc-text">方法一：L2  Regularization 正则化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：droupout"><span class="toc-number">5.2.</span> <span class="toc-text">方法二：droupout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法三：数据扩增（Data-Augmentation）"><span class="toc-number">5.3.</span> <span class="toc-text">方法三：数据扩增（Data Augmentation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法四：早停止法（Early-Stopping）"><span class="toc-number">5.4.</span> <span class="toc-text">方法四：早停止法（Early Stopping）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法五：Drop-Connect"><span class="toc-number">5.5.</span> <span class="toc-text">方法五：Drop Connect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法六：Fractional-Max-Pooling"><span class="toc-number">5.6.</span> <span class="toc-text">方法六：Fractional Max Pooling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法七：Stochastic-Depth"><span class="toc-number">5.7.</span> <span class="toc-text">方法七：Stochastic Depth</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、超参数的选择"><span class="toc-number">6.</span> <span class="toc-text">六、超参数的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-交叉验证"><span class="toc-number">6.1.</span> <span class="toc-text">1.交叉验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-随机搜索优于网格搜索"><span class="toc-number">6.2.</span> <span class="toc-text">2.随机搜索优于网格搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-为参数选择合适的范围"><span class="toc-number">6.3.</span> <span class="toc-text">3.为参数选择合适的范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-计算资源来决定训练模型的方式"><span class="toc-number">6.4.</span> <span class="toc-text">4.计算资源来决定训练模型的方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、梯度下降的更新方法"><span class="toc-number">7.</span> <span class="toc-text">七、梯度下降的更新方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SGD（随机梯度下降），Momentum动量，Nesterov动量"><span class="toc-number">7.1.</span> <span class="toc-text">1.SGD（随机梯度下降），Momentum动量，Nesterov动量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-学习率退火"><span class="toc-number">7.2.</span> <span class="toc-text">2.学习率退火</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-二阶方法"><span class="toc-number">7.3.</span> <span class="toc-text">3.二阶方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-逐参数适应学习率方法（Adagrad，RMSProp）"><span class="toc-number">7.4.</span> <span class="toc-text">4.逐参数适应学习率方法（Adagrad，RMSProp）</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
