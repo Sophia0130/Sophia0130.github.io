@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="卷积一、自相关、互相关两个相关函数都是对相似性的度量  自相关：R(u)=f(t)*f(-t) 函数自身的周期性强弱    互相关：R(u)=f(t)*g(-t) 两个函数在不同的相对位置上互相匹配的程度    二、卷积层与全连接层的共同点和不同点1.全连接层 权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-25T03:36:32.581Z">
+<meta property="og:updated_time" content="2018-07-25T03:41:10.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cs231n笔记（五）——卷积神经网络">
 <meta name="twitter:description" content="卷积一、自相关、互相关两个相关函数都是对相似性的度量  自相关：R(u)=f(t)*f(-t) 函数自身的周期性强弱    互相关：R(u)=f(t)*g(-t) 两个函数在不同的相对位置上互相匹配的程度    二、卷积层与全连接层的共同点和不同点1.全连接层 权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配">
@@ -209,6 +209,7 @@
 <p>2.卷积层</p>
 <p>卷积神经网络中，卷积核是多维特征模板，但是不是整幅图像与模板匹配，而是图像的一部分与模板匹配，点积越大，也就是说匹配程度越大。</p>
 <p><br></p>
+<a id="more"></a>
 <h3 id="三、点积与叉积"><a href="#三、点积与叉积" class="headerlink" title="三、点积与叉积"></a>三、点积与叉积</h3><h4 id="1-点积、内积、数量积"><a href="#1-点积、内积、数量积" class="headerlink" title="1.点积、内积、数量积"></a>1.点积、内积、数量积</h4><p>$$<br>\mathbf{a}\cdot \mathbf{b} = \sum_{i=1}^n a_ib_i = a_1b_1 + a_2b_2 + \cdots + a_nb_n<br>$$</p>
 <p>几何意义：b在a方向上的投影</p>
 <p><br></p>
@@ -332,9 +333,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/07/26/进程和线程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          进程和线程
+        
+      </div>
+    </a>
   
-    <a href="/2018/07/19/TensorFlow-一-——两层神经网络预测线性回归/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">TensorFlow(一)——两层神经网络预测线性回归</div>
+  
+    <a href="/2018/07/18/cs231n笔记（四）——神经网络/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cs231n笔记（四）——神经网络</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -486,10 +496,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -522,7 +528,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,7 +540,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,7 +548,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">

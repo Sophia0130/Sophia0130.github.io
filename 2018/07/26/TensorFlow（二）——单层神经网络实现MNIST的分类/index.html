@@ -6,20 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Git 学习 | 绿小蕤</title>
+  <title>TensorFlow（二）——单层神经网络实现MNIST的分类 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数">
-<meta name="keywords" content="Git">
+  <meta name="description" content="TensorFlow——实现单层神经网络实现手写数字的分类 发现了一篇博文，思路很清晰，把MNIST从多方面展开来写，不仅仅是实现分类网络的训练，很有收获。特别是代码的风格是用类写的，就很清楚，代码可以找博主的GitHub的最新版 https://geektutu.com/post/tensorflow-mnist-simplest.html">
+<meta name="keywords" content="python,tensorflow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git 学习">
-<meta property="og:url" content="http://yoursite.com/2018/06/01/Git-学习/index.html">
+<meta property="og:title" content="TensorFlow（二）——单层神经网络实现MNIST的分类">
+<meta property="og:url" content="http://yoursite.com/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数">
+<meta property="og:description" content="TensorFlow——实现单层神经网络实现手写数字的分类 发现了一篇博文，思路很清晰，把MNIST从多方面展开来写，不仅仅是实现分类网络的训练，很有收获。特别是代码的风格是用类写的，就很清楚，代码可以找博主的GitHub的最新版 https://geektutu.com/post/tensorflow-mnist-simplest.html">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-01T09:07:33.373Z">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_train.jpg">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_test.jpg">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_graph.png">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_loss.png">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_accuracy.png">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_timeline.png">
+<meta property="og:updated_time" content="2018-07-26T12:27:57.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 学习">
-<meta name="twitter:description" content="PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数">
+<meta name="twitter:title" content="TensorFlow（二）——单层神经网络实现MNIST的分类">
+<meta name="twitter:description" content="TensorFlow——实现单层神经网络实现手写数字的分类 发现了一篇博文，思路很清晰，把MNIST从多方面展开来写，不仅仅是实现分类网络的训练，很有收获。特别是代码的风格是用类写的，就很清楚，代码可以找博主的GitHub的最新版 https://geektutu.com/post/tensorflow-mnist-simplest.html">
+<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_train.jpg">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -161,25 +168,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Git-学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="w-TensorFlow（二）——单层神经网络实现MNIST的分类" class="article article-type-w " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Git 学习
+      TensorFlow（二）——单层神经网络实现MNIST的分类
     </h1>
   
 
         
-        <a href="/2018/06/01/Git-学习/" class="archive-article-date">
-  	<time datetime="2018-06-01T09:05:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
+        <a href="/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-07-26T12:27:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
 </a>
 
 
-<a href="/2018/06/01/Git-学习/" class="archive-article-date">
-  	<time datetime="2018-06-01T09:05:53.000Z" itemprop="datePublished">2018-06-01</time>
+<a href="/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-07-26T12:27:03.000Z" itemprop="datePublished">2018-07-26</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -192,85 +199,87 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数</p>
+        <p>TensorFlow——实现单层神经网络实现手写数字的分类</p>
+<p>发现了一篇博文，思路很清晰，把MNIST从多方面展开来写，不仅仅是实现分类网络的训练，很有收获。特别是代码的风格是用类写的，就很清楚，代码可以找博主的GitHub的最新版</p>
+<p><a href="https://geektutu.com/post/tensorflow-mnist-simplest.html" target="_blank" rel="noopener">https://geektutu.com/post/tensorflow-mnist-simplest.html</a></p>
 <a id="more"></a>
-<h2 id="1-Git-版本控制系统"><a href="#1-Git-版本控制系统" class="headerlink" title="1. Git 版本控制系统"></a>1. Git 版本控制系统</h2><ul>
-<li>集中式的版本控制系统：CVS及SVN                                                                                                                                            版本库是集中存放在中央服务器的，，要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。最大缺点就是必须联网才能工作。</li>
+<p><br></p>
+<h2 id="一、MNIST-手写数字数据库"><a href="#一、MNIST-手写数字数据库" class="headerlink" title="一、MNIST 手写数字数据库"></a>一、MNIST 手写数字数据库</h2><h3 id="1-数据集"><a href="#1-数据集" class="headerlink" title="1.数据集"></a>1.数据集</h3><p>分为60000行的训练数据集（<code>mnist.train</code>）和10000行的测试数据集（<code>mnist.test</code>）</p>
+<p>每张图片的像素 28x28 被展开为长度 784 的行向量</p>
+<p>训练数据：</p>
+<p>图片：<code>mnist.train.images</code> 是一个形状为 <code>[60000, 784]</code> </p>
+<p>图片的标签：<code>mnist.train.labels</code> 是一个 <code>[60000, 10]</code>    <strong>使用的是one-hot 独热码</strong></p>
+<p>one-hot：使用N位状态寄存器来对N个状态进行编码，并且在任意时候，只有一位有效。最大优势在于状态比较时仅仅需要比较一个位，运算简单，但是占用资源多</p>
+<p><br></p>
+<h3 id="2-MNIST手写数字数据集的下载"><a href="#2-MNIST手写数字数据集的下载" class="headerlink" title="2.MNIST手写数字数据集的下载"></a>2.MNIST手写数字数据集的下载</h3><p>使用下面的代码加载失败</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow.examples.tutorials.mnist.input_data</span><br><span class="line">mnist = input_data.read_data_sets(&quot;MNIST_data/&quot;, one_hot=True)</span><br></pre></td></tr></table></figure>
+<p><em>由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败</em></p>
+<p>采取下面的办法解决  <a href="https://blog.csdn.net/Li_haiyu/article/details/78465806" target="_blank" rel="noopener">https://blog.csdn.net/Li_haiyu/article/details/78465806</a></p>
+<p><br></p>
+<h3 id="3-PCA-可视化-MNIST-手写数字识别数据集"><a href="#3-PCA-可视化-MNIST-手写数字识别数据集" class="headerlink" title="3.PCA 可视化 MNIST 手写数字识别数据集"></a>3.PCA 可视化 MNIST 手写数字识别数据集</h3><p><a href="http://projector.tensorflow.org/" target="_blank" rel="noopener">http://projector.tensorflow.org/</a></p>
+<p>PCA 是一种常用的数据降维方法，可以将高维数据在二维或者三维可视化呈现</p>
+<h3 id="4-显示MNIST的数据"><a href="#4-显示MNIST的数据" class="headerlink" title="4.显示MNIST的数据"></a>4.显示MNIST的数据</h3><p><a href="http://www.cnblogs.com/youmuchen/p/6713241.html" target="_blank" rel="noopener">http://www.cnblogs.com/youmuchen/p/6713241.html</a></p>
+<p><br></p>
+<p><br></p>
+<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><h3 id="1-代码流程"><a href="#1-代码流程" class="headerlink" title="1.代码流程"></a>1.代码流程</h3><ul>
+<li>输入训练集和测试集</li>
+<li>构造神经网络<ul>
+<li>输入训练样本的ｘ[55000,784]、ｙ[55000,10] 一个样本为一行</li>
+<li>设置神经网络参数 W[784,10]、b[10]</li>
+<li>计算 y_prediction = x*W + b</li>
 </ul>
-<ul>
-<li>分布式版本控制系统：Git                                                                                                                        每个人的电脑上都是一个完整的版本库，就不需要联网，因为版本库就在自己的电脑上。对于多人协作的方式，只需把各自的修改推送给对方，就可以互相看到对方的修改。</li>
-</ul>
-<p>所有的版本控制系统<strong>只能跟踪文本文件的改动</strong>，txt，网页，程序代码等等。而图片、视频这些二进制文件，虽然也能由版本控制系统管理，但没法跟踪文件的变化，也就是只知道图片从100KB改成了120KB，但到底改了啥，版本控制系统不知道。而Microsoft的Word格式是二进制格式，因此，版本控制系统是没法跟踪Word文件的改动的，如果要真正使用版本控制系统，就要以纯文本方式编写文件。</p>
-<p>文本文件与二进制文件的区在编码层次上</p>
-<ul>
-<li>文本文件是基于字符编码的文件，常见的编码有ASCII编码，UNICODE编码</li>
-<li>二进制文件是基于值编码的文件</li>
-</ul>
-<p>文本文件编码基于字符定长，译码容易些；二进制文件编码变长，存储利用率要高，译码难一些</p>
-<p>PS：Git 查看和修改用户名和邮箱 <a href="https://www.jianshu.com/p/d24e791a7679" target="_blank" rel="noopener">https://www.jianshu.com/p/d24e791a7679</a></p>
-<h2 id="2-Git仓库修改版本"><a href="#2-Git仓库修改版本" class="headerlink" title="2. Git仓库修改版本"></a>2. Git仓库修改版本</h2><h3 id="1-工作区"><a href="#1-工作区" class="headerlink" title="1) 工作区"></a>1) 工作区</h3><p>看的见的文件目录，放自己的文件</p>
-<h3 id="2-版本库或仓库-repository"><a href="#2-版本库或仓库-repository" class="headerlink" title="2) 版本库或仓库 (repository)"></a>2) 版本库或仓库 (repository)</h3><p>理解成一个目录，这个目录里每个文件的修改、删除，Git都能跟踪   <u>！划重点！</u>  <strong>Git管理的是修改不是文件</strong></p>
-<h3 id="3-添加文件到仓库的具体步骤"><a href="#3-添加文件到仓库的具体步骤" class="headerlink" title="3) 添加文件到仓库的具体步骤"></a>3) 添加文件到仓库的具体步骤</h3><p>1.创建空的仓库                                                                                                                                                        2.在工作区目录下新建文件      <code>touch create_repository.txt</code>                                                                                                                        3.将这个文件添加到<strong>暂存区</strong>     <code>git add create_repository.txt</code>                                                            4.将<strong>暂存区所有内容提交到当前分支 master</strong>  <code>git commit -m &quot;本次提交说明&quot;</code>  commit就是保存一个文件快照</p>
-<p>文件提交到版本库里分两步，暂存区和分支    <u>！划重点！</u> 所以每次修改，如果不用<code>git add</code>到暂存区，那就不会加到 <code>commit</code> 中</p>
-<h3 id="4）修改仓库版本"><a href="#4）修改仓库版本" class="headerlink" title="4）修改仓库版本"></a>4）修改仓库版本</h3><p>查看版本历史  <code>git log</code>     查看命令修改历史  <code>git reflog</code>   </p>
-<p>回到上一版本   <code>git reset --hard Head^</code>                                                                                         回到上上个版本   <code>git reset --hard Head^^</code>                                                                                            回到往上的100个版本   <code>git reset --hard Head~100</code>        指定到指定的版本   <code>git reset --hard 版本号</code>   </p>
-<h2 id="3-远程仓库"><a href="#3-远程仓库" class="headerlink" title="3.远程仓库"></a>3.远程仓库</h2><p>Git是分布式版本控制系统，同一个Git仓库，可以分布到不同的机器上，且每台机器的版本库其实都是一样的。</p>
-<p>实际情况是找一台电脑当服务器，每天24小时开机，每个人都从这个服务器仓库里克隆一份到自己的电脑上，并且各自把各自的提交推送到服务器仓库里，也从服务器仓库中拉取别人的提交。</p>
-<p>只要注册一个GitHub账号，就可以免费获得Git远程仓库，本地Git仓库和GitHub仓库之间的传输是通过SSH加密。</p>
-<p>1) SSH (Secure Shell) 安全外壳协议                                                                                                                     </p>
-<p><a href="https://www.jianshu.com/p/33461b619d53" target="_blank" rel="noopener">https://www.jianshu.com/p/33461b619d53</a> 嗯~看不懂~不想看</p>
-<p>1) 本地仓库同步到远程仓库</p>
-<ul>
-<li><p>GitHub 创建一个新的仓库</p>
 </li>
-<li><p>将本地仓库与远程仓库关联 <code>git remote add origin https://github.com/Sophia0130/LearnGit.git</code></p>
-<p>下面两条tips：</p>
-<p>1&gt; 提示出错信息：fatal: remote origin already exists.      输入  <code>git remote rm origin</code> 再进行关联</p>
-<p>2&gt; 第一次推送master分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令</p>
+<li>softmax计算10种类别各自的概率</li>
+<li>交叉熵计算loss</li>
+<li>训练网络</li>
+<li>用训练集计算准确率</li>
+</ul>
+<p><br></p>
+<h3 id="2-附加功能"><a href="#2-附加功能" class="headerlink" title="2.附加功能"></a>2.附加功能</h3><ul>
+<li>可视化  tensorboard<ul>
+<li>参数</li>
+<li>loss、accuracy</li>
+<li>图片</li>
+</ul>
 </li>
+<li>参数的保存 Saver</li>
+<li>Timeline</li>
 </ul>
-<ul>
-<li>把本地库的所有内容推送到远程库上 <code>git push -u origin master</code></li>
-<li>要本地作了提交，通过 <code>git push origin master</code>  把本地master分支的最新修改推送至GitHub</li>
-</ul>
-<p>2) 从远程仓库克隆</p>
-<h2 id="4-分支管理"><a href="#4-分支管理" class="headerlink" title="4. 分支管理"></a>4. 分支管理</h2><p>PS：这部分内容画 branch 分支图比较好理解</p>
-<ul>
-<li><p>创建一个分支，即增加一个分支的指针，并将Head指向该分支</p>
-<p><code>git branch dev</code>  创建了一个分支dev，<code>git checkout dev</code>将Head指向这个分支</p>
-</li>
-</ul>
-<ul>
-<li><p>对工作区的修改和提交就是针对dev分支了，新提交一次后，dev指针往前移动一步，而master指针不变</p>
-<p><code>git add</code> 和 <code>git commit -m &quot;xxxx&quot;</code>提交当前分支</p>
-</li>
-</ul>
-<ul>
-<li><p>在dev上的工作完成后，把master指向当前的dev,完成合并</p>
-<p><code>git merge dev</code></p>
-</li>
-</ul>
-<ul>
-<li><p>删除dev分支，即把dev指针删除</p>
-<p><code>git branch -d dev</code></p>
-</li>
-</ul>
-<p>查看分支：<code>git branch</code>列出所有分支，当前分支前面会标一个<code>*</code>号</p>
-<p>创建分支：<code>git branch</code></p>
-<p>切换分支：<code>git checkout</code></p>
-<p>创建+切换分支：<code>git checkout -b</code></p>
-<p>合并某分支到当前分支：<code>git merge</code></p>
-<p>删除分支：<code>git branch -d</code></p>
-<p>PS：后面还有很多分支管理的内容，但是我觉得我够用了，就不看了，别骂我懒 ~</p>
-<h2 id="5-标签管理"><a href="#5-标签管理" class="headerlink" title="5. 标签管理"></a>5. 标签管理</h2><p>由于版本号那串东西太复杂了，所以打标签可以更容易区分，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。</p>
-<p>切换到需要打标签的分支上</p>
-<p><code>git tag v0.0</code>用于新建一个标签</p>
-<p><code>git tag -a  -m &quot;xxx&quot;</code>可以指定标签信息</p>
-<p><code>git tag</code>查看所有标签</p>
-<p>PS：后面还有操作标签的内容，我也懒得看了 ~</p>
-<h2 id="6-搭建Git服务器"><a href="#6-搭建Git服务器" class="headerlink" title="6. 搭建Git服务器"></a>6. 搭建Git服务器</h2><p>搭建Git服务器需要准备一台运行Linux的机器，需要管理每个人的公钥和控制权限 </p>
-<p> 现在也用不到啊</p>
+<r>
 
+<h3 id="3-贴代码"><a href="#3-贴代码" class="headerlink" title="3.贴代码"></a>3.贴代码</h3><ul>
+<li><p>train_or_test == 0 时训练网络得到参数</p>
+<p>可以看到每隔50次训练的loss值</p>
+</li>
+</ul>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_train.jpg" alt=""></p>
+<ul>
+<li><p>train_or_test == 1 用得到的模型计算测试集精确度</p>
+<p>测试集的精确度有0.88</p>
+</li>
+</ul>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_test.jpg" alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="三、tensorboard"><a href="#三、tensorboard" class="headerlink" title="三、tensorboard"></a>三、tensorboard</h2><ul>
+<li>网络结构</li>
+</ul>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_graph.png" alt=""></p>
+<p><br></p>
+<ul>
+<li>每隔50次训练的loss</li>
+</ul>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_loss.png" alt=""></p>
+<p><br></p>
+<ul>
+<li>每隔50次测试集的精确度</li>
+</ul>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_accuracy.png" alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="四、Timeline"><a href="#四、Timeline" class="headerlink" title="四、Timeline"></a>四、Timeline</h2><p>不要问我这个是啥意思，我也不知道，看不懂 ~</p>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_timeline.png" alt=""></p>
+</r>
       
 
       
@@ -283,7 +292,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
         		</li>
       		
 		</ul>
@@ -339,7 +352,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/01/Git-学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,18 +366,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/01/Cygwin-安装/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Cygwin 安装
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/05/28/CryptoKitties/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CryptoKitties</div>
+    <a href="/2018/07/26/TensorFlow（一）——两层神经网络预测线性回归/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TensorFlow（一）——两层神经网络预测线性回归</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -391,7 +395,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Git-版本控制系统"><span class="toc-number">1.</span> <span class="toc-text">1. Git 版本控制系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Git仓库修改版本"><span class="toc-number">2.</span> <span class="toc-text">2. Git仓库修改版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-工作区"><span class="toc-number">2.1.</span> <span class="toc-text">1) 工作区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-版本库或仓库-repository"><span class="toc-number">2.2.</span> <span class="toc-text">2) 版本库或仓库 (repository)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-添加文件到仓库的具体步骤"><span class="toc-number">2.3.</span> <span class="toc-text">3) 添加文件到仓库的具体步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4）修改仓库版本"><span class="toc-number">2.4.</span> <span class="toc-text">4）修改仓库版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-远程仓库"><span class="toc-number">3.</span> <span class="toc-text">3.远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-分支管理"><span class="toc-number">4.</span> <span class="toc-text">4. 分支管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-标签管理"><span class="toc-number">5.</span> <span class="toc-text">5. 标签管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-搭建Git服务器"><span class="toc-number">6.</span> <span class="toc-text">6. 搭建Git服务器</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、MNIST-手写数字数据库"><span class="toc-number">1.</span> <span class="toc-text">一、MNIST 手写数字数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据集"><span class="toc-number">1.1.</span> <span class="toc-text">1.数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MNIST手写数字数据集的下载"><span class="toc-number">1.2.</span> <span class="toc-text">2.MNIST手写数字数据集的下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-PCA-可视化-MNIST-手写数字识别数据集"><span class="toc-number">1.3.</span> <span class="toc-text">3.PCA 可视化 MNIST 手写数字识别数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-显示MNIST的数据"><span class="toc-number">1.4.</span> <span class="toc-text">4.显示MNIST的数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、代码实现"><span class="toc-number">2.</span> <span class="toc-text">二、代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-代码流程"><span class="toc-number">2.1.</span> <span class="toc-text">1.代码流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-附加功能"><span class="toc-number">2.2.</span> <span class="toc-text">2.附加功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-贴代码"><span class="toc-number">2.3.</span> <span class="toc-text">3.贴代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、tensorboard"><span class="toc-number">3.</span> <span class="toc-text">三、tensorboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Timeline"><span class="toc-number">4.</span> <span class="toc-text">四、Timeline</span></a></li></ol>
                     </div>
                 </span>
             </div>
