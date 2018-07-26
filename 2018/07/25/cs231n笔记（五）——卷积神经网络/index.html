@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>cs231n笔记（五）——卷积神经网络 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="卷积一、自相关、互相关两个相关函数都是对相似性的度量  自相关：R(u)=f(t)*f(-t) 函数自身的周期性强弱    互相关：R(u)=f(t)*g(-t) 两个函数在不同的相对位置上互相匹配的程度    二、卷积层与全连接层的共同点和不同点1.全连接层 权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配">
+  <meta name="description" content="PS：理解卷积和卷积神经网络">
 <meta name="keywords" content="深度学习,cs231n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cs231n笔记（五）——卷积神经网络">
 <meta property="og:url" content="http://yoursite.com/2018/07/25/cs231n笔记（五）——卷积神经网络/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="卷积一、自相关、互相关两个相关函数都是对相似性的度量  自相关：R(u)=f(t)*f(-t) 函数自身的周期性强弱    互相关：R(u)=f(t)*g(-t) 两个函数在不同的相对位置上互相匹配的程度    二、卷积层与全连接层的共同点和不同点1.全连接层 权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配">
+<meta property="og:description" content="PS：理解卷积和卷积神经网络">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-25T03:41:10.586Z">
+<meta property="og:updated_time" content="2018-07-26T12:32:23.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cs231n笔记（五）——卷积神经网络">
-<meta name="twitter:description" content="卷积一、自相关、互相关两个相关函数都是对相似性的度量  自相关：R(u)=f(t)*f(-t) 函数自身的周期性强弱    互相关：R(u)=f(t)*g(-t) 两个函数在不同的相对位置上互相匹配的程度    二、卷积层与全连接层的共同点和不同点1.全连接层 权重看作是展开的一维图形模板，输入的图像也是展开的一维向量，两个向量做点积，若两个向量越相近，则点积的结果越大，即输入图像与图像模板的匹配">
+<meta name="twitter:description" content="PS：理解卷积和卷积神经网络">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -192,7 +192,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><h3 id="一、自相关、互相关"><a href="#一、自相关、互相关" class="headerlink" title="一、自相关、互相关"></a>一、自相关、互相关</h3><p>两个相关函数都是对相似性的度量</p>
+        <p>PS：理解卷积和卷积神经网络</p>
+<p><br></p>
+<a id="more"></a>
+<h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><h3 id="一、自相关、互相关"><a href="#一、自相关、互相关" class="headerlink" title="一、自相关、互相关"></a>一、自相关、互相关</h3><p>两个相关函数都是对相似性的度量</p>
 <ul>
 <li><p>自相关：R(u)=f(t)*f(-t)</p>
 <p>函数自身的周期性强弱</p>
@@ -209,7 +212,7 @@
 <p>2.卷积层</p>
 <p>卷积神经网络中，卷积核是多维特征模板，但是不是整幅图像与模板匹配，而是图像的一部分与模板匹配，点积越大，也就是说匹配程度越大。</p>
 <p><br></p>
-<a id="more"></a>
+<!--more-->
 <h3 id="三、点积与叉积"><a href="#三、点积与叉积" class="headerlink" title="三、点积与叉积"></a>三、点积与叉积</h3><h4 id="1-点积、内积、数量积"><a href="#1-点积、内积、数量积" class="headerlink" title="1.点积、内积、数量积"></a>1.点积、内积、数量积</h4><p>$$<br>\mathbf{a}\cdot \mathbf{b} = \sum_{i=1}^n a_ib_i = a_1b_1 + a_2b_2 + \cdots + a_nb_n<br>$$</p>
 <p>几何意义：b在a方向上的投影</p>
 <p><br></p>
@@ -488,6 +491,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
@@ -516,6 +523,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -524,19 +535,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,11 +543,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
