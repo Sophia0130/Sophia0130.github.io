@@ -8,25 +8,26 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>TensorFlow（二）——单层神经网络实现MNIST的分类 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TensorFlow——实现单层神经网络实现手写数字的分类 发现了一篇博文，思路很清晰，把MNIST从多方面展开来写，不仅仅是实现分类网络的训练，很有收获。特别是代码的风格是用类写的，就很清楚，代码可以找博主的GitHub的最新版 https://geektutu.com/post/tensorflow-mnist-simplest.html">
+  <meta name="description" content="目录MNIST 手写数字库 单层神经网络实现MNIST的分类  训练训练集 测试测试集   可视化  tensorboard 模型参数 loss、accuracy 网络流程图   参数的保存 Saver Timeline">
 <meta name="keywords" content="python,tensorflow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow（二）——单层神经网络实现MNIST的分类">
 <meta property="og:url" content="http://yoursite.com/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="TensorFlow——实现单层神经网络实现手写数字的分类 发现了一篇博文，思路很清晰，把MNIST从多方面展开来写，不仅仅是实现分类网络的训练，很有收获。特别是代码的风格是用类写的，就很清楚，代码可以找博主的GitHub的最新版 https://geektutu.com/post/tensorflow-mnist-simplest.html">
+<meta property="og:description" content="目录MNIST 手写数字库 单层神经网络实现MNIST的分类  训练训练集 测试测试集   可视化  tensorboard 模型参数 loss、accuracy 网络流程图   参数的保存 Saver Timeline">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/MNIST_show.jpg">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_train.jpg">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_test.jpg">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_graph.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_loss.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_accuracy.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_timeline.png">
-<meta property="og:updated_time" content="2018-07-26T12:39:10.125Z">
+<meta property="og:updated_time" content="2018-07-28T06:21:49.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow（二）——单层神经网络实现MNIST的分类">
-<meta name="twitter:description" content="TensorFlow——实现单层神经网络实现手写数字的分类 发现了一篇博文，思路很清晰，把MNIST从多方面展开来写，不仅仅是实现分类网络的训练，很有收获。特别是代码的风格是用类写的，就很清楚，代码可以找博主的GitHub的最新版 https://geektutu.com/post/tensorflow-mnist-simplest.html">
-<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_train.jpg">
+<meta name="twitter:description" content="目录MNIST 手写数字库 单层神经网络实现MNIST的分类  训练训练集 测试测试集   可视化  tensorboard 模型参数 loss、accuracy 网络流程图   参数的保存 Saver Timeline">
+<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/MNIST_show.jpg">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -199,9 +200,22 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>TensorFlow——实现单层神经网络实现手写数字的分类</p>
-<p>发现了一篇博文，思路很清晰，把MNIST从多方面展开来写，不仅仅是实现分类网络的训练，很有收获。特别是代码的风格是用类写的，就很清楚，代码可以找博主的GitHub的最新版</p>
-<p><a href="https://geektutu.com/post/tensorflow-mnist-simplest.html" target="_blank" rel="noopener">https://geektutu.com/post/tensorflow-mnist-simplest.html</a></p>
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>MNIST 手写数字库</p>
+<p>单层神经网络实现MNIST的分类</p>
+<ul>
+<li>训练训练集</li>
+<li>测试测试集</li>
+</ul>
+<ul>
+<li>可视化  tensorboard<ul>
+<li>模型参数</li>
+<li>loss、accuracy</li>
+<li>网络流程图</li>
+</ul>
+</li>
+<li>参数的保存 Saver</li>
+<li>Timeline</li>
+</ul>
 <a id="more"></a>
 <p><br></p>
 <h2 id="一、MNIST-手写数字数据库"><a href="#一、MNIST-手写数字数据库" class="headerlink" title="一、MNIST 手写数字数据库"></a>一、MNIST 手写数字数据库</h2><h3 id="1-数据集"><a href="#1-数据集" class="headerlink" title="1.数据集"></a>1.数据集</h3><p>分为60000行的训练数据集（<code>mnist.train</code>）和10000行的测试数据集（<code>mnist.test</code>）</p>
@@ -219,7 +233,15 @@
 <h3 id="3-PCA-可视化-MNIST-手写数字识别数据集"><a href="#3-PCA-可视化-MNIST-手写数字识别数据集" class="headerlink" title="3.PCA 可视化 MNIST 手写数字识别数据集"></a>3.PCA 可视化 MNIST 手写数字识别数据集</h3><p><a href="http://projector.tensorflow.org/" target="_blank" rel="noopener">http://projector.tensorflow.org/</a></p>
 <p>PCA 是一种常用的数据降维方法，可以将高维数据在二维或者三维可视化呈现</p>
 <p><br></p>
-<h3 id="4-显示MNIST的数据"><a href="#4-显示MNIST的数据" class="headerlink" title="4.显示MNIST的数据"></a>4.显示MNIST的数据</h3><p><a href="http://www.cnblogs.com/youmuchen/p/6713241.html" target="_blank" rel="noopener">http://www.cnblogs.com/youmuchen/p/6713241.html</a></p>
+<h3 id="4-MNIST的可视化"><a href="#4-MNIST的可视化" class="headerlink" title="4.MNIST的可视化"></a>4.MNIST的可视化</h3><p>两种方法：</p>
+<ul>
+<li>tensorflow 中的 MNIST 模块读取图片（不需要将文件解压缩）</li>
+<li>struct模块从二进制文件中读取图片（需要将文件解压缩）</li>
+</ul>
+<p><a href="http://www.cnblogs.com/youmuchen/p/6713241.html" target="_blank" rel="noopener">http://www.cnblogs.com/youmuchen/p/6713241.html</a></p>
+<p><a href="https://www.cnblogs.com/zhouyang209117/p/6436751.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhouyang209117/p/6436751.html</a></p>
+<p><br></p>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/MNIST_show.jpg" alt=""></p>
 <p><br></p>
 <p><br></p>
 <h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><h3 id="1-代码流程"><a href="#1-代码流程" class="headerlink" title="1.代码流程"></a>1.代码流程</h3><ul>
@@ -395,7 +417,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、MNIST-手写数字数据库"><span class="toc-number">1.</span> <span class="toc-text">一、MNIST 手写数字数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据集"><span class="toc-number">1.1.</span> <span class="toc-text">1.数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MNIST手写数字数据集的下载"><span class="toc-number">1.2.</span> <span class="toc-text">2.MNIST手写数字数据集的下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-PCA-可视化-MNIST-手写数字识别数据集"><span class="toc-number">1.3.</span> <span class="toc-text">3.PCA 可视化 MNIST 手写数字识别数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-显示MNIST的数据"><span class="toc-number">1.4.</span> <span class="toc-text">4.显示MNIST的数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、代码实现"><span class="toc-number">2.</span> <span class="toc-text">二、代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-代码流程"><span class="toc-number">2.1.</span> <span class="toc-text">1.代码流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-附加功能"><span class="toc-number">2.2.</span> <span class="toc-text">2.附加功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-贴代码"><span class="toc-number">2.3.</span> <span class="toc-text">3.贴代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、tensorboard"><span class="toc-number">3.</span> <span class="toc-text">三、tensorboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Timeline"><span class="toc-number">4.</span> <span class="toc-text">四、Timeline</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、MNIST-手写数字数据库"><span class="toc-number">2.</span> <span class="toc-text">一、MNIST 手写数字数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据集"><span class="toc-number">2.1.</span> <span class="toc-text">1.数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MNIST手写数字数据集的下载"><span class="toc-number">2.2.</span> <span class="toc-text">2.MNIST手写数字数据集的下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-PCA-可视化-MNIST-手写数字识别数据集"><span class="toc-number">2.3.</span> <span class="toc-text">3.PCA 可视化 MNIST 手写数字识别数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-MNIST的可视化"><span class="toc-number">2.4.</span> <span class="toc-text">4.MNIST的可视化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、代码实现"><span class="toc-number">3.</span> <span class="toc-text">二、代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-代码流程"><span class="toc-number">3.1.</span> <span class="toc-text">1.代码流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-附加功能"><span class="toc-number">3.2.</span> <span class="toc-text">2.附加功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-贴代码"><span class="toc-number">3.3.</span> <span class="toc-text">3.贴代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、tensorboard"><span class="toc-number">4.</span> <span class="toc-text">三、tensorboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Timeline"><span class="toc-number">5.</span> <span class="toc-text">四、Timeline</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -512,15 +534,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,11 +546,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,7 +554,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,11 +582,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,11 +606,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
