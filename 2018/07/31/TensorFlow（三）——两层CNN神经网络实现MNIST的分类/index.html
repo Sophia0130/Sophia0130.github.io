@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/conv2_weight.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/conv2_output.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/conv1_output.png">
-<meta property="og:updated_time" content="2018-07-31T04:58:09.790Z">
+<meta property="og:updated_time" content="2018-07-31T05:25:56.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow（三）——两层CNN神经网络实现MNIST的分类">
 <meta name="twitter:description" content="两层CNN神经网络实现MNIST的分类 version 1：和之前的神经网络训练MNIST数据集实现分类，整体过程差不多，只不过将计算换成卷积 version 2 ：相比 version 1多了 权重和卷积结果的图像可视化 整个网络框架：image —&amp;gt;conv1(32 kernels) —&amp;gt;max pool1 —&amp;gt;conv2 (64 kernels) —&amp;gt;max pool">
@@ -206,8 +206,8 @@
         <p><strong>两层CNN神经网络实现MNIST的分类</strong></p>
 <p>version 1：和之前的神经网络训练MNIST数据集实现分类，整体过程差不多，只不过将计算换成卷积</p>
 <p>version 2 ：相比 version 1多了 <strong>权重和卷积结果的图像可视化</strong></p>
-<p>整个网络框架：image —&gt;conv1(32 kernels) —&gt;max pool1 —&gt;conv2 (64 kernels) —&gt;max pool2 —&gt;</p>
-<p>​                           fc1 —&gt;fc2 —&gt;classifier</p>
+<p>整个网络框架：image —&gt;conv1(32 kernels) —&gt;max pool1 —&gt;conv2 (64 kernels) —&gt;max pool2 </p>
+<p>—&gt;fc1 —&gt;fc2 —&gt;classifier</p>
 <p><br></p>
 <a id="more"></a>
 <h1 id="Version-1"><a href="#Version-1" class="headerlink" title="Version 1"></a>Version 1</h1><p>version 1和之前的神经网络训练MNIST数据集实现分类，整体过程差不多，只不过将计算换成卷积</p>
@@ -363,6 +363,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/08/01/NLP——word2vec/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          NLP——word2vec
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/07/29/Ipython-与-Jupyter-Notebook/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Ipython 与 Jupyter Notebook</div>
@@ -509,11 +518,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,15 +534,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,7 +542,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,15 +558,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,7 +582,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">

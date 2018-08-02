@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>TensorFlow（二）——单层神经网络实现MNIST的分类 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录MNIST 手写数字库 单层神经网络实现MNIST的分类  训练训练集 测试测试集   可视化  tensorboard 模型参数 loss、accuracy 网络流程图   参数的保存 Saver Timeline">
+  <meta name="description" content="PS：https://playground.tensorflow.org 推荐一个很有意思的网站，够你玩一个下午的，并且能够帮助你更好理解什么是调参 ~  目录MNIST 手写数字库 单层神经网络实现MNIST的分类  训练训练集 测试测试集   可视化  tensorboard 模型参数 loss、accuracy 网络流程图   参数的保存 Saver Timeline">
 <meta name="keywords" content="python,tensorflow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow（二）——单层神经网络实现MNIST的分类">
 <meta property="og:url" content="http://yoursite.com/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="目录MNIST 手写数字库 单层神经网络实现MNIST的分类  训练训练集 测试测试集   可视化  tensorboard 模型参数 loss、accuracy 网络流程图   参数的保存 Saver Timeline">
+<meta property="og:description" content="PS：https://playground.tensorflow.org 推荐一个很有意思的网站，够你玩一个下午的，并且能够帮助你更好理解什么是调参 ~  目录MNIST 手写数字库 单层神经网络实现MNIST的分类  训练训练集 测试测试集   可视化  tensorboard 模型参数 loss、accuracy 网络流程图   参数的保存 Saver Timeline">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/MNIST_show.jpg">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_train.jpg">
@@ -23,10 +23,10 @@
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_loss.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_accuracy.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/mnist_fc_timeline.png">
-<meta property="og:updated_time" content="2018-07-28T06:21:49.582Z">
+<meta property="og:updated_time" content="2018-07-31T07:41:14.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow（二）——单层神经网络实现MNIST的分类">
-<meta name="twitter:description" content="目录MNIST 手写数字库 单层神经网络实现MNIST的分类  训练训练集 测试测试集   可视化  tensorboard 模型参数 loss、accuracy 网络流程图   参数的保存 Saver Timeline">
+<meta name="twitter:description" content="PS：https://playground.tensorflow.org 推荐一个很有意思的网站，够你玩一个下午的，并且能够帮助你更好理解什么是调参 ~  目录MNIST 手写数字库 单层神经网络实现MNIST的分类  训练训练集 测试测试集   可视化  tensorboard 模型参数 loss、accuracy 网络流程图   参数的保存 Saver Timeline">
 <meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/MNIST_show.jpg">
   
   
@@ -200,7 +200,9 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>MNIST 手写数字库</p>
+        <p>PS：<a href="https://playground.tensorflow.org" target="_blank" rel="noopener">https://playground.tensorflow.org</a> 推荐一个很有意思的网站，够你玩一个下午的，并且能够帮助你更好理解什么是调参 ~</p>
+<p><br></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>MNIST 手写数字库</p>
 <p>单层神经网络实现MNIST的分类</p>
 <ul>
 <li>训练训练集</li>
@@ -543,11 +545,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,15 +561,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,7 +569,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,15 +585,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,7 +609,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
