@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-02T01:57:56.357Z</updated>
+  <updated>2018-08-02T12:25:20.521Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cs231n笔记（六）——循环神经网络</title>
+    <link href="http://yoursite.com/2018/08/02/cs231n%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <id>http://yoursite.com/2018/08/02/cs231n笔记（六）——循环神经网络/</id>
+    <published>2018-08-02T12:18:15.000Z</published>
+    <updated>2018-08-02T12:25:20.521Z</updated>
+    
+    <content type="html"><![CDATA[<p>循环神经网络属于时间递归神经网络，主要解决<strong>序列</strong>数据的处理，比如文本、语音、视频等等</p><p>PS：因为我现在在做图像，CNN用的比较多，所以RNN和LSTM的学习一笔带过</p><a id="more"></a><p> <br></p><h2 id="一、序列数据与词嵌入"><a href="#一、序列数据与词嵌入" class="headerlink" title="一、序列数据与词嵌入"></a>一、序列数据与词嵌入</h2><p>序列数据：比如文本、语音、视频等等。这类数据的<strong>样本间存在顺序关系</strong>，每个样本和它之前的样本存在关联。比如说，在文本中，一个词和它前面的词是有关联的；在气象数据中，一天的气温和前几天的气温是有关联的。一组观察数据定义为一个序列，从分布中可以观察出多个序列。</p><p>词嵌入（ word embedding） ：不能直接将文字符号输入网络，所以需要将词语转换为数值形式</p><p>之前写过一篇关于 word2vec 的博客：</p><p><a href="https://sophia0130.github.io/2018/08/01/NLP%E2%80%94%E2%80%94word2vec/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/08/01/NLP%E2%80%94%E2%80%94word2vec/</a></p><p><br></p><h2 id="二、RNN（recurrent-neural-networks）"><a href="#二、RNN（recurrent-neural-networks）" class="headerlink" title="二、RNN（recurrent neural networks）"></a>二、RNN（recurrent neural networks）</h2><p><img src="http://7xo0y8.com1.z0.glb.clouddn.com/RNN.png" alt="RNN_3"></p><p><br></p><h3 id="1-什么是RNN？"><a href="#1-什么是RNN？" class="headerlink" title="1.什么是RNN？"></a>1.什么是RNN？</h3><p>将循环神经网络进行展开成神经网络，隐含层h的边实际上是和上一时刻的h相连，这是一个<strong>时间序列</strong></p><p>输入单元(Input units)：{x0,x1,…,xt,xt+1,…}</p><p>输出单元(Output units)：{y0,y1,…,yt,yt+1.,..}</p><p>隐藏单元(Hidden units)：{h0,h1,…,ht,ht+1,…}</p><p><br></p><p>1）<strong>循环函数</strong>（recurrence formula ）：ht = Fθ (ht−1,xt)</p><p>2）ht：隐藏层的第t步的状态，它是网络的记忆单元，取决于当前输入层的输入与上一步隐藏层的状态</p><p>3）yt：第t步的输出，yt = softmax(Vst)</p><p>不同于 ht包含了前面所有步的隐藏层状态，输出层的输出yt只与当前步的ht有关</p><p><br></p><h3 id="2-RNN-的参数共享"><a href="#2-RNN-的参数共享" class="headerlink" title="2.RNN 的参数共享"></a>2.RNN 的参数共享</h3><p>RNN看上去和HMM很像。两者最大的区别在于，<strong>RNN的参数是跨时刻共享</strong>。也就是说，任意时刻的网络参数都是相同的。</p><p>共享参数使得模型的复杂度减少，这和CNN是相通的，CNN在二维数据的空间位置之间共享卷积核参数，而RNN则是在序列数据的时刻之间共享参数。</p><p><br></p><h3 id="3-输入输出的模式"><a href="#3-输入输出的模式" class="headerlink" title="3.输入输出的模式"></a>3.输入输出的模式</h3><p>one-to-many</p><p>many-to-one</p><p>sequence to sequence：many-to-one + one-to-many</p><p><br></p><h2 id="三、梯度消失和梯度爆炸"><a href="#三、梯度消失和梯度爆炸" class="headerlink" title="三、梯度消失和梯度爆炸"></a>三、梯度消失和梯度爆炸</h2><h2 id="Gradient-Vanishing-Exploding"><a href="#Gradient-Vanishing-Exploding" class="headerlink" title="(Gradient Vanishing/Exploding )"></a>(Gradient Vanishing/Exploding )</h2><p>对于深层网络（其层数过深）或循环神经网络（其递归结构），反向传播的连乘使得误差梯度<strong>累积</strong>，然后导致网络权重的大幅更新，并因此使网络变得不稳定。</p><p><br></p><h3 id="1-梯度消失"><a href="#1-梯度消失" class="headerlink" title="1. 梯度消失"></a>1. 梯度消失</h3><p>通常神经网络所用的激活函数是sigmoid函数，这个函数有个特点，就是能将负无穷到正无穷的数映射到0和1之间，并且对这个函数求导的结果是f′(x)=f(x)(1−f(x))，因此两个0到1之间的数相乘，得到的结果就会变得很小了。神经网络的反向传播是逐层对函数偏导相乘，因此当神经网络层数非常深的时候，最后产生的偏差就因为乘了很多的小于1的数而越来越小，最终就会变为0，从而导致层数比较浅的权重没有更新。</p><p><br></p><h3 id="2-梯度爆炸"><a href="#2-梯度爆炸" class="headerlink" title="2. 梯度爆炸"></a>2. 梯度爆炸</h3><p>由于初始化权值过大，反向传播时会导致误差梯度在更新中累积，变成非常大的梯度，对于比较浅的层数，其网络权重的大幅更新，使网络变得不稳定。</p><p><br></p><h3 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3.解决方法</h3><p>使用 ReLU 激活函数</p><p>使用长短期记忆网络（LSTM）</p><p>使用梯度截断（Gradient Clipping）</p><p>使用权重正则化（Weight Regularization）</p><p><br></p><h2 id="四、LSTM-长短时记忆（Long-Short-Term-Memory）"><a href="#四、LSTM-长短时记忆（Long-Short-Term-Memory）" class="headerlink" title="四、LSTM 长短时记忆（Long-Short Term Memory）"></a>四、LSTM 长短时记忆（Long-Short Term Memory）</h2><h3 id="1-LSTM的作用"><a href="#1-LSTM的作用" class="headerlink" title="1. LSTM的作用"></a>1. LSTM的作用</h3><p>权重指数级爆炸或消失，使得普通 RNN 没有办法回忆起久远记忆，而结合不同的LSTM可以很好解决这个问题</p><p><br></p><h3 id="2-LSTM-多了三个控制器"><a href="#2-LSTM-多了三个控制器" class="headerlink" title="2. LSTM 多了三个控制器"></a>2. LSTM 多了三个控制器</h3><p>概念理解 ：<a href="https://blog.csdn.net/hust_tsb/article/details/79485268" target="_blank" rel="noopener">https://blog.csdn.net/hust_tsb/article/details/79485268</a></p><p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181722_631.png" alt="img"></p><ul><li>输入门（input gate）：输入门打开，数据就写入记忆细胞（门的打开和关闭通过学习得到）</li></ul><ul><li><p>遗忘门（forget gate)：是否将记忆中的值保留，刷新记忆</p><p>LSTM 模型的关键之一就在于这个“遗忘门”， 它能够控制训练时候梯度在这里的收敛性（从而避免了 RNN 中的梯度 vanishing/exploding 问题），同时也能够保持长期的记忆性。</p></li></ul><ul><li>输出门（output gate）：是否将记忆中的值读出（通过学习）</li></ul><p><br></p><h3 id="3-LSTM核心计算"><a href="#3-LSTM核心计算" class="headerlink" title="3. LSTM核心计算"></a>3. LSTM核心计算</h3><p>（1）输入时选择忘记过去某些信息</p><p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_259.png" alt="img"></p><p><br></p><p>（2）记忆现在的信息</p><p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_897.png" alt="img"></p><p>包含两个部分：</p><ul><li>sigmoid 层：决定什么值我们将要更新</li></ul><ul><li>tanh 层：<strong>创建一个新的候选向量</strong> Ct~，被加入到状态中。 语言模型的例子中，我们希望增加新的代词的类别到细胞状态中，来替代旧的需要忘记的代词。</li></ul><p><br></p><p>（3）将输入和更新后的细胞状态合并</p><p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_883.png" alt="这里写图片描述"></p><p>更新旧细胞状态，Ct-1到Ct</p><p>旧状态与ft相乘，丢弃掉我们确定需要丢弃的信息，接着加上新的候选值it∗Ct~</p><p><br></p><p>（4）output gate：输出结果</p><p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_463.png" alt="img"></p><p><br></p><h3 id="4-LSTM模型流程"><a href="#4-LSTM模型流程" class="headerlink" title="4.LSTM模型流程"></a>4.LSTM模型流程</h3><p><img src="http://p8ge6t5tt.bkt.clouddn.com/rnn.JPG" alt="img"></p><p>（1）输入节点（gc）：接受上一个时刻隐藏节点的输出以及当前的输入作为输入，然后通过一个tanh激活函数</p><p>（2）输入门（ic）：将输入节点（gc）的输出相乘与将输入门（ic）的输出（输入门为 sigmoid，其输出为0-1之间，以起控制信息量的作用）</p><p>（3）忘记门（fc）：将上一个时刻的内部状态节点的输出（sc）与忘记门（fc）的输出相乘（忘记门为 sigmoid，其输出为0-1之间，起控制信息量的作用）</p><p>（4）内部状态节点（sc）：被输入门过滤的当前输入和经过忘记门的上一个时刻内部状态节点输出之</p><p>（5）输出门（oc）：将内部状态节点的输出（sc）与输出门（oc）相乘（输出门为 sigmoid，其输出为0-1之间，起控制信息量的作用）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;循环神经网络属于时间递归神经网络，主要解决&lt;strong&gt;序列&lt;/strong&gt;数据的处理，比如文本、语音、视频等等&lt;/p&gt;
+&lt;p&gt;PS：因为我现在在做图像，CNN用的比较多，所以RNN和LSTM的学习一笔带过&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="cs231n" scheme="http://yoursite.com/tags/cs231n/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TensorFlow（四）——RNN实现MNIST的分类</title>
+    <link href="http://yoursite.com/2018/08/02/TensorFlow%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94RNN%E5%AE%9E%E7%8E%B0MNIST%E7%9A%84%E5%88%86%E7%B1%BB/"/>
+    <id>http://yoursite.com/2018/08/02/TensorFlow（四）——RNN实现MNIST的分类/</id>
+    <published>2018-08-02T12:17:20.000Z</published>
+    <updated>2018-08-02T12:45:02.845Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：最近得开始做项目了，所以RNN只能草率收尾了，很多东西都不是很懂 ~ 只能先这样子了，后面如果有机会做语音和视频，还是得好好看一下</p><a id="more"></a><p><br></p><p>关于cell要注意：<br>理论上进入cell的数据就是单纯的数据，写代码的时候发现并非如此<br>这里，进入cell的数据其实是W*x+b，而非x</p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/RNN.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：最近得开始做项目了，所以RNN只能草率收尾了，很多东西都不是很懂 ~ 只能先这样子了，后面如果有机会做语音和视频，还是得好好看一下&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="tensorflow" scheme="http://yoursite.com/tags/tensorflow/"/>
+    
+  </entry>
   
   <entry>
     <title>NLP——word2vec</title>
@@ -453,51 +498,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Regularization&quot;&gt;&lt;a href=&quot;#Regularization&quot; class=&quot;headerlink&quot; title=&quot;Regularization&quot;&gt;&lt;/a&gt;Regularization&lt;/h1&gt;&lt;p&gt;PS：要明确的是正则化是对过拟合现象的修正，不是必须要做的&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Deep-Learning-吴恩达-作业——关于plot_decision_boundary()函数的理解</title>
-    <link href="http://yoursite.com/2018/06/25/Deep-Learning-%E5%90%B4%E6%81%A9%E8%BE%BE-%E4%BD%9C%E4%B8%9A%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8Eplot-decision-boundary-%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/"/>
-    <id>http://yoursite.com/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/</id>
-    <published>2018-06-25T08:24:17.000Z</published>
-    <updated>2018-06-25T12:32:11.643Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊</p><a id="more"></a><p>1.得到最终的预测结果0或者1</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#得到最终的预测结果0或者1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict_dec</span><span class="params">(parameters, X)</span></span></span><br><span class="line"><span class="function">    """</span></span><br><span class="line"><span class="function">    <span class="title">Used</span> <span class="title">for</span> <span class="title">plotting</span> <span class="title">decision</span> <span class="title">boundary</span>.</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    <span class="title">Arguments</span>:</span></span><br><span class="line">    parameters -- python dictionary containing your parameters </span><br><span class="line">    X -- input data of size (m, K)</span><br><span class="line">    </span><br><span class="line">    Returns</span><br><span class="line">    predictions -- vector of predictions of our model (red: <span class="number">0</span> / blue: <span class="number">1</span>)</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    # Predict using forward propagation and a classification threshold of 0.5</span></span><br><span class="line"><span class="string">    a3, cache = forward_propagation(X, parameters)</span></span><br><span class="line"><span class="string">    predictions = (a3&gt;0.5)</span></span><br><span class="line"><span class="string">    return predictions</span></span><br></pre></td></tr></table></figure><p>2.划分格子-得到每个格点的坐标-对每个格点的值进行预测(作为颜色区分)-画边界线-加上训练数据的散点图</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#划分格子-得到每个格点的坐标-对每个格点的值进行预测(作为颜色区分)-画边界线-加上训练数据的散点图</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_decision_boundary</span><span class="params">(model, X, y)</span>:</span></span><br><span class="line">    <span class="comment"># Set min and max values and give it some padding #生成网格x、y的范围，不是整幅图的范围</span></span><br><span class="line">    x_min, x_max = X[<span class="number">0</span>, :].min() - <span class="number">1</span>, X[<span class="number">0</span>, :].max() + <span class="number">1</span></span><br><span class="line">    y_min, y_max = X[<span class="number">1</span>, :].min() - <span class="number">1</span>, X[<span class="number">1</span>, :].max() + <span class="number">1</span></span><br><span class="line">    h = <span class="number">0.01</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Generate a grid of points with distance h between them #生成网格矩阵</span></span><br><span class="line">    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))   </span><br><span class="line">    <span class="comment">#画格子图理解：1.xx返回每个格点的x坐标  2.yy返回的是每个格点的y坐标</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Predict the function value for the whole grid</span></span><br><span class="line">    Z = model(np.c_[xx.ravel(), yy.ravel()]) </span><br><span class="line">    <span class="comment">#model()括号里的参数是每个格点的坐标  #model的功能得到对应格点的预测结果 0或者1</span></span><br><span class="line">    Z = Z.reshape(xx.shape)   </span><br><span class="line">    <span class="comment"># Plot the contour and training examples</span></span><br><span class="line">    plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral) <span class="comment">#找边界线</span></span><br><span class="line">    plt.ylabel(<span class="string">'x2'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'x1'</span>)</span><br><span class="line">    plt.scatter(X[<span class="number">0</span>, :], X[<span class="number">1</span>, :],  c=np.squeeze(y), cmap=plt.cm.Spectral)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#调用函数</span></span><br><span class="line">plot_decision_boundary(<span class="keyword">lambda</span> x: predict_dec(parameters, x.T), train_X, train_Y)</span><br></pre></td></tr></table></figure><h2 id="1-lambda函数-匿名函数"><a href="#1-lambda函数-匿名函数" class="headerlink" title="1. lambda函数-匿名函数"></a>1. lambda函数-匿名函数</h2><p>匿名函数冒号前面的x表示函数参数。匿名函数有个限制，就是<strong>只能有一个表达式</strong>，不用写return，<strong>返回值就是该表达式的结果</strong></p><p><code>list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9]))</code></p><p><code>[1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p><h2 id="2-np-c-和-np-r"><a href="#2-np-c-和-np-r" class="headerlink" title="2. np.c_ 和 np.r_"></a>2. np.c_ 和 np.r_</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([1, 2, 3])</span><br><span class="line">b = np.array([4, 5, 6])</span><br><span class="line"></span><br><span class="line">c=np.c_[a,b]</span><br><span class="line">d=np.r_[a,b]</span><br></pre></td></tr></table></figure><p>我还是没有理解，简直喵了个咪的抓狂 ~</p><h2 id="3-np-ravel和np-flatten"><a href="#3-np-ravel和np-flatten" class="headerlink" title="3. np.ravel和np.flatten"></a>3. np.ravel和np.flatten</h2><p>相同点：将多维数组降位一维      </p><p>不同点：          </p><ul><li>numpy.flatten()返回的是拷贝，不会影响原始矩阵        </li><li>numpy.ravel()返回的是view,通过ravel修改了矩阵，原来的矩阵会发生改变</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：看了一下午这个函数，真的是要把我高抓狂了，总算知道它在做什么了 ~ 哎，真累啊&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Deep-Learning-吴恩达-作业（四）</title>
-    <link href="http://yoursite.com/2018/06/24/Deep-Learning-%E5%90%B4%E6%81%A9%E8%BE%BE-%E4%BD%9C%E4%B8%9A%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/06/24/Deep-Learning-吴恩达-作业（四）/</id>
-    <published>2018-06-24T07:46:03.000Z</published>
-    <updated>2018-06-25T12:17:46.018Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="initialization"><a href="#initialization" class="headerlink" title="initialization"></a>initialization</h2><p>PS：参数初始化是为了缓解梯度消失和爆炸问题，加快梯度下降从而加快学习的速度</p><p>下面是三种不同的参数W、b的初始化方式，对于多次迭代后 cost function下降效果的影响</p><a id="more"></a><p><img src="http://p8ge6t5tt.bkt.clouddn.com/initization%E4%BD%9C%E4%B8%9A%E5%9B%9B.jpg" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;initialization&quot;&gt;&lt;a href=&quot;#initialization&quot; class=&quot;headerlink&quot; title=&quot;initialization&quot;&gt;&lt;/a&gt;initialization&lt;/h2&gt;&lt;p&gt;PS：参数初始化是为了缓解梯度消失和爆炸问题，加快梯度下降从而加快学习的速度&lt;/p&gt;
-&lt;p&gt;下面是三种不同的参数W、b的初始化方式，对于多次迭代后 cost function下降效果的影响&lt;/p&gt;
     
     </summary>
     

@@ -6,19 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>绿小蕤</title>
+  <title>cs231n笔记（六）——循环神经网络 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
-<meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/page/6/index.html">
+  <meta name="description" content="循环神经网络属于时间递归神经网络，主要解决序列数据的处理，比如文本、语音、视频等等 PS：因为我现在在做图像，CNN用的比较多，所以RNN和LSTM的学习一笔带过">
+<meta name="keywords" content="深度学习,cs231n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cs231n笔记（六）——循环神经网络">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/cs231n笔记（六）——循环神经网络/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="循环神经网络属于时间递归神经网络，主要解决序列数据的处理，比如文本、语音、视频等等 PS：因为我现在在做图像，CNN用的比较多，所以RNN和LSTM的学习一笔带过">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xo0y8.com1.z0.glb.clouddn.com/RNN.png">
+<meta property="og:image" content="http://static.open-open.com/lib/uploadImg/20150829/20150829181722_631.png">
+<meta property="og:image" content="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_259.png">
+<meta property="og:image" content="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_897.png">
+<meta property="og:image" content="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_883.png">
+<meta property="og:image" content="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_463.png">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/rnn.JPG">
+<meta property="og:updated_time" content="2018-08-02T12:25:20.521Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="cs231n笔记（六）——循环神经网络">
+<meta name="twitter:description" content="循环神经网络属于时间递归神经网络，主要解决序列数据的处理，比如文本、语音、视频等等 PS：因为我现在在做图像，CNN用的比较多，所以RNN和LSTM的学习一笔带过">
+<meta name="twitter:image" content="http://7xo0y8.com1.z0.glb.clouddn.com/RNN.png">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,27 +169,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-编译器和解释器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-cs231n笔记（六）——循环神经网络" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/编译器和解释器/">编译器和解释器</a>
+    <h1 class="article-title" itemprop="name">
+      cs231n笔记（六）——循环神经网络
     </h1>
   
 
         
-        <a href="/2018/05/04/编译器和解释器/" class="archive-article-date">
-  	<time datetime="2018-05-04T12:42:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
+        <a href="/2018/08/02/cs231n笔记（六）——循环神经网络/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:18:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
 </a>
 
 
-<a href="/2018/05/04/编译器和解释器/" class="archive-article-date">
-  	<time datetime="2018-05-04T12:42:04.000Z" itemprop="datePublished">2018-05-04</time>
+<a href="/2018/08/02/cs231n笔记（六）——循环神经网络/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:18:15.000Z" itemprop="datePublished">2018-08-02</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -193,196 +200,89 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="编译器、解释器"><a href="#编译器、解释器" class="headerlink" title="编译器、解释器"></a>编译器、解释器</h2><p>1.编译器：将源程序编译成机器语言，保存成二进制文件，运行速度快</p>
-<p>2.解释器：执程序时一条条解释成机器语言，运行速度慢</p>
-<h2 id="编译型语言、解释型语言"><a href="#编译型语言、解释型语言" class="headerlink" title="编译型语言、解释型语言"></a>编译型语言、解释型语言</h2><p>1.编译型语言：不能独立运行，使用了库函数，需要链接，最后输出可执行代码 (C、C++)</p>
-<p>缺点：编译成特定平台的机器码，无法将可执行文件移植到其它平台，可以移植也需要采用该平台的编译器重新编译</p>
-        
-          <a class="article-more-a" href="/2018/05/04/编译器和解释器/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/编译器和解释器/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-make和CMake" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/make和CMake/">make和CMake</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/04/make和CMake/" class="archive-article-date">
-  	<time datetime="2018-05-04T12:24:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-
-
-<a href="/2018/05/04/make和CMake/" class="archive-article-date">
-  	<time datetime="2018-05-04T12:24:18.000Z" itemprop="datePublished">2018-05-04</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="makefile-和-make"><a href="#makefile-和-make" class="headerlink" title="makefile 和 make"></a>makefile 和 make</h2><p>1.makefile 文件</p>
-<p>一个工程中有很多源文件，makefile定义了整个工程的编译规则，哪些文件先编译，哪些文件后编译，哪些文件重新编译。malefile是<strong>自动化编译</strong>，一旦写好，只需一个make，整个工程自动编译。</p>
-<p>windows平台下，VS开发环境自动生成makefile文件</p>
-<p>Linux平台下，Qt Creator自动生成了类似makeile的 .pro文件</p>
-        
-          <a class="article-more-a" href="/2018/05/04/make和CMake/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/make和CMake/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-GitHub-Hexo-搭建自己的博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/GitHub-Hexo-搭建自己的博客/">GitHub+Hexo 搭建自己的博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/04/GitHub-Hexo-搭建自己的博客/" class="archive-article-date">
-  	<time datetime="2018-05-04T09:24:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-
-
-<a href="/2018/05/04/GitHub-Hexo-搭建自己的博客/" class="archive-article-date">
-  	<time datetime="2018-05-04T09:24:31.000Z" itemprop="datePublished">2018-05-04</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <font color="gray" size="2">PS：参考网上各种大神的博客，作为一个小白，我真的东拼西凑，半懂不懂搭出来了自己的博客页面，所以看到这篇博文的你，一定要有信心~</font>
-
+        <p>循环神经网络属于时间递归神经网络，主要解决<strong>序列</strong>数据的处理，比如文本、语音、视频等等</p>
+<p>PS：因为我现在在做图像，CNN用的比较多，所以RNN和LSTM的学习一笔带过</p>
+<a id="more"></a>
+<p> <br></p>
+<h2 id="一、序列数据与词嵌入"><a href="#一、序列数据与词嵌入" class="headerlink" title="一、序列数据与词嵌入"></a>一、序列数据与词嵌入</h2><p>序列数据：比如文本、语音、视频等等。这类数据的<strong>样本间存在顺序关系</strong>，每个样本和它之前的样本存在关联。比如说，在文本中，一个词和它前面的词是有关联的；在气象数据中，一天的气温和前几天的气温是有关联的。一组观察数据定义为一个序列，从分布中可以观察出多个序列。</p>
+<p>词嵌入（ word embedding） ：不能直接将文字符号输入网络，所以需要将词语转换为数值形式</p>
+<p>之前写过一篇关于 word2vec 的博客：</p>
+<p><a href="https://sophia0130.github.io/2018/08/01/NLP%E2%80%94%E2%80%94word2vec/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/08/01/NLP%E2%80%94%E2%80%94word2vec/</a></p>
 <p><br></p>
-        
-          <a class="article-more-a" href="/2018/05/04/GitHub-Hexo-搭建自己的博客/#more">more >></a>
-        
+<h2 id="二、RNN（recurrent-neural-networks）"><a href="#二、RNN（recurrent-neural-networks）" class="headerlink" title="二、RNN（recurrent neural networks）"></a>二、RNN（recurrent neural networks）</h2><p><img src="http://7xo0y8.com1.z0.glb.clouddn.com/RNN.png" alt="RNN_3"></p>
+<p><br></p>
+<h3 id="1-什么是RNN？"><a href="#1-什么是RNN？" class="headerlink" title="1.什么是RNN？"></a>1.什么是RNN？</h3><p>将循环神经网络进行展开成神经网络，隐含层h的边实际上是和上一时刻的h相连，这是一个<strong>时间序列</strong></p>
+<p>输入单元(Input units)：{x0,x1,…,xt,xt+1,…}</p>
+<p>输出单元(Output units)：{y0,y1,…,yt,yt+1.,..}</p>
+<p>隐藏单元(Hidden units)：{h0,h1,…,ht,ht+1,…}</p>
+<p><br></p>
+<p>1）<strong>循环函数</strong>（recurrence formula ）：ht = Fθ (ht−1,xt)</p>
+<p>2）ht：隐藏层的第t步的状态，它是网络的记忆单元，取决于当前输入层的输入与上一步隐藏层的状态</p>
+<p>3）yt：第t步的输出，yt = softmax(Vst)</p>
+<p>不同于 ht包含了前面所有步的隐藏层状态，输出层的输出yt只与当前步的ht有关</p>
+<p><br></p>
+<h3 id="2-RNN-的参数共享"><a href="#2-RNN-的参数共享" class="headerlink" title="2.RNN 的参数共享"></a>2.RNN 的参数共享</h3><p>RNN看上去和HMM很像。两者最大的区别在于，<strong>RNN的参数是跨时刻共享</strong>。也就是说，任意时刻的网络参数都是相同的。</p>
+<p>共享参数使得模型的复杂度减少，这和CNN是相通的，CNN在二维数据的空间位置之间共享卷积核参数，而RNN则是在序列数据的时刻之间共享参数。</p>
+<p><br></p>
+<h3 id="3-输入输出的模式"><a href="#3-输入输出的模式" class="headerlink" title="3.输入输出的模式"></a>3.输入输出的模式</h3><p>one-to-many</p>
+<p>many-to-one</p>
+<p>sequence to sequence：many-to-one + one-to-many</p>
+<p><br></p>
+<h2 id="三、梯度消失和梯度爆炸"><a href="#三、梯度消失和梯度爆炸" class="headerlink" title="三、梯度消失和梯度爆炸"></a>三、梯度消失和梯度爆炸</h2><h2 id="Gradient-Vanishing-Exploding"><a href="#Gradient-Vanishing-Exploding" class="headerlink" title="(Gradient Vanishing/Exploding )"></a>(Gradient Vanishing/Exploding )</h2><p>对于深层网络（其层数过深）或循环神经网络（其递归结构），反向传播的连乘使得误差梯度<strong>累积</strong>，然后导致网络权重的大幅更新，并因此使网络变得不稳定。</p>
+<p><br></p>
+<h3 id="1-梯度消失"><a href="#1-梯度消失" class="headerlink" title="1. 梯度消失"></a>1. 梯度消失</h3><p>通常神经网络所用的激活函数是sigmoid函数，这个函数有个特点，就是能将负无穷到正无穷的数映射到0和1之间，并且对这个函数求导的结果是f′(x)=f(x)(1−f(x))，因此两个0到1之间的数相乘，得到的结果就会变得很小了。神经网络的反向传播是逐层对函数偏导相乘，因此当神经网络层数非常深的时候，最后产生的偏差就因为乘了很多的小于1的数而越来越小，最终就会变为0，从而导致层数比较浅的权重没有更新。</p>
+<p><br></p>
+<h3 id="2-梯度爆炸"><a href="#2-梯度爆炸" class="headerlink" title="2. 梯度爆炸"></a>2. 梯度爆炸</h3><p>由于初始化权值过大，反向传播时会导致误差梯度在更新中累积，变成非常大的梯度，对于比较浅的层数，其网络权重的大幅更新，使网络变得不稳定。</p>
+<p><br></p>
+<h3 id="3-解决方法"><a href="#3-解决方法" class="headerlink" title="3.解决方法"></a>3.解决方法</h3><p>使用 ReLU 激活函数</p>
+<p>使用长短期记忆网络（LSTM）</p>
+<p>使用梯度截断（Gradient Clipping）</p>
+<p>使用权重正则化（Weight Regularization）</p>
+<p><br></p>
+<h2 id="四、LSTM-长短时记忆（Long-Short-Term-Memory）"><a href="#四、LSTM-长短时记忆（Long-Short-Term-Memory）" class="headerlink" title="四、LSTM 长短时记忆（Long-Short Term Memory）"></a>四、LSTM 长短时记忆（Long-Short Term Memory）</h2><h3 id="1-LSTM的作用"><a href="#1-LSTM的作用" class="headerlink" title="1. LSTM的作用"></a>1. LSTM的作用</h3><p>权重指数级爆炸或消失，使得普通 RNN 没有办法回忆起久远记忆，而结合不同的LSTM可以很好解决这个问题</p>
+<p><br></p>
+<h3 id="2-LSTM-多了三个控制器"><a href="#2-LSTM-多了三个控制器" class="headerlink" title="2. LSTM 多了三个控制器"></a>2. LSTM 多了三个控制器</h3><p>概念理解 ：<a href="https://blog.csdn.net/hust_tsb/article/details/79485268" target="_blank" rel="noopener">https://blog.csdn.net/hust_tsb/article/details/79485268</a></p>
+<p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181722_631.png" alt="img"></p>
+<ul>
+<li>输入门（input gate）：输入门打开，数据就写入记忆细胞（门的打开和关闭通过学习得到）</li>
+</ul>
+<ul>
+<li><p>遗忘门（forget gate)：是否将记忆中的值保留，刷新记忆</p>
+<p>LSTM 模型的关键之一就在于这个“遗忘门”， 它能够控制训练时候梯度在这里的收敛性（从而避免了 RNN 中的梯度 vanishing/exploding 问题），同时也能够保持长期的记忆性。</p>
+</li>
+</ul>
+<ul>
+<li>输出门（output gate）：是否将记忆中的值读出（通过学习）</li>
+</ul>
+<p><br></p>
+<h3 id="3-LSTM核心计算"><a href="#3-LSTM核心计算" class="headerlink" title="3. LSTM核心计算"></a>3. LSTM核心计算</h3><p>（1）输入时选择忘记过去某些信息</p>
+<p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_259.png" alt="img"></p>
+<p><br></p>
+<p>（2）记忆现在的信息</p>
+<p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_897.png" alt="img"></p>
+<p>包含两个部分：</p>
+<ul>
+<li>sigmoid 层：决定什么值我们将要更新</li>
+</ul>
+<ul>
+<li>tanh 层：<strong>创建一个新的候选向量</strong> Ct~，被加入到状态中。 语言模型的例子中，我们希望增加新的代词的类别到细胞状态中，来替代旧的需要忘记的代词。</li>
+</ul>
+<p><br></p>
+<p>（3）将输入和更新后的细胞状态合并</p>
+<p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_883.png" alt="这里写图片描述"></p>
+<p>更新旧细胞状态，Ct-1到Ct</p>
+<p>旧状态与ft相乘，丢弃掉我们确定需要丢弃的信息，接着加上新的候选值it∗Ct~</p>
+<p><br></p>
+<p>（4）output gate：输出结果</p>
+<p><img src="http://static.open-open.com/lib/uploadImg/20150829/20150829181723_463.png" alt="img"></p>
+<p><br></p>
+<h3 id="4-LSTM模型流程"><a href="#4-LSTM模型流程" class="headerlink" title="4.LSTM模型流程"></a>4.LSTM模型流程</h3><p><img src="http://p8ge6t5tt.bkt.clouddn.com/rnn.JPG" alt="img"></p>
+<p>（1）输入节点（gc）：接受上一个时刻隐藏节点的输出以及当前的输入作为输入，然后通过一个tanh激活函数</p>
+<p>（2）输入门（ic）：将输入节点（gc）的输出相乘与将输入门（ic）的输出（输入门为 sigmoid，其输出为0-1之间，以起控制信息量的作用）</p>
+<p>（3）忘记门（fc）：将上一个时刻的内部状态节点的输出（sc）与忘记门（fc）的输出相乘（忘记门为 sigmoid，其输出为0-1之间，起控制信息量的作用）</p>
+<p>（4）内部状态节点（sc）：被输入门过滤的当前输入和经过忘记门的上一个时刻内部状态节点输出之</p>
+<p>（5）输出门（oc）：将内部状态节点的输出（sc）与输出门（oc）相乘（输出门为 sigmoid，其输出为0-1之间，起控制信息量的作用）</p>
+
       
 
       
@@ -395,11 +295,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">装软件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
         		</li>
       		
 		</ul>
@@ -408,204 +308,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/GitHub-Hexo-搭建自己的博客/">展开 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-网络基础知识理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/网络基础知识理解/">网络基础知识理解</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/04/网络基础知识理解/" class="archive-article-date">
-  	<time datetime="2018-05-04T06:56:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-
-
-<a href="/2018/05/04/网络基础知识理解/" class="archive-article-date">
-  	<time datetime="2018-05-04T06:56:18.000Z" itemprop="datePublished">2018-05-04</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <font color="gray" size="2">PS：写这片博客的起因是，我只是想知道为什么用GitHub搭建自己的博客，自己不需要买域名，之前从来没有接触过网络方面的知识，看了很多大神的博客，复制粘贴成自己的理解。</font>
-
-<h2 id="外网IP和内网IP"><a href="#外网IP和内网IP" class="headerlink" title="外网IP和内网IP"></a>外网IP和内网IP</h2><p>IP可以不严谨的分为外网IP和内网IP(局域网)。 </p>
-<font color="gray" size="2">PS：这样分好像是不对的，我也不理解，网上的大神说入门级的小白可以先这样理解。</font>
-
-<p>1.外网IP：即因特网IP，其IP地址具有全球唯一性。但是全世界的IP地址数量是有限资源，日益增加的上网用户人数使得有限的IP地址资源紧张。为此，网络服务商采用了动态分配的办法，在用户上网的时侯分配一个IP，当不上网时，之前用的ip又很可能分配给别的上网用户。这样大大提高了IP的利用效率。<br>2.内网IP：相当于电脑在局域网里面的地址标识，一般是通过DHCP服务器进行动态分配的，机制其实与外网IP的分配相似，但在不引起IP地址冲突的情况下，可以设置成固定IP。</p>
-        
-          <a class="article-more-a" href="/2018/05/04/网络基础知识理解/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/网络基础知识理解/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-Hello-GitHub" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/03/Hello-GitHub/">Hello GitHub</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/03/Hello-GitHub/" class="archive-article-date">
-  	<time datetime="2018-05-03T10:35:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
-</a>
-
-
-<a href="/2018/05/03/Hello-GitHub/" class="archive-article-date">
-  	<time datetime="2018-05-03T10:35:23.000Z" itemprop="datePublished">2018-05-03</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      </div>
     </span>
-</a>
+  </div>
+</div>
 
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>绿小蕤的第一篇Blog，花了一个下午+晚上，但是都是值得的~</p>
-<p>开启小白之旅~</p>
-<p>需要博客搭建教程的盆友，具体可以看我另一片博文 </p>
-<p><a href="https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/05/04/GitHub-Hexo-%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a></p>
-
-      
-
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/02/cs231n笔记（六）——循环神经网络/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">纪念第一篇文章</a>
-        		</li>
-      		
-		</ul>
-	</div>
+</div>
 
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/03/Hello-GitHub/">展开 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/02/TensorFlow（四）——RNN实现MNIST的分类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TensorFlow（四）——RNN实现MNIST的分类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -620,20 +391,35 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、序列数据与词嵌入"><span class="toc-number">1.</span> <span class="toc-text">一、序列数据与词嵌入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、RNN（recurrent-neural-networks）"><span class="toc-number">2.</span> <span class="toc-text">二、RNN（recurrent neural networks）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是RNN？"><span class="toc-number">2.1.</span> <span class="toc-text">1.什么是RNN？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-RNN-的参数共享"><span class="toc-number">2.2.</span> <span class="toc-text">2.RNN 的参数共享</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-输入输出的模式"><span class="toc-number">2.3.</span> <span class="toc-text">3.输入输出的模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、梯度消失和梯度爆炸"><span class="toc-number">3.</span> <span class="toc-text">三、梯度消失和梯度爆炸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gradient-Vanishing-Exploding"><span class="toc-number">4.</span> <span class="toc-text">(Gradient Vanishing/Exploding )</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-梯度消失"><span class="toc-number">4.1.</span> <span class="toc-text">1. 梯度消失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-梯度爆炸"><span class="toc-number">4.2.</span> <span class="toc-text">2. 梯度爆炸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-解决方法"><span class="toc-number">4.3.</span> <span class="toc-text">3.解决方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、LSTM-长短时记忆（Long-Short-Term-Memory）"><span class="toc-number">5.</span> <span class="toc-text">四、LSTM 长短时记忆（Long-Short Term Memory）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-LSTM的作用"><span class="toc-number">5.1.</span> <span class="toc-text">1. LSTM的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-LSTM-多了三个控制器"><span class="toc-number">5.2.</span> <span class="toc-text">2. LSTM 多了三个控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-LSTM核心计算"><span class="toc-number">5.3.</span> <span class="toc-text">3. LSTM核心计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-LSTM模型流程"><span class="toc-number">5.4.</span> <span class="toc-text">4.LSTM模型流程</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
 
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
-    </nav>
   
+
+  
+
+  
+
+  
+
+
 
 
           </div>
@@ -666,8 +452,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
