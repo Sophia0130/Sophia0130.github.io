@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/7 | 绿小蕤</title>
+  <title>cs231n笔记（七）——深度学习框架 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
-<meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/archives/2018/07/page/2/index.html">
+  <meta name="description" content="PS ：我现在学的是 TensorFlow">
+<meta name="keywords" content="深度学习,cs231n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cs231n笔记（七）——深度学习框架">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/cs231n笔记（七）——深度学习框架/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="PS ：我现在学的是 TensorFlow">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-03T03:45:04.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="cs231n笔记（七）——深度学习框架">
+<meta name="twitter:description" content="PS ：我现在学的是 TensorFlow">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,124 +161,213 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-cs231n笔记（七）——深度学习框架" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      cs231n笔记（七）——深度学习框架
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/15/显卡/" class="archive-article-date">
-  	<time datetime="2018-07-15T03:28:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+
+        
+        <a href="/2018/08/03/cs231n笔记（七）——深度学习框架/" class="archive-article-date">
+  	<time datetime="2018-08-03T03:40:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
 </a>
 
 
-<a href="/2018/07/15/显卡/" class="archive-article-date">
-  	<time datetime="2018-07-15T03:28:11.000Z" itemprop="datePublished">2018-07-15</time>
+<a href="/2018/08/03/cs231n笔记（七）——深度学习框架/" class="archive-article-date">
+  	<time datetime="2018-08-03T03:40:58.000Z" itemprop="datePublished">2018-08-03</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
 </a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/15/显卡/">显卡</a>
-    </h1>
-  
+        
+      </header>
+    
 
-        <div class="article-info info-on-right">
-          
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS ：我现在学的是 TensorFlow</p>
+<a id="more"></a>
+<p><br></p>
+<h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><h3 id="一、CPU-vs-GPU"><a href="#一、CPU-vs-GPU" class="headerlink" title="一、CPU vs GPU"></a>一、CPU vs GPU</h3><h4 id="1-CPU"><a href="#1-CPU" class="headerlink" title="1.CPU"></a>1.CPU</h4><p> AMD vs Intel</p>
+<p>CPU擅长处理具有复杂计算步骤和复杂数据依赖的计算任务</p>
+<h4 id="2-GPU-（显卡）"><a href="#2-GPU-（显卡）" class="headerlink" title="2.GPU （显卡）"></a>2.GPU （显卡）</h4><p>NVIDIA（英伟达） vs AMD  深度学习用的大多是NVIDIA的GPU</p>
+<p>GPU的核数远超CPU，称为<strong>众核</strong>，但每个核拥有的缓存大小相对小，数字逻辑运算单元也少。GPU拥有超高的运算速度，擅长做并行算法（矩阵乘法）的处理。</p>
+<p><br></p>
+<h3 id="二、CUDA-和OpenCL"><a href="#二、CUDA-和OpenCL" class="headerlink" title="二、CUDA 和OpenCL"></a>二、CUDA 和OpenCL</h3><h4 id="1-CUDA"><a href="#1-CUDA" class="headerlink" title="1.CUDA"></a>1.CUDA</h4><p>CUDA是NVIDIA 发明的一种并行计算平台和编程模型</p>
+<p>CUDA 代码只能在NVIDIA的GPU上运行，NVIDIA 提供了很多库，不需要直接写CUDA的代码。</p>
+<h4 id="2-OpenCL"><a href="#2-OpenCL" class="headerlink" title="2.OpenCL"></a>2.OpenCL</h4><p>OpenCL是一个为异构平台编写程序的框架，此异构平台可由CPU，GPU或其他类型的处理器组成。提供了基于任务分割和数据分割的并行计算机制。</p>
+<p><br></p>
+<h2 id="三、从磁盘中读取数据降低训练速度"><a href="#三、从磁盘中读取数据降低训练速度" class="headerlink" title="三、从磁盘中读取数据降低训练速度"></a>三、从磁盘中读取数据降低训练速度</h2><p>解决方法：</p>
+<p>1.数据小：将数据存储在RAM</p>
+<p>2.数据大：使用SSD固态硬盘而非HHD混合硬盘存储</p>
+<p>3.使用多线程CPU提前取数据，GPU在处理数据的同时，CPU从磁盘中读取数据</p>
+<p><br></p>
+<h2 id="四、深度学习框架"><a href="#四、深度学习框架" class="headerlink" title="四、深度学习框架"></a>四、深度学习框架</h2><h3 id="1-为什么需要深度学习框架？"><a href="#1-为什么需要深度学习框架？" class="headerlink" title="1.为什么需要深度学习框架？"></a>1.为什么需要深度学习框架？</h3><p>（1）使用GPU可以高效执行深度学习神经网络的计算</p>
+<p>深度学习是包含许多节点的神经网络，并且每个节点都需要在学习过程中不断更新，计算量很大。使用GPU，可以高效执行深度学习神经网络的计算（GPU是专门为并行计算相同指令而设计的）。</p>
+<p>（2）深度学习框架是在GPU上高效运行深度学习</p>
+<p>这些深度学习框架都依赖于<strong>计算图</strong>的概念，计算图定义了需要执行的计算顺序。然后，计算图可以并行地在目标GPU中优化和运行。</p>
+<p><br></p>
+<h3 id="2-开源深度学习框架"><a href="#2-开源深度学习框架" class="headerlink" title="2. 开源深度学习框架"></a>2. 开源深度学习框架</h3><p>PyTorch（Facebook）</p>
+<p>Tensorflow（Google）</p>
+<p><br></p>
+<p>使用框架的优点</p>
+<p>1.很容易创建computation graph（计算图）</p>
+<p>2.很容易在计算图中计算梯度</p>
+<p>3.不需要考虑像CUDA这样的底层代码，就能在GPU上高效运行</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GPU</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">硬件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/程序是怎样跑起来的/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
+      
 
-
-<a href="/2018/07/14/程序是怎样跑起来的/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:45:16.000Z" itemprop="datePublished">2018-07-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/程序是怎样跑起来的/">程序是怎样跑起来的</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">硬件</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/03/cs231n笔记（七）——深度学习框架/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/08/05/cs231n笔记（八）——CNN经典网络/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          cs231n笔记（八）——CNN经典网络
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/08/02/cs231n笔记（六）——循环神经网络/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cs231n笔记（六）——循环神经网络</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件"><span class="toc-number">1.</span> <span class="toc-text">硬件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、CPU-vs-GPU"><span class="toc-number">1.1.</span> <span class="toc-text">一、CPU vs GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-CPU"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.CPU</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-GPU-（显卡）"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.GPU （显卡）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、CUDA-和OpenCL"><span class="toc-number">1.2.</span> <span class="toc-text">二、CUDA 和OpenCL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-CUDA"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.CUDA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-OpenCL"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.OpenCL</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、从磁盘中读取数据降低训练速度"><span class="toc-number">2.</span> <span class="toc-text">三、从磁盘中读取数据降低训练速度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、深度学习框架"><span class="toc-number">3.</span> <span class="toc-text">四、深度学习框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-为什么需要深度学习框架？"><span class="toc-number">3.1.</span> <span class="toc-text">1.为什么需要深度学习框架？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-开源深度学习框架"><span class="toc-number">3.2.</span> <span class="toc-text">2. 开源深度学习框架</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/07/">&laquo; Prev</a><a class="page-number" href="/archives/2018/07/">1</a><span class="page-number current">2</span>
-    </nav>
   
+
+  
+
+  
+
+
 
 
           </div>
@@ -311,8 +401,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

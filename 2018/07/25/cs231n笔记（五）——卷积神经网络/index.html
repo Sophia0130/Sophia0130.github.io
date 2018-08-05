@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：理解卷积和卷积神经网络">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-26T12:32:23.799Z">
+<meta property="og:updated_time" content="2018-08-03T06:01:08.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cs231n笔记（五）——卷积神经网络">
 <meta name="twitter:description" content="PS：理解卷积和卷积神经网络">
@@ -221,18 +221,18 @@
 <p><br></p>
 <p><br></p>
 <h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><p><br></p>
-<h3 id="一、卷积层的处理"><a href="#一、卷积层的处理" class="headerlink" title="一、卷积层的处理"></a>一、卷积层的处理</h3><h4 id="1-padding：对原始图片在边界上进行填充填充"><a href="#1-padding：对原始图片在边界上进行填充填充" class="headerlink" title="1.padding：对原始图片在边界上进行填充填充"></a>1.padding：对原始图片在边界上进行填充填充</h4><p>每个方向扩展像素点数量为 p，填充后原始图片的大小为 (n+2p) <em> (n+2p)，滤波器保持 f </em> f不变，则输出图片大小为 (n+2p-f+1) * (n+2p-f+1)</p>
+<h3 id="一、卷积层的处理"><a href="#一、卷积层的处理" class="headerlink" title="一、卷积层的处理"></a>一、卷积层的处理</h3><h4 id="1-padding：对原始图片在边界上进行填充填充"><a href="#1-padding：对原始图片在边界上进行填充填充" class="headerlink" title="1.padding：对原始图片在边界上进行填充填充"></a>1.padding：对原始图片在边界上进行填充填充</h4><p>每个方向扩展像素点数量为 p，填充后原始图片的大小为 (n+2p)*(n+2p)，滤波器保持 f * f不变，则输出图片大小为 (n+2p-f+1) * (n+2p-f+1)</p>
 <p><br></p>
 <ul>
 <li><strong>Valid 卷积</strong>：不填充，直接卷积，结果大小为 (n-f+1) * (n-f+1)</li>
 <li><strong>Same 卷积</strong>：进行填充，使得卷积后结果大小与输入一致 n+2p-f+1 = n ，得出 p =（f-1）/2</li>
 </ul>
 <p><br></p>
-<h4 id="2-stride：卷积走的步长"><a href="#2-stride：卷积走的步长" class="headerlink" title="2.stride：卷积走的步长"></a>2.stride：卷积走的步长</h4><p>设步长为 s，填充长度为 p，输入图片大小为 n <em> n，滤波器大小为 f </em> f，则卷积后图片的尺寸为：</p>
-<p>⌊（n+2p-f）/s+1⌋×⌊（n+2p-f）/s+1⌋⌊n+2p−fs+1⌋×⌊n+2p−fs+1⌋</p>
+<h4 id="2-stride：卷积走的步长"><a href="#2-stride：卷积走的步长" class="headerlink" title="2.stride：卷积走的步长"></a>2.stride：卷积走的步长</h4><p>设步长为 s，填充长度为 p，输入图片大小为 n * n，滤波器大小为 f * f，则卷积后图片的尺寸为：</p>
+<p>⌊（n+2p-f）/s+1⌋ × ⌊（n+2p-f）/s+1⌋</p>
 <p>⌊ ⌋ ：<strong>向下取整</strong>的符号</p>
 <p><br></p>
-<h3 id="二、卷积神经网络（CNN）中的三种层"><a href="#二、卷积神经网络（CNN）中的三种层" class="headerlink" title="二、卷积神经网络（CNN）中的三种层"></a>二、卷积神经网络（CNN）中的三种层</h3><h4 id="1-卷积层（Convolution-layer）"><a href="#1-卷积层（Convolution-layer）" class="headerlink" title="1.卷积层（Convolution layer）"></a>1.卷积层（Convolution layer）</h4><p>卷积核在上一级输入层上通过逐一滑动窗口计算而得，卷积核中的每一个参数都相当于传统神经网络中的权值参数，与对应的局部像素相连接，将卷积核的各个参数与对应的局部像素值相乘之和，通常还要再<strong>加上一个偏置参数</strong>。</p>
+<h3 id="二、卷积神经网络（CNN）中的三种层"><a href="#二、卷积神经网络（CNN）中的三种层" class="headerlink" title="二、卷积神经网络（CNN）中的三种层"></a>二、卷积神经网络（CNN）中的三种层</h3><h4 id="1-卷积层（Convolution-layer）"><a href="#1-卷积层（Convolution-layer）" class="headerlink" title="1.卷积层（Convolution layer）"></a>1.卷积层（Convolution layer）</h4><p>卷积核在上一级输入层上通过逐一滑动窗口计算而得，卷积核中的每一个参数都相当于传统神经网络中的权值参数，与对应的局部像素相连接，将卷积核的各个参数与对应的局部像素值相乘之和，通常还要再<strong>加上一个偏置参数</strong></p>
 <p><br></p>
 <h4 id="2-池化-采样层（Pooling-layer）"><a href="#2-池化-采样层（Pooling-layer）" class="headerlink" title="2.池化/采样层（Pooling layer）"></a>2.池化/采样层（Pooling layer）</h4><p>往往在卷积层后面，<strong>通过池化来降低卷积层输出的特征向量，不易出现过拟合</strong><br><br><br><strong>Max Pooling</strong>: 选择Pooling窗口中的最大值作为采样值<br><strong>Mean Pooling</strong>: 将Pooling窗口中的所有值相加取平均，以平均值作为采样值</p>
 <p><br></p>
@@ -499,6 +499,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -535,10 +539,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
@@ -559,19 +559,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPU</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,19 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/7 | 绿小蕤</title>
+  <title>cs231n笔记（八）——CNN经典网络 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
-<meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/archives/2018/07/page/2/index.html">
+  <meta name="description" content="目录 LeNet又称LeNet-5：没有参与ILSVRC比赛，但它是卷积网络的鼻祖 它是一个7层的网络，它的深度为5，包含2个卷积层、2个池化层、2个全连接层和1个Guassian connection，是用于手写字体的识别的一个经典CNN    AlexNe ：2012年ILSVRC的冠军   ZFNet ：2013年ILSVRC的冠军，ZFNet的网络结构，是在AlexNet上进行了微调">
+<meta name="keywords" content="深度学习,cs231n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cs231n笔记（八）——CNN经典网络">
+<meta property="og:url" content="http://yoursite.com/2018/08/05/cs231n笔记（八）——CNN经典网络/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="目录 LeNet又称LeNet-5：没有参与ILSVRC比赛，但它是卷积网络的鼻祖 它是一个7层的网络，它的深度为5，包含2个卷积层、2个池化层、2个全连接层和1个Guassian connection，是用于手写字体的识别的一个经典CNN    AlexNe ：2012年ILSVRC的冠军   ZFNet ：2013年ILSVRC的冠军，ZFNet的网络结构，是在AlexNet上进行了微调">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-af836017b97c0ca7231f527c10892f49_hd.jpg">
+<meta property="og:image" content="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxQSEBUQEhMWFhUXFhcYFhgYFyAYGhcZGhgXGBcXGBcYISggHxolHxYVITEhJSkrLi4uFyAzODMtNygtLisBCgoKDg0OFxAPGisdHR0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0rNy0tLS0tLS0tLTctLS0tLf/AABEIARYAtQMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAAABQMEBgIBBwj/xABDEAABAgQBCAYHBgQGAwAAAAABAgMABBESIQUTFTFRU5LRFCJBUlTSBjJhcZGTowcWgaGisiMkNGI1QnJzscEzdIL/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EABsRAQEBAQEAAwAAAAAAAAAAAAABERICEyGB/9oADAMBAAIRAxEAPwD6vP5UeTMFhptCqNpWSpRTrKhQUB2Rx0+b3LPzD5Y5c/xBz/Yb/euL0WQU+nze5Z+YfLB0+b3LPzD5YtOAkEA0NMDStDtpCllbhlXDnDcku9egqQgqp7BqEMVc6fN7ln5h8sHT5vcs/MPlipMZUU0lmqbi4kBJrT+IaYHYMSa+yJ2lLE0UqXVJauCaUCetT3n3xcRJ0+b3LPzD5YOnze5Z+YfLEeSlLueStZWUuAA0prQk0AHZUxGvKiglx2wZtBUkdbrFSTbqpQAmILHT5vcs/MPlg6fN7ln5h8sVHMqOJUWy2nOXNgUV1SHLqGtK4FJjzTRSKuIAoHQaGvXbPqjDtGqKLnT5vcs/MPlg6fN7ln5h8sWEKUUAkUUU1psNNVffGc0i62FVLhXmCpQcTQJcCkp6v9vWPwETA76fN7ln5h8sHT5vcs/MPliPJThqttWcvTaSHCCcRgQU4UNDhBlFyrjbdaCpcWR3EY/mqnwMXBJ0+b3LPzD5YOnze5Z+YfLFHI+US6+uqwUqQlSEVHVFyhj/AHUAJ2Vi/PzSkFtKEhSlqKRU0A6pVX8omDzp83uWfmHywdPm9yz8w+WKTeWFrBsbTclClLBVQC1Sk0SaY1tOMdHLBILiUAtpKAolVFdcJOAp2XD3xcFvp83uWfmHywdPm9yz8w+WF5eUpstXG5x9xANcQhKyVUPsSCPxiwyVCZtS4paQlRcBpakkixIoNdK4bIYqx0+b3LPzD5YOnze5Z+YfLFyAwxEmRp0vsIeItKhiAa0oSNf4QRV9E/6Nr3H9yoIyKGUJxDU8tThtBYbANDiQtddUd6dl94PgeUaIpjywbBF0Z1zLcuQQXMCKYBQ/MCKaJmTCC2Fm1RqRcvHXXH21Ndsa6wbBBYNghoyXSZKlpVUBJSK3mgJrgTqxA+EdJnpQOZ3OG/bVerZTVT2Rq7BsEFg2CGjKys9KNqKkuGqtdStVfbj24DGODNSZKiVDrVuHWtNdZt1VO2NbYNggsGwQ0ZNqck06l43JVU3E1T6uJxwqcI9cnZNQopQIvzmpXr1rXV+UauwbBBYNghozDGVZdKlqL1Ss1OBwAAAAw9n5xC1PSVFgLCrhaqpUs07pJqQPZB9oPparJaG5gy+eYUqxZSaKQoiqTqpaaEY0xptj5R6IfaimXem81KLdcm5m9lFwFCoWpSTQ412Q0fVUzUqkpKXSKKuPrEqIFE1UcaDZE7eVJcOKdLtSoJSOqeqBXAYdpJMaSWSqxOcCb6C63VdTGleyJLBsENGUmp6VWFUcCSoBJISa2g1oMMNZx9scz89LOlurtAhV2AUCeqQKEYjXrjW2DYILBsENGQW/JEBN1AAU4XioJqQqmsE44x2ubkyq8qFcMAFBJt9UlIwNPd2RrLBsEFg2CGjKNT8qlzOB3UFUFDrWq5StWs4CPJeck0KK0rIJJJxXQk6zbqjWWDYILBsENGe07L7wfA8oDl2X3g+B5RobBsEFg2CGhV6Jj+Ta9x/cqPYbQRBG48lOClAe8gRz0pHfTxCM/Oybbk+sOISqjDdKitOuuJ9Cy+5b4RGb6wOelI76eIQdKR308QjN5RkWGwm2WbWpagkCgTiQTrPujtjJzFE5yXabUokBPVNabCIdJrQ9KR308Qg6Ujvp4hGWmpdgKShqWbcKr9VoAsIBFT21MXWcjslIKpdtJpiKA09lRDo086Ujvp4hB0pHfTxCM81Jyaq2oZNvrUoae+BqUk1JKkoZIT6xFKD3xOhoelI76eIQdKR308QjPJlZI3EJZNvrasPfE2ipa4JzTVSKgWitNtNkOjVn0ikWJyVdlXFptcQU1uGB/wAqh7QaH8I+LfYt6FlGUXZiatT0VSkJBOCnThcknWkJqa/3CPr0zkllKSUyyFnsSABX8ThSF4DAQ8VyqErZpcnA1qKiiovStb0pHfTxCDpSO+niEZgSbKULcelG20pFcLVV91O3V8YkksmtrxXKNoFKj1VH3EDUYdDR9KR308Qg6Ujvp4hCR3JUskXKaaA2lIAiNmRlFglKGVW+tQA098TtNP8ApSO+niEHSkd9PEIz8vJSblbEMqproAae+OBKyakrLaGVlKSSAAdQ9kXoaPpSO+niEHSkd9PEIyb8uz0ZDqZdq9ywJTbUXLp+QFT+EezTDTaxdJoDZWEX9XWcAbddtYdDV9KR308Qg6Ujvp4hCbQsvuW+EQaGl9y3wiJ2afJUCKjEeyCFPokP5Jn3H9yoI2qu5/iDn+w3+9cX4gn8kLW+X23s2SgIIsC6gEkHEjbEeiZjxY+SPNGL5tqOMqpSUgLaU4K1okVtNMDStYTmQdUzmwhSbnrmio1LCBQ3E1qDroPbDvRMx4sfJHmg0TMeLHyR5oc0KUMpzLaHZVwlKVJ6orQ1xIINet61fbF2Tlneh5tROcKFgVNSK1tBO0AgVizomY8WPkjzQaJmPFj5I80OaE7jKnJbNJl1JUlCAagC61SSpsHtrQ+yCdYU7nVoZUgdHU3Qi0rUTUAJGzb7YcaJmPFj5I80GiZjxY+SPNDKKLmTQpxKbKIMsptVBQA1TQH264r5PWtpDkw+k3IQlpI7VBPaP9RI+ENtEzHix8keaOV5GfOuaBxBxYTrGo+tDKJJ+YUhorQ2Vrpgka6nb7oWSLdGXA406tSus5cmhWThRIrqA7Ngi6ZB4KsM6m4itM0mtNVaXaoQei+UpibcnEKfS2JZ8tVzYN4ArcakU92MTmidzJ61ofDTa0NqQi1CjS5aVXEpBOFQAIll1ZlS30tLbaS0ApKsCtyuFoJ19le2sNWsmvqAUmcSQRUEMpII2ghUC8jPnAzQOIOLCdY1HXFyiv6SGsos012Yf/ScIXzUot3OqbZU2MylFpATeQoKKRTsoCK+2G72RH1ptVMgg6wWB2Yj/NHeiZjxY+SPNDmhPNyy3lKU20pr+XWjrC25RIISAOwUOPtjvMqcWhSGVNhDLiVVATUqTQIFNeOMNdEzHix8keaDRMx4sfJHmhlCzJrZU4ygimYZSVDY4oWgH2hNfjHsy4tcwL2Xc22rqBKahau+o11DsEME5GfBJE0ATr/gJx9+MdaJmPFj5I80OaLcBipomY8WPkjzQaJmPFj5I80TmmJPRL+ia9x/cqCLeSpLMMoZuutFK0pXEnV+MEdFXIIR5Syq6mYLDSEKo2lZK1EayoUFAdkR6Sm90xxq8sTVnm1oIIz+kpvdMcavLBpKb3THGryw2LzWggjP6Sm90xxq8sGkZvdMcavLDYc1oIIz2kpvdMfMV5Y90lN7pj5ivLDTmtBBGf0lN7pj5ivLBpKb3THGryw05pH9sXo0qbkC8zUTEtV1spNFFNP4iARjiMfekR8F+z3I7uUZ9EoXHM2slyY65xQmlxVjiTUJr/dH6VOUZvdMcavLGY9EPRleTnZh1hpmr67sVnqJ1htNE+rUk/DZDYc19FabCUhKQAkAAAagBgAI7jP6Sm90xxq8sGkpvdMcavLDYc1oIIz2kpvdMfMV5YNJTe6Y+Yryw05rQwRn9JTe6Y41eWDSU3umONXlhsOa0EEZ/SU3umONXlg0lN7pjjV5YbDmtBBGf0lN7pjjV5Y80lN7pjjV5YbDmtDBFLI06X2EPEBJUKkDGlCR/wBQRWSma/r1/wCw3+9cWYoZVmkNTylLNoLCADQmpC17BHmmmN5+R5Riu3izDCCF+mmN5+R5QaaY3n5HlExrYYRFNtBSFJIKqjUDSvsrFTTTG8/I8ojmMqS60lJcIB7RcDhjgQIuGxRk1qb6RYgNqSErDajVNoGJBBp1qH4Rcl3zMsqWUXIKuogGhIGu41prrh7IrhyVooFxSrqXFRUSoJxCSaer7I6VMSvWo4pNygo23JooClRQYV7YMpfR3DOoIKCHP/HrsBGAB7QdeESSs06sqcqgNpUsW0NxCKgm6uuo1UiKTnpZutrhJUaqUq4lR9pIiNMxKhZWHFCqrimqrLjrNtKQNSMT7tGXV2WOqCbQDVNwJSbq46scI4lsoPENuKssW6W6AGutQCq1/t1RxLuyiFJIcUQkkoSbilBPalNMI7anZS1KEuVCF3jWaKqTjh7ThA/UktlNai23ROczi0uYYBKMSQK9oKfjDdQrhCVM5LJcW8lYzihTEKp/x7B8I9ksoMoaDanbjQ3GisSddMPbBZVdlsNzIFhZSW1gGt2cIxuNDrAxxxxitkxYbW0taS2LFnOYnP4VqR2Gguxi609Kg3F1SzaUi8qVQHAgVHbBLvSqCk5xSra2BRUoJrhgCNmEGUGS5oKmw4VgqcbV1a4J6ybEe+gJ+MaSFOkJbOB28XBJSMDqJB1U9gifTTG8/I8oVqWL8EL9NMbz8jyg00xvPyPKJi7DCAwv00xvPyPKDTTG8/I8oYbDP0S/omvcf3Kgg9Ex/JNe4/uMEdHnNikbI8sGwRy4+lOClAe8gRz0tHfTxCAksGwQWDYIj6Wjvp4hB0tHfTxCAksGwQWDYIj6Wjvp4hB0tHfTxCAksGwQWDYIj6Wjvp4hB0tHfTxCAksGwQWDYIj6Wjvp4hB0tHfTxCAyv2helqslobmDLZ5hSrHCk2qQoiqTqIKTQjGmNNsfKfRH7UUy703mpRbzk3M3tIuCaXAJSkmhxrsj7d6RSTE5Kuyri0WuIKa3DA/5VD2g0P4R8W+xb0MKMouzE1aOiqKEgnBTpwuSTrSE1Nf7hsgPvUsg2JzgTfQXW6rqY0r2ViWwbBEfS0d9PEIOlo76eIQElg2CCwbBEfS0d9PEIOlo76eIQElg2CCwbBEfS0d9PEIOlo76eIQElg2CCwbBEfS0d9PEIOlo76eIQElg2CCwbBEfS0d9PEIOlo76eIQEtIIEqBFQaj2QQGXynKocn1BaEqow3SorTrrjrRDG5RwiJJr+vX/sN/vXFmMV28T6UtEMblvhEGiGNy3wiLsERrIpaIY3LfCIjfyWylJIl0qPYAkVPxhjEM2qiCaKO0J9ah2QMKpViXUVpXLobUgpBBAI63q0I2xO/k9gA2y6FqBAtAFRXbXUIXolza+EtuKbWEhIWDcXDhWpxtGBqdkWJFsttLbdQ4VX9ZaK1WDqWCMcKAUGqKzEshKMOBVZdCVIUUqBANDr1jXriXR8rdZm2ru7QV+EcZAZKc5goNldW7/WNR1ie3XtxiGSbtK21NKLhcWoLtqMa2rv9goKQVZRISpUUBDRUNYAFfhAmSlSbQhonsGFfhC+TYJEu2GlJW2sFxRTQUAN3W/zXVEdysiUtMnN0WJgqUaY0uXifZSkEXhk6WoDm2qHAGgofdHZyQxuUcIihKSag/mymjTSluIPYbh1R/8AJK/yhrKzQcbDqQaGpA7TSur30gsKmmWb825KpQSkrTUJNQnXWmo4xzKJYWpAMqlIcBLaiEmoGOIGrCBltWfzjKHPUWF52tK0qhKbvbswivk+UUlSC0laVlKw4Vp6iSRWqNnW7E9kEXGWpZT6mAwnqpJutFKggED3XCL2iGNyjhEL5GSdbfbBsKUtKBUAcaqSTUk+uTj8YewqxS0QxuW+EQaIY3LfCIuwRFyKWiGNy3wiPNEMblHCIvQQMjr0R/omfcf3Kj2D0S/omvcf3Kgjo87nKORluPZ5t7NkoCCLArUSQcT7Yi0K/wCK+kOcPoILtIdCv+K+kOcGhX/FfSHOH0ETDqkOhX/FfSHODQr/AIr6Q5w+ghh1SHQr/ivpDnBoV/xX0hzh9BDIdUh0K/4r6Q5waFf8V9Ic4fQQyHVZ1WS3QqwzibiKgZtNabaXaoQejE6/NuTiFPJbEs+Wa2A3UFbjUinuiX7YfRtU3IF5kqTMS9XGynBRTTroBGOIofekR8F+z3JD2UZ9EoXHM2slyY65xQmlxVjiTUJqe9DDqv0qnI7q01E2FJUNYaBBB/HVHSchvAACZAAwADIw/OHjTYSkJSAEgAADUAMABHcMOqQ6Ff8AFfSHODQr/ivpDnD6CGQ6pDoV/wAV9Ic4NCv+K+kOcPoIYdUh0K/4r6Q5waFf8V9Ic4fQQw6pDoV/xX0hzg0K/wCK+kOcPoIYdVTyTJZhlDN11opWlK4k6vxgi5BFQkyjlV1MwWGkING0rJWojWVCgoDsiLSU3u2ONXljia/r1/7Df71xZjNrp58yxDpGb3THGrywaSm90xxq8sR5RZCkYoUuhrak0r78RhCeSnlMy99Oqh1QcQa3ISTgkE6yKiG1eZDzSM3umONXlg0lN7pjjV5YWTKS6wlxbRcUQohKFUCQcUk44mlInybM2yiXCSu1skntJTWox7cKQ2nMXNJTe6Y41eWDSU3u2ONXlheqdeQznVhs1CbQmoopRAAJOsY645mMoOtXpWEFQaLiSkEDA0IIJ90Npz5MtIze6Y41eWDSU3umONXlhaqefTUFKCotFxAFeylUnHHXrizJz+dcoilmbSontuVikfAGG058rOkZvdMcavLGX9EPRheTnZh1hpmr664rV1E6w2nq+rUk/DZGpmWgtJSqtvbQ0wHtHZCSVlitmYDNbFmjIJPYKKIJ1AmsNL4h1pGb3THGrywaRm90xxq8sJHXwy28lLam3AhJ9a6oUq0KBrrxMW8lBKHC3mlIWUBVSu+4VpUmvrVhtOYYaSm92xxq8sGkpvdscavLEWVZktNKcSASKUB1YkD/ALik9lNxorS4EEhAWm2oGKrbTX2kYw2l8+TLSU3umONXlg0lN7tjjV5YXPZScZJDoQr+EpabKjFNKpNffrjx2adHUdsIcbWRbUWkJrQ1OIp2w2nPkwXlWaAuKGANdc4qlPfbHWkpvdMcavLChPXZlpfvpQpX+hACj8TaI6ylLpzzYbuzylhRNx6qB61RqCewCGnMNdJTe7Y41eWDSU3u2ONXliaAxNq8RdyNOl9hDxFpUKkDGmJH/UEVfRL+ia9x/cqCNuJblWaS1PKUskAsIANCakLXXUI800x3zwq5RqSILRsiY1PdjITWUmFgfxVpINQUhQP/ABjFdt2VASL1Giys1Cjco9qsMaRt7RsgtGyGL2w4dlwkJS86kCtLbtRNaerqHZFhiflkN5oK6lCKFKsQddcO2sbC0bILRshh2wyFyoQUF1xSSm0BVxtANRbhrFBj7I9DstRYU6tRWmwqUFEhOwdXCNxaNkFo2Qw7ZDSMveld5qlBQOqqlDT2ewRTzrCGltsuFN6qkkKqASK0oOwao3do2QWjZDDtjpyfl3Gy0pxVDQGgUDh7aRCxPS9qkJmHDqGs1RTZROEWPtD9LV5Lbbmejh5hSrHKKtU2o4pVqIKTQjGmNMcY+T+iP2ohh6bDMmt52bmb2kXhNLqJCSaHH3Qw7fUEvStFhTi1lYtUVBRNOwDq4DtiJx1kIVY8srUkIvUFEpTXG2iff+MbeWSqxOcCb6C63VdTGleysS2jZDDticq5QacYU0lZJNoxSoaiK4010EcoclaLCnFrvSEkqCibRqANMI3Fo2QWjZDDtiG3ZUXXOLWVJsqsKNE7B1YGXpZJqXXFG0oFwUbUnWB1fzjb2jZBaNkMO2IkptlDhVnMAhLbYtVUJTia4ayf+I8zsvnFOB50FRqql1DsHq6vZG4tGyC0bIYdstppjvnhVyg00z3zwq5RqbRsgtGyHJ8lKfRMUk2q4YHX/qMew1pHsVhE5MISaKUkH2kD/mOOmt7xHEOcKHJNt3KDgcQldGG6XCtOu5ti/oSX3DfAICx01veI4hzg6a3vEcQ5xX0JL7hvgEGhJfcN8AgLHTW94jiHODpre8RxDnFfQkvuG+AQaEl9w3wCAsdNb3iOIc4Omt7xHEOcV9CS+4b4BBoSX3DfAICx01veI4hzg6a3vEcQ5xn5LorjrozUsG26gnC40AqqlKW1NK+yGUrk6UcTc22yoaqpSDAcekMrLzkq7KuOItcQU+sMD2KGOsGh/CPjH2Mehpbyi9MTRSkSqlNoBIop04XpJ1pCamv9w2R9nyhISrLZcUw2aagECqicEpHtJiggy6mWVplEFbxIQigwIrWqqYAUgNB01veI4hzg6a3vEcQ5xnUrlzRAk0Z7OFvN0TQEJvJup6tuNaR0DLWVMojO5zNZu1NSvXgrVbTGuyA0HTW94jiHODpre8RxDnFCTyQ0pNXJVpBrqACsNtaRPoSX3DfAICx01veI4hzg6a3vEcQ5xX0JL7hvgEGhJfcN8AgLHTW94jiHODpre8RxDnFfQkvuG+AQaEl9w3wCAsdNb3iOIc4Omt7xHEOcV9CS+4b4BHhyJL7hvgEBfQsEVBqNoghV6JD+Sa9x/cqCA8Z/xBz/ANdv97kOIVTmSlqfL7bxbJQEEWBVQCSNfvjnR8z4v6SecA3ghRo+Z8X9JPODR8z4v6SecA3ghRo+Z8X9JPODR8z4v6SecA3ghRo+Z8X9JPODR8z4v6SecBQm8nrLb9G6/wAyly3D+IhNhIG3UfhDFvKSUlIzK0F1y0AgJJompWQOwUpHOjpnxf0k845OS5ioPSsRWhzKaiuuhr7BATZUkXHHG1oWkBsk2qSVAqIoFYEYgV+MJpCUeaalXFIKi0pYUhI6wSsEVoTiQccOwwxVLPBQQZ0BRFQnNpqRtArGf9F8sTM25OIXMBsSz5arYk3ACtxrSkAz6JW99xp4Fb17eb/8iAEBAJocK0OHtivohYQlxba1AzCnFoKqrsKLBU1xVqJH4Q2ak31AKTOVBFQQ0kgjaDWO9HTPi/pJ5wHno7LqQHTapDanKtIVrSmgBw7KmppDiFGjpnxf0k84NHzPi/pJ5wDeCFGj5nxf0k84NHzPi/pJ5wDeCFGj5nxf0k84NHzPi/pJ5wDePFaoU6PmfF/STzg0dM+L+knnAHon/Rte5X7lQRcyVJZhlDIVdaKVpSuJOr8Y8gLkEJ5yff6QWGUNm1tKyVkj1lKFBQf2wZyd7kvxq5QDiCE+cne5L8auUGcne5L8auUA4ghPnJ3uS/GrlBnJ3uS/GrlAOIIT5yd7kvxq5QZyd7kvxq5QDiCEgmZu6yktdrpnFVptpSO85O9yX41coDOfbD6NKnJAuM1D8vV1sp9YgDroBGOIx96RHwT7PMiu5Rn0SpW5mlEuTHWOKE0uKsdZqE1/uj9PFc73JfjV5YzPol6GuZOcmHWG2KvruNVKohOsNpw9WpJgN402EpCUgAAAADAADAADZHUJ87O9yX41coM5O9yX41coBxBCcOTvcl+NXKDOTvcl+NXKAcQQnzk73JfjVygzk73JfjVygHEEJ85O9yX41coM5O9yX41coBxBCfOTvcl+NXKDOTvcl+NXKAcQRSyLOl5hDpABUDUDUKEjD4QQFRj/ABBz/wBdv97kOIz0zPtsT61OkpCmGwDaTUha66gYtfeWW3v6F+WAbwQo+8stvf0L8sH3llt7+hflgG8EKPvLLb39C/LB95Zbe/oX5YBvBCj7yy29/QvywfeWW3v6F+WAUMOuNKmHf4alqfDSSUUopVgBJrW0A6vZGlkUugEOqSo1wKQU4e0EnHXCJ2fkVJcQXDRxd6uquoVhQpNuFLREPT5cKbtmVlKV5xZUFlSiE0Sn1aW7R7IBl6RzyU2S5WEZ0m5RNLWx69DtOAHvhPktSXWZNgmqCpy8V1lAUpKVfEGkOVekUqdblfehXlhaJ6QLSWUvEBtVUqSFXJVj2hOvE64CHoxvW0EKcYames2nHqqaBAAJxSFGtPbEKXVFOYQhViptSQ2VWm0N32FXYmvZswi+idk0osS+4nrFRUL7lKOBKjbj2fCBU3I5pLQcUAlV4UAu8L7VXW6zU/GAZZAcTRxtLQaUhdFpBqKkAgg7CCIbRnpDK8myCEuklRKlKUlZUontJti195Zbe/oX5YBvBCj7yy29/QvywfeWW3v6F+WAbwQo+8stvf0L8sH3llt7+hflgG8eK1Qp+8stvf0L8seH0llt7+hflgPfRP8Ao2vcr9yoI99FB/Jte4/uVBANaQUiN2YQk0UtIPtIH/McdNb3iOIc4CekFIg6a3vEcQ5wdNb3iOIc4CekFIg6a3vEcQ5wdNb3iOIc4CekFIg6a3vEcQ5wdNb3iOIc4CekFIg6a3vEcQ5wdNb3iOIc4DL/AGh+lzmS225no4eYUqxyirVNqIqk6iCk0IxpjTHGPlHoh9qIYemw1KLecm5m9pF4TQqokJJocax9u9IZWXnJV2VccRa4gprcMD2KGOsGh/CPjH2Mehpbyi9MTVqRKqU2gEiinTheknWkJqa/3DZAfepUKsTnLb6C63VdTGleysS0iDpre8RxDnB01veI4hzgJ6QUiDpre8RxDnB01veI4hzgJ6QUiDpre8RxDnB01veI4hzgJ6QUiDpre8RxDnB01veI4hzgJ6QUiDpre8RxDnB01veI4hzgLEEeIUCKggjaMY8gETkm27lBwOISujDdLgDTruaqxf0HLbhrgHKK7P8AiDn/AK7f73IcQC/QctuGuAcoNBy24a4ByhhBAL9By24a4Byg0HLbhrgHKGEEAv0HLbhrgHKDQctuGuAcoYQQGZkm5Zx11IYlw23UFXVuNACVW0pbjSteyGMvkuUWLkNMqG1KUkfEQrm8nqzcxRqv8yldoFCtsWFQG0YHD2QzYyi2kptZUjOuBAFgSSbalZTrtAFKwEGVpSWYbLhlUr14JbHYKkk6gMNZjibYlkobIlULU7QIQEp7Rcak4AAdsXfSFwiXcSEqUVpUkBKbsSk0rTUIXrWqkq+G3CGqpWm3rAFFtwTrIrAQhUsU06GnO5wtZq1Nbgm4m7VbbjWALlradDTnc5ms1amtwF1btVtuNY4Qy4HhOFpdpfUbadcILQbCrdesatdIEsuB4TmbXaX1G2nXCC0Gwu3XrFabIC/kyTlngqsq2hSFFK0lCTQ68CNYIINYu6Dltw1wDlEOQ21Fb7yklIdcBSFYG1KQkEjsrQ4Q2gF+g5bcNcA5QaDltw1wDlDCCAX6Dltw1wDlBoOW3DXAOUMIIBfoOW3DXAOUeKyHLU/8DXAOUMY8VqgFPomP5Jr3H9yoIPRP+ja9yv3KggPZzJa1Pl9t4tkoCCLAqoSSRr/1R5o+Z8X9JMEEAaPmfF/STBo+Z8X9JMEEAaPmfF/STBo+Z8X9JMEEAaPmfF/STBo+Z8X9JMEEAaPmfF/STHByXMEhRmsRWhzKaiuunwEEEB3o+Z8X9JMGj5nxf0kwQQBo+Z8X9JMGj5nxf0kwQQBo+Z8X9JMGj5nxf0kwQQBo+Z8X9JMGj5nxf0kwQQBo+Z8X9JMGj5nxf0kwQQBo+Z8X9JMeHJ8z4v6SY9ggLmSpLMMoZCrrRSpwriTq/GPIIID/2Q==">
+<meta property="og:image" content="http://www.2cto.com/uploadfile/Collfiles/20160802/201608020923331170.jpg">
+<meta property="og:image" content="http://www.2cto.com/uploadfile/Collfiles/20160802/201608020923311161.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_inception/1.png">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-eacad5957624f2b0dec823af256817cf_hd.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_inception/4.png">
+<meta property="og:image" content="https://i.stack.imgur.com/msvse.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2228224-f9b16ae3483b14da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://d.ifengimg.com/w600/p0.ifengimg.com/pmop/2017/0228/A8B9353D30DB1937672E3BC00C7771472D6E2F53_size99_w740_h326.jpeg">
+<meta property="og:updated_time" content="2018-08-05T06:55:00.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="cs231n笔记（八）——CNN经典网络">
+<meta name="twitter:description" content="目录 LeNet又称LeNet-5：没有参与ILSVRC比赛，但它是卷积网络的鼻祖 它是一个7层的网络，它的深度为5，包含2个卷积层、2个池化层、2个全连接层和1个Guassian connection，是用于手写字体的识别的一个经典CNN    AlexNe ：2012年ILSVRC的冠军   ZFNet ：2013年ILSVRC的冠军，ZFNet的网络结构，是在AlexNet上进行了微调">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-af836017b97c0ca7231f527c10892f49_hd.jpg">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,124 +172,403 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="w-cs231n笔记（八）——CNN经典网络" class="article article-type-w " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      cs231n笔记（八）——CNN经典网络
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/15/显卡/" class="archive-article-date">
-  	<time datetime="2018-07-15T03:28:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+
+        
+        <a href="/2018/08/05/cs231n笔记（八）——CNN经典网络/" class="archive-article-date">
+  	<time datetime="2018-08-05T06:54:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-05</time>
 </a>
 
 
-<a href="/2018/07/15/显卡/" class="archive-article-date">
-  	<time datetime="2018-07-15T03:28:11.000Z" itemprop="datePublished">2018-07-15</time>
+<a href="/2018/08/05/cs231n笔记（八）——CNN经典网络/" class="archive-article-date">
+  	<time datetime="2018-08-05T06:54:20.000Z" itemprop="datePublished">2018-08-05</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
 </a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/15/显卡/">显卡</a>
-    </h1>
-  
+        
+      </header>
+    
 
-        <div class="article-info info-on-right">
-          
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><p>LeNet又称LeNet-5：没有参与ILSVRC比赛，但它是卷积网络的鼻祖</p>
+<p>它是一个7层的网络，它的深度为5，包含2个卷积层、2个池化层、2个全连接层和1个Guassian connection，是用于手写字体的识别的一个经典CNN</p>
+</li>
+</ul>
+<ul>
+<li>AlexNe ：2012年ILSVRC的冠军</li>
+</ul>
+<ul>
+<li>ZFNet ：2013年ILSVRC的冠军，ZFNet的网络结构，是在AlexNet上进行了微调</li>
+</ul>
+<ul>
+<li>GoogLeNet ：2014年ILSVRC冠军，有22层</li>
+</ul>
+<ul>
+<li><p>VGGNet ：2014年ILSVRC比赛中，有16和19层</p>
+<p>（VGG代表的是Oxford 大学 Visual Geometry Group）</p>
+</li>
+</ul>
+<ul>
+<li>ResNet ：2015年ILSVRC的冠军，层数有 18，34，50，101和152</li>
+</ul>
+<p><br></p>
+<p>PS：ILSVRC （ImageNet Large Scale Visual Recognition Challenge）是图像分类领域的比赛</p>
+<a id="more"></a>
+<p><br></p>
+<h2 id="LeNet-5（1998年）"><a href="#LeNet-5（1998年）" class="headerlink" title="LeNet-5（1998年）"></a>LeNet-5（1998年）</h2><p><img src="https://pic3.zhimg.com/80/v2-af836017b97c0ca7231f527c10892f49_hd.jpg" alt="img"></p>
+<p><strong>1. 输入层</strong>：32*32的图片，相当于1024个神经元，比MNIST数据集的图片要大一些，这么做的原因是希望潜在的明显特征如笔画断点能够出现在最高层<strong>特征检测子感受野（receptive field）</strong>的中心。因此在训练整个网络之前，需要对28*28的图像加上paddings。</p>
+<p><br></p>
+<p><strong>2. C1层：</strong>卷积层，6 个特征卷积核，卷积核大小 5*5，得到 6 个feature map，大小为28*28（ 32-5+1=28）</p>
+<p><br></p>
+<p><strong>3. S2层：</strong>下采样层，使用最大池化进行下采样，池化的size (2,2)，得到6 个feature map，大小为14*14（28/2=14）</p>
+<p><br></p>
+<p><strong>4. C3层</strong>：卷积层，16 个特征卷积核，卷积核大小 5*5，得到 16个feature map，大小为 10*10（ 14-5+1=10）  </p>
+<p><br></p>
+<p><strong>5. S4层：</strong>下采样层，使用最大池化进行下采样，池化的size (2,2) ，得到 16个feature map，大小为5*5（10/2=5）</p>
+<p><br></p>
+<p><strong>6. C5层：</strong>卷积层，120 个特征卷积核，卷积核大小 5*5，得到 120 个神经元</p>
+<p><br></p>
+<p><strong>7. F6层</strong>：与C5层全连接，有84个神经元</p>
+<p>（为什么是84？</p>
+<p>LeNet模型希望能够识别ASCII打印字符，而标准ASCII字符打印大小是用7*12大小的位图表示）</p>
+<p><br></p>
+<p><strong>8. 输出层</strong>：该层与F6层全连接，输出长度为 10 的张量，表示分类结果</p>
+<p>输出层由『 <strong>欧式径向基函数单元</strong> 』组成，每类一个单元。该单元是用于计算输入向量（84个）和参数向量之间的欧式距离。输入向量离参数向量越远，RBF 输出值越大，表示与这种类别越不相似。</p>
+<p><strong>RBF输出</strong>可以理解为 输入和与该类别的模型的匹配程度的惩罚项，越不相似，值越大，惩罚越大。</p>
+<p><br></p>
+<p><br></p>
+<h2 id="AlexNet（2012年）"><a href="#AlexNet（2012年）" class="headerlink" title="AlexNet（2012年）"></a>AlexNet（2012年）</h2><p><a href="https://blog.csdn.net/maweifei/article/details/53117830" target="_blank" rel="noopener">https://blog.csdn.net/maweifei/article/details/53117830</a></p>
+<p> AlexNet 在12年 ILSVRC 使用的模型结构，在错误率上有很大的降低，这也是<strong>第一次基于CNN的冠军</strong></p>
+<p><br></p>
+<h3 id="一、精简网络结构"><a href="#一、精简网络结构" class="headerlink" title="一、精简网络结构"></a>一、精简网络结构</h3><p>5个卷积层+3个全连接层+1个softmax层</p>
+<p>输出 1000，因为 ImageNet数据集有1000个类别</p>
+<p><img src="data:image/jpeg;base64,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" alt="“AlexNet精简结构”的图片搜索结果"></p>
+<p><br></p>
+<h3 id="二、各层运算"><a href="#二、各层运算" class="headerlink" title="二、各层运算"></a>二、各层运算</h3><p><img src="http://www.2cto.com/uploadfile/Collfiles/20160802/201608020923331170.jpg" alt="img"></p>
+<p><br></p>
+<h3 id="三、AlexNet主要使用到的新技术点"><a href="#三、AlexNet主要使用到的新技术点" class="headerlink" title="三、AlexNet主要使用到的新技术点"></a>三、AlexNet主要使用到的新技术点</h3><h4 id="1-ReLU"><a href="#1-ReLU" class="headerlink" title="1. ReLU"></a>1. ReLU</h4><p>tanh(x)或者sigmoid(x)函数：由于此类函数在x非常大或者非常小时，函数输出基本不变，所以此类函数成为<strong>饱和函数</strong></p>
+<p>f(x)=max(0,x)：是一种非线性的<strong>非饱和函数</strong></p>
+<p>优势：</p>
+<p>非饱和函数比饱和函数训练更快</p>
+<p>这种扭曲线性函数，不但保留了非线性的表达能力，而且由于其具有线性性质（正值部分），相比tanh和sigmoid函数在误差反向传递时，<strong>不会有由于非线性引起的梯度消失</strong></p>
+<p> <br></p>
+<h4 id="2-在多个GPU上训练"><a href="#2-在多个GPU上训练" class="headerlink" title="2. 在多个GPU上训练"></a>2. 在多个GPU上训练</h4><p>目前的GPU特别适合<strong>跨GPU并行化</strong>，因为它们能够直接从另一个GPU的内存中读出和写入，不需要通过主机内存 『采用的并行方案基本上是：<strong>在每个GPU中放置一半神经元</strong>』</p>
+<p>还有一个额外的技巧：<strong>GPU间的通讯只在某些层进行</strong>。例如，第3层的核需要从第2层中所有核映射输入，而第4层的核只需要从第3层中位于同一GPU的那些核映射输入</p>
+<p><br></p>
+<h4 id="3-局部响应归一化-LRN-Local-Response-Normalization"><a href="#3-局部响应归一化-LRN-Local-Response-Normalization" class="headerlink" title="3. 局部响应归一化 LRN(Local Response Normalization)"></a>3. 局部响应归一化 LRN(Local Response Normalization)</h4><p>局部响应归一化原理是仿造生物学上<strong>活跃的神经元对相邻神经元的抑制现象</strong>（侧抑制）</p>
+<ul>
+<li>对局部神经元的活动创建竞争机制，<strong>使得其中响应比较大的值变得相对更大，并抑制其他反馈较小的神经元</strong></li>
+<li>归一化有助于快速收敛</li>
+</ul>
+<p><img src="http://www.2cto.com/uploadfile/Collfiles/20160802/201608020923311161.png" alt="img"><br><br></p>
+<h4 id="4-重叠-Pooling"><a href="#4-重叠-Pooling" class="headerlink" title="4. 重叠 Pooling"></a>4. 重叠 Pooling</h4><p><strong>（1）重叠的理解</strong></p>
+<p>根据不同滑动的步长，<strong>滑动的窗口间有大量重叠区域</strong>，卷积结果有冗余，进行最大pooling或者平均pooling就是减少冗余。减少冗余的同时，pooling也丢掉了局部<strong>位置信息</strong>，所以局部有微小形变。</p>
+<p>（PS：之前对池化一直一知半解，上面这句话真的点醒了我）</p>
+<p><strong>（2）最大池化</strong></p>
+<p>AlexNet<strong>全部使用最大池化</strong>，<strong>避免平均池化的模糊化效果</strong>。并且AlexNet中提出让步长比池化核的尺寸小，这样池化层的输出之间会有重叠和覆盖，提升了特征的丰富性。</p>
+<p><br></p>
+<h4 id="5-减少过拟合"><a href="#5-减少过拟合" class="headerlink" title="5.减少过拟合"></a>5.减少过拟合</h4><p><1>数据扩充</1></p>
+<p>（1）图像平移和翻转 </p>
+<p>（2）调整RGB像素值</p>
+<p><2>Dropout</2></p>
+<p><br></p>
+<h2 id="VGG（2014年）"><a href="#VGG（2014年）" class="headerlink" title="VGG（2014年）"></a>VGG（2014年）</h2><p>深度<strong>16</strong>和<strong>19</strong>层的 VGGNet 网络模型在分类和定位任务上的效果最好</p>
+<ul>
+<li>小卷积核：卷积核全部替换为3x3（极少用了1x1）</li>
+<li>小池化核：相比AlexNet的3x3的池化核，VGG全部为2x2的池化核</li>
+<li>层数更深特征图更宽：基于前两点外，卷积核专注于扩大通道数、池化专注于缩小宽和高</li>
+</ul>
+<p><br></p>
+<h3 id="一、小卷积核的优势"><a href="#一、小卷积核的优势" class="headerlink" title="一、小卷积核的优势"></a>一、小卷积核的优势</h3><ul>
+<li>小卷积核，虽然需要卷积多层，但是需要的参数其实更小</li>
+<li>越大的卷积核计算量越大</li>
+<li>多个小卷积核的堆叠比单一大卷积核带来了精度提升</li>
+</ul>
+<p><br></p>
+<h3 id="二、感受野（Receptive-Field）"><a href="#二、感受野（Receptive-Field）" class="headerlink" title="二、感受野（Receptive Field）"></a>二、感受野（Receptive Field）</h3><p>从CNN角度上看，输出featuremap某个节点的响应对应的输入图像的区域就是感受野</p>
+<p><br></p>
+<p>感受野的计算：（个人感觉画图吧，直观，从深层向浅层看）</p>
+<p>stride=1，pad=0，2个3x3的卷积堆叠，获得的感受野，相当于一个5x5的卷积</p>
+<p>stride=1，pad=0，3个3x3卷积的堆叠，获得的感受野，相当于一个7x7的卷积</p>
+<p><br></p>
+<h2 id="GoogLeNet（Google-Inception-Net）"><a href="#GoogLeNet（Google-Inception-Net）" class="headerlink" title="GoogLeNet（Google Inception Net）"></a>GoogLeNet（Google Inception Net）</h2><p>有<strong>22</strong>层，<strong>没有全连接层</strong>，但大小却比AlexNet和VGG小很多。GoogleNet参数为500万个，AlexNet参数个数是GoogleNet的12倍，VGGNet参数是AlexNet的3倍。</p>
+<p><a href="http://www.chinacion.cn/article/2774.html" target="_blank" rel="noopener">http://www.chinacion.cn/article/2774.html</a></p>
+<p><br></p>
+<h3 id="一、提升网络性能的方法"><a href="#一、提升网络性能的方法" class="headerlink" title="一、提升网络性能的方法"></a>一、提升网络性能的方法</h3><p>通过增加网络深度和宽度提升网络性能（深度指网络层次数、宽度指神经元数量），但存在以下问题：</p>
+<p>（1）参数太多，很容易过拟合<br>（2）计算复杂<br>（3）网络越深，容易出现梯度消失</p>
+<p><br></p>
+<p>解决上面问题的方法：</p>
+<ul>
+<li>第一步：全连接变成稀疏连接</li>
+</ul>
+<p>稀疏连接，可以减少参数，但全连接变成稀疏连接后，计算所消耗的时间却没有大幅减少</p>
+<p>（稀疏矩阵，元素大部分为零的矩阵）</p>
+<ul>
+<li>第二步：Inception网络结构</li>
+</ul>
+<p>GoogLeNet 对网络中的传统卷积层进行了修改，提出了被称为 <strong>Inception</strong> 的结构，<strong>将稀疏矩阵聚类为较为密集的子矩阵</strong> ，来提高计算性能，既能减少参数，但不减少特征数，又能利用密集矩阵的高计算性能</p>
+<p><br></p>
+<h3 id="二、Inception"><a href="#二、Inception" class="headerlink" title="二、Inception"></a>二、Inception</h3><p><a href="https://zhuanlan.zhihu.com/p/32702031" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32702031</a></p>
+<p><a href="https://blog.csdn.net/dcrmg/article/details/79246654" target="_blank" rel="noopener">https://blog.csdn.net/dcrmg/article/details/79246654</a></p>
+<p><br></p>
+<h3 id="（一）1×1卷积核和Network-in-Network（NIN）"><a href="#（一）1×1卷积核和Network-in-Network（NIN）" class="headerlink" title="（一）1×1卷积核和Network in Network（NIN）"></a>（一）1×1卷积核和Network in Network（NIN）</h3><p>MLP代替GLM：GLM是广义线性模型，MLP是指在做卷积操作的时候，把线性操作变为多层感知机</p>
+<p>（看了很多博客都是这句话，什么玩意儿，能不能讲人话，还是知乎大神实在，不玩虚的）</p>
+<p><img src="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_inception/1.png" alt="img"></p>
+<p>左图—传统的卷积层结构（线性卷积）：在一个尺度上只有一次卷积</p>
+<p>右图——Network in Network结构（NIN）：先进行一次普通的卷积（比如3x3），再进行一次1x1的卷积，1x1卷积等效于全连接，所以右侧图的1x1卷积画成了全连接层的形式，将两个卷积串联，就能组合出更多的非线性特征。</p>
+<p>（注意：NIN结构中无论是第一个3x3卷积还是新增的1x1卷积，后面都紧跟着激活函数）</p>
+<p>『1×1卷积：起到降维的作用（减少参数，减少计算量），但是输出特征量并没有减少』</p>
+<p>『NIN：一个神经网络之中，其每一层中的特征提取里又加上了一个小的神经网络』</p>
+<p><br></p>
+<h3 id="（二）多个尺寸上进行卷积再聚合"><a href="#（二）多个尺寸上进行卷积再聚合" class="headerlink" title="（二）多个尺寸上进行卷积再聚合"></a>（二）多个尺寸上进行卷积再聚合</h3><p><strong>用稀疏矩阵分解成密集矩阵计算的原理来加快收敛速度</strong></p>
+<p>举个例子：</p>
+<p>左图—稀疏矩阵，和一个2x2的矩阵进行卷积，需要对稀疏矩阵中的『每一个元素进行计算』</p>
+<p>右图—把稀疏矩阵分解成2个子密集矩阵，再和2x2矩阵进行卷积，稀疏矩阵中0较多的区域不用计算</p>
+<p><strong>这个原理应用到Inception上就是多尺度提取特征</strong></p>
+<ul>
+<li>传统的卷积层的输入数据只和一种尺度的卷积核进行卷积，输出固定维度的数据</li>
+<li>inception模块在多个尺度上提取特征，这样特征集中相关性较强的特征聚集在了一起，不相关的非关键特征就被弱化，<strong>Inception方法输出的冗余信息较少</strong></li>
+</ul>
+<p><img src="https://pic3.zhimg.com/80/v2-eacad5957624f2b0dec823af256817cf_hd.jpg" alt="img"></p>
+<p><br></p>
+<h3 id="（三）全卷积代替全连接层"><a href="#（三）全卷积代替全连接层" class="headerlink" title="（三）全卷积代替全连接层"></a>（三）全卷积代替全连接层</h3><p>平均池化层代替了最后的全连接层</p>
+<p>使用卷积层代替全连接层，<strong>突破了输入尺寸的限制</strong></p>
+<p>PS：突然明白了卷积网络和一般神经网络相比，除了可以共享参数等优点，还有很重要的一点，那就是突破了输入尺寸的限制</p>
+<p>一神经网络的输入图像大小是固定的，但是卷积神经网络的输入图像大小其实可以不固定</p>
+<p><br></p>
+<p>下图是Inception结构</p>
+<p><img src="https://raw.githubusercontent.com/stdcoutzyx/Blogs/master/blogs2016/imgs_inception/4.png" alt=""></p>
+<p><br></p>
+<h3 id="三、GoogLeNet-的-Inception-的四个版本"><a href="#三、GoogLeNet-的-Inception-的四个版本" class="headerlink" title="三、GoogLeNet 的 Inception 的四个版本"></a>三、GoogLeNet 的 Inception 的四个版本</h3><p><a href="https://blog.csdn.net/hejin_some/article/details/78636586" target="_blank" rel="noopener">https://blog.csdn.net/hejin_some/article/details/78636586</a></p>
+<p><br></p>
+<p><br></p>
+<h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><p><a href="https://blog.csdn.net/u012816943/article/details/51702520" target="_blank" rel="noopener">https://blog.csdn.net/u012816943/article/details/51702520</a></p>
+<p><a href="https://blog.csdn.net/lanran2/article/details/79057994" target="_blank" rel="noopener">https://blog.csdn.net/lanran2/article/details/79057994</a></p>
+<h3 id="一、ResNet-解决的问题"><a href="#一、ResNet-解决的问题" class="headerlink" title="一、ResNet 解决的问题"></a>一、ResNet 解决的问题</h3><p>1.深层网络存在的问题</p>
+<p>仅仅只是向卷积网络上堆叠卷积层，得到更深的网络，会发现不论是训练集还是测试集，深层网络的效果都不如稍深的网络好，那就不是过拟合造成的，那是因为<strong>深层网络更难优化参数</strong></p>
+<p>2.ResNet 残差神经网络在解决的问题：<strong>对于深层神经网络的优化，浅层信息的远距离传输问题</strong></p>
+<p>保证了深层网络至少和浅层网络效果一样好，即网络的性能不会随着深度增加而降低。</p>
+<p><br></p>
+<h3 id="二、ResNet结构"><a href="#二、ResNet结构" class="headerlink" title="二、ResNet结构"></a>二、ResNet结构</h3><p>使用 residual mapping 而不是 direct mapping<img src="https://i.stack.imgur.com/msvse.png" alt=""></p>
+<p>ResNet中有两种 mapping</p>
+<ul>
+<li><strong>identity mapping</strong>：指输入本身，就是x，这个支路叫做<strong>shortcut connection</strong></li>
+<li><strong>residual mapping</strong>：指残差，就是F(x) = y -x</li>
+</ul>
+<p>residual mapping 可以看成是对 identity mapping 的修正。若网络已到达最优，继续加深网络，residual mapping 将被push为0，只剩下identity mapping，这样保证了深层网络至少和浅层网络效果一样好，即网络的性能不会随着深度增加而降低。</p>
+<p><br></p>
+<h3 id="三、-Bottleneck-Layer"><a href="#三、-Bottleneck-Layer" class="headerlink" title="三、 Bottleneck Layer"></a>三、 Bottleneck Layer</h3><p><img src="http://upload-images.jianshu.io/upload_images/2228224-f9b16ae3483b14da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>两种ResNet设计</p>
+<ul>
+<li>左图—一般的残差网络</li>
+</ul>
+<ul>
+<li><p>右图—<strong>bottleneck design</strong>，用于<strong>降低参数的数目，减少计算</strong></p>
+<p>右图中，第一个1x1的卷积用于降维，第二个1x1的卷积用于将维度恢复到和输入时一样</p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="四、ResNet不同结构"><a href="#四、ResNet不同结构" class="headerlink" title="四、ResNet不同结构"></a>四、ResNet不同结构</h3><p>ResNet不同的结构，层数为 18，34，50，101和152</p>
+<p><img src="http://d.ifengimg.com/w600/p0.ifengimg.com/pmop/2017/0228/A8B9353D30DB1937672E3BC00C7771472D6E2F53_size99_w740_h326.jpeg" alt=""></p>
+<p>以 101-layer 为例</p>
+<p>输入时卷积一次，然后经过3 + 4 + 23 + 3 = 33个building block，每个block为3层，所以有33 x 3 = 99层，最后 fc 层用于分类，总计 1 + 99 + 1 = 101层</p>
+<p>（这里网络层数<strong>仅仅指卷积或者全连接层</strong>，而激活层、池化层没有计算在内）</p>
+<p><br></p>
+<h3 id="五、ResNet-的特点"><a href="#五、ResNet-的特点" class="headerlink" title="五、ResNet 的特点"></a>五、ResNet 的特点</h3><ol>
+<li><p>Batch Normalization 批标准化：因为数据分布会对训练产生影响</p>
+<p>进入激励函数的值的分布是很重要，需要在有效范围内，『<strong>BN被添加在全连接层和激励函数之间</strong>』</p>
+</li>
+<li><p>Xavier初始化</p>
+</li>
+<li><p>SGD + Momentum</p>
+</li>
+<li><p>学习率使用类似时间表的可变学习率</p>
+</li>
+<li><p>Weight decay 权值衰减，防止过拟合</p>
+</li>
+<li><p>没有dropout</p>
+</li>
+</ol>
+<p><br></p>
+<h3 id="六、对于ResNet-的改进"><a href="#六、对于ResNet-的改进" class="headerlink" title="六、对于ResNet 的改进"></a>六、对于ResNet 的改进</h3><ul>
+<li>宽网络：通过增加宽度来代替增加网络的深度，优点是可以进行并行计算，计算效率高<ul>
+<li>Wide ResNet：通过增加卷积核，来增加宽度，以这种方式代替增加网络的深度</li>
+<li>ResNeXt：通过在残差模块里建立分支，增加残差模块的宽度</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>随机深度：训练时丢弃一些层，使用更浅的网络，防止梯度消失（像是dropout为了防止过拟合）</p>
+<p><br></p>
+</li>
+</ul>
+<h3 id="七、新的网络"><a href="#七、新的网络" class="headerlink" title="七、新的网络"></a>七、新的网络</h3><p>可以媲美ResNet的网络 </p>
+<ul>
+<li>FractalNet ：分形网络，无残差的极深神经网络</li>
+<li>DenseNet：密集连接的卷积神经网络</li>
+<li>SqueezeNet</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><strong>1. feature map</strong></p>
+<p>在卷积层中，上层的 『<strong>每个 feature map</strong>』 跟对应的卷积核做卷积，产生下层的『<strong>一个feature map</strong>』</p>
+<p>feature map 可以看成许多个二维图片叠在一起，如果是灰度图片，那就只有一个feature map，如果是彩色图片，一般就是3个feature map</p>
+<p><br></p>
+<p><strong>2. 卷积后图片的尺寸计算</strong></p>
+<p>设步长为 s，填充长度为 p，输入图片大小为 n * n，滤波器大小为 f * f</p>
+<p>则卷积后图片的尺寸 ⌊（n+2p-f）/s+1⌋ × ⌊（n+2p-f）/s+1⌋（向下取整）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GPU</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">硬件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/14/程序是怎样跑起来的/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
+      
 
-
-<a href="/2018/07/14/程序是怎样跑起来的/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:45:16.000Z" itemprop="datePublished">2018-07-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/14/程序是怎样跑起来的/">程序是怎样跑起来的</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">硬件</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/05/cs231n笔记（八）——CNN经典网络/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/08/03/cs231n笔记（七）——深度学习框架/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cs231n笔记（七）——深度学习框架</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LeNet-5（1998年）"><span class="toc-number"></span> <span class="toc-text">LeNet-5（1998年）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AlexNet（2012年）"><span class="toc-number"></span> <span class="toc-text">AlexNet（2012年）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、精简网络结构"><span class="toc-number">1.</span> <span class="toc-text">一、精简网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、各层运算"><span class="toc-number">2.</span> <span class="toc-text">二、各层运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、AlexNet主要使用到的新技术点"><span class="toc-number">3.</span> <span class="toc-text">三、AlexNet主要使用到的新技术点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-ReLU"><span class="toc-number">3.1.</span> <span class="toc-text">1. ReLU</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-在多个GPU上训练"><span class="toc-number">3.2.</span> <span class="toc-text">2. 在多个GPU上训练</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-局部响应归一化-LRN-Local-Response-Normalization"><span class="toc-number">3.3.</span> <span class="toc-text">3. 局部响应归一化 LRN(Local Response Normalization)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-重叠-Pooling"><span class="toc-number">3.4.</span> <span class="toc-text">4. 重叠 Pooling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-减少过拟合"><span class="toc-number">3.5.</span> <span class="toc-text">5.减少过拟合</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VGG（2014年）"><span class="toc-number"></span> <span class="toc-text">VGG（2014年）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、小卷积核的优势"><span class="toc-number">1.</span> <span class="toc-text">一、小卷积核的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、感受野（Receptive-Field）"><span class="toc-number">2.</span> <span class="toc-text">二、感受野（Receptive Field）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GoogLeNet（Google-Inception-Net）"><span class="toc-number"></span> <span class="toc-text">GoogLeNet（Google Inception Net）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、提升网络性能的方法"><span class="toc-number">1.</span> <span class="toc-text">一、提升网络性能的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Inception"><span class="toc-number">2.</span> <span class="toc-text">二、Inception</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（一）1×1卷积核和Network-in-Network（NIN）"><span class="toc-number">3.</span> <span class="toc-text">（一）1×1卷积核和Network in Network（NIN）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）多个尺寸上进行卷积再聚合"><span class="toc-number">4.</span> <span class="toc-text">（二）多个尺寸上进行卷积再聚合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（三）全卷积代替全连接层"><span class="toc-number">5.</span> <span class="toc-text">（三）全卷积代替全连接层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、GoogLeNet-的-Inception-的四个版本"><span class="toc-number">6.</span> <span class="toc-text">三、GoogLeNet 的 Inception 的四个版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ResNet"><span class="toc-number"></span> <span class="toc-text">ResNet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、ResNet-解决的问题"><span class="toc-number">1.</span> <span class="toc-text">一、ResNet 解决的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、ResNet结构"><span class="toc-number">2.</span> <span class="toc-text">二、ResNet结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、-Bottleneck-Layer"><span class="toc-number">3.</span> <span class="toc-text">三、 Bottleneck Layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、ResNet不同结构"><span class="toc-number">4.</span> <span class="toc-text">四、ResNet不同结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、ResNet-的特点"><span class="toc-number">5.</span> <span class="toc-text">五、ResNet 的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、对于ResNet-的改进"><span class="toc-number">6.</span> <span class="toc-text">六、对于ResNet 的改进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、新的网络"><span class="toc-number">7.</span> <span class="toc-text">七、新的网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number"></span> <span class="toc-text">附录</span></a>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/07/">&laquo; Prev</a><a class="page-number" href="/archives/2018/07/">1</a><span class="page-number current">2</span>
-    </nav>
   
+
+  
+
+  
+
+
 
 
           </div>
@@ -311,8 +602,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
