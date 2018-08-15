@@ -162,25 +162,25 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-进程和线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="w-cs231n笔记（八）——CNN经典网络" class="article article-type-w  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/进程和线程/">进程和线程</a>
+      <a class="article-title" href="/2018/08/05/cs231n笔记（八）——CNN经典网络/">cs231n笔记（八）——CNN经典网络</a>
     </h1>
   
 
         
-        <a href="/2018/07/26/进程和线程/" class="archive-article-date">
-  	<time datetime="2018-07-26T09:38:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+        <a href="/2018/08/05/cs231n笔记（八）——CNN经典网络/" class="archive-article-date">
+  	<time datetime="2018-08-05T06:54:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-05</time>
 </a>
 
 
-<a href="/2018/07/26/进程和线程/" class="archive-article-date">
-  	<time datetime="2018-07-26T09:38:09.000Z" itemprop="datePublished">2018-07-26</time>
+<a href="/2018/08/05/cs231n笔记（八）——CNN经典网络/" class="archive-article-date">
+  	<time datetime="2018-08-05T06:54:20.000Z" itemprop="datePublished">2018-08-05</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -193,99 +193,32 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-进程和线程"><a href="#1-进程和线程" class="headerlink" title="1.进程和线程"></a>1.进程和线程</h3><ul>
-<li><p>进程：运行中的应用程序称为进程，拥有系统资源（cpu、内存）</p>
-</li>
-<li><p>线程：进程中的一段代码，一个进程中可以有多段代码。本身不拥有资源（共享所在进程的资源）</p>
-<p><br></p>
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><p>LeNet又称LeNet-5：没有参与ILSVRC比赛，但它是卷积网络的鼻祖</p>
+<p>它是一个7层的网络，它的深度为5，包含2个卷积层、2个池化层、2个全连接层和1个Guassian connection，是用于手写字体的识别的一个经典CNN</p>
 </li>
 </ul>
 <ul>
-<li>多进程: 在操作系统中能同时运行多个任务(程序)</li>
-<li>多线程: 在同一应用程序中有多个功能流同时执行</li>
+<li>AlexNe ：2012年ILSVRC的冠军</li>
+</ul>
+<ul>
+<li>ZFNet ：2013年ILSVRC的冠军，ZFNet的网络结构，是在AlexNet上进行了微调</li>
+</ul>
+<ul>
+<li>GoogLeNet ：2014年ILSVRC冠军，有22层</li>
+</ul>
+<ul>
+<li><p>VGGNet ：2014年ILSVRC比赛中，有16和19层</p>
+<p>（VGG代表的是Oxford 大学 Visual Geometry Group）</p>
+</li>
+</ul>
+<ul>
+<li>ResNet ：2015年ILSVRC的冠军，层数有 18，34，50，101和152</li>
 </ul>
 <p><br></p>
-<h3 id="2-多线程并行和并发"><a href="#2-多线程并行和并发" class="headerlink" title="2.多线程并行和并发"></a>2.多线程并行和并发</h3><p>多线程并行 Parallelism：在不同CPU上（多核），同时执行多个线程</p>
-<p>多线程并发 Concurrency ：在一个CPU上，做多线程之间的切换，如果CPU调度线程的时间足够快，就造成了多线程并发执行的假象</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/26/进程和线程/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+<p>PS：ILSVRC （ImageNet Large Scale Visual Recognition Challenge）是图像分类领域的比赛</p>
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-cs231n笔记（五）——卷积神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/25/cs231n笔记（五）——卷积神经网络/">cs231n笔记（五）——卷积神经网络</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/25/cs231n笔记（五）——卷积神经网络/" class="archive-article-date">
-  	<time datetime="2018-07-25T03:35:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
-</a>
-
-
-<a href="/2018/07/25/cs231n笔记（五）——卷积神经网络/" class="archive-article-date">
-  	<time datetime="2018-07-25T03:35:57.000Z" itemprop="datePublished">2018-07-25</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：理解卷积和卷积神经网络</p>
-<p><br></p>
-        
-          <a class="article-more-a" href="/2018/07/25/cs231n笔记（五）——卷积神经网络/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/05/cs231n笔记（八）——CNN经典网络/#more">more >></a>
         
       
 
@@ -313,7 +246,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/25/cs231n笔记（五）——卷积神经网络/">展开 >></a>
+          <a class="article-more-a" href="/2018/08/05/cs231n笔记（八）——CNN经典网络/">展开 >></a>
         </p>
       
 
@@ -345,25 +278,25 @@
 
 
   
-    <article id="post-cs231n笔记（四）——神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-cs231n笔记（七）——深度学习框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/18/cs231n笔记（四）——神经网络/">cs231n笔记（四）——神经网络</a>
+      <a class="article-title" href="/2018/08/03/cs231n笔记（七）——深度学习框架/">cs231n笔记（七）——深度学习框架</a>
     </h1>
   
 
         
-        <a href="/2018/07/18/cs231n笔记（四）——神经网络/" class="archive-article-date">
-  	<time datetime="2018-07-18T01:46:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
+        <a href="/2018/08/03/cs231n笔记（七）——深度学习框架/" class="archive-article-date">
+  	<time datetime="2018-08-03T03:40:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
 </a>
 
 
-<a href="/2018/07/18/cs231n笔记（四）——神经网络/" class="archive-article-date">
-  	<time datetime="2018-07-18T01:46:56.000Z" itemprop="datePublished">2018-07-18</time>
+<a href="/2018/08/03/cs231n笔记（七）——深度学习框架/" class="archive-article-date">
+  	<time datetime="2018-08-03T03:40:58.000Z" itemprop="datePublished">2018-08-03</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -376,9 +309,9 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>神经网络知识点大纲总结，还没有看完，所以持续更新 ~ </p>
+        <p>PS ：我现在学的是 TensorFlow</p>
         
-          <a class="article-more-a" href="/2018/07/18/cs231n笔记（四）——神经网络/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/03/cs231n笔记（七）——深度学习框架/#more">more >></a>
         
       
 
@@ -406,7 +339,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/18/cs231n笔记（四）——神经网络/">展开 >></a>
+          <a class="article-more-a" href="/2018/08/03/cs231n笔记（七）——深度学习框架/">展开 >></a>
         </p>
       
 
@@ -438,25 +371,25 @@
 
 
   
-    <article id="post-cs231n笔记（三）——分段式反向传播求梯度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-cs231n笔记（六）——循环神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/">cs231n笔记（三）——分段式反向传播求梯度</a>
+      <a class="article-title" href="/2018/08/02/cs231n笔记（六）——循环神经网络/">cs231n笔记（六）——循环神经网络</a>
     </h1>
   
 
         
-        <a href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/" class="archive-article-date">
-  	<time datetime="2018-07-16T08:50:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+        <a href="/2018/08/02/cs231n笔记（六）——循环神经网络/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:18:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
 </a>
 
 
-<a href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/" class="archive-article-date">
-  	<time datetime="2018-07-16T08:50:13.000Z" itemprop="datePublished">2018-07-16</time>
+<a href="/2018/08/02/cs231n笔记（六）——循环神经网络/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:18:15.000Z" itemprop="datePublished">2018-08-02</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -469,14 +402,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>1.反向传播</p>
-<p>反向传播是利用<strong>链式法则</strong> ，递归计算梯度的方法</p>
-<p>2.<strong>分段反向传播求梯度</strong>  (重点)</p>
-<p><strong>不需要关于输入变量的明确的函数来计算导数</strong>，因为需要求的是梯度值。只需要将表达式分成不同的可以求导的模块，然后在反向传播中一步一步地计算<strong>梯度</strong>。</p>
-<p>3.加法、乘法和取最大值在反向传播中关于梯度的理解</p>
-<p>4.用向量化计算梯度</p>
+        <p>循环神经网络属于时间递归神经网络，主要解决<strong>序列</strong>数据的处理，比如文本、语音、视频等等</p>
+<p>PS：因为我现在在做图像，CNN用的比较多，所以RNN和LSTM的学习一笔带过</p>
         
-          <a class="article-more-a" href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/02/cs231n笔记（六）——循环神经网络/#more">more >></a>
         
       
 
@@ -504,7 +433,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/16/cs231n笔记（三）——分段式反向传播求梯度/">展开 >></a>
+          <a class="article-more-a" href="/2018/08/02/cs231n笔记（六）——循环神经网络/">展开 >></a>
         </p>
       
 
@@ -536,25 +465,25 @@
 
 
   
-    <article id="post-cs231n笔记（一）——线性回归、逻辑回归、多分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-TensorFlow（四）——RNN实现MNIST的分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/">cs231n笔记（一）——线性回归、逻辑回归、多分类</a>
+      <a class="article-title" href="/2018/08/02/TensorFlow（四）——RNN实现MNIST的分类/">TensorFlow（四）——RNN实现MNIST的分类</a>
     </h1>
   
 
         
-        <a href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/" class="archive-article-date">
-  	<time datetime="2018-07-15T13:23:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+        <a href="/2018/08/02/TensorFlow（四）——RNN实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:17:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
 </a>
 
 
-<a href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/" class="archive-article-date">
-  	<time datetime="2018-07-15T13:23:33.000Z" itemprop="datePublished">2018-07-15</time>
+<a href="/2018/08/02/TensorFlow（四）——RNN实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-08-02T12:17:20.000Z" itemprop="datePublished">2018-08-02</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -567,296 +496,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>一、线性回归</p>
-<p>二、逻辑回归</p>
-<p>三、多分类</p>
-<p>1.根据像素差异分类</p>
-<p>2.线性分类</p>
-<p>   （1）多类SVM分类器-折叶损失</p>
-<p>   （2）softmax分类器-交叉熵损失</p>
+        <p>PS：最近得开始做项目了，所以RNN只能草率收尾了，很多东西都不是很懂 ~ 只能先这样子了，后面如果有机会做语音和视频，还是得好好看一下</p>
         
-          <a class="article-more-a" href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/02/TensorFlow（四）——RNN实现MNIST的分类/#more">more >></a>
         
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-显卡" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/15/显卡/">显卡</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/15/显卡/" class="archive-article-date">
-  	<time datetime="2018-07-15T03:28:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
-</a>
-
-
-<a href="/2018/07/15/显卡/" class="archive-article-date">
-  	<time datetime="2018-07-15T03:28:11.000Z" itemprop="datePublished">2018-07-15</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS ：最近想入一个显示屏，结果发现自己连显卡是什么都搞不清楚，我真是菜的不行</p>
-<p><br></p>
-<h2 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h2><p>显卡是电脑进行数模信号转换的设备，承担输出显示图形的任务。</p>
-<p>1.显存：又叫帧缓存，作用是用来<strong>存储</strong>GPU处理过或者即将提取的渲染数据</p>
-<p>2.GPU（Graphic Processing Unit）：是显卡的核心引擎，专为图形渲染设计的，并行处理方面，浮点运算方面功能强大。</p>
-<p>3.理解显存和GPU：GPU相当于电脑的CPU，显存相当于电脑的内存</p>
-        
-          <a class="article-more-a" href="/2018/07/15/显卡/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GPU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">硬件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/15/显卡/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-程序是怎样跑起来的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/14/程序是怎样跑起来的/">程序是怎样跑起来的</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/14/程序是怎样跑起来的/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-
-
-<a href="/2018/07/14/程序是怎样跑起来的/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:45:16.000Z" itemprop="datePublished">2018-07-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="程序是怎样跑起来的"><a href="#程序是怎样跑起来的" class="headerlink" title="程序是怎样跑起来的"></a>程序是怎样跑起来的</h1><p>PS：超级感谢师兄把这本书借给我，因为我的硬件基础实在是太差，这本书让我对硬件、操作系统有了个基本的概念。</p>
-<p>这篇博就是记录读书笔记，有些章节我比较熟悉，就跳过了</p>
-        
-          <a class="article-more-a" href="/2018/07/14/程序是怎样跑起来的/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">硬件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/14/程序是怎样跑起来的/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-解决pip安装慢的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/28/解决pip安装慢的问题/">解决pip安装慢的问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/28/解决pip安装慢的问题/" class="archive-article-date">
-  	<time datetime="2018-06-28T11:33:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-
-
-<a href="/2018/06/28/解决pip安装慢的问题/" class="archive-article-date">
-  	<time datetime="2018-06-28T11:33:08.000Z" itemprop="datePublished">2018-06-28</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>完全转载该博主的原文： <a href="https://blog.csdn.net/furzoom/article/details/53897318" target="_blank" rel="noopener">https://blog.csdn.net/furzoom/article/details/53897318</a></p>
-<p>由于国外官方pypi经常被墙，导致不可用，所以需要将pip源更换一下，这样就能解决被墙导致的装不上库的烦恼。</p>
-
       
 
       
@@ -871,6 +514,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -879,7 +526,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/28/解决pip安装慢的问题/">展开 >></a>
+          <a class="article-more-a" href="/2018/08/02/TensorFlow（四）——RNN实现MNIST的分类/">展开 >></a>
         </p>
       
 
@@ -911,25 +558,25 @@
 
 
   
-    <article id="post-Deep-Learning-吴恩达-作业（七）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-NLP——word2vec" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/28/Deep-Learning-吴恩达-作业（七）/">Deep-Learning-吴恩达-作业（七）</a>
+      <a class="article-title" href="/2018/08/01/NLP——word2vec/">NLP——word2vec</a>
     </h1>
   
 
         
-        <a href="/2018/06/28/Deep-Learning-吴恩达-作业（七）/" class="archive-article-date">
-  	<time datetime="2018-06-28T02:17:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
+        <a href="/2018/08/01/NLP——word2vec/" class="archive-article-date">
+  	<time datetime="2018-08-01T02:44:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
 </a>
 
 
-<a href="/2018/06/28/Deep-Learning-吴恩达-作业（七）/" class="archive-article-date">
-  	<time datetime="2018-06-28T02:17:34.000Z" itemprop="datePublished">2018-06-28</time>
+<a href="/2018/08/01/NLP——word2vec/" class="archive-article-date">
+  	<time datetime="2018-08-01T02:44:45.000Z" itemprop="datePublished">2018-08-01</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -942,12 +589,11 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、对于训练集的处理"><a href="#一、对于训练集的处理" class="headerlink" title="一、对于训练集的处理"></a>一、对于训练集的处理</h2><h3 id="1-Mini-Batch"><a href="#1-Mini-Batch" class="headerlink" title="1.Mini-Batch"></a>1.Mini-Batch</h3><p>每次处理训练集的一部分进行梯度下降，避免了遍历完整个训练集才完成一次参数更新</p>
-<h3 id="2-Batch-Gradient-Descent"><a href="#2-Batch-Gradient-Descent" class="headerlink" title="2.Batch Gradient Descent"></a>2.Batch Gradient Descent</h3><p>每次处理完所有训练集进行梯度下降</p>
-<h3 id="3-Stochastic-Gradient-Descent"><a href="#3-Stochastic-Gradient-Descent" class="headerlink" title="3.Stochastic Gradient Descent"></a>3.Stochastic Gradient Descent</h3><p>每次处理完一个样本就进行梯度下降</p>
-<h2 id="二、反向传播加速梯度下降的过程"><a href="#二、反向传播加速梯度下降的过程" class="headerlink" title="二、反向传播加速梯度下降的过程"></a>二、反向传播加速梯度下降的过程</h2><h3 id="1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）"><a href="#1-Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）" class="headerlink" title="1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）"></a>1.Momentum：将前几次梯度下降的指数平均作为梯度值来更新参数（避免震荡）</h3><h3 id="2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快"><a href="#2-RMS-Prop：使波动大的维度参数更新慢，波动小的维度参数更新快" class="headerlink" title="2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快"></a>2.RMS Prop：使波动大的维度参数更新慢，波动小的维度参数更新快</h3><h3 id="3-Adam：将Momentum-和-RMS-Prop相结合"><a href="#3-Adam：将Momentum-和-RMS-Prop相结合" class="headerlink" title="3.Adam：将Momentum 和 RMS Prop相结合"></a>3.Adam：将Momentum 和 RMS Prop相结合</h3>
+        <p>PS：因为TensorFlow的官网教程里有，所以就顺带了解一下NLP，但不做编程训练，我还是要主攻图像</p>
+<p>这篇博文比较清楚得解释了word2vec模型是个什么 ：<a href="https://zhuanlan.zhihu.com/p/26306795" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26306795</a></p>
+<p><br></p>
         
-          <a class="article-more-a" href="/2018/06/28/Deep-Learning-吴恩达-作业（七）/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/01/NLP——word2vec/#more">more >></a>
         
       
 
@@ -965,7 +611,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
         		</li>
       		
 		</ul>
@@ -975,7 +621,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/28/Deep-Learning-吴恩达-作业（七）/">展开 >></a>
+          <a class="article-more-a" href="/2018/08/01/NLP——word2vec/">展开 >></a>
         </p>
       
 
@@ -1007,25 +653,25 @@
 
 
   
-    <article id="post-Deep-Learning-吴恩达-课程笔记大纲" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-TensorFlow（三）——两层CNN神经网络实现MNIST的分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/">Deep Learning 吴恩达 课程笔记大纲</a>
+      <a class="article-title" href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/">TensorFlow（三）——两层CNN神经网络实现MNIST的分类</a>
     </h1>
   
 
         
-        <a href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/" class="archive-article-date">
-  	<time datetime="2018-06-27T02:59:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-27</time>
+        <a href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-07-31T02:02:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
 </a>
 
 
-<a href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/" class="archive-article-date">
-  	<time datetime="2018-06-27T02:59:57.000Z" itemprop="datePublished">2018-06-27</time>
+<a href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-07-31T02:02:49.000Z" itemprop="datePublished">2018-07-31</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -1038,9 +684,410 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>PS：Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization和Neural Networks and Deep Learning 两门课的课程笔记大纲梳理，我用我觉得的理解进行归类，方面以后查找 ~</p>
+        <p><strong>两层CNN神经网络实现MNIST的分类</strong></p>
+<p>version 1：和之前的神经网络训练MNIST数据集实现分类，整体过程差不多，只不过将计算换成卷积</p>
+<p>version 2 ：相比 version 1多了 <strong>权重和卷积结果的图像可视化</strong></p>
+<p>整个网络框架：image —&gt;conv1(32 kernels) —&gt;max pool1 —&gt;conv2 (64 kernels) —&gt;max pool2 </p>
+<p>—&gt;fc1 —&gt;fc2 —&gt;classifier</p>
+<p><br></p>
         
-          <a class="article-more-a" href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/#more">more >></a>
+          <a class="article-more-a" href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-Ipython-与-Jupyter-Notebook" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/29/Ipython-与-Jupyter-Notebook/">Ipython 与 Jupyter Notebook</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/29/Ipython-与-Jupyter-Notebook/" class="archive-article-date">
+  	<time datetime="2018-07-29T11:19:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+</a>
+
+
+<a href="/2018/07/29/Ipython-与-Jupyter-Notebook/" class="archive-article-date">
+  	<time datetime="2018-07-29T11:19:01.000Z" itemprop="datePublished">2018-07-29</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：为了理解 Jupyter Notebook 所以展开来查了很多资料，也不知道自己的理解到底对不对</p>
+<p><a href="https://blog.windrunner.me/python/jupyter.html" target="_blank" rel="noopener">https://blog.windrunner.me/python/jupyter.html</a></p>
+<p><a href="http://smilejay.com/2012/10/interactive-shell-login-shell/" target="_blank" rel="noopener">http://smilejay.com/2012/10/interactive-shell-login-shell/</a></p>
+<p><a href="https://blog.csdn.net/wkw1125/article/details/53932945" target="_blank" rel="noopener">https://blog.csdn.net/wkw1125/article/details/53932945</a></p>
+<p><br></p>
+        
+          <a class="article-more-a" href="/2018/07/29/Ipython-与-Jupyter-Notebook/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/29/Ipython-与-Jupyter-Notebook/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="w-TensorFlow（二）——单层神经网络实现MNIST的分类" class="article article-type-w  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/">TensorFlow（二）——单层神经网络实现MNIST的分类</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-07-26T12:27:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+
+
+<a href="/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-07-26T12:27:03.000Z" itemprop="datePublished">2018-07-26</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：<a href="https://playground.tensorflow.org" target="_blank" rel="noopener">https://playground.tensorflow.org</a> 推荐一个很有意思的网站，够你玩一个下午的，并且能够帮助你更好理解什么是调参 ~</p>
+<p><br></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>MNIST 手写数字库</p>
+<p>单层神经网络实现MNIST的分类</p>
+<ul>
+<li>训练训练集</li>
+<li>测试测试集</li>
+</ul>
+<ul>
+<li>可视化  tensorboard<ul>
+<li>模型参数</li>
+<li>loss、accuracy</li>
+<li>网络流程图</li>
+</ul>
+</li>
+<li>参数的保存 Saver</li>
+<li>Timeline</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/26/TensorFlow（二）——单层神经网络实现MNIST的分类/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-TensorFlow（一）——两层神经网络预测线性回归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/TensorFlow（一）——两层神经网络预测线性回归/">TensorFlow（一）——两层神经网络预测线性回归</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/TensorFlow（一）——两层神经网络预测线性回归/" class="archive-article-date">
+  	<time datetime="2018-07-26T12:25:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+
+
+<a href="/2018/07/26/TensorFlow（一）——两层神经网络预测线性回归/" class="archive-article-date">
+  	<time datetime="2018-07-26T12:25:12.000Z" itemprop="datePublished">2018-07-26</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：两层的神经网络训练线性回归，代码参考了莫烦的，GitHub上有，然后又往里面加了关于Timeline的部分</p>
+        
+          <a class="article-more-a" href="/2018/07/26/TensorFlow（一）——两层神经网络预测线性回归/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/26/TensorFlow（一）——两层神经网络预测线性回归/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-cs231n笔记（二）——最优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/cs231n笔记（二）——最优化/">cs231n笔记（二）——最优化</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/cs231n笔记（二）——最优化/" class="archive-article-date">
+  	<time datetime="2018-07-26T12:23:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+
+
+<a href="/2018/07/26/cs231n笔记（二）——最优化/" class="archive-article-date">
+  	<time datetime="2018-07-26T12:23:52.000Z" itemprop="datePublished">2018-07-26</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>目录</strong></p>
+<p>1.解决分类的三步骤</p>
+<p>2.最优化</p>
+<p>3.梯度计算</p>
+        
+          <a class="article-more-a" href="/2018/07/26/cs231n笔记（二）——最优化/#more">more >></a>
         
       
 
@@ -1056,6 +1103,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1064,7 +1115,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/27/Deep-Learning-吴恩达-课程笔记大纲/">展开 >></a>
+          <a class="article-more-a" href="/2018/07/26/cs231n笔记（二）——最优化/">展开 >></a>
         </p>
       
 
@@ -1098,7 +1149,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1200,10 +1251,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
@@ -1216,7 +1263,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,7 +1275,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,11 +1303,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1272,11 +1323,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>
