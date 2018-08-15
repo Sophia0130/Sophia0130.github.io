@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>opencv（四）——AdaBoost | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Haar、LBP HAAR特征是浮点数计算，LBP特征是整数计算； LBP训练需要的样本数量比HAAR大  LBP的速度一般比HAAR快  同样的样本HAAR训练出来的检测结果要比LBP准确 扩大LBP的样本数据可达到HAAR的训练效果   二、级联分类器https://zhuanlan.zhihu.com/p/35058334  级联分类器结构：弱分类器线性组合成为强分类器，强分类器用决策树">
+  <meta name="description" content="一、Haar、LBP HAAR特征是浮点数计算，LBP特征是整数计算； LBP训练需要的样本数量比HAAR大  LBP的速度一般比HAAR快  同样的样本HAAR训练出来的检测结果要比LBP准确 扩大LBP的样本数据可达到HAAR的训练效果   二、级联分类器https://zhuanlan.zhihu.com/p/35058334  级联分类器结构：弱分类器线性组合成为强分类器，强分类器用决策">
 <meta name="keywords" content="opencv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opencv（四）——AdaBoost">
 <meta property="og:url" content="http://yoursite.com/2018/08/14/opencv（四）——AdaBoost/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一、Haar、LBP HAAR特征是浮点数计算，LBP特征是整数计算； LBP训练需要的样本数量比HAAR大  LBP的速度一般比HAAR快  同样的样本HAAR训练出来的检测结果要比LBP准确 扩大LBP的样本数据可达到HAAR的训练效果   二、级联分类器https://zhuanlan.zhihu.com/p/35058334  级联分类器结构：弱分类器线性组合成为强分类器，强分类器用决策树">
+<meta property="og:description" content="一、Haar、LBP HAAR特征是浮点数计算，LBP特征是整数计算； LBP训练需要的样本数量比HAAR大  LBP的速度一般比HAAR快  同样的样本HAAR训练出来的检测结果要比LBP准确 扩大LBP的样本数据可达到HAAR的训练效果   二、级联分类器https://zhuanlan.zhihu.com/p/35058334  级联分类器结构：弱分类器线性组合成为强分类器，强分类器用决策">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/xml1.JPG">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/opencv%E8%87%AA%E5%B8%A6%E7%9A%84xml.JPG">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/traincascade3.JPG">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/traincascade1.JPG">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/traincascade2.JPG">
-<meta property="og:updated_time" content="2018-08-14T13:34:12.659Z">
+<meta property="og:updated_time" content="2018-08-15T01:45:06.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="opencv（四）——AdaBoost">
-<meta name="twitter:description" content="一、Haar、LBP HAAR特征是浮点数计算，LBP特征是整数计算； LBP训练需要的样本数量比HAAR大  LBP的速度一般比HAAR快  同样的样本HAAR训练出来的检测结果要比LBP准确 扩大LBP的样本数据可达到HAAR的训练效果   二、级联分类器https://zhuanlan.zhihu.com/p/35058334  级联分类器结构：弱分类器线性组合成为强分类器，强分类器用决策树">
+<meta name="twitter:description" content="一、Haar、LBP HAAR特征是浮点数计算，LBP特征是整数计算； LBP训练需要的样本数量比HAAR大  LBP的速度一般比HAAR快  同样的样本HAAR训练出来的检测结果要比LBP准确 扩大LBP的样本数据可达到HAAR的训练效果   二、级联分类器https://zhuanlan.zhihu.com/p/35058334  级联分类器结构：弱分类器线性组合成为强分类器，强分类器用决策">
 <meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/xml1.JPG">
   
   
@@ -199,7 +199,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、Haar、LBP"><a href="#一、Haar、LBP" class="headerlink" title="一、Haar、LBP"></a>一、Haar、LBP</h2><ol>
+        <a id="more"></a>
+<h2 id="一、Haar、LBP"><a href="#一、Haar、LBP" class="headerlink" title="一、Haar、LBP"></a>一、Haar、LBP</h2><ol>
 <li>HAAR特征是浮点数计算，LBP特征是整数计算；</li>
 <li>LBP训练需要的样本数量比HAAR大 </li>
 <li>LBP的速度一般比HAAR快 </li>
@@ -243,7 +244,8 @@
 <li>进入下一个stage训练</li>
 </ol>
 <p><br></p>
-<h2 id="五、opencv-提供的模型和工具"><a href="#五、opencv-提供的模型和工具" class="headerlink" title="五、opencv 提供的模型和工具"></a>五、opencv 提供的模型和工具</h2><p>1.opencv 自带的检测模型</p>
+<h2 id="五、opencv-提供的模型和工具"><a href="#五、opencv-提供的模型和工具" class="headerlink" title="五、opencv 提供的模型和工具"></a>五、opencv 提供的模型和工具</h2><p>应用放的位置  <strong>D:\program\opencv3.0.0\opencv\build\x64\vc12\bin</strong></p>
+<p>1.opencv 自带的检测模型</p>
 <p><img src="http://p8ge6t5tt.bkt.clouddn.com/opencv%E8%87%AA%E5%B8%A6%E7%9A%84xml.JPG" alt="img"></p>
 <p>2.opencv 自带的AdaBoost分类器</p>
 <p><img src="http://p8ge6t5tt.bkt.clouddn.com/opencvtrain.JPG" alt="img"></p>
@@ -391,6 +393,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/08/15/opencv（五）——图像读取/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          opencv（五）——图像读取
+        
+      </div>
+    </a>
   
   
     <a href="/2018/08/14/opencv（三）——绘图/" id="article-nav-older" class="article-nav-link-wrap">
@@ -542,11 +553,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,14 +618,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">硬件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
               </li>
              
               <li class="article-tag-list-item">

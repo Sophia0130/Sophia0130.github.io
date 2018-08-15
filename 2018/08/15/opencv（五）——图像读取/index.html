@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: python | 绿小蕤</title>
+  <title>opencv（五）——图像读取 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
-<meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/tags/python/page/2/index.html">
+  <meta name="description" content="扫描、读取图像的四种方法1.C operator [] 指针 2.iterator 迭代法 用迭代器遍历 [推荐使用] 3.on-the-fly address generation  .at()函数 4.LUT function [推荐使用]">
+<meta name="keywords" content="opencv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="opencv（五）——图像读取">
+<meta property="og:url" content="http://yoursite.com/2018/08/15/opencv（五）——图像读取/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="扫描、读取图像的四种方法1.C operator [] 指针 2.iterator 迭代法 用迭代器遍历 [推荐使用] 3.on-the-fly address generation  .at()函数 4.LUT function [推荐使用]">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-15T01:51:30.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="opencv（五）——图像读取">
+<meta name="twitter:description" content="扫描、读取图像的四种方法1.C operator [] 指针 2.iterator 迭代法 用迭代器遍历 [推荐使用] 3.on-the-fly address generation  .at()函数 4.LUT function [推荐使用]">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,426 +161,195 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-opencv（五）——图像读取" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      opencv（五）——图像读取
+    </h1>
+  
+
+        
+        <a href="/2018/08/15/opencv（五）——图像读取/" class="archive-article-date">
+  	<time datetime="2018-08-15T01:47:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
+</a>
+
+
+<a href="/2018/08/15/opencv（五）——图像读取/" class="archive-article-date">
+  	<time datetime="2018-08-15T01:47:54.000Z" itemprop="datePublished">2018-08-15</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
     
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="扫描、读取图像的四种方法"><a href="#扫描、读取图像的四种方法" class="headerlink" title="扫描、读取图像的四种方法"></a>扫描、读取图像的四种方法</h2><p>1.C operator [] 指针</p>
+<p>2.iterator 迭代法 用迭代器遍历 [推荐使用]</p>
+<p>3.on-the-fly address generation  .at()函数</p>
+<p>4.LUT function [推荐使用]</p>
+<a id="more"></a>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//扫描图像的四种方法的比较</span></span><br><span class="line"><span class="comment">//输入的三个参数  imageName.jpg  divideWith  intValueToReduce [G](可省略)</span></span><br><span class="line"><span class="comment">//项目属性需要更改：项目属性 -&gt; 配置属性 -&gt; C/C++ -&gt; 代码生成 -&gt; 运行库</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/core.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/core/utility.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"opencv2/imgcodecs.hpp"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/highgui.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">help</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span></span><br><span class="line">		&lt;&lt; <span class="string">"\n--------------------------------------------------------------------------"</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">		&lt;&lt; <span class="string">"This program shows how to scan image objects in OpenCV (cv::Mat)."</span></span><br><span class="line">		&lt;&lt; <span class="string">" we take an input image and divide the native color palette (255) with the input. "</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">		&lt;&lt; <span class="string">"Shows C operator[] method, iterators and at function for on-the-fly item address calculation."</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">		&lt;&lt; <span class="string">"./输入三个参数 &lt;imageNameToUse&gt; &lt;divideWith&gt; &lt;G&gt;(可省略)"</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">		&lt;&lt; <span class="string">"if you add a G parameter the image is processed in gray scale"</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">		&lt;&lt; <span class="string">"--------------------------------------------------------------------------"</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">		&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Mat&amp; <span class="title">ScanImageAndReduceC</span><span class="params">(Mat&amp; I, <span class="keyword">const</span> uchar* table)</span></span>;</span><br><span class="line"><span class="function">Mat&amp; <span class="title">ScanImageAndReduceIterator</span><span class="params">(Mat&amp; I, <span class="keyword">const</span> uchar* table)</span></span>;</span><br><span class="line"><span class="function">Mat&amp; <span class="title">ScanImageAndReduceRandomAccess</span><span class="params">(Mat&amp; I, <span class="keyword">const</span> uchar * table)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	help();</span><br><span class="line">	<span class="keyword">if</span> (argc &lt; <span class="number">3</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Not enough parameters"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Mat I, J;</span><br><span class="line">	<span class="keyword">if</span> (argc == <span class="number">4</span> &amp;&amp; !<span class="built_in">strcmp</span>(argv[<span class="number">3</span>], <span class="string">"G"</span>))</span><br><span class="line">		I = imread(argv[<span class="number">1</span>], IMREAD_GRAYSCALE);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		I = imread(argv[<span class="number">1</span>], IMREAD_COLOR);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (I.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"The image"</span> &lt;&lt; argv[<span class="number">1</span>] &lt;&lt; <span class="string">" could not be loaded."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//用命令行参数argv[2]给出的整数进行颜色缩减</span></span><br><span class="line">	<span class="keyword">int</span> divideWith = <span class="number">0</span>; <span class="comment">// convert our input string to number - C++ style</span></span><br><span class="line">	<span class="built_in">stringstream</span> s;</span><br><span class="line">	s &lt;&lt; argv[<span class="number">2</span>];</span><br><span class="line">	s &gt;&gt; divideWith;</span><br><span class="line">	<span class="keyword">if</span> (!s || !divideWith)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Invalid number entered for dividing. "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//查找表</span></span><br><span class="line">	uchar table[<span class="number">256</span>]; <span class="comment">//查找表</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">256</span>; ++i)</span><br><span class="line">		table[i] = (uchar)(divideWith * (i / divideWith));</span><br><span class="line">	<span class="comment">//divideWith=10时，0到9取为0，10到19取为10</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 运行时间-单位毫秒</span></span><br><span class="line">	<span class="comment">// getTickCount() 返回CPU自某个事件以来走过的时钟周期数</span></span><br><span class="line">	<span class="comment">// getTickFrequency()  返回CPU一秒钟所走的时钟周期数</span></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> times = <span class="number">100</span>;</span><br><span class="line">	<span class="keyword">double</span> t;</span><br><span class="line"><span class="comment">//方法1</span></span><br><span class="line">	t = (<span class="keyword">double</span>)getTickCount();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		cv::Mat clone_i = I.clone();</span><br><span class="line">		J = ScanImageAndReduceC(clone_i, table);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	t = <span class="number">1000</span> * ((<span class="keyword">double</span>)getTickCount() - t) / getTickFrequency();</span><br><span class="line">	t /= times;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Time of reducing with the C operator [] (averaged for "</span></span><br><span class="line">		&lt;&lt; times &lt;&lt; <span class="string">" runs): "</span> &lt;&lt; t &lt;&lt; <span class="string">" milliseconds."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//方法1</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">//方法2</span></span><br><span class="line">	t = (<span class="keyword">double</span>)getTickCount();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		cv::Mat clone_i = I.clone();</span><br><span class="line">		J = ScanImageAndReduceIterator(clone_i, table);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	t = <span class="number">1000</span> * ((<span class="keyword">double</span>)getTickCount() - t) / getTickFrequency();</span><br><span class="line">	t /= times;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Time of reducing with the iterator (averaged for "</span></span><br><span class="line">		&lt;&lt; times &lt;&lt; <span class="string">" runs): "</span> &lt;&lt; t &lt;&lt; <span class="string">" milliseconds."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//方法2</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">//方法3</span></span><br><span class="line">	t = (<span class="keyword">double</span>)getTickCount();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		cv::Mat clone_i = I.clone();</span><br><span class="line">		ScanImageAndReduceRandomAccess(clone_i, table);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	t = <span class="number">1000</span> * ((<span class="keyword">double</span>)getTickCount() - t) / getTickFrequency();</span><br><span class="line">	t /= times;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Time of reducing with the on-the-fly address generation - at function (averaged for "</span></span><br><span class="line">		&lt;&lt; times &lt;&lt; <span class="string">" runs): "</span> &lt;&lt; t &lt;&lt; <span class="string">" milliseconds."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//方法3</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">//方法4</span></span><br><span class="line"><span class="comment">//最被推荐的用于实现批量图像元素查找和更该操作图像方法，在图像处理中，对于一个给定的值，将其替换成其他的值是一个很常见的操作</span></span><br><span class="line">	<span class="function">Mat <span class="title">lookUpTable</span><span class="params">(<span class="number">1</span>, <span class="number">256</span>, CV_8U)</span></span>;</span><br><span class="line">	uchar* p = lookUpTable.ptr();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">256</span>; ++i)</span><br><span class="line">		p[i] = table[i]; <span class="comment">//table数组的值赋给lookUpTable Mat</span></span><br><span class="line">	<span class="comment">//! [table-init]</span></span><br><span class="line"></span><br><span class="line">	t = (<span class="keyword">double</span>)getTickCount();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; ++i)</span><br><span class="line">		<span class="comment">//! [table-use]</span></span><br><span class="line">		LUT(I, lookUpTable, J);</span><br><span class="line">	<span class="comment">//! [table-use]</span></span><br><span class="line"></span><br><span class="line">	t = <span class="number">1000</span> * ((<span class="keyword">double</span>)getTickCount() - t) / getTickFrequency();</span><br><span class="line">	t /= times;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Time of reducing with the LUT function (averaged for "</span></span><br><span class="line">		&lt;&lt; times &lt;&lt; <span class="string">" runs): "</span> &lt;&lt; t &lt;&lt; <span class="string">" milliseconds."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> <span class="comment">//方法4</span></span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//! [scan-c] c语言风格，用指针</span></span><br><span class="line"><span class="function">Mat&amp; <span class="title">ScanImageAndReduceC</span><span class="params">(Mat&amp; I, <span class="keyword">const</span> uchar* <span class="keyword">const</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// accept only char type matrices</span></span><br><span class="line">	CV_Assert(I.depth() == CV_8U); <span class="comment">//CV_Assert()若括号中的表达式值为false，则返回一个错误信息</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> channels = I.channels();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> nRows = I.rows;</span><br><span class="line">	<span class="keyword">int</span> nCols = I.cols * channels;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (I.isContinuous()) <span class="comment">//判断图像在内存中是否连续存储</span></span><br><span class="line">	&#123;</span><br><span class="line">		nCols *= nRows;   <span class="comment">//若图像连续存储将图像作为一维数组</span></span><br><span class="line">		nRows = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//若图像连续存储，则可以将图像的数据看成是一个一维数组</span></span><br><span class="line">	<span class="comment">//p（uchar*）就是指向图像数据的第一个字节的，因此可以用data指针访问图像的数据,从而加速Mat图像的访问速度</span></span><br><span class="line">	<span class="comment">//一般经过裁剪的Mat图像，都不再连续了</span></span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">	uchar* p;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; nRows; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		p = I.ptr&lt;uchar&gt;(i);</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; nCols; ++j)</span><br><span class="line">		&#123;</span><br><span class="line">			p[j] = table[p[j]];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> I;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//! [scan-c]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//迭代法</span></span><br><span class="line"><span class="comment">//! [scan-iterator] 获得图像矩阵的begin和end</span></span><br><span class="line"><span class="function">Mat&amp; <span class="title">ScanImageAndReduceIterator</span><span class="params">(Mat&amp; I, <span class="keyword">const</span> uchar* <span class="keyword">const</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// accept only char type matrices</span></span><br><span class="line">	CV_Assert(I.depth() == CV_8U);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> channels = I.channels();</span><br><span class="line">	<span class="keyword">switch</span> (channels)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">	&#123;</span><br><span class="line">			  MatIterator_&lt;uchar&gt; it, end;</span><br><span class="line">			  <span class="keyword">for</span> (it = I.begin&lt;uchar&gt;(), end = I.end&lt;uchar&gt;(); it != end; ++it)</span><br><span class="line">				  *it = table[*it];</span><br><span class="line">			  <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">	&#123;</span><br><span class="line">			  MatIterator_&lt;Vec3b&gt; it, end;</span><br><span class="line">			  <span class="keyword">for</span> (it = I.begin&lt;Vec3b&gt;(), end = I.end&lt;Vec3b&gt;(); it != end; ++it)</span><br><span class="line">			  &#123;</span><br><span class="line">				  (*it)[<span class="number">0</span>] = table[(*it)[<span class="number">0</span>]];</span><br><span class="line">				  (*it)[<span class="number">1</span>] = table[(*it)[<span class="number">1</span>]];</span><br><span class="line">				  (*it)[<span class="number">2</span>] = table[(*it)[<span class="number">2</span>]];</span><br><span class="line">			  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> I;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//! [scan-iterator]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// On-the-fly 地址计算</span></span><br><span class="line"><span class="comment">//! [scan-random] 这个方法并不推荐被用来进行图像扫描，需要知道元素的所在行数与列数还有数据类型</span></span><br><span class="line"><span class="function">Mat&amp; <span class="title">ScanImageAndReduceRandomAccess</span><span class="params">(Mat&amp; I, <span class="keyword">const</span> uchar* <span class="keyword">const</span> table)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// accept only char type matrices</span></span><br><span class="line">	CV_Assert(I.depth() == CV_8U);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> channels = I.channels();</span><br><span class="line">	<span class="keyword">switch</span> (channels)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">	&#123;</span><br><span class="line">			  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; I.rows; ++i)</span><br><span class="line">			  <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; I.cols; ++j)</span><br><span class="line">				  I.at&lt;uchar&gt;(i, j) = table[I.at&lt;uchar&gt;(i, j)];</span><br><span class="line">			  <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">	&#123;</span><br><span class="line">			  Mat_&lt;Vec3b&gt; _I = I;</span><br><span class="line"></span><br><span class="line">			  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; I.rows; ++i)</span><br><span class="line">			  <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; I.cols; ++j)</span><br><span class="line">			  &#123;</span><br><span class="line">				  _I(i, j)[<span class="number">0</span>] = table[_I(i, j)[<span class="number">0</span>]];</span><br><span class="line">				  _I(i, j)[<span class="number">1</span>] = table[_I(i, j)[<span class="number">1</span>]];</span><br><span class="line">				  _I(i, j)[<span class="number">2</span>] = table[_I(i, j)[<span class="number">2</span>]];</span><br><span class="line">			  &#125;</span><br><span class="line">			  I = _I;</span><br><span class="line">			  <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> I;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果比较"><a href="#结果比较" class="headerlink" title="结果比较"></a>结果比较</h2><p>不同的图片几种方法得到的执行时间差很大：                                        </p>
+<ol>
+<li><strong>尽量使用 OpenCV 内置函数</strong>，调用LUT 函数可以获得最快的速度，这是因为OpenCV库可以通过英特尔线程架构启用多线程。                                                    </li>
+<li>指针法也很快，但是前提是<strong>指针连续</strong>。                                        </li>
+<li>.at()函数方法并不推荐被用来进行图像扫描。</li>
+</ol>
+<p><br></p>
+<h2 id="程序解读"><a href="#程序解读" class="headerlink" title="程序解读"></a>程序解读</h2><h3 id="1-计算运算时间的方法"><a href="#1-计算运算时间的方法" class="headerlink" title="1.计算运算时间的方法"></a>1.计算运算时间的方法</h3><p>getTickCount() 返回CPU自某个事件以来走过的时钟周期数<br>getTickFrequency()  返回CPU一秒钟所走的时钟周期数</p>
+<p><br></p>
+<h3 id="2-查找表缩短颜色空间"><a href="#2-查找表缩短颜色空间" class="headerlink" title="2.查找表缩短颜色空间"></a>2.查找表缩短颜色空间</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uchar table[<span class="number">256</span>]; </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">256</span>; ++i)</span><br><span class="line">       table[i] = divideWith* (i/divideWith); <span class="comment">//当divideWith=10时，0到9取为0，10到19取为10</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/" class="archive-article-date">
-  	<time datetime="2018-06-25T09:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-
-
-<a href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/" class="archive-article-date">
-  	<time datetime="2018-06-25T09:37:43.000Z" itemprop="datePublished">2018-06-25</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/">Deep-Learning-吴恩达-作业（五）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/" class="archive-article-date">
-  	<time datetime="2018-06-25T08:24:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
+      
 
-
-<a href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/" class="archive-article-date">
-  	<time datetime="2018-06-25T08:24:17.000Z" itemprop="datePublished">2018-06-25</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/">Deep-Learning-吴恩达-作业——关于plot_decision_boundary()函数的理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/24/Deep-Learning-吴恩达-作业（四）/" class="archive-article-date">
-  	<time datetime="2018-06-24T07:46:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-24</time>
-</a>
-
-
-<a href="/2018/06/24/Deep-Learning-吴恩达-作业（四）/" class="archive-article-date">
-  	<time datetime="2018-06-24T07:46:03.000Z" itemprop="datePublished">2018-06-24</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      </div>
     </span>
-</a>
+  </div>
+</div>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/24/Deep-Learning-吴恩达-作业（四）/">Deep-Learning-吴恩达-作业（四）</a>
-    </h1>
-  
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/15/opencv（五）——图像读取/" alt="微信分享二维码">
+    </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/20/Deep-Learning-吴恩达-作业（三）/" class="archive-article-date">
-  	<time datetime="2018-06-20T12:54:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/08/15/opencv（六）——图像坐标系和宽高/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          opencv（六）——图像坐标系和宽高
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/14/opencv（四）——AdaBoost/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">opencv（四）——AdaBoost</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-<a href="/2018/06/20/Deep-Learning-吴恩达-作业（三）/" class="archive-article-date">
-  	<time datetime="2018-06-20T12:54:48.000Z" itemprop="datePublished">2018-06-20</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/20/Deep-Learning-吴恩达-作业（三）/">Deep-Learning-吴恩达-作业（三）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#扫描、读取图像的四种方法"><span class="toc-number">1.</span> <span class="toc-text">扫描、读取图像的四种方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结果比较"><span class="toc-number">2.</span> <span class="toc-text">结果比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序解读"><span class="toc-number">3.</span> <span class="toc-text">程序解读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-计算运算时间的方法"><span class="toc-number">3.1.</span> <span class="toc-text">1.计算运算时间的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查找表缩短颜色空间"><span class="toc-number">3.2.</span> <span class="toc-text">2.查找表缩短颜色空间</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/20/Deep-Learning-吴恩达-作业（二）/" class="archive-article-date">
-  	<time datetime="2018-06-20T12:01:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
-</a>
+        
+    </div>
+</aside>
 
 
-<a href="/2018/06/20/Deep-Learning-吴恩达-作业（二）/" class="archive-article-date">
-  	<time datetime="2018-06-20T12:01:53.000Z" itemprop="datePublished">2018-06-20</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/20/Deep-Learning-吴恩达-作业（二）/">Deep Learning 吴恩达 作业（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-new">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/15/Deep-Learning-吴恩达-作业（一）/" class="archive-article-date">
-  	<time datetime="2018-06-15T06:11:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-15</time>
-</a>
-
-
-<a href="/2018/06/15/Deep-Learning-吴恩达-作业（一）/" class="archive-article-date">
-  	<time datetime="2018-06-15T06:11:03.000Z" itemprop="datePublished">2018-06-15</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/15/Deep-Learning-吴恩达-作业（一）/">Deep Learning 吴恩达 作业（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/13/anaconda，conda，pip的关系/" class="archive-article-date">
-  	<time datetime="2018-06-13T01:31:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
-</a>
-
-
-<a href="/2018/06/13/anaconda，conda，pip的关系/" class="archive-article-date">
-  	<time datetime="2018-06-13T01:31:32.000Z" itemprop="datePublished">2018-06-13</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/13/anaconda，conda，pip的关系/">anaconda，conda，pip的关系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/09/python入门编程/" class="archive-article-date">
-  	<time datetime="2018-05-09T09:19:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
-</a>
-
-
-<a href="/2018/05/09/python入门编程/" class="archive-article-date">
-  	<time datetime="2018-05-09T09:19:06.000Z" itemprop="datePublished">2018-05-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/09/python入门编程/">python入门编程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/python/">&laquo; Prev</a><a class="page-number" href="/tags/python/">1</a><span class="page-number current">2</span>
-    </nav>
   
+
+  
+
+  
+
+
 
 
           </div>
@@ -613,9 +383,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-01T09:07:33.373Z">
+<meta property="og:updated_time" content="2018-08-15T02:16:54.857Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 学习">
 <meta name="twitter:description" content="PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数">
@@ -194,6 +194,7 @@
       
         <p>PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数</p>
 <a id="more"></a>
+<p><br></p>
 <h2 id="1-Git-版本控制系统"><a href="#1-Git-版本控制系统" class="headerlink" title="1. Git 版本控制系统"></a>1. Git 版本控制系统</h2><ul>
 <li>集中式的版本控制系统：CVS及SVN                                                                                                                                            版本库是集中存放在中央服务器的，，要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。最大缺点就是必须联网才能工作。</li>
 </ul>
@@ -208,6 +209,7 @@
 </ul>
 <p>文本文件编码基于字符定长，译码容易些；二进制文件编码变长，存储利用率要高，译码难一些</p>
 <p>PS：Git 查看和修改用户名和邮箱 <a href="https://www.jianshu.com/p/d24e791a7679" target="_blank" rel="noopener">https://www.jianshu.com/p/d24e791a7679</a></p>
+<p><br></p>
 <h2 id="2-Git仓库修改版本"><a href="#2-Git仓库修改版本" class="headerlink" title="2. Git仓库修改版本"></a>2. Git仓库修改版本</h2><h3 id="1-工作区"><a href="#1-工作区" class="headerlink" title="1) 工作区"></a>1) 工作区</h3><p>看的见的文件目录，放自己的文件</p>
 <h3 id="2-版本库或仓库-repository"><a href="#2-版本库或仓库-repository" class="headerlink" title="2) 版本库或仓库 (repository)"></a>2) 版本库或仓库 (repository)</h3><p>理解成一个目录，这个目录里每个文件的修改、删除，Git都能跟踪   <u>！划重点！</u>  <strong>Git管理的是修改不是文件</strong></p>
 <h3 id="3-添加文件到仓库的具体步骤"><a href="#3-添加文件到仓库的具体步骤" class="headerlink" title="3) 添加文件到仓库的具体步骤"></a>3) 添加文件到仓库的具体步骤</h3><p>1.创建空的仓库                                                                                                                                                        2.在工作区目录下新建文件      <code>touch create_repository.txt</code>                                                                                                                        3.将这个文件添加到<strong>暂存区</strong>     <code>git add create_repository.txt</code>                                                            4.将<strong>暂存区所有内容提交到当前分支 master</strong>  <code>git commit -m &quot;本次提交说明&quot;</code>  commit就是保存一个文件快照</p>
@@ -234,6 +236,7 @@
 <li>要本地作了提交，通过 <code>git push origin master</code>  把本地master分支的最新修改推送至GitHub</li>
 </ul>
 <p>2) 从远程仓库克隆</p>
+<p><br></p>
 <h2 id="4-分支管理"><a href="#4-分支管理" class="headerlink" title="4. 分支管理"></a>4. 分支管理</h2><p>PS：这部分内容画 branch 分支图比较好理解</p>
 <ul>
 <li><p>创建一个分支，即增加一个分支的指针，并将Head指向该分支</p>
@@ -262,12 +265,14 @@
 <p>合并某分支到当前分支：<code>git merge</code></p>
 <p>删除分支：<code>git branch -d</code></p>
 <p>PS：后面还有很多分支管理的内容，但是我觉得我够用了，就不看了，别骂我懒 ~</p>
+<p><br></p>
 <h2 id="5-标签管理"><a href="#5-标签管理" class="headerlink" title="5. 标签管理"></a>5. 标签管理</h2><p>由于版本号那串东西太复杂了，所以打标签可以更容易区分，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。</p>
 <p>切换到需要打标签的分支上</p>
 <p><code>git tag v0.0</code>用于新建一个标签</p>
 <p><code>git tag -a  -m &quot;xxx&quot;</code>可以指定标签信息</p>
 <p><code>git tag</code>查看所有标签</p>
 <p>PS：后面还有操作标签的内容，我也懒得看了 ~</p>
+<p><br></p>
 <h2 id="6-搭建Git服务器"><a href="#6-搭建Git服务器" class="headerlink" title="6. 搭建Git服务器"></a>6. 搭建Git服务器</h2><p>搭建Git服务器需要准备一台运行Linux的机器，需要管理每个人的公钥和控制权限 </p>
 <p> 现在也用不到啊</p>
 
@@ -512,11 +517,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,14 +582,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">硬件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPU</a>
               </li>
              
               <li class="article-tag-list-item">
