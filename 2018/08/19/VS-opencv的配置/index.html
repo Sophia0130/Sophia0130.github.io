@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>VS+opencv的配置 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 VS .sln：解决方案文件  一个解决方案里面可以包含多个工程  .vcproj：工程文件  只打开vcproj文件编译不了，可能是因为这个工程里面用到了同一个解决">
+  <meta name="description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~  想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样">
 <meta name="keywords" content="装软件,编译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VS+opencv的配置">
 <meta property="og:url" content="http://yoursite.com/2018/08/19/VS-opencv的配置/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 VS .sln：解决方案文件  一个解决方案里面可以包含多个工程  .vcproj：工程文件  只打开vcproj文件编译不了，可能是因为这个工程里面用到了同一个解决">
+<meta property="og:description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~  想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-19T05:57:29.977Z">
+<meta property="og:updated_time" content="2018-08-19T06:26:18.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS+opencv的配置">
-<meta name="twitter:description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 VS .sln：解决方案文件  一个解决方案里面可以包含多个工程  .vcproj：工程文件  只打开vcproj文件编译不了，可能是因为这个工程里面用到了同一个解决">
+<meta name="twitter:description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~  想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -194,7 +194,11 @@
       
         <p><a href="https://blog.csdn.net/u013634684/article/details/48289449" target="_blank" rel="noopener">https://blog.csdn.net/u013634684/article/details/48289449</a></p>
 <p><a href="https://blog.csdn.net/woainishifu/article/details/53507723" target="_blank" rel="noopener">https://blog.csdn.net/woainishifu/article/details/53507723</a></p>
-<h2 id="VS"><a href="#VS" class="headerlink" title="VS"></a>VS</h2><ul>
+<p>PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~ </p>
+<p>想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样有了更深入的理解</p>
+<a id="more"></a>
+<p><br></p>
+<h2 id="一、VS"><a href="#一、VS" class="headerlink" title="一、VS"></a>一、VS</h2><ul>
 <li><strong>.sln：解决方案文件</strong></li>
 </ul>
 <p>一个解决方案里面可以包含多个工程</p>
@@ -202,6 +206,42 @@
 <li><strong>.vcproj：工程文件</strong></li>
 </ul>
 <p>只打开vcproj文件编译不了，可能是因为这个工程里面用到了同一个解决方案中其它工程</p>
+<p><br></p>
+<h2 id="二、Debug和Relesse版本"><a href="#二、Debug和Relesse版本" class="headerlink" title="二、Debug和Relesse版本"></a>二、Debug和Relesse版本</h2><h3 id="1-Debug"><a href="#1-Debug" class="headerlink" title="1. Debug"></a>1. Debug</h3><p>调试版本，包含调试信息，除了.exe 和 .dll 文件外，还包括了.pdb文件记录代码断点等调试信息</p>
+<p>使用调试版本运行时刻的函数库</p>
+<h3 id="2-Release"><a href="#2-Release" class="headerlink" title="2.Release"></a>2.Release</h3><p>发布版本，不进行调试，编译时对速度进行优化</p>
+<p>使用发布版本运行时刻的函数库</p>
+<p><br></p>
+<h2 id="三、运行时库"><a href="#三、运行时库" class="headerlink" title="三、运行时库"></a>三、运行时库</h2><h3 id="1-运行时库"><a href="#1-运行时库" class="headerlink" title="1. 运行时库"></a>1. 运行时库</h3><p> Runtime Library 就是运行时库，也简称 CRT（C Run Time Library），是程序在运行时所需要的库文件，通常运行时库是以 lib 或 dll 形式提供的</p>
+<p>运行时库指的就是对这些底层的基础功能实现的动态库（dll），只有程序用到了它才会被加载，没有程序使用的时候不会驻留内存的</p>
+<p>虽然运行时库应该是动态库，但 <strong>习惯上把与动态运行时库相同代码编译出来的静态库也称为运行时库</strong></p>
+<h3 id="2-设置"><a href="#2-设置" class="headerlink" title="2. 设置"></a>2. 设置</h3><p>Properties-&gt;Configuration Properties-&gt;C/C++-&gt;Code Generation-&gt;Runtime Library 中设置采用的运行时库的类型</p>
+<p><br></p>
+<h3 id="3-CRT的类型"><a href="#3-CRT的类型" class="headerlink" title="3. CRT的类型"></a>3. CRT的类型</h3><ul>
+<li>MT：Release版的多线程静态库</li>
+<li>MTd： Debug版的多线程静态库</li>
+<li>DLL/MD：Release版的多线程动态库</li>
+<li>DLL/MDd：Debug版的多线程动态库</li>
+</ul>
+<p><br></p>
+<h2 id="四、opencv"><a href="#四、opencv" class="headerlink" title="四、opencv"></a>四、opencv</h2><p><strong>1.vc10, vc11, vc12</strong> </p>
+<p>vc10, vc11, vc12 分别表示VS2010, VS2012, VS2013的Visual Studio使用的<strong>编译器版本</strong></p>
+<p><strong>2.x86, x64</strong></p>
+<p>不同的指令集架构：</p>
+<ul>
+<li>x86  支持32位的intel/AMD/VIA的CPU，并向下兼容16位  32位系统</li>
+<li>x64 支持32位和64位的intel/AMD CPU，指令集与x86兼容，并向下兼容16位、64位系统</li>
+</ul>
+<p><strong>3.配置第三方库</strong></p>
+<p>（1）头文件：一般放在include路径下</p>
+<p>h文件是<strong>头文件</strong>，需要通过#include这种方式引用的，所以对应的是包含目录</p>
+<p>（2）dll文件：一般放在bin 路径下</p>
+<p><strong>dll文件是可执行文件</strong>，所以对应的是可执行文件目录</p>
+<p>（3）lib文件：一般放在lib路径下</p>
+<p><strong>lib文件是库文件</strong>，所以对应的是库目录</p>
+<p><br></p>
+<p>关于静态链接和动态链接：</p>
+<p><a href="https://sophia0130.github.io/2018/08/19/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/08/19/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5/</a></p>
 
       
 
@@ -318,7 +358,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VS"><span class="toc-number">1.</span> <span class="toc-text">VS</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、VS"><span class="toc-number">1.</span> <span class="toc-text">一、VS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Debug和Relesse版本"><span class="toc-number">2.</span> <span class="toc-text">二、Debug和Relesse版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Debug"><span class="toc-number">2.1.</span> <span class="toc-text">1. Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Release"><span class="toc-number">2.2.</span> <span class="toc-text">2.Release</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、运行时库"><span class="toc-number">3.</span> <span class="toc-text">三、运行时库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-运行时库"><span class="toc-number">3.1.</span> <span class="toc-text">1. 运行时库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-设置"><span class="toc-number">3.2.</span> <span class="toc-text">2. 设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-CRT的类型"><span class="toc-number">3.3.</span> <span class="toc-text">3. CRT的类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、opencv"><span class="toc-number">4.</span> <span class="toc-text">四、opencv</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -435,19 +475,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -463,6 +495,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -475,7 +515,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,15 +527,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
