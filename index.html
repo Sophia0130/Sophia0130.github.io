@@ -245,6 +245,95 @@
 
 
   
+    <article id="post-编译器、编辑器、IDE" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/22/编译器、编辑器、IDE/">编译器、编辑器、IDE</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/22/编译器、编辑器、IDE/" class="archive-article-date">
+  	<time datetime="2018-08-22T08:59:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
+</a>
+
+
+<a href="/2018/08/22/编译器、编辑器、IDE/" class="archive-article-date">
+  	<time datetime="2018-08-22T08:59:22.000Z" itemprop="datePublished">2018-08-22</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：关于版本和各种编辑器、编译器、IDE</p>
+        
+          <a class="article-more-a" href="/2018/08/22/编译器、编辑器、IDE/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">软件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/22/编译器、编辑器、IDE/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-VS-opencv的配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -295,7 +384,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">装软件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">软件</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -643,119 +732,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h2 id="一、Haar、LBP"><a href="#一、Haar、LBP" class="headerlink" title="一、Haar、LBP"></a>一、Haar、LBP</h2><ol>
-<li>HAAR特征是浮点数计算，LBP特征是整数计算；</li>
-<li>LBP训练需要的样本数量比HAAR大 </li>
-<li>LBP的速度一般比HAAR快 </li>
-<li>同样的样本HAAR训练出来的检测结果要比LBP准确</li>
-<li>扩大LBP的样本数据可达到HAAR的训练效果</li>
-</ol>
-<p><br></p>
-<h2 id="二、级联分类器"><a href="#二、级联分类器" class="headerlink" title="二、级联分类器"></a>二、级联分类器</h2><p><a href="https://zhuanlan.zhihu.com/p/35058334" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35058334</a></p>
-<ol>
-<li>级联分类器结构：弱分类器线性组合成为强分类器，强分类器用决策树的形式级联</li>
-<li>存储分类器的XML中的参数</li>
-</ol>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/xml1.JPG" alt=""></p>
-<p><br></p>
-<h2 id="三、利用并查集合并窗口和丢弃零散分布的误检窗口"><a href="#三、利用并查集合并窗口和丢弃零散分布的误检窗口" class="headerlink" title="三、利用并查集合并窗口和丢弃零散分布的误检窗口"></a>三、利用并查集合并窗口和丢弃零散分布的误检窗口</h2><p><br></p>
-<h2 id="四、AdaBoost-算法"><a href="#四、AdaBoost-算法" class="headerlink" title="四、AdaBoost 算法"></a>四、AdaBoost 算法</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>（1）准确率</p>
-<ul>
-<li>查准率 Precision</li>
-<li>查全率 Recall，precision和recall都越高越好</li>
-<li>命中率 hitRate，度量检测器对正样本的通过能力，越接近1越好  </li>
-<li>虚警率 falseAlarm，度量检测器对负样本的通过能力，越接近0越好</li>
-</ul>
-<p>（2）positive sample会产生：</p>
-<ul>
-<li>TP(true positive)，即positive sample被检测器判定为目标</li>
-<li>FN(false negative)，即positive samples被检测器判断为非目标</li>
-</ul>
-<p>（3）negative sample会产生：</p>
-<ul>
-<li>TN(true negative)，即negative sample被检测器判定为非目标</li>
-<li>FP(false positive)，即negative sample被检测器判定为目标</li>
-</ul>
-<p><br></p>
-<h3 id="2-AdaBoost-步骤"><a href="#2-AdaBoost-步骤" class="headerlink" title="2. AdaBoost 步骤"></a>2. AdaBoost 步骤</h3><ol>
-<li>找TP和FP作为训练样本</li>
-<li>计算每个Haar特征在当前权重下的Best split threshold+leftvalue+rightvalue，组成了一个个弱分类器</li>
-<li>通过WSE寻找最优的弱分类器</li>
-<li>更新权重</li>
-<li>按照minHitRate估计stageThreshold</li>
-<li>重复上述1-5步骤，直到falseAlarmRate到达要求，或弱分类器数量足够，停止循环，输出stage</li>
-<li>进入下一个stage训练</li>
-</ol>
-<p><br></p>
-<h2 id="五、opencv-提供的模型和工具"><a href="#五、opencv-提供的模型和工具" class="headerlink" title="五、opencv 提供的模型和工具"></a>五、opencv 提供的模型和工具</h2><p>应用放的位置  <strong>D:\program\opencv3.0.0\opencv\build\x64\vc12\bin</strong></p>
-<p>1.opencv 自带的检测模型</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/opencv%E8%87%AA%E5%B8%A6%E7%9A%84xml.JPG" alt="img"></p>
-<p>2.opencv 自带的AdaBoost分类器</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/opencvtrain.JPG" alt="img"></p>
-<p>opencv_annotation         用来在一张大图中标定一个或多个需要检测的目标<br>opencv_createsamples   用来制作positive sample的vec<br>opencv_traincascade      用来训练得到需要的cascade.xml</p>
-<p><br></p>
-<h2 id="六、AdaBoost训练过程"><a href="#六、AdaBoost训练过程" class="headerlink" title="六、AdaBoost训练过程"></a>六、AdaBoost训练过程</h2><h3 id="阶段一：训练数据的准备"><a href="#阶段一：训练数据的准备" class="headerlink" title="阶段一：训练数据的准备"></a>阶段一：训练数据的准备</h3><h4 id="1-导出正负样本的文件列表"><a href="#1-导出正负样本的文件列表" class="headerlink" title="1. 导出正负样本的文件列表"></a>1. 导出正负样本的文件列表</h4><p>（1）注意：</p>
-<ol>
-<li><p>最好使用图片的<strong>绝对路径</strong>，不然最后训练可能找不到图片 Image reader can not be created from</p>
-</li>
-<li><p><strong>删除</strong>存放路径文件中的其它文件路径，只保留图片的路径</p>
-</li>
-<li><p>存放图片的路径的文件<strong>可以是 .txt 也可以是 .dat 文件</strong></p>
-<p>txt扩展名的文件：存放ASCII码形式的文件</p>
-<p>dat扩展名的文件：存放ASCII码，也可以是二进制（内存格式）形式的文件</p>
-</li>
-</ol>
-<p>（2）用windows中的 <strong>dir</strong> 命令导出图片文件的列表</p>
-<p><code>dir /b /s /o:n /a:a &gt; pos.dat</code>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/b   表示去除摘要信息，且顶格显示完整路径</span><br><span class="line"></span><br><span class="line">/s   表示枚举嵌套文件夹中的内容</span><br><span class="line"></span><br><span class="line">/o:n 表示根据文件名排序</span><br><span class="line"></span><br><span class="line">/a:a 表示只枚举文件而不枚举其他</span><br></pre></td></tr></table></figure>
-<p>单独使用dir /b与dir /s 都不会显示完整路径，只有这两个组合才会显示完整路径</p>
-<p><br></p>
-<h4 id="2-制作正样本的vec文件"><a href="#2-制作正样本的vec文件" class="headerlink" title="2. 制作正样本的vec文件"></a>2. 制作正样本的vec文件</h4><h5 id="（1）生成正样本描述文件-（-dat-或-txt-）"><a href="#（1）生成正样本描述文件-（-dat-或-txt-）" class="headerlink" title="（1）生成正样本描述文件 （.dat 或 .txt ）"></a>（1）生成正样本描述文件 （.dat 或 .txt ）</h5><p><strong>情况一：文件不需要裁剪</strong></p>
-<p>将第一步中生成文件用替换的方法</p>
-<p>将<code>D:\热像仪手势识别\jzy\adaboost\ConsoleApplication2\pos_resize\pos_1.jpg</code></p>
-<p>修改为 <code>D:\热像仪手势识别\jzy\adaboost\ConsoleApplication2\pos_resize\pos_1.jpg 1 0 0 20 20</code></p>
-<p><strong>情况二：文件需要裁剪</strong></p>
-<p>用 opencv_annotation 框选目标的位置，得到的文件形式和上面方法一样</p>
-<h5 id="（2）生成-vec-文件"><a href="#（2）生成-vec-文件" class="headerlink" title="（2）生成 vec 文件"></a>（2）生成 vec 文件</h5><p>用 opencv_createsamples 生成 vec 文件</p>
-<p><br></p>
-<h3 id="阶段二：训练级联分类器"><a href="#阶段二：训练级联分类器" class="headerlink" title="阶段二：训练级联分类器"></a>阶段二：训练级联分类器</h3><p>用 opencv_traincascade 训练级联分类器</p>
-<p><code>opencv_traincascade.exe -data cascade -vec pos_resize\pos.vec -bg neg\neg.dat -numPos 100 -numNeg 300 -numStages 10  -featureType LBP  -w 20 -h 20</code></p>
-<p>注意 </p>
-<ol>
-<li><code>-data cascade</code> 是指需要提前创建一个文件cascade放测试结果</li>
-<li>正样本的.vec文件，负样本的.txt 或 .dat文件 要用<strong>相对路径</strong></li>
-</ol>
-<p>cascade文件：</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/traincascade3.JPG" alt=""></p>
-<p>params：训练的参数，比如这里训练的分类器的级数是10</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/traincascade1.JPG" alt=""></p>
-<p>第十级的训练情况：</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/traincascade2.JPG" alt=""></p>
-<p><br></p>
-<h3 id="阶段三：利用训练好的分类器进行检测"><a href="#阶段三：利用训练好的分类器进行检测" class="headerlink" title="阶段三：利用训练好的分类器进行检测"></a>阶段三：利用训练好的分类器进行检测</h3><p>PS：在使用opencv中ClassifierCascade类时，无法加载级联分类器，可能是因为 opencv3.0 版本不太稳定，将xml文件复制，使用相当路径 ，可能会好一点</p>
-<p><br></p>
-<p><strong>多尺度目标检测</strong></p>
-<p><code>detectMultiScale (const Mat&amp; image, CV_OUT vector&amp; objects, double scaleFactor = 1.1, int minNeighbors = 3, int flags = 0, Size minSize = Size(), Size maxSize = Size())</code></p>
-<ul>
-<li><p>image—待检测图片，一般为<strong>灰度图像</strong>，加快检测速度</p>
-</li>
-<li><p>objects—检测结果的矩形框向量组，用来<strong>画出 bounding box</strong></p>
-</li>
-<li><p>scaleFactor—前后两次扫描中，搜索窗口的比例系数，默认为1.1，即每次搜索窗口依次扩大10%</p>
-</li>
-<li><p>minNeighbors—构成检测目标的相邻矩形的最小个数</p>
-<p>​                             如果组成检测目标的小矩形的个数和小于 min_neighbors -1，就会被排除</p>
-<p>​                             如果min_neighbors 为 0, 则函数不做任何操作就返回所有的被检候选矩形框</p>
-</li>
-<li><p>flags—使用默认值</p>
-<p>​            使用CV_HAAR_DO_CANNY_PRUNING，使用Canny边缘检测来排除边缘过多或过少的区域</p>
-</li>
-<li><p>minSize和maxSize—限制得到的目标区域的范围。</p>
-</li>
-</ul>
-<p><br></p>
-
+        <p>PS：本来还想用Adaboost做多分类，弃了~</p>
+        
+          <a class="article-more-a" href="/2018/08/14/opencv（四）——AdaBoost/#more">more >></a>
+        
       
 
       
@@ -1098,103 +1078,6 @@
 
 
   
-    <article id="post-cs231n笔记（十一）——生成式对抗网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/14/cs231n笔记（十一）——生成式对抗网络/">cs231n笔记（十一）——生成式对抗网络</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/14/cs231n笔记（十一）——生成式对抗网络/" class="archive-article-date">
-  	<time datetime="2018-08-14T05:57:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
-</a>
-
-
-<a href="/2018/08/14/cs231n笔记（十一）——生成式对抗网络/" class="archive-article-date">
-  	<time datetime="2018-08-14T05:57:10.000Z" itemprop="datePublished">2018-08-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
-<li>生成式对抗网络（GAN）</li>
-<li>条件GAN（CGAN）</li>
-<li>变分自编码器（Variational Auto-Encoder，VAE）</li>
-</ol>
-        
-          <a class="article-more-a" href="/2018/08/14/cs231n笔记（十一）——生成式对抗网络/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/14/cs231n笔记（十一）——生成式对抗网络/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1295,7 +1178,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1303,19 +1190,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">装软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1323,7 +1198,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1335,11 +1218,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1351,11 +1234,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1363,11 +1246,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
