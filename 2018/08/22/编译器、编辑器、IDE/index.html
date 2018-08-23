@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：关于版本和各种编辑器、编译器、IDE">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-22T09:06:37.901Z">
+<meta property="og:updated_time" content="2018-08-22T09:24:21.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译器、编辑器、IDE">
 <meta name="twitter:description" content="PS：关于版本和各种编辑器、编译器、IDE">
@@ -205,10 +205,17 @@
 <li>python3.x</li>
 </ul>
 <p><br></p>
-<h2 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h2><ul>
+<h2 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h2><p>编译器是编译一个文件</p>
+<ul>
 <li>gcc/g++</li>
 <li>clang</li>
 </ul>
+<p><br></p>
+<h2 id="Make"><a href="#Make" class="headerlink" title="Make"></a>Make</h2><p>make是<strong>编译多个源文件</strong>的工具，解释makefile中的指令，看作是编译器的调度器</p>
+<p>make通过读入makefile，执行一组以gcc/g++为主的shell命令序列，输入文件主要用来记录文件之间的依赖关系和命令执行顺序</p>
+<p><br></p>
+<h2 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h2><p>CMake是一种跨平台编译工具</p>
+<p>CMake主要是编写CMakeLists.txt文件，然后用cmake命令将CMakeLists.txt文件转化为make所需要的makefile文件，最后用make命令编译源码生成可执行程序或共享库 so(shared object)</p>
 <p><br></p>
 <h2 id="集成开发环境IDE"><a href="#集成开发环境IDE" class="headerlink" title="集成开发环境IDE"></a>集成开发环境IDE</h2><p>集成开发环境（IDE，Integrated Development Environment ）：一般包括代码编辑器、编译器、调试器和图形用户界面等工具。</p>
 <ul>
@@ -307,6 +314,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/08/22/剑指offer（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          剑指offer（一）
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/08/19/VS-opencv的配置/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">VS+opencv的配置</div>
@@ -336,7 +352,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-版本"><span class="toc-number">1.</span> <span class="toc-text">C++版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python版本"><span class="toc-number">2.</span> <span class="toc-text">python版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译器"><span class="toc-number">3.</span> <span class="toc-text">编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集成开发环境IDE"><span class="toc-number">4.</span> <span class="toc-text">集成开发环境IDE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码编辑器"><span class="toc-number">5.</span> <span class="toc-text">代码编辑器</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-版本"><span class="toc-number">1.</span> <span class="toc-text">C++版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python版本"><span class="toc-number">2.</span> <span class="toc-text">python版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译器"><span class="toc-number">3.</span> <span class="toc-text">编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Make"><span class="toc-number">4.</span> <span class="toc-text">Make</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMake"><span class="toc-number">5.</span> <span class="toc-text">CMake</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集成开发环境IDE"><span class="toc-number">6.</span> <span class="toc-text">集成开发环境IDE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码编辑器"><span class="toc-number">7.</span> <span class="toc-text">代码编辑器</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -453,11 +469,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,7 +477,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,11 +497,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,15 +513,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,11 +537,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>
