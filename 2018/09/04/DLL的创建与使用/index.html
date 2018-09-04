@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: opencv | 绿小蕤</title>
+  <title>DLL的创建与使用 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一枚小白~">
+  <meta name="description" content="PS：前几天朱大丽，和我说她不会生成自己的DLL，我也不会啊，有什么办法，只能宠着她帮她做呗。不然整体阿谀奉承我，让我略略略 ~">
 <meta name="keywords" content="程序媛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绿小蕤">
-<meta property="og:url" content="http://yoursite.com/tags/opencv/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DLL的创建与使用">
+<meta property="og:url" content="http://yoursite.com/2018/09/04/DLL的创建与使用/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="一枚小白~">
+<meta property="og:description" content="PS：前几天朱大丽，和我说她不会生成自己的DLL，我也不会啊，有什么办法，只能宠着她帮她做呗。不然整体阿谀奉承我，让我略略略 ~">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wangzi6147.github.io/public/img/DLL_1.jpg">
+<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/dll1.JPG">
+<meta property="og:updated_time" content="2018-09-04T06:55:22.852Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绿小蕤">
-<meta name="twitter:description" content="一枚小白~">
+<meta name="twitter:title" content="DLL的创建与使用">
+<meta name="twitter:description" content="PS：前几天朱大丽，和我说她不会生成自己的DLL，我也不会啊，有什么办法，只能宠着她帮她做呗。不然整体阿谀奉承我，让我略略略 ~">
+<meta name="twitter:image" content="http://wangzi6147.github.io/public/img/DLL_1.jpg">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -160,445 +164,195 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-DLL的创建与使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DLL的创建与使用
+    </h1>
+  
+
+        
+        <a href="/2018/09/04/DLL的创建与使用/" class="archive-article-date">
+  	<time datetime="2018-09-04T06:50:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
+</a>
+
+
+<a href="/2018/09/04/DLL的创建与使用/" class="archive-article-date">
+  	<time datetime="2018-09-04T06:50:48.000Z" itemprop="datePublished">2018-09-04</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
     
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：前几天朱大丽，和我说她不会生成自己的DLL，我也不会啊，有什么办法，只能宠着她帮她做呗。不然整体阿谀奉承我，让我略略略 ~</p>
+<a id="more"></a>
+<p><br></p>
+<h2 id="一、VS创建DLL"><a href="#一、VS创建DLL" class="headerlink" title="一、VS创建DLL"></a>一、VS创建DLL</h2><p><a href="http://wangzi6147.github.io/2015/05/05/DLL.html" target="_blank" rel="noopener">http://wangzi6147.github.io/2015/05/05/DLL.html</a></p>
+<p>1.创建一个DLL工程</p>
+<p><img src="http://wangzi6147.github.io/public/img/DLL_1.jpg" alt="img"></p>
+<p><br></p>
+<p>2.添加头文件 MyDllCalculator.h</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DLL_API  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span>  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DLL_API __declspec(dllexport)  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// DLL_API代表可供调用者调用的函数 </span></span><br><span class="line"><span class="function">DLL_API  <span class="keyword">int</span> <span class="title">MyAdd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function">DLL_API  <span class="keyword">int</span> <span class="title">MyMul</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>3.添加源文件 MyDllCalculator.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MyDllCalculator.h"</span> </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MyAdd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MyMul</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a*b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>4.生成解决方案，生成Debug版本的库文件，所以在Debug文件下生成.lib和.dll</p>
+<p>注意：如果生成的库依赖其他动态链接库，需要把依赖的.dll文件一同打包发布</p>
+<p><br></p>
+<p><br></p>
+<h2 id="二、使用DLL"><a href="#二、使用DLL" class="headerlink" title="二、使用DLL"></a>二、使用DLL</h2><ol>
+<li><p>添加工程的头文件目录：工程—属性—配置属性—c/c++—常规—附加包含目录：加上头文件存放目录</p>
+<p>MyDllCalculator.h 的存放路径</p>
+</li>
+<li><p>添加文件引用的lib静态库路径：工程—属性—配置属性—链接器—常规—附加库目录：加上lib文件存放目录</p>
+</li>
+<li><p>添加工程引用的lib文件名：工程—属性—配置属性—链接器—输入—附加依赖项：加上lib文件名（用绝对路径）</p>
+</li>
+<li><p>添加工程引用的dll动态库：把引用的dll放到工程的 <strong>可执行文件</strong> 所在的目录下</p>
+</li>
+</ol>
+<p>程序运行结果</p>
+<p><img src="http://p8ge6t5tt.bkt.clouddn.com/dll1.JPG" alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="三、DLL-导入导出"><a href="#三、DLL-导入导出" class="headerlink" title="三、DLL 导入导出"></a>三、DLL 导入导出</h2><h3 id="1-declspec-dllexport"><a href="#1-declspec-dllexport" class="headerlink" title="1. __declspec(dllexport)"></a>1. <code>__declspec(dllexport)</code></h3><p>声明一个导出函数，即这个函数要从本DLL导出。省掉在DEF文件中手工定义导出哪些函数的一个方法。但是，如果DLL里全是C++的类，无法在DEF里指定导出的函数,，只能用<code>__declspec(dllexport)</code>导出类</p>
+<p><br></p>
+<h3 id="2-declspec-dllimport"><a href="#2-declspec-dllimport" class="headerlink" title="2. __declspec(dllimport)"></a>2. <code>__declspec(dllimport)</code></h3><p>声明一个导入函数，是说这个函数是从别的DLL导入。不使用，也能正确编译，但使用，可以使编译器生成更好的代码，因为它可以确定函数是否存在于 DLL 中，这使得编译器可以生成跳过间接寻址级别的代码，而这些代码通常会出现在跨 DLL 边界的函数调用中。但是，必须使用<code>__declspec(dllimport)</code>才能导入 DLL 中使用的变量。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/15/opencv（六）——图像坐标系和宽高/" class="archive-article-date">
-  	<time datetime="2018-08-15T01:52:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
-</a>
+      
 
+      
 
-<a href="/2018/08/15/opencv（六）——图像坐标系和宽高/" class="archive-article-date">
-  	<time datetime="2018-08-15T01:52:32.000Z" itemprop="datePublished">2018-08-15</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/15/opencv（六）——图像坐标系和宽高/">opencv（六）——图像坐标系和宽高</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/04/DLL的创建与使用/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/15/opencv（五）——图像读取/" class="archive-article-date">
-  	<time datetime="2018-08-15T01:47:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/22/剑指offer（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指offer（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-<a href="/2018/08/15/opencv（五）——图像读取/" class="archive-article-date">
-  	<time datetime="2018-08-15T01:47:54.000Z" itemprop="datePublished">2018-08-15</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/15/opencv（五）——图像读取/">opencv（五）——图像读取</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、VS创建DLL"><span class="toc-number">1.</span> <span class="toc-text">一、VS创建DLL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、使用DLL"><span class="toc-number">2.</span> <span class="toc-text">二、使用DLL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、DLL-导入导出"><span class="toc-number">3.</span> <span class="toc-text">三、DLL 导入导出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-declspec-dllexport"><span class="toc-number">3.1.</span> <span class="toc-text">1. __declspec(dllexport)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-declspec-dllimport"><span class="toc-number">3.2.</span> <span class="toc-text">2. __declspec(dllimport)</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/14/opencv（四）——AdaBoost/" class="archive-article-date">
-  	<time datetime="2018-08-14T13:18:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
-</a>
+        
+    </div>
+</aside>
 
 
-<a href="/2018/08/14/opencv（四）——AdaBoost/" class="archive-article-date">
-  	<time datetime="2018-08-14T13:18:27.000Z" itemprop="datePublished">2018-08-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/14/opencv（四）——AdaBoost/">opencv（四）——AdaBoost</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-w">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/14/opencv（三）——绘图/" class="archive-article-date">
-  	<time datetime="2018-08-14T13:15:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
-</a>
-
-
-<a href="/2018/08/14/opencv（三）——绘图/" class="archive-article-date">
-  	<time datetime="2018-08-14T13:15:51.000Z" itemprop="datePublished">2018-08-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/14/opencv（三）——绘图/">opencv（三）——绘图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/14/opencv（二）——imgproc/" class="archive-article-date">
-  	<time datetime="2018-08-14T12:49:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
-</a>
-
-
-<a href="/2018/08/14/opencv（二）——imgproc/" class="archive-article-date">
-  	<time datetime="2018-08-14T12:49:42.000Z" itemprop="datePublished">2018-08-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/14/opencv（二）——imgproc/">opencv（二）——imgproc</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/14/opencv（一）——HighGUI/" class="archive-article-date">
-  	<time datetime="2018-08-14T12:46:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
-</a>
-
-
-<a href="/2018/08/14/opencv（一）——HighGUI/" class="archive-article-date">
-  	<time datetime="2018-08-14T12:46:25.000Z" itemprop="datePublished">2018-08-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/14/opencv（一）——HighGUI/">opencv（一）——HighGUI</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/傅里叶变换和图像处理/">傅里叶变换和图像处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/08/CommandLineParse类/">CommandLineParse类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/07/ImageWatch/" class="archive-article-date">
-  	<time datetime="2018-05-07T13:23:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-07</time>
-</a>
-
-
-<a href="/2018/05/07/ImageWatch/" class="archive-article-date">
-  	<time datetime="2018-05-07T13:23:47.000Z" itemprop="datePublished">2018-05-07</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/07/ImageWatch/">ImageWatch</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+
+
 
 
           </div>
@@ -632,9 +386,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
