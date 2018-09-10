@@ -9,14 +9,14 @@
   <title>Win10使用VMware虚拟机安装ubuntu | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Win10使用VMware虚拟机安装ubuntu PS：又被汪大蕾骂了一顿，还是装个虚拟机吧，毕竟做开发还是要靠Linux">
-<meta name="keywords" content="软件,Linux">
+<meta name="keywords" content="Linux,软件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Win10使用VMware虚拟机安装ubuntu">
 <meta property="og:url" content="http://yoursite.com/2018/09/06/Win10使用VMware虚拟机安装ubuntu/index.html">
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="Win10使用VMware虚拟机安装ubuntu PS：又被汪大蕾骂了一顿，还是装个虚拟机吧，毕竟做开发还是要靠Linux">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-09T09:27:15.737Z">
+<meta property="og:updated_time" content="2018-09-09T13:02:45.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Win10使用VMware虚拟机安装ubuntu">
 <meta name="twitter:description" content="Win10使用VMware虚拟机安装ubuntu PS：又被汪大蕾骂了一顿，还是装个虚拟机吧，毕竟做开发还是要靠Linux">
@@ -239,6 +239,16 @@
 <h2 id="六、Ubantu下-Sublime-Text3-python-环境的搭建"><a href="#六、Ubantu下-Sublime-Text3-python-环境的搭建" class="headerlink" title="六、Ubantu下 Sublime Text3  python 环境的搭建"></a>六、Ubantu下 Sublime Text3  python 环境的搭建</h2><p><a href="https://blog.csdn.net/mao19931004/article/details/51834616" target="_blank" rel="noopener">https://blog.csdn.net/mao19931004/article/details/51834616</a></p>
 <p>一直想实现ubuntu下终端用subl命令打开文件，呵呵呵呵，一个下午差点把sublime玩崩 ~ </p>
 <p>我大概知道应该是路径的问题，一直链接不上，但是不知道怎么改啊~</p>
+<p><br></p>
+<h2 id="七、ubuntu-安装-opencv"><a href="#七、ubuntu-安装-opencv" class="headerlink" title="七、ubuntu 安装 opencv"></a>七、ubuntu 安装 opencv</h2><p>ubuntu 安装 opencv 的流程：<a href="https://blog.csdn.net/JohinieLi/article/details/79885820" target="_blank" rel="noopener">https://blog.csdn.net/JohinieLi/article/details/79885820</a></p>
+<p>最后测试的时候，没有打开摄像头其实程序运行正确，打开了摄像头反而报错了</p>
+<p>ERROR: V4L/V4L2: VIDIOC_S_CROP</p>
+<p>好像是依赖的库 libv4l-dev 没有装，所以需要对opencv重新编译</p>
+<p>解决方法如下：</p>
+<p>opencv 在 ubuntu 中需要的依赖   <a href="https://blog.csdn.net/suochao90/article/details/7530233" target="_blank" rel="noopener">https://blog.csdn.net/suochao90/article/details/7530233</a></p>
+<p>安装完依赖库，对 opencv 的重新编译  <a href="https://blog.csdn.net/m0_37811342/article/details/8022781" target="_blank" rel="noopener">https://blog.csdn.net/m0_37811342/article/details/8022781</a></p>
+<p>创建opencv工程显示图片来做测试  <a href="https://blog.csdn.net/qq_30155503/article/details/79434863" target="_blank" rel="noopener">https://blog.csdn.net/qq_30155503/article/details/79434863</a></p>
+<p>PS：发现自己得好好学学 cmake ，这么一个简单工程的编译，花了一个上午</p>
 
       
 
@@ -252,11 +262,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">软件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">软件</a>
         		</li>
       		
 		</ul>
@@ -364,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、压缩卷新建磁盘分区"><span class="toc-number">1.</span> <span class="toc-text">一、压缩卷新建磁盘分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、虚拟机和双系统"><span class="toc-number">2.</span> <span class="toc-text">二、虚拟机和双系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-虚拟机-（Virtual-Machine）"><span class="toc-number">2.1.</span> <span class="toc-text">1.  虚拟机 （Virtual Machine）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-双系统"><span class="toc-number">2.2.</span> <span class="toc-text">2. 双系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Win10使用VMware虚拟机安装ubuntu"><span class="toc-number">3.</span> <span class="toc-text">三、Win10使用VMware虚拟机安装ubuntu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、VMware安装VMware-Tools"><span class="toc-number">4.</span> <span class="toc-text">四、VMware安装VMware Tools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、ubuntu-下python版本切换"><span class="toc-number">5.</span> <span class="toc-text">五、ubuntu 下python版本切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、Ubantu下-Sublime-Text3-python-环境的搭建"><span class="toc-number">6.</span> <span class="toc-text">六、Ubantu下 Sublime Text3  python 环境的搭建</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、压缩卷新建磁盘分区"><span class="toc-number">1.</span> <span class="toc-text">一、压缩卷新建磁盘分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、虚拟机和双系统"><span class="toc-number">2.</span> <span class="toc-text">二、虚拟机和双系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-虚拟机-（Virtual-Machine）"><span class="toc-number">2.1.</span> <span class="toc-text">1.  虚拟机 （Virtual Machine）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-双系统"><span class="toc-number">2.2.</span> <span class="toc-text">2. 双系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Win10使用VMware虚拟机安装ubuntu"><span class="toc-number">3.</span> <span class="toc-text">三、Win10使用VMware虚拟机安装ubuntu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、VMware安装VMware-Tools"><span class="toc-number">4.</span> <span class="toc-text">四、VMware安装VMware Tools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、ubuntu-下python版本切换"><span class="toc-number">5.</span> <span class="toc-text">五、ubuntu 下python版本切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、Ubantu下-Sublime-Text3-python-环境的搭建"><span class="toc-number">6.</span> <span class="toc-text">六、Ubantu下 Sublime Text3  python 环境的搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、ubuntu-安装-opencv"><span class="toc-number">7.</span> <span class="toc-text">七、ubuntu 安装 opencv</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -481,23 +491,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,11 +499,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,11 +515,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">

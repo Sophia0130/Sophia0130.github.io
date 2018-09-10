@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-09T09:30:22.903Z</updated>
+  <updated>2018-09-10T08:17:40.319Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CMake（二）—— Windows下使用CMake</title>
+    <link href="http://yoursite.com/2018/09/10/CMake%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94-Windows%E4%B8%8B%E4%BD%BF%E7%94%A8CMake/"/>
+    <id>http://yoursite.com/2018/09/10/CMake（二）——-Windows下使用CMake/</id>
+    <published>2018-09-10T06:25:35.000Z</published>
+    <updated>2018-09-10T08:17:40.319Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：我现在陷入了不同开发环境如何编译这么个问题里，感觉自己脑袋一团浆糊 ~ </p><a id="more"></a><h2 id="一、windows下cmake安装"><a href="#一、windows下cmake安装" class="headerlink" title="一、windows下cmake安装"></a>一、windows下cmake安装</h2><p> <a href="https://blog.csdn.net/notbaron/article/details/51100545" target="_blank" rel="noopener">https://blog.csdn.net/notbaron/article/details/51100545</a></p><p>安装的时候其中有一项是问你，是否添加到PATH，勾选就好了，免得还要自己去配置</p><p><br></p><h2 id="二、windows下cmake-的使用"><a href="#二、windows下cmake-的使用" class="headerlink" title="二、windows下cmake 的使用"></a>二、windows下cmake 的使用</h2><h3 id="1-命令行方式使用CMake"><a href="#1-命令行方式使用CMake" class="headerlink" title="1. 命令行方式使用CMake"></a>1. 命令行方式使用CMake</h3><p>（1）在test1工程下写了 hello.cpp 和CMakeLists.txt两个文件</p><p>（2）在test1目录下运行<code>cmake .</code> 可以看到自动生成了解决方案文件<strong>.sln</strong> 和工程文件 <strong>.vcproj</strong></p><p>（3）打开解决方案文件<strong>.sln</strong> ，可以开始调试运行，这里<strong>注意：要把需要运行的项目设置为启动项</strong></p><p>运行完成后会生成Debug文件，下面会有.exe程序</p><p><br></p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/cmake%E4%BD%BF%E7%94%A81.png" alt=""></p><p><br></p><h3 id="2-GUI程序cmake-gui-exe来使用CMake"><a href="#2-GUI程序cmake-gui-exe来使用CMake" class="headerlink" title="2. GUI程序cmake-gui.exe来使用CMake"></a>2. GUI程序cmake-gui.exe来使用CMake</h3><p><a href="https://www.jianshu.com/p/03640a4caf7e" target="_blank" rel="noopener">https://www.jianshu.com/p/03640a4caf7e</a></p><p>（1）在test1工程下写了 hello.cpp 和CMakeLists.txt两个文件</p><p>（2）打开 cmake-gui.exe 将 CMakeLists.txt 拖到 <code>Where is the source code</code></p><p>（3）Configure：  选择代码编译工具</p><p>（4）Generate：   在<code>where to build the binaries</code> 目录下生成vs编译工程文件</p><p><strong>注意：中间文件和可执行文件一般将存放在build目录中，所以修改到 /build</strong> </p><p>（5）打开解决方案文件<strong>.sln</strong> ，可以开始调试运行，这里<strong>注意：要把需要运行的项目设置为启动项</strong></p><p><br></p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/cmake2.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：我现在陷入了不同开发环境如何编译这么个问题里，感觉自己脑袋一团浆糊 ~ &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="cmake" scheme="http://yoursite.com/tags/cmake/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CMake（一）—— make和cmake</title>
+    <link href="http://yoursite.com/2018/09/10/CMake%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94-make%E5%92%8Ccmake/"/>
+    <id>http://yoursite.com/2018/09/10/CMake（一）——-make和cmake/</id>
+    <published>2018-09-10T03:39:51.000Z</published>
+    <updated>2018-09-10T07:04:22.628Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：之前一直是在Windows用VS，感觉很方便，自己新建个工程，不论是编译还是调试，都有现成的，IDE都帮你集成好了，按几个键就好了 ~ </p><a id="more"></a><h2 id="一、makefile-和-make"><a href="#一、makefile-和-make" class="headerlink" title="一、makefile 和 make"></a>一、makefile 和 make</h2><h3 id="1-编译器和-make"><a href="#1-编译器和-make" class="headerlink" title="1. 编译器和 make"></a>1. 编译器和 make</h3><ul><li><strong>编译器是编译一个文件</strong></li><li>make是编译多个源文件的工具，解释makefile中的指令，看作是编译器的调度器</li></ul><p><br></p><h3 id="2-makefile-文件"><a href="#2-makefile-文件" class="headerlink" title="2. makefile 文件"></a>2. makefile 文件</h3><p>一个工程中有很多源文件，makefile定义了整个工程的编译规则，哪些文件先编译，哪些文件后编译，哪些文件重新编译。malefile是<strong>自动化编译</strong>，一旦写好，只需一个make，整个工程自动编译。</p><p>windows平台下，VS开发环境自动生成makefile文件</p><p>Linux平台下，Qt Creator自动生成了类似makeile的 .pro文件</p><p><br></p><h2 id="二、CmakeList-txt-和-CMake"><a href="#二、CmakeList-txt-和-CMake" class="headerlink" title="二、CmakeList.txt 和 CMake"></a>二、CmakeList.txt 和 CMake</h2><h3 id="1-CMake-相比make-的优势"><a href="#1-CMake-相比make-的优势" class="headerlink" title="1. CMake 相比make 的优势"></a>1. CMake 相比make 的优势</h3><p> <a href="http://gclxry.com/use-cmake-on-windows/" target="_blank" rel="noopener">http://gclxry.com/use-cmake-on-windows/</a></p><p>因为有好几种 Make 工具，例如 GNU Make ，QT 的 qmake 等等。这些 Make 工具遵循着不同的规范和标准，执行的 Makefile 格式也不同。如果想跨平台，在不同平台编译，而如果使用上面的 Make 工具，就得为每一种标准写一次 Makefile 。</p><p>CMake就是针对上面问题所设计的工具，首先允许开发者编写一种<strong>平台无关</strong>的 CMakeList.txt 文件来定制整个编译流程，然后再根据目标用户的平台进一步生成本地化的 Makefile 和工程文件，如 Unix 的 Makefile 或 Windows 的 Visual Studio 工程。</p><p><br></p><h3 id="2-CMake-的使用原理"><a href="#2-CMake-的使用原理" class="headerlink" title="2. CMake 的使用原理"></a>2. CMake 的使用原理</h3><p>CMake是种跨平台编译工具，Cmake 将 CMakeList.txt 转化为make 需要的 makefile 文件，用make编译</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：之前一直是在Windows用VS，感觉很方便，自己新建个工程，不论是编译还是调试，都有现成的，IDE都帮你集成好了，按几个键就好了 ~ &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="cmake" scheme="http://yoursite.com/tags/cmake/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux（三）—— 环境变量</title>
@@ -66,17 +106,13 @@
     <link href="http://yoursite.com/2018/09/09/Linux%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8Linux%E5%81%9A%E5%BC%80%E5%8F%91/"/>
     <id>http://yoursite.com/2018/09/09/Linux（一）——-为什么要用Linux做开发/</id>
     <published>2018-09-09T09:23:41.000Z</published>
-    <updated>2018-09-09T09:25:08.525Z</updated>
+    <updated>2018-09-10T08:13:10.369Z</updated>
     
-    <content type="html"><![CDATA[<p>一直在纠结什么开发要用Linux系统， <strong>Linux占据了主要服务器市场</strong> ，windows则是桌面领域</p><p>下面来盘一下逻辑：因为Linux相比于windows好，为什么好，比如，Linux 没有把图形用户界面GUI写入内核kernel，就不会那么浪费资源和空间。所以大多数公司的服务器是Linux，所以要学习Linux下的开发</p><p><strong>1. 稳定性高</strong></p><p><strong>2. 成本低</strong></p><p><strong>3. 低维护成本</strong></p><p><strong>4. 病毒造成破坏低</strong></p><p>……</p><p><a href="https://blog.csdn.net/dolphin_LYG/article/details/59121002" target="_blank" rel="noopener">https://blog.csdn.net/dolphin_LYG/article/details/59121002</a></p><p>可能是我用的太少了，实在没有体会到，Linux 相较于 windows 的不同与优势。</p>]]></content>
+    <content type="html"><![CDATA[<p>一直在纠结什么开发要用Linux系统，下面写两点自己的理解，不知道对不对。</p><a id="more"></a><ol><li><p>Linux占据了主要<strong>服务器市场</strong></p><p>下面来盘一下逻辑：为什么Linux占据服务器市场，因为Linux相比于windows好，为什么好，比如，Linux 没有把图形用户界面GUI写入内核kernel，Linux的内核小，速度快。</p></li><li><p>Linux适合做<strong>嵌入式操作系统</strong></p><p>嵌入式linux 是将Linux操作系统进行裁剪修改，使之能在嵌入式计算机系统上运行的一种操作系统。 </p><p>Linux做嵌入式的优势，首先，Linux是开放源代码的，不存在黑箱技术。其次，Linux的内核小、效率高，内核的更新速度很快。第三，Linux是免费的操作系统，在价格上极具竞争力。 </p></li></ol><!--more--><p>Linux相比于windows的优势：</p><p><strong>1. 稳定性高</strong></p><p><strong>2. 成本低</strong></p><p><strong>3. 低维护成本</strong></p><p><strong>4. 病毒造成破坏低</strong></p><p>……</p><p><a href="https://blog.csdn.net/dolphin_LYG/article/details/59121002" target="_blank" rel="noopener">https://blog.csdn.net/dolphin_LYG/article/details/59121002</a></p><p>可能是我用的太少了，实在没有体会到，Linux 相较于 windows 的不同与优势。</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;一直在纠结什么开发要用Linux系统， &lt;strong&gt;Linux占据了主要服务器市场&lt;/strong&gt; ，windows则是桌面领域&lt;/p&gt;
-&lt;p&gt;下面来盘一下逻辑：因为Linux相比于windows好，为什么好，比如，Linux 没有把图形用户界面GUI写入内核kern
-      
+      &lt;p&gt;一直在纠结什么开发要用Linux系统，下面写两点自己的理解，不知道对不对。&lt;/p&gt;
     
     </summary>
     
@@ -90,9 +126,9 @@
     <link href="http://yoursite.com/2018/09/06/Win10%E4%BD%BF%E7%94%A8VMware%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu/"/>
     <id>http://yoursite.com/2018/09/06/Win10使用VMware虚拟机安装ubuntu/</id>
     <published>2018-09-06T14:10:59.000Z</published>
-    <updated>2018-09-09T09:27:15.737Z</updated>
+    <updated>2018-09-09T13:02:45.261Z</updated>
     
-    <content type="html"><![CDATA[<p>Win10使用VMware虚拟机安装ubuntu</p><p>PS：又被汪大蕾骂了一顿，还是装个虚拟机吧，毕竟做开发还是要靠Linux</p><a id="more"></a><p><br></p><h2 id="一、压缩卷新建磁盘分区"><a href="#一、压缩卷新建磁盘分区" class="headerlink" title="一、压缩卷新建磁盘分区"></a>一、压缩卷新建磁盘分区</h2><p>具体操作：<a href="https://jingyan.baidu.com/article/4f7d5712c415091a21192761.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/4f7d5712c415091a21192761.html</a></p><p>压缩卷：从一个盘里边把没有用到的空间分到未使用的磁盘空间里</p><p>扩展卷：从未使用空间里向现有的盘增加空间</p><p>磁盘格式：不同格式会在磁盘分区容量、单个文件容量、安全方面等存在区别</p><p>格式化：对磁盘或磁盘中的分区（partition）进行初始化的一种操作，这种操作通常会导致现有的磁盘或分区中所有的文件被清除</p><p>windows下磁盘格式主要有FAT16、FAT32、NTFS 等，最新格式为exFAT</p><p><br></p><h2 id="二、虚拟机和双系统"><a href="#二、虚拟机和双系统" class="headerlink" title="二、虚拟机和双系统"></a>二、虚拟机和双系统</h2><p>一直在纠结是装双系统还是虚拟机，但是看帖子说，双系统会不稳定，新手还是建议虚拟机 ~ </p><p>不过运行虚拟机，相当于运行两个系统，比较占用资源，不过拖拽文件会比较方便，双系统就需要切换</p><p><br></p><h3 id="1-虚拟机-（Virtual-Machine）"><a href="#1-虚拟机-（Virtual-Machine）" class="headerlink" title="1.  虚拟机 （Virtual Machine）"></a>1.  虚拟机 （Virtual Machine）</h3><p>通过软件模拟出来的具有完整的硬件系统功能的，运行在宿主机上的一个隔离环境中的计算机系统</p><p><strong>宿主机</strong> 是指直接运行在我们物理硬件的操作系统，而 <strong>虚拟机</strong> 则是运行在宿主机之上，所以当我们运行一个虚拟机的时候，实际上我们是在同时运行两个系统，这对我们的物理硬件要求比较高（主要是内存）</p><h3 id="2-双系统"><a href="#2-双系统" class="headerlink" title="2. 双系统"></a>2. 双系统</h3><p>双系统并不是同时运行两个系统，而是指两个系统都在存储空间中，我们可以选择其中一个进行启动</p><p><br></p><h2 id="三、Win10使用VMware虚拟机安装ubuntu"><a href="#三、Win10使用VMware虚拟机安装ubuntu" class="headerlink" title="三、Win10使用VMware虚拟机安装ubuntu"></a>三、Win10使用VMware虚拟机安装ubuntu</h2><p>具体操作：<a href="https://blog.csdn.net/dcrmg/article/details/74075254" target="_blank" rel="noopener">https://blog.csdn.net/dcrmg/article/details/74075254</a></p><p>​                   <a href="https://www.jianshu.com/p/3379892948da" target="_blank" rel="noopener">https://www.jianshu.com/p/3379892948da</a></p><p><br></p><p>ubuntu-16.04.5-desktop-amd64.iso ： <a href="http://mirrors.zju.edu.cn/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirrors.zju.edu.cn/ubuntu-releases/16.04/</a></p><p>VMware Workstation 12.5.7 Pro for Windows</p><p><br></p><p><strong>注意：装虚拟机其中有一步是关于处理器配置</strong></p><p>VMWare中的CPU数量与核心数量意义</p><p>处理器数量 ：是指CPU核数（例如：单核/双核），并不是指CPU颗数</p><p>每个处理的核心数量：是指CPU中的线程，并不是指核心（Core）</p><p><br></p><p>windows 查看CPU数、核心数、线程数</p><p><a href="https://blog.csdn.net/ksws0292756/article/details/79119961" target="_blank" rel="noopener">https://blog.csdn.net/ksws0292756/article/details/79119961</a></p><p><br></p><h2 id="四、VMware安装VMware-Tools"><a href="#四、VMware安装VMware-Tools" class="headerlink" title="四、VMware安装VMware Tools"></a>四、VMware安装VMware Tools</h2><p>提示是在客户机安装虚拟CD驱动器 ，下面是解决办法</p><p><a href="https://blog.csdn.net/AHAU10/article/details/52611765" target="_blank" rel="noopener">https://blog.csdn.net/AHAU10/article/details/52611765</a></p><p>更改路径后，一路yes下去，最后出现enjoy安装算是成功了</p><p><a href="https://blog.csdn.net/u013142781/article/details/50539574" target="_blank" rel="noopener">https://blog.csdn.net/u013142781/article/details/50539574</a></p><p><br></p><h2 id="五、ubuntu-下python版本切换"><a href="#五、ubuntu-下python版本切换" class="headerlink" title="五、ubuntu 下python版本切换"></a>五、ubuntu 下python版本切换</h2><p>ubuntu 本身是自带 python，这样就减少了在windows下的下载和环境变量配置，但是本身是自带两个版本的python，2.X和3.X,两个版本，两个版本默认的是使用2.X</p><ul><li>python    默认版本 2.7.12</li><li>python3  版本是 3.5.2</li></ul><p>ubuntu 下 python 的版本切换：<a href="https://blog.csdn.net/beijiu5854/article/details/77897767" target="_blank" rel="noopener">https://blog.csdn.net/beijiu5854/article/details/77897767</a></p><p><br></p><h2 id="六、Ubantu下-Sublime-Text3-python-环境的搭建"><a href="#六、Ubantu下-Sublime-Text3-python-环境的搭建" class="headerlink" title="六、Ubantu下 Sublime Text3  python 环境的搭建"></a>六、Ubantu下 Sublime Text3  python 环境的搭建</h2><p><a href="https://blog.csdn.net/mao19931004/article/details/51834616" target="_blank" rel="noopener">https://blog.csdn.net/mao19931004/article/details/51834616</a></p><p>一直想实现ubuntu下终端用subl命令打开文件，呵呵呵呵，一个下午差点把sublime玩崩 ~ </p><p>我大概知道应该是路径的问题，一直链接不上，但是不知道怎么改啊~</p>]]></content>
+    <content type="html"><![CDATA[<p>Win10使用VMware虚拟机安装ubuntu</p><p>PS：又被汪大蕾骂了一顿，还是装个虚拟机吧，毕竟做开发还是要靠Linux</p><a id="more"></a><p><br></p><h2 id="一、压缩卷新建磁盘分区"><a href="#一、压缩卷新建磁盘分区" class="headerlink" title="一、压缩卷新建磁盘分区"></a>一、压缩卷新建磁盘分区</h2><p>具体操作：<a href="https://jingyan.baidu.com/article/4f7d5712c415091a21192761.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/4f7d5712c415091a21192761.html</a></p><p>压缩卷：从一个盘里边把没有用到的空间分到未使用的磁盘空间里</p><p>扩展卷：从未使用空间里向现有的盘增加空间</p><p>磁盘格式：不同格式会在磁盘分区容量、单个文件容量、安全方面等存在区别</p><p>格式化：对磁盘或磁盘中的分区（partition）进行初始化的一种操作，这种操作通常会导致现有的磁盘或分区中所有的文件被清除</p><p>windows下磁盘格式主要有FAT16、FAT32、NTFS 等，最新格式为exFAT</p><p><br></p><h2 id="二、虚拟机和双系统"><a href="#二、虚拟机和双系统" class="headerlink" title="二、虚拟机和双系统"></a>二、虚拟机和双系统</h2><p>一直在纠结是装双系统还是虚拟机，但是看帖子说，双系统会不稳定，新手还是建议虚拟机 ~ </p><p>不过运行虚拟机，相当于运行两个系统，比较占用资源，不过拖拽文件会比较方便，双系统就需要切换</p><p><br></p><h3 id="1-虚拟机-（Virtual-Machine）"><a href="#1-虚拟机-（Virtual-Machine）" class="headerlink" title="1.  虚拟机 （Virtual Machine）"></a>1.  虚拟机 （Virtual Machine）</h3><p>通过软件模拟出来的具有完整的硬件系统功能的，运行在宿主机上的一个隔离环境中的计算机系统</p><p><strong>宿主机</strong> 是指直接运行在我们物理硬件的操作系统，而 <strong>虚拟机</strong> 则是运行在宿主机之上，所以当我们运行一个虚拟机的时候，实际上我们是在同时运行两个系统，这对我们的物理硬件要求比较高（主要是内存）</p><h3 id="2-双系统"><a href="#2-双系统" class="headerlink" title="2. 双系统"></a>2. 双系统</h3><p>双系统并不是同时运行两个系统，而是指两个系统都在存储空间中，我们可以选择其中一个进行启动</p><p><br></p><h2 id="三、Win10使用VMware虚拟机安装ubuntu"><a href="#三、Win10使用VMware虚拟机安装ubuntu" class="headerlink" title="三、Win10使用VMware虚拟机安装ubuntu"></a>三、Win10使用VMware虚拟机安装ubuntu</h2><p>具体操作：<a href="https://blog.csdn.net/dcrmg/article/details/74075254" target="_blank" rel="noopener">https://blog.csdn.net/dcrmg/article/details/74075254</a></p><p>​                   <a href="https://www.jianshu.com/p/3379892948da" target="_blank" rel="noopener">https://www.jianshu.com/p/3379892948da</a></p><p><br></p><p>ubuntu-16.04.5-desktop-amd64.iso ： <a href="http://mirrors.zju.edu.cn/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirrors.zju.edu.cn/ubuntu-releases/16.04/</a></p><p>VMware Workstation 12.5.7 Pro for Windows</p><p><br></p><p><strong>注意：装虚拟机其中有一步是关于处理器配置</strong></p><p>VMWare中的CPU数量与核心数量意义</p><p>处理器数量 ：是指CPU核数（例如：单核/双核），并不是指CPU颗数</p><p>每个处理的核心数量：是指CPU中的线程，并不是指核心（Core）</p><p><br></p><p>windows 查看CPU数、核心数、线程数</p><p><a href="https://blog.csdn.net/ksws0292756/article/details/79119961" target="_blank" rel="noopener">https://blog.csdn.net/ksws0292756/article/details/79119961</a></p><p><br></p><h2 id="四、VMware安装VMware-Tools"><a href="#四、VMware安装VMware-Tools" class="headerlink" title="四、VMware安装VMware Tools"></a>四、VMware安装VMware Tools</h2><p>提示是在客户机安装虚拟CD驱动器 ，下面是解决办法</p><p><a href="https://blog.csdn.net/AHAU10/article/details/52611765" target="_blank" rel="noopener">https://blog.csdn.net/AHAU10/article/details/52611765</a></p><p>更改路径后，一路yes下去，最后出现enjoy安装算是成功了</p><p><a href="https://blog.csdn.net/u013142781/article/details/50539574" target="_blank" rel="noopener">https://blog.csdn.net/u013142781/article/details/50539574</a></p><p><br></p><h2 id="五、ubuntu-下python版本切换"><a href="#五、ubuntu-下python版本切换" class="headerlink" title="五、ubuntu 下python版本切换"></a>五、ubuntu 下python版本切换</h2><p>ubuntu 本身是自带 python，这样就减少了在windows下的下载和环境变量配置，但是本身是自带两个版本的python，2.X和3.X,两个版本，两个版本默认的是使用2.X</p><ul><li>python    默认版本 2.7.12</li><li>python3  版本是 3.5.2</li></ul><p>ubuntu 下 python 的版本切换：<a href="https://blog.csdn.net/beijiu5854/article/details/77897767" target="_blank" rel="noopener">https://blog.csdn.net/beijiu5854/article/details/77897767</a></p><p><br></p><h2 id="六、Ubantu下-Sublime-Text3-python-环境的搭建"><a href="#六、Ubantu下-Sublime-Text3-python-环境的搭建" class="headerlink" title="六、Ubantu下 Sublime Text3  python 环境的搭建"></a>六、Ubantu下 Sublime Text3  python 环境的搭建</h2><p><a href="https://blog.csdn.net/mao19931004/article/details/51834616" target="_blank" rel="noopener">https://blog.csdn.net/mao19931004/article/details/51834616</a></p><p>一直想实现ubuntu下终端用subl命令打开文件，呵呵呵呵，一个下午差点把sublime玩崩 ~ </p><p>我大概知道应该是路径的问题，一直链接不上，但是不知道怎么改啊~</p><p><br></p><h2 id="七、ubuntu-安装-opencv"><a href="#七、ubuntu-安装-opencv" class="headerlink" title="七、ubuntu 安装 opencv"></a>七、ubuntu 安装 opencv</h2><p>ubuntu 安装 opencv 的流程：<a href="https://blog.csdn.net/JohinieLi/article/details/79885820" target="_blank" rel="noopener">https://blog.csdn.net/JohinieLi/article/details/79885820</a></p><p>最后测试的时候，没有打开摄像头其实程序运行正确，打开了摄像头反而报错了</p><p>ERROR: V4L/V4L2: VIDIOC_S_CROP</p><p>好像是依赖的库 libv4l-dev 没有装，所以需要对opencv重新编译</p><p>解决方法如下：</p><p>opencv 在 ubuntu 中需要的依赖   <a href="https://blog.csdn.net/suochao90/article/details/7530233" target="_blank" rel="noopener">https://blog.csdn.net/suochao90/article/details/7530233</a></p><p>安装完依赖库，对 opencv 的重新编译  <a href="https://blog.csdn.net/m0_37811342/article/details/8022781" target="_blank" rel="noopener">https://blog.csdn.net/m0_37811342/article/details/8022781</a></p><p>创建opencv工程显示图片来做测试  <a href="https://blog.csdn.net/qq_30155503/article/details/79434863" target="_blank" rel="noopener">https://blog.csdn.net/qq_30155503/article/details/79434863</a></p><p>PS：发现自己得好好学学 cmake ，这么一个简单工程的编译，花了一个上午</p>]]></content>
     
     <summary type="html">
     
@@ -102,9 +138,9 @@
     </summary>
     
     
-      <category term="软件" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="软件" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
@@ -425,48 +461,6 @@
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="cs231n" scheme="http://yoursite.com/tags/cs231n/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cs231n笔记（九）——分类、检测、分割、跟踪</title>
-    <link href="http://yoursite.com/2018/08/13/cs231n%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B9%9D%EF%BC%89%E2%80%94%E2%80%94%E5%88%86%E7%B1%BB%E3%80%81%E6%A3%80%E6%B5%8B%E3%80%81%E5%88%86%E5%89%B2%E3%80%81%E8%B7%9F%E8%B8%AA/"/>
-    <id>http://yoursite.com/2018/08/13/cs231n笔记（九）——分类、检测、分割、跟踪/</id>
-    <published>2018-08-13T09:57:35.000Z</published>
-    <updated>2018-08-13T10:00:42.905Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：其实一直没有认真理解计算机视觉可以解决的问题，得把这些任务区分一些</p><a id="more"></a><p><br></p><ol><li><p>图像分类（Image Classification）</p><p>给定一张输入图像，判断该图像所属类别</p><p><br></p></li><li><p>目标定位（Object Localization）</p><p>在图像分类的基础上，确定目标具体在图像的什么位置，通常是以<strong>包围盒的(bounding box)</strong>形式</p><p><br></p></li><li><p>目标识别（Object recognition）</p><p><strong>只有目标和非目标两个类别</strong>，找到目标所在的矩形框</p><p>例如，人脸检测（人脸为目标、背景为非目标）、汽车检测（汽车为目标、背景为非目标） </p><p><br></p></li><li><p>目标检测（Object Detection）</p><p>检测图像中<strong>所有的目标</strong>，得到检测到的目标的矩形框，并对所有检测到的矩形框进行分类 </p><p><br></p><p><strong>多任务学习中，网络有两个输出分支：</strong></p><p>一个分支用于做图像分类，即全连接+softmax判断目标类别，和单纯图像分类区别在于这里还另外需要一个<strong>『“背景”』</strong>类</p><p>另一个分支用于判断目标位置，即完成回归任务输出四个数字标记包围盒位置，该分支输出结果<strong>只有在分类分支判断不为“背景”时才使用</strong></p><p><br></p></li><li><p>语义分割（Semantic Segmentation）</p><p>分割是目标检测更进阶的任务，目标检测只需要框出每个目标的包围盒，分割需要进一步判断图像中哪些像素属于哪个目标</p><p>对图片中的每一个像素点进行分类，相同的类别进行标注，但是<strong>同一物体的不同实例不需要单独分割</strong></p><p><br></p></li><li><p>实例分割(Instance Segmentation)</p><p>对图像中的每一个像素点进行分类，<strong>同种物体的不同实例也用不同的类标进行标注</strong></p><p><br></p></li><li><p>目标跟踪（Object Tracking）</p><p>跟踪是基于检测的,必须先定位目标,才能后续跟踪</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：其实一直没有认真理解计算机视觉可以解决的问题，得把这些任务区分一些&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="cs231n" scheme="http://yoursite.com/tags/cs231n/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>嵌入式与各种板子</title>
-    <link href="http://yoursite.com/2018/08/05/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%90%84%E7%A7%8D%E6%9D%BF%E5%AD%90/"/>
-    <id>http://yoursite.com/2018/08/05/嵌入式与各种板子/</id>
-    <published>2018-08-05T09:19:51.000Z</published>
-    <updated>2018-08-15T02:41:42.990Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：写完这个，我也搞不懂MCU、ARM、DSP、FPGA、SOC到底有什么区别，我真的放弃硬件了</p><a id="more"></a><h2 id="一、嵌入式"><a href="#一、嵌入式" class="headerlink" title="一、嵌入式"></a>一、嵌入式</h2><p>嵌入式：在硬件和软件上都只保留需要的部分，而将不需要的部分裁去。所以嵌入式系统一般都具有便携、低功耗、性能单一等特性。</p><p><br></p><h2 id="二、MCU、ARM、DSP、FPGA、SOC"><a href="#二、MCU、ARM、DSP、FPGA、SOC" class="headerlink" title="二、MCU、ARM、DSP、FPGA、SOC"></a>二、MCU、ARM、DSP、FPGA、SOC</h2><ul><li>MCU（单片机）</li><li><strong>ARM属于MCU</strong>，ARM其实应该叫<strong>ARM架构</strong>，ARM之所以在<strong>移动市场</strong>上得到极大的成功，其中最主要的原因便是它的低功耗</li><li>DSP（数字信号处理器）：单芯片成本较高，主要还是应用于对计算能力要求高的应用</li><li>FPGA（现场可编程逻辑阵列）：想要它有什么功能完全靠编程人员设计，所有过程都是硬件，包括VHDL和Verilog HDL程序设计也是硬件范畴</li><li>SOC（片上系统）</li></ul><p><br></p><h2 id="三、ZYNQ"><a href="#三、ZYNQ" class="headerlink" title="三、ZYNQ"></a>三、ZYNQ</h2><p>ZYNQ：Xilinx推出的行业第一个可扩展处理平台ZYNQ系列</p><p>旨在为视频监视、汽车驾驶员辅助以及工厂自动化等高端嵌入式应用提供所需的处理与计算性能水平。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：写完这个，我也搞不懂MCU、ARM、DSP、FPGA、SOC到底有什么区别，我真的放弃硬件了&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="硬件" scheme="http://yoursite.com/tags/%E7%A1%AC%E4%BB%B6/"/>
     
   </entry>
   
