@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：之前一直是在Windows用VS，感觉很方便，自己新建个工程，不论是编译还是调试，都有现成的，IDE都帮你集成好了，按几个键就好了 ~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-10T07:04:22.628Z">
+<meta property="og:updated_time" content="2018-09-10T09:04:00.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CMake（一）—— make和cmake">
 <meta name="twitter:description" content="PS：之前一直是在Windows用VS，感觉很方便，自己新建个工程，不论是编译还是调试，都有现成的，IDE都帮你集成好了，按几个键就好了 ~">
@@ -200,8 +200,7 @@
 </ul>
 <p><br></p>
 <h3 id="2-makefile-文件"><a href="#2-makefile-文件" class="headerlink" title="2. makefile 文件"></a>2. makefile 文件</h3><p>一个工程中有很多源文件，makefile定义了整个工程的编译规则，哪些文件先编译，哪些文件后编译，哪些文件重新编译。malefile是<strong>自动化编译</strong>，一旦写好，只需一个make，整个工程自动编译。</p>
-<p>windows平台下，VS开发环境自动生成makefile文件</p>
-<p>Linux平台下，Qt Creator自动生成了类似makeile的 .pro文件</p>
+<p>生成阶段将生成用户指定类型(如Visual Studio或GNU/Linux GCC)的构建文件</p>
 <p><br></p>
 <h2 id="二、CmakeList-txt-和-CMake"><a href="#二、CmakeList-txt-和-CMake" class="headerlink" title="二、CmakeList.txt 和 CMake"></a>二、CmakeList.txt 和 CMake</h2><h3 id="1-CMake-相比make-的优势"><a href="#1-CMake-相比make-的优势" class="headerlink" title="1. CMake 相比make 的优势"></a>1. CMake 相比make 的优势</h3><p> <a href="http://gclxry.com/use-cmake-on-windows/" target="_blank" rel="noopener">http://gclxry.com/use-cmake-on-windows/</a></p>
 <p>因为有好几种 Make 工具，例如 GNU Make ，QT 的 qmake 等等。这些 Make 工具遵循着不同的规范和标准，执行的 Makefile 格式也不同。如果想跨平台，在不同平台编译，而如果使用上面的 Make 工具，就得为每一种标准写一次 Makefile 。</p>
@@ -446,19 +445,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color1">CMake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +453,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,7 +473,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,10 +494,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,11 +509,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color3">ubuntu、Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">

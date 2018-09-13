@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：写完这个，我也搞不懂MCU、ARM、DSP、FPGA、SOC到底有什么区别，我真的放弃硬件了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-10T07:31:46.129Z">
+<meta property="og:updated_time" content="2018-09-12T11:22:20.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嵌入式与各种板子">
 <meta name="twitter:description" content="PS：写完这个，我也搞不懂MCU、ARM、DSP、FPGA、SOC到底有什么区别，我真的放弃硬件了">
@@ -201,13 +201,20 @@
 <li>而嵌入是则是有微型操作系统的开发（windowsce,linux内核,安卓等），在这些操作系统之上开发</li>
 </ul>
 <p><br></p>
-<h2 id="二、MCU、ARM、DSP、FPGA、SOC"><a href="#二、MCU、ARM、DSP、FPGA、SOC" class="headerlink" title="二、MCU、ARM、DSP、FPGA、SOC"></a>二、MCU、ARM、DSP、FPGA、SOC</h2><ul>
-<li>MCU（单片机）</li>
-<li><strong>ARM属于MCU</strong>，ARM其实应该叫<strong>ARM架构</strong>，ARM之所以在<strong>移动市场</strong>上得到极大的成功，其中最主要的原因便是它的低功耗</li>
-<li>DSP（数字信号处理器）：单芯片成本较高，主要还是应用于对计算能力要求高的应用</li>
-<li>FPGA（现场可编程逻辑阵列）：想要它有什么功能完全靠编程人员设计，所有过程都是硬件，包括VHDL和Verilog HDL程序设计也是硬件范畴</li>
-<li>SOC（片上系统）</li>
-</ul>
+<h2 id="二、MCU、ARM、DSP、FPGA、SOC"><a href="#二、MCU、ARM、DSP、FPGA、SOC" class="headerlink" title="二、MCU、ARM、DSP、FPGA、SOC"></a>二、MCU、ARM、DSP、FPGA、SOC</h2><h3 id="1-MCU（单片机）"><a href="#1-MCU（单片机）" class="headerlink" title="1. MCU（单片机）"></a>1. MCU（单片机）</h3><p>是没有CPU，所以只有单线程</p>
+<p>PS：下面是我自己的理解，不一定正确，但是可以帮助我理解，没有操作系统，是如何运行程序</p>
+<p>51单片机烧录程序的过程是：</p>
+<p>（1）生成Hex文件</p>
+<p>（2）USB转串口线把电脑的USB口和单片机的串口连接</p>
+<p>（3）通过串口，把程序载入，最后单片机上电</p>
+<p>单片机上电后，程序指针初始化到固定地址，之前烧录的程序main入口就在这个地址里</p>
+<p><br></p>
+<h3 id="2-ARM"><a href="#2-ARM" class="headerlink" title="2. ARM"></a>2. ARM</h3><p>ARM其实应该叫<strong>ARM架构</strong> ，可以<strong>搭载操作系统</strong></p>
+<p>ARM之所以在<strong>移动市场</strong>上得到极大的成功，其中最主要的原因便是它的<strong>低功耗</strong></p>
+<p><br></p>
+<h3 id="3-DSP（数字信号处理器）"><a href="#3-DSP（数字信号处理器）" class="headerlink" title="3. DSP（数字信号处理器）"></a>3. DSP（数字信号处理器）</h3><p>单芯片成本较高，主要还是应用于对计算能力要求高的应用</p>
+<h3 id="4-FPGA（现场可编程逻辑阵列）"><a href="#4-FPGA（现场可编程逻辑阵列）" class="headerlink" title="4. FPGA（现场可编程逻辑阵列）"></a>4. FPGA（现场可编程逻辑阵列）</h3><p>想要它有什么功能完全靠编程人员设计，所有过程都是硬件，包括VHDL和Verilog HDL程序设计也是硬件范畴</p>
+<h3 id="5-SOC（片上系统）"><a href="#5-SOC（片上系统）" class="headerlink" title="5. SOC（片上系统）"></a>5. SOC（片上系统）</h3><h3 id="6-ASIC（专用集成电路）"><a href="#6-ASIC（专用集成电路）" class="headerlink" title="6. ASIC（专用集成电路）"></a>6. ASIC（专用集成电路）</h3><p>为专门目的而设计的集成电路。是指应特定用户要求和特定电子系统的需要而设计、制造的集成电路。</p>
 <p><br></p>
 <h2 id="三、ZYNQ"><a href="#三、ZYNQ" class="headerlink" title="三、ZYNQ"></a>三、ZYNQ</h2><p>ZYNQ：Xilinx推出的行业第一个可扩展处理平台ZYNQ系列</p>
 <p>旨在为视频监视、汽车驾驶员辅助以及工厂自动化等高端嵌入式应用提供所需的处理与计算性能水平。</p>
@@ -332,7 +339,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、嵌入式"><span class="toc-number">1.</span> <span class="toc-text">一、嵌入式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、MCU、ARM、DSP、FPGA、SOC"><span class="toc-number">2.</span> <span class="toc-text">二、MCU、ARM、DSP、FPGA、SOC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、ZYNQ"><span class="toc-number">3.</span> <span class="toc-text">三、ZYNQ</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、嵌入式"><span class="toc-number">1.</span> <span class="toc-text">一、嵌入式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、MCU、ARM、DSP、FPGA、SOC"><span class="toc-number">2.</span> <span class="toc-text">二、MCU、ARM、DSP、FPGA、SOC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-MCU（单片机）"><span class="toc-number">2.1.</span> <span class="toc-text">1. MCU（单片机）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ARM"><span class="toc-number">2.2.</span> <span class="toc-text">2. ARM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-DSP（数字信号处理器）"><span class="toc-number">2.3.</span> <span class="toc-text">3. DSP（数字信号处理器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-FPGA（现场可编程逻辑阵列）"><span class="toc-number">2.4.</span> <span class="toc-text">4. FPGA（现场可编程逻辑阵列）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-SOC（片上系统）"><span class="toc-number">2.5.</span> <span class="toc-text">5. SOC（片上系统）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-ASIC（专用集成电路）"><span class="toc-number">2.6.</span> <span class="toc-text">6. ASIC（专用集成电路）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、ZYNQ"><span class="toc-number">3.</span> <span class="toc-text">三、ZYNQ</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -449,19 +456,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color1">CMake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,11 +464,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,7 +484,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,10 +505,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,11 +520,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color3">ubuntu、Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
