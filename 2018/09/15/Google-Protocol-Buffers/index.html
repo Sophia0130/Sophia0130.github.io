@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>编译器、编辑器、IDE | 绿小蕤</title>
+  <title>Google Protocol Buffers | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PS：关于版本和各种编辑器、编译器、IDE">
-<meta name="keywords" content="软件">
+  <meta name="description" content="PS：在使用其它深度学习框架时遇到 caffe.proto，不理解这个文件是干嘛的，只好去看了一下 Google Protocol Buffers 这篇文章用了非常简单的例子，说明如何使用Google Protocol Buffers： https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html">
+<meta name="keywords" content="程序媛">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编译器、编辑器、IDE">
-<meta property="og:url" content="http://yoursite.com/2018/08/22/编译器、编辑器、IDE/index.html">
+<meta property="og:title" content="Google Protocol Buffers">
+<meta property="og:url" content="http://yoursite.com/2018/09/15/Google-Protocol-Buffers/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="PS：关于版本和各种编辑器、编译器、IDE">
+<meta property="og:description" content="PS：在使用其它深度学习框架时遇到 caffe.proto，不理解这个文件是干嘛的，只好去看了一下 Google Protocol Buffers 这篇文章用了非常简单的例子，说明如何使用Google Protocol Buffers： https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-22T09:24:21.709Z">
+<meta property="og:updated_time" content="2018-09-15T09:20:00.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编译器、编辑器、IDE">
-<meta name="twitter:description" content="PS：关于版本和各种编辑器、编译器、IDE">
+<meta name="twitter:title" content="Google Protocol Buffers">
+<meta name="twitter:description" content="PS：在使用其它深度学习框架时遇到 caffe.proto，不理解这个文件是干嘛的，只好去看了一下 Google Protocol Buffers 这篇文章用了非常简单的例子，说明如何使用Google Protocol Buffers： https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -161,25 +161,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-编译器、编辑器、IDE" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Google-Protocol-Buffers" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      编译器、编辑器、IDE
+      Google Protocol Buffers
     </h1>
   
 
         
-        <a href="/2018/08/22/编译器、编辑器、IDE/" class="archive-article-date">
-  	<time datetime="2018-08-22T08:59:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
+        <a href="/2018/09/15/Google-Protocol-Buffers/" class="archive-article-date">
+  	<time datetime="2018-09-15T09:12:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-15</time>
 </a>
 
 
-<a href="/2018/08/22/编译器、编辑器、IDE/" class="archive-article-date">
-  	<time datetime="2018-08-22T08:59:22.000Z" itemprop="datePublished">2018-08-22</time>
+<a href="/2018/09/15/Google-Protocol-Buffers/" class="archive-article-date">
+  	<time datetime="2018-09-15T09:12:19.000Z" itemprop="datePublished">2018-09-15</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -192,46 +192,80 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>PS：关于版本和各种编辑器、编译器、IDE</p>
+        <p>PS：在使用其它深度学习框架时遇到 caffe.proto，不理解这个文件是干嘛的，只好去看了一下 Google Protocol Buffers</p>
+<p>这篇文章用了非常简单的例子，说明如何使用Google Protocol Buffers：</p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html</a></p>
 <a id="more"></a>
-<h2 id="C-版本"><a href="#C-版本" class="headerlink" title="C++版本"></a>C++版本</h2><ul>
-<li>C++03</li>
-<li>C++11</li>
-<li>C++14</li>
-</ul>
 <p><br></p>
-<h2 id="python版本"><a href="#python版本" class="headerlink" title="python版本"></a>python版本</h2><ul>
-<li>python2.x</li>
-<li>python3.x</li>
-</ul>
+<h2 id="Google-Protocol-Buffers（Protobuf）"><a href="#Google-Protocol-Buffers（Protobuf）" class="headerlink" title="Google Protocol Buffers（Protobuf）"></a>Google Protocol Buffers（Protobuf）</h2><p>Google Protocol Buffers（Protobuf）：一种结构化数据存储格式</p>
+<p>PS：我的理解用 Protobuf 编译器将 proto 编译成对应的语言后，就可以对结构化数据写入读出</p>
+<p><strong>适合不同语言之间的数据交换</strong>，即只要将相同协议格式的proto文件被编译成不同的语言版本，加入到各自的工程中，这样不同语言就可以通过protobuf序列化的数据解析其他语言</p>
 <p><br></p>
-<h2 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h2><p>编译器是编译一个文件</p>
+<h3 id="1-编写-proto-文件"><a href="#1-编写-proto-文件" class="headerlink" title="1. 编写 .proto 文件"></a>1. 编写 .proto 文件</h3><p>编写一个 proto 文件，定义程序中需要处理的结构化数据（被称为 Message）</p>
+<p>proto文件的结构：<a href="https://www.jianshu.com/p/5ea08c6b7031" target="_blank" rel="noopener">https://www.jianshu.com/p/5ea08c6b7031</a></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:left">定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td style="text-align:left">是消息定义的关键字</td>
+</tr>
+<tr>
+<td>required</td>
+<td style="text-align:left">这个字段必须的，必须在序列化的时候被赋值</td>
+</tr>
+<tr>
+<td>optional</td>
+<td style="text-align:left">代表这个字段是可选的，可以为0个或1个但不能大于1个</td>
+</tr>
+<tr>
+<td>repeated</td>
+<td style="text-align:left">代表此字段可以被重复任意多次包括0次</td>
+</tr>
+<tr>
+<td>int32和string</td>
+<td style="text-align:left">字段的类型</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 命名规则：packageName.MessageName.proto</span><br><span class="line"></span><br><span class="line">package lm; </span><br><span class="line">message helloworld </span><br><span class="line">&#123; </span><br><span class="line">   required int32     id = 1;  // ID </span><br><span class="line">   required string    str = 2;  // str </span><br><span class="line">   optional int32     opt = 3;  //optional field </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="2-编译-proto-文件"><a href="#2-编译-proto-文件" class="headerlink" title="2. 编译 .proto 文件"></a>2. 编译 .proto 文件</h3><p>用 Protobuf 编译器将 proto 编译成对应的目标语言（C++为例），生成一下两个文件</p>
 <ul>
-<li>gcc/g++</li>
-<li>clang</li>
-</ul>
-<p><br></p>
-<h2 id="Make"><a href="#Make" class="headerlink" title="Make"></a>Make</h2><p>make是<strong>编译多个源文件</strong>的工具，解释makefile中的指令，看作是编译器的调度器</p>
-<p>make通过读入makefile，执行一组以gcc/g++为主的shell命令序列，输入文件主要用来记录文件之间的依赖关系和命令执行顺序</p>
-<p><br></p>
-<h2 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h2><p>CMake是一种跨平台编译工具</p>
-<p>CMake主要是编写CMakeLists.txt文件，然后用cmake命令将CMakeLists.txt文件转化为make所需要的makefile文件，最后用make命令编译源码生成可执行程序或共享库 so(shared object)</p>
-<p><br></p>
-<h2 id="集成开发环境IDE"><a href="#集成开发环境IDE" class="headerlink" title="集成开发环境IDE"></a>集成开发环境IDE</h2><p>集成开发环境（IDE，Integrated Development Environment ）：一般包括代码编辑器、编译器、调试器和图形用户界面等工具。</p>
+<li><p>packageName.MessageName.pb.h 头文件：类的定义，类名为 packageName::MessageName</p>
+</li>
+<li><p>packageName.MessageName.pb.cc文件：类的实现</p>
 <ul>
-<li>Microsoft Visual C++：（简称Visual C++、MSVC、VC++或VC）是微软公司的C++开发工具</li>
-<li>Eclipse：开源的、跨平台的 IDE</li>
-<li>Qt Creator：收费的、跨平台的 IDE</li>
-<li>Visual Studio：Windows平台应用程序的集成开发环境</li>
-<li>Android Studio： Android平台开发程序的集成开发环境</li>
+<li>类的实现提供了一系列的函数用来修改和读取结构化数据中的数据成员</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>类的实现提供相应的方法来把一个复杂的数据变成一个字节序列，可以将这个字节序列写入磁盘</li>
 </ul>
 <p><br></p>
-<h2 id="代码编辑器"><a href="#代码编辑器" class="headerlink" title="代码编辑器"></a>代码编辑器</h2><ul>
-<li>Atom  ：跨平台的文本编辑器</li>
-<li>Sublime Text：跨平台的文本编辑器</li>
-<li>VI/VIM：Unix/Linux </li>
+<p>例子：</p>
+<p>若目标语言是 C++，则lm.helloworld. .proto 文件，经过编译生成了对应了一个 C++ 的 helloworld 类</p>
+<p>lm.helloworld.pb.h ：  C++ 类的定义头文件</p>
+<p>lm.helloworld.pb.cc ： C++ 类的实现文件</p>
+<p><br></p>
+<h3 id="3-编写-writer-和-Reader具体实现结构化数据的写入读出"><a href="#3-编写-writer-和-Reader具体实现结构化数据的写入读出" class="headerlink" title="3. 编写 writer 和 Reader具体实现结构化数据的写入读出"></a>3. 编写 writer 和 Reader具体实现结构化数据的写入读出</h3><p>Writer 、Reader 文件中 include 编译后的头文件 lm.helloworld.pb.h 就可以使用 lm::helloworld类</p>
+<ul>
+<li><strong>Writer ：把一个结构化数据写入磁盘，以便其他人来读取</strong></li>
 </ul>
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lm.helloworld.pb.h"</span> <span class="comment">// lm::helloworld 类定义在 lm.helloworld.pb.h 头文件中</span></span></span><br><span class="line">…</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span></span><br><span class="line"><span class="function"> </span>&#123; </span><br><span class="line">  lm::helloworld msg1;    <span class="comment">//类的实现</span></span><br><span class="line">  msg1.set_id(<span class="number">101</span>);        </span><br><span class="line">  msg1.set_str(“hello”); </span><br><span class="line">     </span><br><span class="line">  <span class="comment">// Write the new address book back to disk. </span></span><br><span class="line">  <span class="function">fstream <span class="title">output</span><span class="params">(<span class="string">"./log"</span>, ios::out | ios::trunc | ios::binary)</span></span>;  <span class="comment">//对象序列化写入</span></span><br><span class="line">         </span><br><span class="line">  <span class="keyword">if</span> (!msg1.SerializeToOstream(&amp;output)) &#123; </span><br><span class="line">      <span class="built_in">cerr</span> &lt;&lt; <span class="string">"Failed to write msg."</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>; </span><br><span class="line">  &#125;         </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li><strong>Reader：把写入磁盘的结构化数据读出</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lm.helloworld.pb.h"</span> </span></span><br><span class="line">…</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">ListMsg</span><span class="params">(<span class="keyword">const</span> lm::helloworld &amp; msg)</span> </span>&#123; </span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; msg.id() &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; msg.str() &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line"> &#125; </span><br><span class="line">  </span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123; </span><br><span class="line"> </span><br><span class="line">  lm::helloworld msg1; </span><br><span class="line">  </span><br><span class="line">  &#123; </span><br><span class="line">    <span class="function">fstream <span class="title">input</span><span class="params">(<span class="string">"./log"</span>, ios::in | ios::binary)</span></span>; </span><br><span class="line">    <span class="keyword">if</span> (!msg1.ParseFromIstream(&amp;input)) &#123; </span><br><span class="line">      <span class="built_in">cerr</span> &lt;&lt; <span class="string">"Failed to parse address book."</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>; </span><br><span class="line">    &#125; </span><br><span class="line">  &#125; </span><br><span class="line">  </span><br><span class="line">  ListMsg(msg1); </span><br><span class="line">  … </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -239,17 +273,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">软件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -300,7 +323,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/22/编译器、编辑器、IDE/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/15/Google-Protocol-Buffers/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +337,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/22/剑指offer（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          剑指offer（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/19/VS-opencv的配置/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">VS+opencv的配置</div>
+    <a href="/2018/09/13/Linux（五）——-o、-a、-so/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux（五）—— .o、.a、.so</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -352,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-版本"><span class="toc-number">1.</span> <span class="toc-text">C++版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python版本"><span class="toc-number">2.</span> <span class="toc-text">python版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译器"><span class="toc-number">3.</span> <span class="toc-text">编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Make"><span class="toc-number">4.</span> <span class="toc-text">Make</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMake"><span class="toc-number">5.</span> <span class="toc-text">CMake</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集成开发环境IDE"><span class="toc-number">6.</span> <span class="toc-text">集成开发环境IDE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码编辑器"><span class="toc-number">7.</span> <span class="toc-text">代码编辑器</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Google-Protocol-Buffers（Protobuf）"><span class="toc-number">1.</span> <span class="toc-text">Google Protocol Buffers（Protobuf）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-编写-proto-文件"><span class="toc-number">1.1.</span> <span class="toc-text">1. 编写 .proto 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编译-proto-文件"><span class="toc-number">1.2.</span> <span class="toc-text">2. 编译 .proto 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-编写-writer-和-Reader具体实现结构化数据的写入读出"><span class="toc-number">1.3.</span> <span class="toc-text">3. 编写 writer 和 Reader具体实现结构化数据的写入读出</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：之前一直是在Windows用VS，感觉很方便，自己新建个工程，不论是编译还是调试，都有现成的，IDE都帮你集成好了，按几个键就好了 ~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-10T09:04:00.904Z">
+<meta property="og:updated_time" content="2018-09-13T12:41:28.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CMake（一）—— make和cmake">
 <meta name="twitter:description" content="PS：之前一直是在Windows用VS，感觉很方便，自己新建个工程，不论是编译还是调试，都有现成的，IDE都帮你集成好了，按几个键就好了 ~">
@@ -194,19 +194,25 @@
       
         <p>PS：之前一直是在Windows用VS，感觉很方便，自己新建个工程，不论是编译还是调试，都有现成的，IDE都帮你集成好了，按几个键就好了 ~ </p>
 <a id="more"></a>
-<h2 id="一、makefile-和-make"><a href="#一、makefile-和-make" class="headerlink" title="一、makefile 和 make"></a>一、makefile 和 make</h2><h3 id="1-编译器和-make"><a href="#1-编译器和-make" class="headerlink" title="1. 编译器和 make"></a>1. 编译器和 make</h3><ul>
-<li><strong>编译器是编译一个文件</strong></li>
-<li>make是编译多个源文件的工具，解释makefile中的指令，看作是编译器的调度器</li>
+<h2 id="一、makefile-和-make"><a href="#一、makefile-和-make" class="headerlink" title="一、makefile 和 make"></a>一、makefile 和 make</h2><p>『敲黑板！！！make 并不只是编译.c，还有链接目标文件啊』</p>
+<p>PS：又发现自己理解偏差了，makefile里写的规则并不只有将.c 编译为目标文件，肯定有链接，但是，我之前看make的解释都是什么编译多个文件，以为没有链接的功能，我之前一直觉得很奇怪，为什么 make 之后就可以运行可执行文件了，还没有链接呢，感觉自己太年轻了 ~</p>
+<p><br></p>
+<h3 id="1-编译器和-make"><a href="#1-编译器和-make" class="headerlink" title="1. 编译器和 make"></a>1. 编译器和 make</h3><ul>
+<li><p><strong>编译器是编译一个文件</strong></p>
+</li>
+<li><p>make是编译多个源文件的工具，</p>
+<p>通过调用makefile文件中，用户指定的命令来进行编译和链接的，看作是编译器的调度器</p>
+</li>
 </ul>
 <p><br></p>
 <h3 id="2-makefile-文件"><a href="#2-makefile-文件" class="headerlink" title="2. makefile 文件"></a>2. makefile 文件</h3><p>一个工程中有很多源文件，makefile定义了整个工程的编译规则，哪些文件先编译，哪些文件后编译，哪些文件重新编译。malefile是<strong>自动化编译</strong>，一旦写好，只需一个make，整个工程自动编译。</p>
-<p>生成阶段将生成用户指定类型(如Visual Studio或GNU/Linux GCC)的构建文件</p>
+<p>生成阶段将生成用户指定类型（如Visual Studio或GNU/Linux GCC）的构建文件</p>
 <p><br></p>
-<h2 id="二、CmakeList-txt-和-CMake"><a href="#二、CmakeList-txt-和-CMake" class="headerlink" title="二、CmakeList.txt 和 CMake"></a>二、CmakeList.txt 和 CMake</h2><h3 id="1-CMake-相比make-的优势"><a href="#1-CMake-相比make-的优势" class="headerlink" title="1. CMake 相比make 的优势"></a>1. CMake 相比make 的优势</h3><p> <a href="http://gclxry.com/use-cmake-on-windows/" target="_blank" rel="noopener">http://gclxry.com/use-cmake-on-windows/</a></p>
+<h2 id="二、CmakeList-txt-和-CMake"><a href="#二、CmakeList-txt-和-CMake" class="headerlink" title="二、CmakeList.txt 和 CMake"></a>二、CmakeList.txt 和 CMake</h2><h3 id="1-CMake-的优势"><a href="#1-CMake-的优势" class="headerlink" title="1. CMake 的优势"></a>1. CMake 的优势</h3><p> <a href="http://gclxry.com/use-cmake-on-windows/" target="_blank" rel="noopener">http://gclxry.com/use-cmake-on-windows/</a></p>
 <p>因为有好几种 Make 工具，例如 GNU Make ，QT 的 qmake 等等。这些 Make 工具遵循着不同的规范和标准，执行的 Makefile 格式也不同。如果想跨平台，在不同平台编译，而如果使用上面的 Make 工具，就得为每一种标准写一次 Makefile 。</p>
-<p>CMake就是针对上面问题所设计的工具，首先允许开发者编写一种<strong>平台无关</strong>的 CMakeList.txt 文件来定制整个编译流程，然后再根据目标用户的平台进一步生成本地化的 Makefile 和工程文件，如 Unix 的 Makefile 或 Windows 的 Visual Studio 工程。</p>
+<p>CMake就是针对上面问题所设计的工具，首先允许开发者编写一种『 <strong>平台无关</strong> 』的 CMakeList.txt 文件来定制整个编译流程，然后再根据目标用户的平台进一步生成本地化的 Makefile 或工程文件，如 Unix 的 Makefile 或 Windows 的 Visual Studio 工程。</p>
 <p><br></p>
-<h3 id="2-CMake-的使用原理"><a href="#2-CMake-的使用原理" class="headerlink" title="2. CMake 的使用原理"></a>2. CMake 的使用原理</h3><p>CMake是种跨平台编译工具，Cmake 将 CMakeList.txt 转化为make 需要的 makefile 文件，用make编译</p>
+<h3 id="2-CMake-的使用原理"><a href="#2-CMake-的使用原理" class="headerlink" title="2. CMake 的使用原理"></a>2. CMake 的使用原理</h3><p><strong>CMake是种跨平台编译工具，Cmake 将 CMakeList.txt 转化为make 需要的 makefile 文件，用make编译</strong></p>
 
       
 
@@ -328,7 +334,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、makefile-和-make"><span class="toc-number">1.</span> <span class="toc-text">一、makefile 和 make</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-编译器和-make"><span class="toc-number">1.1.</span> <span class="toc-text">1. 编译器和 make</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-makefile-文件"><span class="toc-number">1.2.</span> <span class="toc-text">2. makefile 文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、CmakeList-txt-和-CMake"><span class="toc-number">2.</span> <span class="toc-text">二、CmakeList.txt 和 CMake</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CMake-相比make-的优势"><span class="toc-number">2.1.</span> <span class="toc-text">1. CMake 相比make 的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-CMake-的使用原理"><span class="toc-number">2.2.</span> <span class="toc-text">2. CMake 的使用原理</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、makefile-和-make"><span class="toc-number">1.</span> <span class="toc-text">一、makefile 和 make</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-编译器和-make"><span class="toc-number">1.1.</span> <span class="toc-text">1. 编译器和 make</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-makefile-文件"><span class="toc-number">1.2.</span> <span class="toc-text">2. makefile 文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、CmakeList-txt-和-CMake"><span class="toc-number">2.</span> <span class="toc-text">二、CmakeList.txt 和 CMake</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CMake-的优势"><span class="toc-number">2.1.</span> <span class="toc-text">1. CMake 的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-CMake-的使用原理"><span class="toc-number">2.2.</span> <span class="toc-text">2. CMake 的使用原理</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -453,15 +459,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cmake</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,15 +479,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,11 +503,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,11 +515,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ubuntu、Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,11 +531,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">ubuntu、Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
