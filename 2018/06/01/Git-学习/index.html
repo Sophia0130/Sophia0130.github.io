@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-15T02:16:54.857Z">
+<meta property="og:updated_time" content="2018-09-16T11:46:39.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 学习">
 <meta name="twitter:description" content="PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数">
@@ -196,7 +196,7 @@
 <a id="more"></a>
 <p><br></p>
 <h2 id="1-Git-版本控制系统"><a href="#1-Git-版本控制系统" class="headerlink" title="1. Git 版本控制系统"></a>1. Git 版本控制系统</h2><ul>
-<li>集中式的版本控制系统：CVS及SVN                                                                                                                                            版本库是集中存放在中央服务器的，，要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。最大缺点就是必须联网才能工作。</li>
+<li>集中式的版本控制系统：CVS及SVN                                                                                                                                            版本库是集中存放在中央服务器的，要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。最大缺点就是必须联网才能工作。</li>
 </ul>
 <ul>
 <li>分布式版本控制系统：Git                                                                                                                        每个人的电脑上都是一个完整的版本库，就不需要联网，因为版本库就在自己的电脑上。对于多人协作的方式，只需把各自的修改推送给对方，就可以互相看到对方的修改。</li>
@@ -216,6 +216,7 @@
 <p>文件提交到版本库里分两步，暂存区和分支    <u>！划重点！</u> 所以每次修改，如果不用<code>git add</code>到暂存区，那就不会加到 <code>commit</code> 中</p>
 <h3 id="4）修改仓库版本"><a href="#4）修改仓库版本" class="headerlink" title="4）修改仓库版本"></a>4）修改仓库版本</h3><p>查看版本历史  <code>git log</code>     查看命令修改历史  <code>git reflog</code>   </p>
 <p>回到上一版本   <code>git reset --hard Head^</code>                                                                                         回到上上个版本   <code>git reset --hard Head^^</code>                                                                                            回到往上的100个版本   <code>git reset --hard Head~100</code>        指定到指定的版本   <code>git reset --hard 版本号</code>   </p>
+<p><br></p>
 <h2 id="3-远程仓库"><a href="#3-远程仓库" class="headerlink" title="3.远程仓库"></a>3.远程仓库</h2><p>Git是分布式版本控制系统，同一个Git仓库，可以分布到不同的机器上，且每台机器的版本库其实都是一样的。</p>
 <p>实际情况是找一台电脑当服务器，每天24小时开机，每个人都从这个服务器仓库里克隆一份到自己的电脑上，并且各自把各自的提交推送到服务器仓库里，也从服务器仓库中拉取别人的提交。</p>
 <p>只要注册一个GitHub账号，就可以免费获得Git远程仓库，本地Git仓库和GitHub仓库之间的传输是通过SSH加密。</p>
@@ -513,14 +514,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CMake</a>
               </li>
              
@@ -529,11 +522,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,7 +550,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,11 +558,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,15 +574,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,19 +598,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ubuntu、Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
             
             <div class="clearfix"></div>

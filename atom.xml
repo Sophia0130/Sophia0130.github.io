@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-16T01:05:40.019Z</updated>
+  <updated>2018-09-21T01:54:05.038Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C和C++的I/O库区别</title>
+    <link href="http://yoursite.com/2018/09/21/C%E5%92%8CC-%E7%9A%84I-O%E5%BA%93%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2018/09/21/C和C-的I-O库区别/</id>
+    <published>2018-09-21T01:52:46.000Z</published>
+    <updated>2018-09-21T01:54:05.038Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：下面是我个人对两种I/O库的理解</p><p>C语言的输入输出：需要标准流和输入输出函数共同实现，这是个过程</p><p>C++的输入输出：实例化ios类为对象，这是面向对象</p><p>最近看的两个项目，一个是C，一个是C++，突然发现真的有很多不同</p><a id="more"></a><p><br></p><h1 id="C语言—标准I-O"><a href="#C语言—标准I-O" class="headerlink" title="C语言—标准I/O"></a>C语言—标准I/O</h1><p>C语言的I/O相关函数封装在头文件 \&lt;stdio.h></p><p><br></p><h3 id="1-三个标准流"><a href="#1-三个标准流" class="headerlink" title="1. 三个标准流"></a>1. 三个标准流</h3><p>PS：我对流的理解，是数据源源不断的流动，标准应该是指某种规则</p><ul><li><p>标准输入流 stdin：从键盘输入 </p></li><li><p>标准输出流 stdout：默认是输出到屏幕 </p><p>stdout 是行缓冲的，输出会放在一个buffer里面，<strong>只有到换行的时候，才会输出到屏幕</strong></p></li></ul><ul><li><p>标准错误流 stderr：默认是输出到屏幕</p><p>stderr 是无缓冲的，会直接输出</p></li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="built_in">fprintf</span>(<span class="built_in">stdout</span>,<span class="string">"Hello "</span>);</span><br><span class="line"><span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"World!"</span>);</span><br><span class="line">return0;</span><br><span class="line">&#125;  <span class="comment">// 输出结果：World!Hello</span></span><br></pre></td></tr></table></figure><p><br></p><h3 id="2-格式化输入、输出"><a href="#2-格式化输入、输出" class="headerlink" title="2. 格式化输入、输出"></a>2. 格式化输入、输出</h3><h4 id="（1）格式化输入"><a href="#（1）格式化输入" class="headerlink" title="（1）格式化输入"></a>（1）格式化输入</h4><ul><li>scanf：从控制台输入 </li><li>fscanf ：从文件输入 </li><li>sscanf ：从指定字符串输入</li></ul><h4 id="（2）格式化输出"><a href="#（2）格式化输出" class="headerlink" title="（2）格式化输出"></a>（2）格式化输出</h4><ul><li>printf：向屏幕这样的标准输出设备输出</li><li>sprintf：格式化输出到一个字符串</li><li>fprintf：格式化输出到流 stream指定的文件</li></ul><p><br></p><h3 id="3-标准流和格式化输入输出函数的关系"><a href="#3-标准流和格式化输入输出函数的关系" class="headerlink" title="3. 标准流和格式化输入输出函数的关系"></a>3. 标准流和格式化输入输出函数的关系</h3><p>PS：段小洋说不能单独讲流或输入输出，应该就是输入输出流，两者是绑定的，但是我就是想把它分开来，这样好理解嘛 ~</p><p><strong>C语言把所有的设备（比如显示器、键鼠、U盘等）都当做文件</strong>，把所有的东西都当作文件来处理</p><p>程序与文件交互时，会默认创建 stdin、stdout、stderr 三个文件</p><p>比如，stdin先接收键盘的数据，然后通过输入函数将数据输入到程序里</p><p><br></p><h1 id="C-—标准I-O"><a href="#C-—标准I-O" class="headerlink" title="C++—标准I/O"></a>C++—标准I/O</h1><p><a href="https://www.cnblogs.com/xumengpiaoyun/archive/2013/04/21/3034195.html" target="_blank" rel="noopener">https://www.cnblogs.com/xumengpiaoyun/archive/2013/04/21/3034195.html</a></p><p><br></p><ul><li>标准I/O：对系统指定的<strong>标准设备</strong>的输入和输出（键盘输入数据，输出到显示屏幕）</li><li>文件I/O：<strong>外存磁盘文件</strong>为对象进行输入和输出（从磁盘文件输入数据，数据输出到磁盘文件）</li><li>字符串I/O：对内存中指定的空间进行输入和输出</li></ul><p><br></p><h3 id="1-I-O类库中的常用流类"><a href="#1-I-O类库中的常用流类" class="headerlink" title="1. I/O类库中的常用流类"></a>1. I/O类库中的常用流类</h3><p><img src="https://images0.cnblogs.com/blog/476361/201304/21180804-68564fc8ad1b4472b8ba6012d51c6db3.jpg" alt="img"></p><p><br></p><h3 id="2-头文件"><a href="#2-头文件" class="headerlink" title="2.头文件"></a>2.头文件</h3><p>iostream类库的即可分别由不同的头文件来实现，命名空间为 std</p><ul><li>iostream：标准I/O，对系统指定的标准设备的输入和输出（比如键盘输入数据，输出到显示屏幕）</li><li>fstream：文件I/O，以磁盘文件为对象的输入和输出（从磁盘文件输入数据，数据输出到磁盘文件）</li><li>strstream：字符串I/O，对内存中指定的空间的输入和输出</li></ul><p><br></p><p>PS：标准输入输出流、格式化输入输出都是对流类实例化为对象</p><h3 id="3-标准输入流"><a href="#3-标准输入流" class="headerlink" title="3. 标准输入流"></a>3. 标准输入流</h3><ul><li>cin流对象：从输入流提取数据，遇到空格或者回车就终止。</li><li>cin.get()</li></ul><ul><li><p>cin.getline()</p><p><br></p></li></ul><h3 id="4-标准输出流"><a href="#4-标准输出流" class="headerlink" title="4. 标准输出流"></a>4. 标准输出流</h3><ul><li>cout 流对象：可以传送到显示器输出，也可以<strong>重定向到磁盘文件</strong></li><li>cerr 流对象：只能在显示器输出，<strong>不经过缓冲区</strong></li><li>clog 流对象：在显示器显示错误信息，<strong>缓冲区满</strong> 后或者遇 <strong>endl</strong> 时向显示器输出</li></ul><p><br></p><h3 id="5-格式化输入输出"><a href="#5-格式化输入输出" class="headerlink" title="5. 格式化输入输出"></a>5. 格式化输入输出</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//控制格式化, 输出</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"default bool values : "</span> &lt;&lt; <span class="literal">true</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="literal">false</span></span><br><span class="line">&lt;&lt; <span class="string">"\nalpha bool values : "</span> &lt;&lt; <span class="built_in">std</span>::boolalpha &lt;&lt; <span class="literal">true</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="literal">false</span></span><br><span class="line">&lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"no reset bool : "</span> &lt;&lt; <span class="literal">true</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="literal">false</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>; <span class="comment">//没有重置</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::noboolalpha &lt;&lt; <span class="string">"reset bool : "</span> &lt;&lt; <span class="literal">true</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="literal">false</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>; <span class="comment">//重置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//整数的基, 显示, 大写</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::showbase;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"default : "</span> &lt;&lt; <span class="number">20</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="number">1024</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>; <span class="comment">//默认</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"octal : "</span> &lt;&lt; oct &lt;&lt; <span class="number">20</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="number">1024</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>; <span class="comment">//8进制</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::uppercase &lt;&lt; <span class="string">"hex : "</span> &lt;&lt; hex &lt;&lt; <span class="number">20</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="number">1024</span></span><br><span class="line">&lt;&lt; <span class="built_in">std</span>::nouppercase &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>; <span class="comment">//16进制</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"decimal : "</span>  &lt;&lt; dec&lt;&lt; <span class="number">20</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="number">1024</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>; <span class="comment">//10进制</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::noshowbase;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：下面是我个人对两种I/O库的理解&lt;/p&gt;
+&lt;p&gt;C语言的输入输出：需要标准流和输入输出函数共同实现，这是个过程&lt;/p&gt;
+&lt;p&gt;C++的输入输出：实例化ios类为对象，这是面向对象&lt;/p&gt;
+&lt;p&gt;最近看的两个项目，一个是C，一个是C++，突然发现真的有很多不同&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文本文件和二进制文件</title>
+    <link href="http://yoursite.com/2018/09/20/%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/09/20/文本文件和二进制文件/</id>
+    <published>2018-09-20T08:02:13.000Z</published>
+    <updated>2018-09-20T08:03:39.520Z</updated>
+    
+    <content type="html"><![CDATA[<p>二进制文件和文本文件的区别 ：<a href="https://www.jianshu.com/p/af0b4f8b030e" target="_blank" rel="noopener">https://www.jianshu.com/p/af0b4f8b030e</a></p><a id="more"></a><p><br></p><h4 id="（1）文本文件"><a href="#（1）文本文件" class="headerlink" title="（1）文本文件"></a>（1）文本文件</h4><ul><li><p>基于字符编码的文件，常见的编码有 ASCII 编码，UNICODE 编码</p></li><li><p><strong>只能存储 char 型字符变量</strong></p></li><li><p>数据通常是固定长度，以ASCII为例，每个字符都是1个字节</p></li><li><p>文本文件编辑器就可以读写</p></li><li><p>进行编辑的最小单位是字节(byte)</p></li><li><p>纯文本文件没有控制格式的信息，实际上也是一种<strong>特殊的二进制文件</strong></p><p><br></p></li></ul><h4 id="（2）二进制文件"><a href="#（2）二进制文件" class="headerlink" title="（2）二进制文件"></a>（2）二进制文件</h4><ul><li>基于值编码的文件</li><li><strong>可以存储 char/int/short/long/float/……各种变量值</strong></li><li>不同变量占据长度不同，short占两个字节，int占四个字节，float占8个字节……</li><li>二进制文件<strong>需要特别的解码器</strong>，比如bmp文件需要图像查看器，rmvb需要播放器</li><li>进行编辑的最小单位则是位(bit)（但，不会直接通过手工的方式对二进制文件进行编辑）</li><li>二进制文件，都往往有一个头 head，提供文件信息和解释方式</li></ul><p><strong>记事本</strong>只能够识别字符类型，支持文本文件而不支持二进制文件。如果用记事本打开文本文件一切正常，如果打开的是二进制文件就会出现乱码，但也有不乱码的地方，那些地方都是<strong>字符编码</strong>的，而对于int、double 等类型所对应的值都是乱码的。</p><p>PS：字符编码有 ASCII、Unicode、GBK 和 UTF-8 </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;二进制文件和文本文件的区别 ：&lt;a href=&quot;https://www.jianshu.com/p/af0b4f8b030e&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/p/af0b4f8b030e&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>内存对齐</title>
+    <link href="http://yoursite.com/2018/09/19/%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90/"/>
+    <id>http://yoursite.com/2018/09/19/内存对齐/</id>
+    <published>2018-09-19T04:06:12.000Z</published>
+    <updated>2018-09-19T04:06:57.721Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：这篇博客写得很详细，下面的学习笔记都是参考其完成</p><p> <a href="https://blog.csdn.net/markl22222/article/details/38051483" target="_blank" rel="noopener">https://blog.csdn.net/markl22222/article/details/38051483</a></p><a id="more"></a><h2 id="一、内存对齐-Data-structure-alignment"><a href="#一、内存对齐-Data-structure-alignment" class="headerlink" title="一、内存对齐 Data structure alignment"></a>一、内存对齐 Data structure alignment</h2><p>PS：WiKi 的定义很清楚，内存对齐就是数据在电脑中的存储方式</p><p>Data structure alignment refers to the way <strong>data is arranged and accessed in computer memory</strong>. </p><p>It consists of three separate but related issues:</p><ul><li>data alignment</li><li>data structure padding</li><li>packing</li></ul><p><br></p><h3 id="1-内存对齐（Data-structure-alignment）"><a href="#1-内存对齐（Data-structure-alignment）" class="headerlink" title="1. 内存对齐（Data structure alignment）"></a>1. 内存对齐（Data structure alignment）</h3><p>是一个数据类型所存放的<strong>内存地址的属性</strong>，这个属性是一个无符号整数，并且这个整数必须是2的N次方 1、2、4、8、……</p><p>比如，<strong>一个数据类型的内存对齐为8，是指这个数据类型定义出来的所有变量，其内存地址都是8的倍数</strong></p><h3 id="2-自然对齐（naturally-aligned）"><a href="#2-自然对齐（naturally-aligned）" class="headerlink" title="2. 自然对齐（naturally aligned）"></a>2. 自然对齐（naturally aligned）</h3><p>基本数据类型的对齐属性，和这个数据类型的大小相等时，这种对齐方式称作自然对齐</p><p>比如，一个4字节大小的int型数据，默认情况下它的内存对齐也是4</p><p><br></p><h2 id="二、为什么要用内存对齐？"><a href="#二、为什么要用内存对齐？" class="headerlink" title="二、为什么要用内存对齐？"></a>二、为什么要用内存对齐？</h2><p><strong>考虑到CPU处理内存的方式</strong></p><p>32位的x86 CPU，一个时钟周期可以读取4个连续的内存单元，即4字节，使用字节对齐将会提高系统的性能，也就是CPU读取内存数据的效率。</p><p>比如，一个int放在奇数内存位置上，将4个字节读出，32位CPU就需要两次，但对齐之后一次就可以。</p><p><br></p><h2 id="三、数据填充-Data-Structure-Padding"><a href="#三、数据填充-Data-Structure-Padding" class="headerlink" title="三、数据填充 Data Structure Padding"></a>三、数据填充 Data Structure Padding</h2><p>内存对齐可能会让数据在内存里的存放不是紧挨着的，而是可能会出现一些空隙</p><p>举个例子：</p><p>1.定义一个结构体，如果直接相加占用内存是16，sizeof 的结果其实更大，这是因为，为了保证这个结构体里的每个成员都应该在它对齐的内存位置上，而在某些位置插入了Padding</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MyStruct</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> a;         <span class="comment">// 1 byte</span></span><br><span class="line">    <span class="keyword">int</span> b;          <span class="comment">// 4 bytes</span></span><br><span class="line">    <span class="keyword">short</span> c;        <span class="comment">// 2 bytes</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> d;    <span class="comment">// 8 bytes</span></span><br><span class="line">    <span class="keyword">char</span> e;         <span class="comment">// 1 byte</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>2.填充后的结果</p><p>当然，<strong>不同平台下会使用不同的默认对齐值</strong>，下面这个只是一种方式</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MyStruct</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> a;         <span class="comment">// 1 byte</span></span><br><span class="line">    <span class="keyword">char</span> pad_0[<span class="number">3</span>];  <span class="comment">// Padding 3</span></span><br><span class="line">    <span class="keyword">int</span> b;          <span class="comment">// 4 bytes</span></span><br><span class="line">    <span class="keyword">short</span> c;        <span class="comment">// 2 bytes</span></span><br><span class="line">    <span class="keyword">char</span> pad_1[<span class="number">6</span>];  <span class="comment">// Padding 6</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> d;    <span class="comment">// 8 bytes</span></span><br><span class="line">    <span class="keyword">char</span> e;         <span class="comment">// 1 byte</span></span><br><span class="line">    <span class="keyword">char</span> pad_2[<span class="number">7</span>];  <span class="comment">// Padding 7</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>3.结构体类型本身的内存对齐</p><p>为了保证结构体内的每个成员都能够放在它自然对齐的位置上，对这个结构体本身来说最理想的内存对齐数值应该是结构体里内存对齐数值最大的成员的内存对齐数</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：这篇博客写得很详细，下面的学习笔记都是参考其完成&lt;/p&gt;
+&lt;p&gt; &lt;a href=&quot;https://blog.csdn.net/markl22222/article/details/38051483&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/markl22222/article/details/38051483&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CUDA和OpenCL</title>
+    <link href="http://yoursite.com/2018/09/17/CUDA%E5%92%8COpenCL/"/>
+    <id>http://yoursite.com/2018/09/17/CUDA和OpenCL/</id>
+    <published>2018-09-17T07:24:35.000Z</published>
+    <updated>2018-09-17T07:26:39.901Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="为什么需要-OpenCL-和-CUDA？"><a href="#为什么需要-OpenCL-和-CUDA？" class="headerlink" title="为什么需要 OpenCL 和 CUDA？"></a>为什么需要 OpenCL 和 CUDA？</h2><p>当不使用异构系统架构，数据在 CPU和GPU之间的流动，会造成很大的开销。</p><p>由于CPU和GPU拥有独立的地址空间，当控制数据在CPU和GPU之间流动时， CPU代码通过系统调用向GPU发送任务，此类系统调用一般由GPU驱动程序管理，这么多的环节造成了很大的调用开销。</p><a id="more"></a><p><br></p><h2 id="OpenCL-和-CUDA"><a href="#OpenCL-和-CUDA" class="headerlink" title="OpenCL 和 CUDA"></a>OpenCL 和 CUDA</h2><h3 id="1-流程"><a href="#1-流程" class="headerlink" title="1. 流程"></a>1. 流程</h3><p>CUDA 和 OpenCL 的开发模型基本一致，都是由 Host 和 Device 组成</p><ul><li>Host：CPU 和Host存储空间，串行代码</li><li>Device: GPU 和Device存储空间，并行代码</li></ul><p>对于异构系统，程序首先执行 Host 程序，然后由 Host 程序激活 Device 程序执行kernel，<strong>kernel 程序是指 Device 设备上执行的代码</strong>，它是直接在设备上执行，受具体设备的限制。</p><p><br></p><h3 id="2-从程序理解流程"><a href="#2-从程序理解流程" class="headerlink" title="2. 从程序理解流程"></a>2. 从程序理解流程</h3><p>PS：只是非常简单的对数据的理解</p><ul><li>从 CPU 拷贝数据到 GPU</li><li>调用 kernel 来操作存储在 GPU 的数据</li><li>将操作结果从 GPU 拷贝至 CPU</li></ul><p><br></p><h3 id="3-OpenCL-和-CUDA-的区别"><a href="#3-OpenCL-和-CUDA-的区别" class="headerlink" title="3. OpenCL 和 CUDA 的区别"></a>3. OpenCL 和 CUDA 的区别</h3><ul><li>OpenCL 是一个开源的标准，通用性好</li><li>CUDA 只针对NVIDIA的GPU产品</li></ul><p>CUDA 和 OpenCL 的差别主要表现在调用 Device 的 API 的差异</p><p>cl-CUDA</p><p>在通用Lisp程序中使用NVIDIA CUDA的库</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;为什么需要-OpenCL-和-CUDA？&quot;&gt;&lt;a href=&quot;#为什么需要-OpenCL-和-CUDA？&quot; class=&quot;headerlink&quot; title=&quot;为什么需要 OpenCL 和 CUDA？&quot;&gt;&lt;/a&gt;为什么需要 OpenCL 和 CUDA？&lt;/h2&gt;&lt;p&gt;当不使用异构系统架构，数据在 CPU和GPU之间的流动，会造成很大的开销。&lt;/p&gt;
+&lt;p&gt;由于CPU和GPU拥有独立的地址空间，当控制数据在CPU和GPU之间流动时， CPU代码通过系统调用向GPU发送任务，此类系统调用一般由GPU驱动程序管理，这么多的环节造成了很大的调用开销。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="硬件" scheme="http://yoursite.com/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>caffe框架</title>
@@ -111,7 +194,7 @@
     <link href="http://yoursite.com/2018/09/13/ubuntu%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94-opencv%E3%80%81cheese%E5%AE%89%E8%A3%85/"/>
     <id>http://yoursite.com/2018/09/13/ubuntu（三）——-opencv、cheese安装/</id>
     <published>2018-09-13T07:55:56.000Z</published>
-    <updated>2018-09-13T08:55:09.915Z</updated>
+    <updated>2018-09-17T06:40:58.386Z</updated>
     
     <content type="html"><![CDATA[<p>PS：那天晚上opencv从九点半开始装到十点半，人都快要崩溃了，结果第二天又重新编译了一遍，感觉自己真的是一个人在黑暗中摸索 ~</p><a id="more"></a><p><br></p><h2 id="一、安装-opencv"><a href="#一、安装-opencv" class="headerlink" title="一、安装 opencv"></a>一、安装 opencv</h2><ol><li><p>ubuntu 安装 opencv 的流程</p><p><a href="https://blog.csdn.net/JohinieLi/article/details/79885820" target="_blank" rel="noopener">https://blog.csdn.net/JohinieLi/article/details/79885820</a></p></li><li><p>测试opencv是否安装成功   </p><p>使用 <code>smaples/cpp/example_cmake</code> 中的样例去测试opencv是否安装成    </p><p>在打开摄像头时，其实程序运行正确，打开了摄像头反而报错了      </p><p> ERROR: V4L/V4L2: VIDIOC_S_CROP                   </p><p><strong>是依赖的库 libv4l-dev 没有装</strong>，所以需要对opencv重新编译      </p></li><li><p>opencv重新编译，解决方法如下：</p><p>opencv 在 ubuntu 中需要的依赖   <a href="https://blog.csdn.net/suochao90/article/details/7530233" target="_blank" rel="noopener">https://blog.csdn.net/suochao90/article/details/7530233</a></p><p>安装完依赖库，对opencv 重新编译  <a href="https://blog.csdn.net/m0_37811342/article/details/802278" target="_blank" rel="noopener">https://blog.csdn.net/m0_37811342/article/details/802278</a></p></li><li><p>但是程序提示 select time out，后来才知道是 wecamera 的驱动没有装</p><p>如果之前没有装webcamera的驱动 ~ 请看第二部分cheese</p></li></ol><p><br></p><h2 id="二、Ubuntu中通过Cheese支持Webcam"><a href="#二、Ubuntu中通过Cheese支持Webcam" class="headerlink" title="二、Ubuntu中通过Cheese支持Webcam"></a>二、Ubuntu中通过Cheese支持Webcam</h2><p>PS：刚开始我不能理解，为什么主机上已经装过摄像头驱动，虚拟机还要装一遍，那是我对驱动是什么没有理解 ~ </p><h3 id="1-驱动"><a href="#1-驱动" class="headerlink" title="1. 驱动"></a>1. 驱动</h3><p>『<strong>驱动程序提供了硬件到操作系统的一个接口。</strong>』（注意：是<strong>操作系统</strong>！！！）</p><p>相当于硬件的接口，操作系统只有通过这个接口，才能控制硬件设备的工作。</p><p>正因为这个原因，驱动程序在系统中的所占的地位十分重要，一般当操作系统安装完毕后，首要的便是安装硬件设备的驱动程序。</p><p><br></p><h3 id="2-通过Cheese支持Webcam"><a href="#2-通过Cheese支持Webcam" class="headerlink" title="2. 通过Cheese支持Webcam"></a>2. 通过Cheese支持Webcam</h3><p><a href="https://blog.csdn.net/JNingWei/article/details/79945300" target="_blank" rel="noopener">https://blog.csdn.net/JNingWei/article/details/79945300</a></p><p>大多数webcam生产商并不为Linux系统提供驱动，包括Ununtu</p><p>解决方法就是：『<strong>可以通过安装cheese来激活Ubuntu自带的摄像头UVC驱动</strong>』（不过需要保证，摄像头是支持 UVC驱动）</p><p><br></p><h3 id="3-cheese安装"><a href="#3-cheese安装" class="headerlink" title="3. cheese安装"></a>3. cheese安装</h3><p>PS：刚开始以为 cheese 是硬件驱动程序，后来才明白过来，它不过是个拍照录像的应用程序，但是可以通过安装这个应用程序，来激活ubuntu自带的摄像头驱动</p><ol><li><p>安装<br><code>sudo apt-get install cheese</code></p></li><li><p>虚拟机设置里面将USB兼容性改为3.0</p></li><li><p>测试</p><p><code>cheese</code></p></li></ol>]]></content>
     
@@ -122,7 +205,9 @@
     </summary>
     
     
-      <category term="ubuntu、Linux" scheme="http://yoursite.com/tags/ubuntu%E3%80%81Linux/"/>
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
     
   </entry>
   
@@ -354,94 +439,6 @@
     
     
       <category term="软件" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VS+opencv的配置</title>
-    <link href="http://yoursite.com/2018/08/19/VS-opencv%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2018/08/19/VS-opencv的配置/</id>
-    <published>2018-08-19T05:53:29.000Z</published>
-    <updated>2018-08-22T09:01:42.962Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/u013634684/article/details/48289449" target="_blank" rel="noopener">https://blog.csdn.net/u013634684/article/details/48289449</a></p><p><a href="https://blog.csdn.net/woainishifu/article/details/53507723" target="_blank" rel="noopener">https://blog.csdn.net/woainishifu/article/details/53507723</a></p><p>PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~ </p><p>想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样有了更深入的理解</p><a id="more"></a><p><br></p><h2 id="一、VS"><a href="#一、VS" class="headerlink" title="一、VS"></a>一、VS</h2><ul><li><strong>.sln：解决方案文件</strong></li></ul><p>一个解决方案里面可以包含多个工程</p><ul><li><strong>.vcproj：工程文件</strong></li></ul><p>只打开vcproj文件编译不了，可能是因为这个工程里面用到了同一个解决方案中其它工程</p><p><br></p><h2 id="二、Debug和Relesse版本"><a href="#二、Debug和Relesse版本" class="headerlink" title="二、Debug和Relesse版本"></a>二、Debug和Relesse版本</h2><h3 id="1-Debug"><a href="#1-Debug" class="headerlink" title="1. Debug"></a>1. Debug</h3><p>调试版本，包含调试信息，除了.exe 和 .dll 文件外，还包括了.pdb文件记录代码断点等调试信息</p><p>使用调试版本运行时刻的函数库</p><h3 id="2-Release"><a href="#2-Release" class="headerlink" title="2.Release"></a>2.Release</h3><p>发布版本，不进行调试，编译时对速度进行优化</p><p>使用发布版本运行时刻的函数库</p><p><br></p><h2 id="三、运行时库"><a href="#三、运行时库" class="headerlink" title="三、运行时库"></a>三、运行时库</h2><h3 id="1-运行时库"><a href="#1-运行时库" class="headerlink" title="1. 运行时库"></a>1. 运行时库</h3><p> Runtime Library 就是运行时库，也简称 CRT（C Run Time Library），是程序在运行时所需要的库文件，通常运行时库是以 lib 或 dll 形式提供的</p><p>运行时库指的就是对这些底层的基础功能实现的动态库（dll），只有程序用到了它才会被加载，没有程序使用的时候不会驻留内存的</p><p>虽然运行时库应该是动态库，但 <strong>习惯上把与动态运行时库相同代码编译出来的静态库也称为运行时库</strong></p><h3 id="2-设置"><a href="#2-设置" class="headerlink" title="2. 设置"></a>2. 设置</h3><p>Properties-&gt;Configuration Properties-&gt;C/C++-&gt;Code Generation-&gt;Runtime Library 中设置采用的运行时库的类型</p><p><br></p><h3 id="3-CRT的类型"><a href="#3-CRT的类型" class="headerlink" title="3. CRT的类型"></a>3. CRT的类型</h3><ul><li>MT：Release版的多线程静态库</li><li>MTd： Debug版的多线程静态库</li><li>DLL/MD：Release版的多线程动态库</li><li>DLL/MDd：Debug版的多线程动态库</li></ul><p><br></p><h2 id="四、opencv"><a href="#四、opencv" class="headerlink" title="四、opencv"></a>四、opencv</h2><p><strong>1.vc10, vc11, vc12</strong> </p><p>vc10, vc11, vc12 分别表示VS2010, VS2012, VS2013的Visual Studio使用的<strong>编译器版本</strong></p><p><strong>2.x86, x64</strong></p><p>不同的指令集架构：</p><ul><li>x86  支持32位的intel/AMD/VIA的CPU，并向下兼容16位  32位系统</li><li>x64 支持32位和64位的intel/AMD CPU，指令集与x86兼容，并向下兼容16位、64位系统</li></ul><p><strong>3.配置第三方库</strong></p><p>（1）头文件：一般放在include路径下</p><p>h文件是<strong>头文件</strong>，需要通过#include这种方式引用的，所以对应的是包含目录</p><p>（2）dll文件：一般放在bin 路径下</p><p><strong>dll文件是可执行文件</strong>，所以对应的是可执行文件目录</p><p>（3）lib文件：一般放在lib路径下</p><p><strong>lib文件是库文件</strong>，所以对应的是库目录</p><p><br></p><p>关于静态链接和动态链接：</p><p><a href="https://sophia0130.github.io/2018/08/19/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/08/19/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u013634684/article/details/48289449&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/u013634684/article/details/48289449&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/woainishifu/article/details/53507723&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/woainishifu/article/details/53507723&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~ &lt;/p&gt;
-&lt;p&gt;想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样有了更深入的理解&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="软件" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
-      <category term="编译" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>静态链接和动态链接</title>
-    <link href="http://yoursite.com/2018/08/19/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5/"/>
-    <id>http://yoursite.com/2018/08/19/静态链接和动态链接/</id>
-    <published>2018-08-19T05:36:50.000Z</published>
-    <updated>2018-08-19T05:39:42.156Z</updated>
-    
-    <content type="html"><![CDATA[<p>预处理（需要头文件）（.c） -&gt; 编译（.asm） -&gt; 汇编 （.obj）-&gt; 链接（需要库文件）（.exe）-&gt;运行（动态链接）</p><p><img src="https://images0.cnblogs.com/blog/92071/201310/16201602-9c6047fe25ac46659d0a5ab2945552ce.png" alt=""></p><a id="more"></a><p><br></p><h2 id="一、编译和链接"><a href="#一、编译和链接" class="headerlink" title="一、编译和链接"></a>一、编译和链接</h2><p>编译：只要有头文件中的声明就足够了，头文件只是告诉编译器，函数是如何去调用如何返回</p><p>链接：把已经编译好的.obj和现有的.lib文件进行链接，这时生成可执行文件</p><p><br></p><h2 id="二、头文件和库文件"><a href="#二、头文件和库文件" class="headerlink" title="二、头文件和库文件"></a>二、头文件和库文件</h2><p>头文件：提供声明，编译的时候需要</p><p>库文件：提供定义/实现，链接时将指定的目标文件抽取出</p><p><br></p><h2 id="三、库"><a href="#三、库" class="headerlink" title="三、库"></a>三、库</h2><h3 id="1-lib后缀的库有两种"><a href="#1-lib后缀的库有两种" class="headerlink" title="1. lib后缀的库有两种"></a>1. lib后缀的库有两种</h3><ol><li>静态链接库（.lib）：静态库是一个或者多个obj文件的打包，包含了实际执行代码</li><li>动态链接库的导入库（.lib）：属于动态链接库的附加依赖项，只包含了确保程序找到对应函数的一些基本索引信息</li></ol><p><br></p><h3 id="2-dll后缀的库"><a href="#2-dll后缀的库" class="headerlink" title="2. dll后缀的库"></a>2. dll后缀的库</h3><p>动态链接库（.dll）：是具体的实现，程序运行时动态调用</p><p><br></p><h2 id="四、静态链接"><a href="#四、静态链接" class="headerlink" title="四、静态链接"></a>四、静态链接</h2><h3 id="1-用到的库"><a href="#1-用到的库" class="headerlink" title="1. 用到的库"></a>1. 用到的库</h3><p>静态链接库：（.lib为后缀）是一个或者多个obj文件的打包 ，<strong>『 链接时使用』</strong></p><h3 id="2-静态链接"><a href="#2-静态链接" class="headerlink" title="2. 静态链接"></a>2. 静态链接</h3><p>把.lib文件中用到的函数代码直接链接进可执行文件，程序运行的时候不再需要其它的库文件</p><h3 id="3-优点"><a href="#3-优点" class="headerlink" title="3. 优点"></a>3. 优点</h3><p>程序在运行时与其它库函数无关，用户安装时就不需要再挂动态库，移植方便</p><h3 id="4-缺点"><a href="#4-缺点" class="headerlink" title="4. 缺点"></a>4. 缺点</h3><p>所有相关的目标文件和函数库被链接合成一个可执行文件，当多个程序都调用相同函数时，内存中就会存在这个函数的多个拷贝，浪费空间和资源</p><p><br></p><h2 id="五、动态链接"><a href="#五、动态链接" class="headerlink" title="五、动态链接"></a>五、动态链接</h2><h3 id="1-用到的库-1"><a href="#1-用到的库-1" class="headerlink" title="1. 用到的库"></a>1. 用到的库</h3><ul><li>动态链接库的导入库： （.lib为后缀）属于动态链接库的附加依赖项，一般是一些索引信息，告诉链接器调用的函数在哪个dll中，函数执行代码在dll中的什么位置，<strong>『 链接时使用』</strong></li><li>动态链接库：（.dll为后缀）具体的实现，<strong>『 程序运行时使用』</strong></li></ul><h3 id="2-动态链接"><a href="#2-动态链接" class="headerlink" title="2. 动态链接"></a>2. 动态链接</h3><p>调用的函数代码并没有被拷贝到可执行文件中，仅仅在其中加入了所调用函数的索引信息，只有当应用程序被装入内存开始运行时，在Windows的管理下，才在应用程序与相应的dll之间建立链接关系。</p><h3 id="3-优点-1"><a href="#3-优点-1" class="headerlink" title="3. 优点"></a>3. 优点</h3><p>这样当一个或多个应用程序运行时，才将程序代码和被调用的函数代码链接起来，从而节省了内存资源</p><h3 id="4-缺点-1"><a href="#4-缺点-1" class="headerlink" title="4. 缺点"></a>4. 缺点</h3><p>dll 和 lib 文件必须随应用程序一起发行，否则应用程序将会产生错误</p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;预处理（需要头文件）（.c） -&amp;gt; 编译（.asm） -&amp;gt; 汇编 （.obj）-&amp;gt; 链接（需要库文件）（.exe）-&amp;gt;运行（动态链接）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://images0.cnblogs.com/blog/92071/201310/16201602-9c6047fe25ac46659d0a5ab2945552ce.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="编译" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>置顶目录</title>
-    <link href="http://yoursite.com/2018/08/15/%E7%BD%AE%E9%A1%B6%E7%9B%AE%E5%BD%95/"/>
-    <id>http://yoursite.com/2018/08/15/置顶目录/</id>
-    <published>2018-08-15T01:59:20.000Z</published>
-    <updated>2018-09-13T09:12:56.215Z</updated>
-    
-    <content type="html"><![CDATA[<p>检索目录列表</p><a id="more"></a><p><br></p><h2 id="opencv"><a href="#opencv" class="headerlink" title="opencv"></a>opencv</h2><p><a href="https://sophia0130.github.io/2018/05/07/ImageWatch/" target="_blank" rel="noopener">ImageWatch — VS编译小工具</a></p><p>opencv（一）~（六）学习笔记系列 （PS：其实写了很多功能的代码，但是最近实在没有时间整理）</p><p><br></p><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>贝叶斯分类器和概率图模型</p><p><a href="https://sophia0130.github.io/2018/05/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%A4%A7%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">机器学习算法大总结</a></p><p><br></p><h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><p><a href="https://sophia0130.github.io/2018/06/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" target="_blank" rel="noopener">深度学习与强化学习</a></p><p>Deep-Learning—吴恩达—作业（一）~（七）系列</p><p><br></p><h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><p>1.cs231n笔记（一）~（十一）系列</p><ul><li>线性回归、逻辑回归、多分类</li><li>最优化（Optimization）：最小化损失函数</li><li>反向传播：链式法则求梯度</li><li>深度学习框架：PyTorch（Facebook）、Tensorflow（Google）</li><li>分类、检测、分割、跟踪</li><li>反卷积与特征可视化</li></ul><p>不同种类的网络：</p><ul><li>神经网络</li><li>卷积神经网络</li><li>经典CNN网络</li><li>循环神经网络</li><li>生成式对抗网络</li></ul><p>2.<a href="https://sophia0130.github.io/2018/08/01/NLP%E2%80%94%E2%80%94word2vec/" target="_blank" rel="noopener">NLP——word2vec</a> （PS：了解了一下自然语言处理，果然比图像要难啊 ~）</p><p><br></p><h2 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h2><p><a href="https://sophia0130.github.io/2018/08/05/TensorFlow-%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">TensorFlow 使用总结</a></p><p><a href="https://sophia0130.github.io/2018/08/05/Tensorboard-%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">Tensorboard 使用总结</a></p><p>TensorFlow代码实现（一）~（四）系列</p><p><br></p><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>ubuntu（一）~？    </p><p>Linux（一）~？</p><p>CMake（一）~？</p><p><br></p><h2 id="python安装"><a href="#python安装" class="headerlink" title="python安装"></a>python安装</h2><p><a href="https://sophia0130.github.io/2018/06/13/anaconda%EF%BC%8Cconda%EF%BC%8Cpip%E7%9A%84%E5%85%B3%E7%B3%BB/" target="_blank" rel="noopener">anaconda，conda，pip的关系</a></p><p><a href="https://sophia0130.github.io/2018/07/29/Ipython-%E4%B8%8E-Jupyter-Notebook/" target="_blank" rel="noopener">Ipython 与 Jupyter Notebook</a></p><p><a href="https://sophia0130.github.io/2018/06/28/%E8%A7%A3%E5%86%B3pip%E5%AE%89%E8%A3%85%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank" rel="noopener">解决pip安装慢的问题</a></p><p><br></p><h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><p><a href="https://sophia0130.github.io/2018/07/14/%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84/" target="_blank" rel="noopener">《程序是怎样跑起来的》读书笔记</a></p><p><a href="https://sophia0130.github.io/2018/08/05/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%90%84%E7%A7%8D%E6%9D%BF%E5%AD%90/" target="_blank" rel="noopener">嵌入式与板子：MCU、ARM、DSP、FPGA、SOC</a></p><p><a href="https://sophia0130.github.io/2018/07/15/%E6%98%BE%E5%8D%A1/" target="_blank" rel="noopener">显卡</a></p><p><a href="https://sophia0130.github.io/2018/07/26/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" target="_blank" rel="noopener">进程和线程</a></p><p><br></p><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p><a href="https://sophia0130.github.io/2018/08/22/%E7%BC%96%E8%AF%91%E5%99%A8%E3%80%81%E7%BC%96%E8%BE%91%E5%99%A8%E3%80%81IDE/" target="_blank" rel="noopener">编译器、IDE、编辑器种类整理</a></p><p><a href="https://sophia0130.github.io/2018/05/04/%E7%BC%96%E8%AF%91%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8/" target="_blank" rel="noopener">编译器和解释器</a></p><p>CMake（一）~？</p><p><br></p><h2 id="剑指offer"><a href="#剑指offer" class="headerlink" title="剑指offer"></a>剑指offer</h2><p>剑指offer（一）~？持续更</p><p><br></p><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p><a href="https://sophia0130.github.io/2018/05/14/XML%E3%80%81YAML%E3%80%81JSON/" target="_blank" rel="noopener">序列化数据格式 ：xml、yaml、json</a></p><p><a href="https://sophia0130.github.io/2018/05/18/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BA%91-%E7%89%B9%E5%88%AB%E7%AE%80%E9%99%8B%E7%9A%84%E8%AE%A4%E8%AF%86/" target="_blank" rel="noopener">虚拟机和云</a></p><p><a href="https://sophia0130.github.io/2018/05/04/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" target="_blank" rel="noopener">网络基础知识</a></p><p><br></p><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p><a href="https://sophia0130.github.io/2018/06/01/Git-%E5%AD%A6%E4%B9%A0/" target="_blank" rel="noopener">Git学习笔记</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;检索目录列表&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>opencv（六）——图像坐标系和宽高</title>
-    <link href="http://yoursite.com/2018/08/15/opencv%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E5%9D%90%E6%A0%87%E7%B3%BB%E5%92%8C%E5%AE%BD%E9%AB%98/"/>
-    <id>http://yoursite.com/2018/08/15/opencv（六）——图像坐标系和宽高/</id>
-    <published>2018-08-15T01:52:32.000Z</published>
-    <updated>2018-08-15T01:52:54.391Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  <strong>坐标系-宽高-行列</strong>，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~</p><p><a href="https://blog.csdn.net/oqqenvy12/article/details/71933651" target="_blank" rel="noopener">https://blog.csdn.net/oqqenvy12/article/details/71933651</a></p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;PS：为啥写这篇博，因为我傻啊 ~ 每次写程序遇到图像  &lt;strong&gt;坐标系-宽高-行列&lt;/strong&gt;，就开始抓狂                        哎呀到底是(i，j)还是(j，i)，这篇博写的很详细啦 ~&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https:
-      
-    
-    </summary>
-    
-    
-      <category term="opencv" scheme="http://yoursite.com/tags/opencv/"/>
     
   </entry>
   
