@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-21T01:54:05.038Z</updated>
+  <updated>2018-10-18T14:17:59.058Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,76 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>操作系统启动过程</title>
+    <link href="http://yoursite.com/2018/10/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/10/18/操作系统启动过程/</id>
+    <published>2018-10-18T14:13:16.000Z</published>
+    <updated>2018-10-18T14:17:59.058Z</updated>
+    
+    <content type="html"><![CDATA[<p>操作系统启动过程</p><p><a href="http://www.ruanyifeng.com/blog/2013/02/booting.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2013/02/booting.html</a></p><ol><li>BIOS 硬件自检</li><li>根据启动顺序，定位到存储设备</li><li>根据主引导记录中的分区表（存储设备的第一个扇区），定位到主分区</li></ol><h2 id="一、BIOS"><a href="#一、BIOS" class="headerlink" title="一、BIOS"></a>一、BIOS</h2><p>计算机通电后，第一件事就是读取被刷入ROM芯片的开机程序，这块芯片里的程序叫做<strong>『基本输入输出系统，Basic Input/Output System，BIOS』</strong></p><p>BIOS 程序首先检查，计算机硬件能否满足运行的基本条件，这叫做<strong>『硬件自检，Power-On Self-Test，POST』</strong></p><h2 id="二、主引导记录"><a href="#二、主引导记录" class="headerlink" title="二、主引导记录"></a>二、主引导记录</h2><h3 id="1-启动顺序"><a href="#1-启动顺序" class="headerlink" title="1. 启动顺序"></a>1. 启动顺序</h3><p>BIOS 根据启动顺序，把控制权转交给启动顺序排在第一位的储存设备，读取该设备的第一个扇区，即主引导记录，进行下一阶段的启动程序</p><p>启动顺序，Boot Sequence：外部储存设备的排序，排在前面的设备就是优先转交控制权的设备</p><p>主引导记录，Master boot record，MBR：计算机读取该设备的<strong>第一个扇区</strong>，也就是最前面的512个字节</p><p>如果这512个字节的最后两个字节是0x55和0xAA，表明这个设备可以用于启动。如果不是，表明设备不能用于启动，控制权于是被转交给启动顺序中的下一个设备</p><h3 id="2-主引导记录"><a href="#2-主引导记录" class="headerlink" title="2. 主引导记录"></a>2. 主引导记录</h3><p>第一个扇区，即最前面的512个字节，就叫做<strong>『主引导记录，Master boot record，MBR』</strong>主要是告诉计算机到硬盘的哪一个位置去找操作系统。</p><p>主引导记录由三个部分组成：</p><p>（1） 第1-446字节：调用操作系统的机器码</p><p>（2） 第447-510字节：分区表</p><p>可以将硬盘分成若干个区安装不同的操作系统，一个硬盘最多只能分四个一级分区，又叫 <strong>“主分区”</strong></p><p>（3） 第511-512字节：主引导记录签名（0x55和0xAA）</p><h2 id="三、硬盘启动"><a href="#三、硬盘启动" class="headerlink" title="三、硬盘启动"></a>三、硬盘启动</h2><p>计算机的控制权转交给硬盘的某个分区</p><h3 id="1-卷引导记录"><a href="#1-卷引导记录" class="headerlink" title="1. 卷引导记录"></a>1. 卷引导记录</h3><p>四个主分区里面，只有一个是激活的</p><p>计算机会读取激活分区的第一个扇区，叫做”卷引导记录”，作用是告诉计算机，操作系统在这个分区里的位置，计算机加载操作系统</p><h3 id="2-启动管理器"><a href="#2-启动管理器" class="headerlink" title="2. 启动管理器"></a>2. 启动管理器</h3><p>计算机读取”主引导记录”前面1-446个字节的机器码之后，不再把控制权转交给某一个分区，而是运行事先安装的”启动管理器”（boot loader），由用户选择启动哪一个操作系统</p><h2 id="四、操作系统"><a href="#四、操作系统" class="headerlink" title="四、操作系统"></a>四、操作系统</h2><p>控制权转交给操作系统后，<strong>操作系统的内核首先被载入内存</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;操作系统启动过程&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2013/02/booting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.ruanyifeng.com/bl
+      
+    
+    </summary>
+    
+    
+      <category term="操作系统" scheme="http://yoursite.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>处理器</title>
+    <link href="http://yoursite.com/2018/10/18/%E5%A4%84%E7%90%86%E5%99%A8/"/>
+    <id>http://yoursite.com/2018/10/18/处理器/</id>
+    <published>2018-10-18T01:34:38.000Z</published>
+    <updated>2018-10-18T02:04:59.204Z</updated>
+    
+    <content type="html"><![CDATA[<p>指令集和处理器架构：<a href="https://www.zhihu.com/question/23474438" target="_blank" rel="noopener">https://www.zhihu.com/question/23474438</a></p><p>（我的理解：处理器架构是指硬件设计，对应相应指令集，即二进制机器码，实现某种功能，两者是配套的）</p><a id="more"></a><p><br></p><h2 id="一、指令集"><a href="#一、指令集" class="headerlink" title="一、指令集"></a>一、指令集</h2><p>指令集，规定处理器相应操作，通过指令集去控制处理器实现相应功能，但处理器是一堆硬件电路，只能识别二进制数据，所以指令集是由一堆二进制数据组成</p><p>（我的理解： CPU 读入调用指令集的命令，通过指令集来实现具体的功能）</p><p><br></p><h2 id="二、处理器架构"><a href="#二、处理器架构" class="headerlink" title="二、处理器架构"></a>二、处理器架构</h2><p><strong>处理器架构是用硬件电路实现指令集所规定的操作运算，所以是指令集决定了处理器的架构</strong></p><p>四大CPU体系架构：</p><ul><li>x86 ：Intel、AMD（复杂指令集）</li><li>ARM架构：ARM公司（精简指令集）</li><li>PowerPC架构：IBM公司（精简指令集）</li><li>MIPS架构（精简指令集）</li></ul><p><br></p><p>Intel 处理器分类：<a href="https://www.zhihu.com/question/32669957" target="_blank" rel="noopener">https://www.zhihu.com/question/32669957</a></p><p><img src="https://pic3.zhimg.com/v2-73ba36e9a085e8f666d039a1a465e44a_r.jpg" alt="preview"></p><p><br></p><h2 id="三、汇编语言"><a href="#三、汇编语言" class="headerlink" title="三、汇编语言"></a>三、汇编语言</h2><p>汇编语言是为了方便人类操作指令集，所以汇编语言是和指令集配套</p><p>汇编语言通过汇编器转为二进制</p><p><br></p><h2 id="四、操作系统"><a href="#四、操作系统" class="headerlink" title="四、操作系统"></a>四、操作系统</h2><p>指令集是二进制，操作系统其实是应用程序，普通应用程序和操作系统都需要经过编译器，编译为二进</p><p>不同CPU对应的指令集不一样，对应的编译器也不一样，所以相同高级语言用不同编译器编译得到的二进制代码是不同的</p><p>windows 只能在x86架构的CPU上运行，因为Windows系统设计的时候是基于x86架构</p><p>Linux 可以运行在不同架构的CPU，因为Linux 的不同版本可以支持不同架构的指令集</p><p>（我的理解：编译器最后编译生成的二进制就是各条指令集）</p><p><br></p><h2 id="五、汇编器和编译器的区别"><a href="#五、汇编器和编译器的区别" class="headerlink" title="五、汇编器和编译器的区别"></a>五、汇编器和编译器的区别</h2><p>汇编器，用来编译汇编语言的</p><p>编译器的作用是，将源文件，这是已经是二进制代码了。，最后由连接器（Linker），将目标代码连接起来，这样就形成了可执行文件</p><h2 id="六、CPU性能指标"><a href="#六、CPU性能指标" class="headerlink" title="六、CPU性能指标"></a>六、CPU性能指标</h2><h3 id="1-字长"><a href="#1-字长" class="headerlink" title="1.字长"></a>1.字长</h3><p>单位时间内CPU能处理的二进制数据的位数，32位、64位</p><h3 id="2-主频"><a href="#2-主频" class="headerlink" title="2.主频"></a>2.主频</h3><p>CPU内的动作都是按<strong>时钟周期</strong>计算，一秒内有几个时钟周期，主频就是多少赫兹</p><h3 id="3-外频"><a href="#3-外频" class="headerlink" title="3.外频"></a>3.外频</h3><p>外频是由主板为CPU提供的基准时钟频率，就是主板规定CPU<strong>1秒内对外进行数据交换的次数</strong></p><h2 id="七、核心数、线程数"><a href="#七、核心数、线程数" class="headerlink" title="七、核心数、线程数"></a>七、核心数、线程数</h2><p>核心数：指硬件上存在着几个核心个数。比如，双核就是包括2个相对独立的CPU核心单元组，四核就包含4个相对独立的CPU核心单元组。</p><p>线程数：线程数概念仅仅只针对Intel的CPU才有用，因为它是通过Intel<strong>超线程</strong>技术来实现的，就是可以<strong>模拟出的CPU核心数</strong>，一个核心可以对应两个线程，即可以同时运行两个线程</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;指令集和处理器架构：&lt;a href=&quot;https://www.zhihu.com/question/23474438&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.zhihu.com/question/23474438&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（我的理解：处理器架构是指硬件设计，对应相应指令集，即二进制机器码，实现某种功能，两者是配套的）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="硬件" scheme="http://yoursite.com/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>远程登陆</title>
+    <link href="http://yoursite.com/2018/10/17/%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86/"/>
+    <id>http://yoursite.com/2018/10/17/远程登陆/</id>
+    <published>2018-10-17T12:57:24.000Z</published>
+    <updated>2018-10-17T13:00:11.323Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>局域网远程控制：<a href="https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html</a></li></ul><ul><li>SSH 远程登陆：<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a></li></ul><p>（可以不在同一个局域网）</p><p>PS：最近实在忙，没时间研究，只能用到什么，先记录下来</p><a id="more"></a><p><br></p><h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>SSH是一种网络协议，用于计算机之间的加密登录，采用了公钥加密</p><p>GitHub 就是用SSH</p><p><br></p><h3 id="1-公开密钥加密"><a href="#1-公开密钥加密" class="headerlink" title="1. 公开密钥加密"></a>1. 公开密钥加密</h3><p>公开密钥加密也称为非对称加密，需要两个密钥，一个是公开密钥，另一个是私有密。其中一个密钥把明文加密后所得的密文，只能用相对应的另一个密钥才能解密得到原本的明文，由于加密和解密需要两个不同的密钥，故称为<strong>非对称加密</strong>。</p><p>原理：</p><p>（1）远程主机收到用户的登录请求，把自己的<strong>公钥</strong>发给用户</p><p>（2）用户使用这个公钥，将<strong>登录密码</strong>加密后，发送回来</p><p>（3）远程主机用自己的<strong>私钥</strong>，解密登录密码，如果密码正确，就同意用户登录</p><p><br></p><h3 id="2-中间人攻击"><a href="#2-中间人攻击" class="headerlink" title="2. 中间人攻击"></a>2. 中间人攻击</h3><p>如果有人截获了登录请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪。因为不像https协议，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。</p><p>如果攻击者插在用户与远程主机之间（比如在公共的wifi区域），用伪造的公钥，获取用户的登录密码，再用这个密码登录远程主机。</p><p><br></p><h3 id="3-公钥登陆"><a href="#3-公钥登陆" class="headerlink" title="3. 公钥登陆"></a>3. 公钥登陆</h3><p>使用密码登录，非常麻烦，SSH 还提供了公钥登录，省去输入密码的步骤</p><p>原理：</p><p>用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;局域网远程控制：&lt;a href=&quot;https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;SSH 远程登陆：&lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（可以不在同一个局域网）&lt;/p&gt;
+&lt;p&gt;PS：最近实在忙，没时间研究，只能用到什么，先记录下来&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>C和C++的I/O库区别</title>
@@ -380,65 +450,6 @@
     
     
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DLL的创建与使用</title>
-    <link href="http://yoursite.com/2018/09/04/DLL%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/09/04/DLL的创建与使用/</id>
-    <published>2018-09-04T06:50:48.000Z</published>
-    <updated>2018-09-04T06:55:22.852Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：前几天朱大丽，和我说她不会生成自己的DLL，我也不会啊，有什么办法，只能宠着她帮她做呗。不然整体阿谀奉承我，让我略略略 ~</p><a id="more"></a><p><br></p><h2 id="一、VS创建DLL"><a href="#一、VS创建DLL" class="headerlink" title="一、VS创建DLL"></a>一、VS创建DLL</h2><p><a href="http://wangzi6147.github.io/2015/05/05/DLL.html" target="_blank" rel="noopener">http://wangzi6147.github.io/2015/05/05/DLL.html</a></p><p>1.创建一个DLL工程</p><p><img src="http://wangzi6147.github.io/public/img/DLL_1.jpg" alt="img"></p><p><br></p><p>2.添加头文件 MyDllCalculator.h</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DLL_API  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span>  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DLL_API __declspec(dllexport)  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// DLL_API代表可供调用者调用的函数 </span></span><br><span class="line"><span class="function">DLL_API  <span class="keyword">int</span> <span class="title">MyAdd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="function">DLL_API  <span class="keyword">int</span> <span class="title">MyMul</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure><p><br></p><p>3.添加源文件 MyDllCalculator.cpp</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MyDllCalculator.h"</span> </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MyAdd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MyMul</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> a*b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><br></p><p>4.生成解决方案，生成Debug版本的库文件，所以在Debug文件下生成.lib和.dll</p><p>注意：如果生成的库依赖其他动态链接库，需要把依赖的.dll文件一同打包发布</p><p><br></p><p><br></p><h2 id="二、使用DLL"><a href="#二、使用DLL" class="headerlink" title="二、使用DLL"></a>二、使用DLL</h2><ol><li><p>添加工程的头文件目录：工程—属性—配置属性—c/c++—常规—附加包含目录：加上头文件存放目录</p><p>MyDllCalculator.h 的存放路径</p></li><li><p>添加文件引用的lib静态库路径：工程—属性—配置属性—链接器—常规—附加库目录：加上lib文件存放目录</p></li><li><p>添加工程引用的lib文件名：工程—属性—配置属性—链接器—输入—附加依赖项：加上lib文件名（用绝对路径）</p></li><li><p>添加工程引用的dll动态库：把引用的dll放到工程的 <strong>可执行文件</strong> 所在的目录下</p></li></ol><p>程序运行结果</p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/dll1.JPG" alt=""></p><p><br></p><p><br></p><h2 id="三、DLL-导入导出"><a href="#三、DLL-导入导出" class="headerlink" title="三、DLL 导入导出"></a>三、DLL 导入导出</h2><h3 id="1-declspec-dllexport"><a href="#1-declspec-dllexport" class="headerlink" title="1. __declspec(dllexport)"></a>1. <code>__declspec(dllexport)</code></h3><p>声明一个导出函数，即这个函数要从本DLL导出。省掉在DEF文件中手工定义导出哪些函数的一个方法。但是，如果DLL里全是C++的类，无法在DEF里指定导出的函数,，只能用<code>__declspec(dllexport)</code>导出类</p><p><br></p><h3 id="2-declspec-dllimport"><a href="#2-declspec-dllimport" class="headerlink" title="2. __declspec(dllimport)"></a>2. <code>__declspec(dllimport)</code></h3><p>声明一个导入函数，是说这个函数是从别的DLL导入。不使用，也能正确编译，但使用，可以使编译器生成更好的代码，因为它可以确定函数是否存在于 DLL 中，这使得编译器可以生成跳过间接寻址级别的代码，而这些代码通常会出现在跨 DLL 边界的函数调用中。但是，必须使用<code>__declspec(dllimport)</code>才能导入 DLL 中使用的变量。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：前几天朱大丽，和我说她不会生成自己的DLL，我也不会啊，有什么办法，只能宠着她帮她做呗。不然整体阿谀奉承我，让我略略略 ~&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer（一）</title>
-    <link href="http://yoursite.com/2018/08/22/%E5%89%91%E6%8C%87offer%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/08/22/剑指offer（一）/</id>
-    <published>2018-08-22T13:52:48.000Z</published>
-    <updated>2018-09-09T06:55:09.102Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>面试题一：赋值运算符函数</strong></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CMyString</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">CMyString(<span class="keyword">char</span>* pData = <span class="literal">NULL</span>);</span><br><span class="line">CMyString(<span class="keyword">const</span> CMyString&amp; str);</span><br><span class="line">~CMyString(<span class="keyword">void</span>);</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="keyword">char</span>* m_pData;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><a id="more"></a><p><br></p><h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>没有返回值</p><p>构造函数的重载</p><p><br></p><h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>没有传入参数、没有返回值、一个类只能有一个析构函数</p><p>先构造的对象，后析构</p><p><br></p><h2 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h2><p>根据一个类的对象，复制一个一样的对象</p><p>拷贝构造函数分为浅拷贝和深拷贝两种：</p><ul><li>浅拷贝只是复制指针的地址，会导致两个指针指向同一块内存，在分别delete时就会出现重复释放</li><li>深拷贝则创建新内存，把值拷贝进新开的内存，指针指向新开的内存</li></ul><p><br></p><h2 id="赋值运算符函数重载"><a href="#赋值运算符函数重载" class="headerlink" title="赋值运算符函数重载"></a>赋值运算符函数重载</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><ol><li><p><strong>返回值为类型的引用</strong>，函数结束前返回实例自身的引用 return *this  </p><p>若返回void，则不能做<strong>连续赋值操作</strong> a=b=c</p></li><li><p><strong>传入的参数为常量引用</strong> </p><p>引用可以<strong>避免从形参到实参会调用一次拷贝构造函数</strong>，提高效率 </p><p>const 不改变传入的实例</p></li><li><p><strong>重新分配内存时候，必须要释放之前自己已有的空间，否则会导致内存泄漏</strong> </p><p>m_pData之前指向的内存释放</p></li><li><p>判断传入的参数和当前的实例*this是否为同一实例，即this == &amp;str</p><p>若是同一个，不进行赋值</p></li></ol><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CMyString&amp; CMyString::<span class="keyword">operator</span>=(<span class="keyword">const</span> CMyString&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>=&amp;str)</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">delete</span> []m_pData;  <span class="comment">//释放原有内存</span></span><br><span class="line">    m_pData=<span class="literal">NULL</span>;</span><br><span class="line">    m_pData=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(str.m_pData)+<span class="number">1</span>];  <span class="comment">//分配新内存</span></span><br><span class="line">    stpcpy(m_pData,str.m_pData);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><br></p><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>先释放之前的内存再开辟新空间，如果此时内存不足导致new时抛出异常，那么此时m_pData已经为空指针，<strong>原来实例的状态被修改</strong>，这样违背了异常安全性（Exception Safety）的原则</p><p>因可以先创建一个临时实例，再交换临时实例和原来的实例</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CMyString&amp; CMyString::<span class="keyword">operator</span>=(<span class="keyword">const</span> CMyString &amp;str)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> !=&amp;str)</span><br><span class="line">    &#123;</span><br><span class="line"> <span class="comment">//临时对象strTemp，运行到if作用域外，就用自动调用strTemp的析构函数从而完成了内存的释放</span></span><br><span class="line">        CMyString strTemp(str）；   <span class="comment">//先创建一个临时对象strTemp</span></span><br><span class="line">        <span class="keyword">char</span>* pTemp=strTemp.m_pData;</span><br><span class="line">        strTemp.m_pData=m_pData;   <span class="comment">//strTemp.m_pData就是实例的m_pData之前指向的内存</span></span><br><span class="line">        m_pData=pTemp；    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>PS：<strong>内存泄漏</strong>—程序中己动态分配的堆内存，由于某种原因程序未释放，造成系统内存的浪费</p><p><br></p><hr><p>以下是这道题涉及到的其它知识点</p><p><br></p><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ol><li>引用是变量的别名，一旦把引用初始化为某个变量，就可以使用该引用名指向变量</li><li><strong>引用与指针</strong>的区别：</li><li><ul><li>不存在空引用，引用必须连接到一块合法的内存</li><li>一旦引用被初始化，就不能被指向到另一个对象，指针可以在任何时候指向到另一个对象</li><li>引用必须在创建时被初始化，指针可以在任何时间被初始化</li></ul></li></ol><p><br></p><h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><h3 id="1-const修饰变量"><a href="#1-const修饰变量" class="headerlink" title="1. const修饰变量"></a>1. const修饰变量</h3><p>const修饰的类型为TYPE的变量value是不可变的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const TYPE ValueName = value;</span><br></pre></td></tr></table></figure><p><br></p><h3 id="2-指针使用const"><a href="#2-指针使用const" class="headerlink" title="2. 指针使用const"></a>2. 指针使用const</h3><p>(1) 指针本身是常量不可变</p><p><code>char* const pContent;</code></p><p>(2) 指针所指向的内容是常量不可变</p><p><code>const char* pContent;</code></p><p>(3)两者都不可变</p><p><code>const char* const pContent;</code></p><p> <br></p><h3 id="3-函数中使用const"><a href="#3-函数中使用const" class="headerlink" title="3. 函数中使用const"></a>3. 函数中使用const</h3><p>(1)const修饰函数参数<br>a.传递过来的参数在函数内不可以改变(无意义，因为Var本身就是形参)</p><p><code>void function(const int Var);</code></p><p>b.参数指针所指内容为常量不可变</p><p><code>void function(const char* Var);</code></p><p>c.参数指针本身为常量不可变(也无意义，因为char* Var也是形参)</p><p><code>void function(char* const Var);</code></p><p>d.参数为引用，为了增加效率同时防止修改</p><p><code>void function(const Class&amp; Var);</code>//引用参数在函数内不可以改变</p><p><code>void function(const TYPE&amp; Var);</code> //引用参数在函数内为常量不可变</p><p>(2)const 修饰函数返回值</p><p><br></p><p><strong>将const类型转化为非const类型的方法</strong> ：</p><p>const_cast &lt; type_id &gt;  (expression) </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;面试题一：赋值运算符函数&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;CMyString&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;CMyString(&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt;* pData = &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;CMyString(&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; CMyString&amp;amp; str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~CMyString(&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt;* m_pData;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编译器、编辑器、IDE</title>
-    <link href="http://yoursite.com/2018/08/22/%E7%BC%96%E8%AF%91%E5%99%A8%E3%80%81%E7%BC%96%E8%BE%91%E5%99%A8%E3%80%81IDE/"/>
-    <id>http://yoursite.com/2018/08/22/编译器、编辑器、IDE/</id>
-    <published>2018-08-22T08:59:22.000Z</published>
-    <updated>2018-08-22T09:24:21.709Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：关于版本和各种编辑器、编译器、IDE</p><a id="more"></a><h2 id="C-版本"><a href="#C-版本" class="headerlink" title="C++版本"></a>C++版本</h2><ul><li>C++03</li><li>C++11</li><li>C++14</li></ul><p><br></p><h2 id="python版本"><a href="#python版本" class="headerlink" title="python版本"></a>python版本</h2><ul><li>python2.x</li><li>python3.x</li></ul><p><br></p><h2 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h2><p>编译器是编译一个文件</p><ul><li>gcc/g++</li><li>clang</li></ul><p><br></p><h2 id="Make"><a href="#Make" class="headerlink" title="Make"></a>Make</h2><p>make是<strong>编译多个源文件</strong>的工具，解释makefile中的指令，看作是编译器的调度器</p><p>make通过读入makefile，执行一组以gcc/g++为主的shell命令序列，输入文件主要用来记录文件之间的依赖关系和命令执行顺序</p><p><br></p><h2 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h2><p>CMake是一种跨平台编译工具</p><p>CMake主要是编写CMakeLists.txt文件，然后用cmake命令将CMakeLists.txt文件转化为make所需要的makefile文件，最后用make命令编译源码生成可执行程序或共享库 so(shared object)</p><p><br></p><h2 id="集成开发环境IDE"><a href="#集成开发环境IDE" class="headerlink" title="集成开发环境IDE"></a>集成开发环境IDE</h2><p>集成开发环境（IDE，Integrated Development Environment ）：一般包括代码编辑器、编译器、调试器和图形用户界面等工具。</p><ul><li>Microsoft Visual C++：（简称Visual C++、MSVC、VC++或VC）是微软公司的C++开发工具</li><li>Eclipse：开源的、跨平台的 IDE</li><li>Qt Creator：收费的、跨平台的 IDE</li><li>Visual Studio：Windows平台应用程序的集成开发环境</li><li>Android Studio： Android平台开发程序的集成开发环境</li></ul><p><br></p><h2 id="代码编辑器"><a href="#代码编辑器" class="headerlink" title="代码编辑器"></a>代码编辑器</h2><ul><li>Atom  ：跨平台的文本编辑器</li><li>Sublime Text：跨平台的文本编辑器</li><li>VI/VIM：Unix/Linux </li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：关于版本和各种编辑器、编译器、IDE&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="软件" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   

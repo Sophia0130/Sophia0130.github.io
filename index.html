@@ -227,6 +227,291 @@
 
 
   
+    <article id="post-操作系统启动过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/18/操作系统启动过程/">操作系统启动过程</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/18/操作系统启动过程/" class="archive-article-date">
+  	<time datetime="2018-10-18T14:13:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18</time>
+</a>
+
+
+<a href="/2018/10/18/操作系统启动过程/" class="archive-article-date">
+  	<time datetime="2018-10-18T14:13:16.000Z" itemprop="datePublished">2018-10-18</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>操作系统启动过程</p>
+<p><a href="http://www.ruanyifeng.com/blog/2013/02/booting.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2013/02/booting.html</a></p>
+<ol>
+<li>BIOS 硬件自检</li>
+<li>根据启动顺序，定位到存储设备</li>
+<li>根据主引导记录中的分区表（存储设备的第一个扇区），定位到主分区</li>
+</ol>
+<h2 id="一、BIOS"><a href="#一、BIOS" class="headerlink" title="一、BIOS"></a>一、BIOS</h2><p>计算机通电后，第一件事就是读取被刷入ROM芯片的开机程序，这块芯片里的程序叫做<strong>『基本输入输出系统，Basic Input/Output System，BIOS』</strong></p>
+<p>BIOS 程序首先检查，计算机硬件能否满足运行的基本条件，这叫做<strong>『硬件自检，Power-On Self-Test，POST』</strong></p>
+<h2 id="二、主引导记录"><a href="#二、主引导记录" class="headerlink" title="二、主引导记录"></a>二、主引导记录</h2><h3 id="1-启动顺序"><a href="#1-启动顺序" class="headerlink" title="1. 启动顺序"></a>1. 启动顺序</h3><p>BIOS 根据启动顺序，把控制权转交给启动顺序排在第一位的储存设备，读取该设备的第一个扇区，即主引导记录，进行下一阶段的启动程序</p>
+<p>启动顺序，Boot Sequence：外部储存设备的排序，排在前面的设备就是优先转交控制权的设备</p>
+<p>主引导记录，Master boot record，MBR：计算机读取该设备的<strong>第一个扇区</strong>，也就是最前面的512个字节</p>
+<p>如果这512个字节的最后两个字节是0x55和0xAA，表明这个设备可以用于启动。如果不是，表明设备不能用于启动，控制权于是被转交给启动顺序中的下一个设备</p>
+<h3 id="2-主引导记录"><a href="#2-主引导记录" class="headerlink" title="2. 主引导记录"></a>2. 主引导记录</h3><p>第一个扇区，即最前面的512个字节，就叫做<strong>『主引导记录，Master boot record，MBR』</strong>主要是告诉计算机到硬盘的哪一个位置去找操作系统。</p>
+<p>主引导记录由三个部分组成：</p>
+<p>（1） 第1-446字节：调用操作系统的机器码</p>
+<p>（2） 第447-510字节：分区表</p>
+<p>可以将硬盘分成若干个区安装不同的操作系统，一个硬盘最多只能分四个一级分区，又叫 <strong>“主分区”</strong></p>
+<p>（3） 第511-512字节：主引导记录签名（0x55和0xAA）</p>
+<h2 id="三、硬盘启动"><a href="#三、硬盘启动" class="headerlink" title="三、硬盘启动"></a>三、硬盘启动</h2><p>计算机的控制权转交给硬盘的某个分区</p>
+<h3 id="1-卷引导记录"><a href="#1-卷引导记录" class="headerlink" title="1. 卷引导记录"></a>1. 卷引导记录</h3><p>四个主分区里面，只有一个是激活的</p>
+<p>计算机会读取激活分区的第一个扇区，叫做”卷引导记录”，作用是告诉计算机，操作系统在这个分区里的位置，计算机加载操作系统</p>
+<h3 id="2-启动管理器"><a href="#2-启动管理器" class="headerlink" title="2. 启动管理器"></a>2. 启动管理器</h3><p>计算机读取”主引导记录”前面1-446个字节的机器码之后，不再把控制权转交给某一个分区，而是运行事先安装的”启动管理器”（boot loader），由用户选择启动哪一个操作系统</p>
+<h2 id="四、操作系统"><a href="#四、操作系统" class="headerlink" title="四、操作系统"></a>四、操作系统</h2><p>控制权转交给操作系统后，<strong>操作系统的内核首先被载入内存</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/18/操作系统启动过程/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-处理器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/18/处理器/">处理器</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/18/处理器/" class="archive-article-date">
+  	<time datetime="2018-10-18T01:34:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18</time>
+</a>
+
+
+<a href="/2018/10/18/处理器/" class="archive-article-date">
+  	<time datetime="2018-10-18T01:34:38.000Z" itemprop="datePublished">2018-10-18</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>指令集和处理器架构：<a href="https://www.zhihu.com/question/23474438" target="_blank" rel="noopener">https://www.zhihu.com/question/23474438</a></p>
+<p>（我的理解：处理器架构是指硬件设计，对应相应指令集，即二进制机器码，实现某种功能，两者是配套的）</p>
+        
+          <a class="article-more-a" href="/2018/10/18/处理器/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">硬件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/18/处理器/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-远程登陆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/17/远程登陆/">远程登陆</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/17/远程登陆/" class="archive-article-date">
+  	<time datetime="2018-10-17T12:57:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-17</time>
+</a>
+
+
+<a href="/2018/10/17/远程登陆/" class="archive-article-date">
+  	<time datetime="2018-10-17T12:57:24.000Z" itemprop="datePublished">2018-10-17</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>局域网远程控制：<a href="https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html</a></li>
+</ul>
+<ul>
+<li>SSH 远程登陆：<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a></li>
+</ul>
+<p>（可以不在同一个局域网）</p>
+<p>PS：最近实在忙，没时间研究，只能用到什么，先记录下来</p>
+        
+          <a class="article-more-a" href="/2018/10/17/远程登陆/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/17/远程登陆/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-C和C-的I-O库区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -751,290 +1036,6 @@
 
 
   
-    <article id="post-Linux（五）——-o、-a、-so" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/13/Linux（五）——-o、-a、-so/">Linux（五）—— .o、.a、.so</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/13/Linux（五）——-o、-a、-so/" class="archive-article-date">
-  	<time datetime="2018-09-13T12:58:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-13</time>
-</a>
-
-
-<a href="/2018/09/13/Linux（五）——-o、-a、-so/" class="archive-article-date">
-  	<time datetime="2018-09-13T12:58:35.000Z" itemprop="datePublished">2018-09-13</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：Linux与windows的对应起来看</p>
-<p><a href="https://blog.csdn.net/chlele0105/article/details/23691147" target="_blank" rel="noopener">https://blog.csdn.net/chlele0105/article/details/23691147</a></p>
-        
-          <a class="article-more-a" href="/2018/09/13/Linux（五）——-o、-a、-so/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/13/Linux（五）——-o、-a、-so/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-CMake（三）——-Linux下使用CMake" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/13/CMake（三）——-Linux下使用CMake/">CMake（三）—— Linux下使用CMake</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/13/CMake（三）——-Linux下使用CMake/" class="archive-article-date">
-  	<time datetime="2018-09-13T09:16:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-13</time>
-</a>
-
-
-<a href="/2018/09/13/CMake（三）——-Linux下使用CMake/" class="archive-article-date">
-  	<time datetime="2018-09-13T09:16:21.000Z" itemprop="datePublished">2018-09-13</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CMake在Linux下的使用"><a href="#CMake在Linux下的使用" class="headerlink" title="CMake在Linux下的使用"></a>CMake在Linux下的使用</h2><ol>
-<li>工程文件下包含你需要的cpp和CMakeLists.txt</li>
-<li>在工程目录下打开终端</li>
-</ol>
-<ul>
-<li><code>mkdir build</code>        新建一个文件夹放编译的文件（和cpp、CMakeLists.txt分开放）</li>
-<li><code>cd ./build</code>          进入该文件目录</li>
-<li><code>cmake ../</code>            build目录下生成一系列文件</li>
-<li><code>make</code>                     在build目录下生成可执行文件</li>
-<li><code>./可执行文件</code>        执行可执行文件</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CMake</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/13/CMake（三）——-Linux下使用CMake/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-ubuntu（三）——-opencv、cheese安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/13/ubuntu（三）——-opencv、cheese安装/">ubuntu（三）—— opencv、cheese安装</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/13/ubuntu（三）——-opencv、cheese安装/" class="archive-article-date">
-  	<time datetime="2018-09-13T07:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-13</time>
-</a>
-
-
-<a href="/2018/09/13/ubuntu（三）——-opencv、cheese安装/" class="archive-article-date">
-  	<time datetime="2018-09-13T07:55:56.000Z" itemprop="datePublished">2018-09-13</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：那天晚上opencv从九点半开始装到十点半，人都快要崩溃了，结果第二天又重新编译了一遍，感觉自己真的是一个人在黑暗中摸索 ~</p>
-        
-          <a class="article-more-a" href="/2018/09/13/ubuntu（三）——-opencv、cheese安装/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/13/ubuntu（三）——-opencv、cheese安装/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1135,11 +1136,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color1">CMake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cmake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1151,31 +1164,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CMake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1183,7 +1172,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1191,7 +1184,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1219,11 +1220,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
