@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Google Protocol Buffers | 绿小蕤</title>
+  <title>绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PS：在使用其它深度学习框架时遇到 caffe.proto，不理解这个文件是干嘛的，只好去看了一下 Google Protocol Buffers 这篇文章用了非常简单的例子，说明如何使用Google Protocol Buffers： https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html">
+  <meta name="description" content="一枚小白~">
 <meta name="keywords" content="程序媛">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Google Protocol Buffers">
+<meta property="og:title" content="绿小蕤">
 <meta property="og:url" content="http://yoursite.com/2018/09/15/Google-Protocol-Buffers/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="PS：在使用其它深度学习框架时遇到 caffe.proto，不理解这个文件是干嘛的，只好去看了一下 Google Protocol Buffers 这篇文章用了非常简单的例子，说明如何使用Google Protocol Buffers： https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html">
+<meta property="og:description" content="一枚小白~">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-15T09:20:00.715Z">
+<meta property="og:updated_time" content="2018-10-19T03:38:06.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Google Protocol Buffers">
-<meta name="twitter:description" content="PS：在使用其它深度学习框架时遇到 caffe.proto，不理解这个文件是干嘛的，只好去看了一下 Google Protocol Buffers 这篇文章用了非常简单的例子，说明如何使用Google Protocol Buffers： https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html">
+<meta name="twitter:title" content="绿小蕤">
+<meta name="twitter:description" content="一枚小白~">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -146,108 +146,11 @@
             <article id="post-Google-Protocol-Buffers" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Google Protocol Buffers
-    </h1>
-  
-
-        
-        <a href="/2018/09/15/Google-Protocol-Buffers/" class="archive-article-date">
-  	<time datetime="2018-09-15T09:12:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-15</time>
-</a>
-
-
-<a href="/2018/09/15/Google-Protocol-Buffers/" class="archive-article-date">
-  	<time datetime="2018-09-15T09:12:19.000Z" itemprop="datePublished">2018-09-15</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
 
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>PS：在使用其它深度学习框架时遇到 caffe.proto，不理解这个文件是干嘛的，只好去看了一下 Google Protocol Buffers</p>
-<p>这篇文章用了非常简单的例子，说明如何使用Google Protocol Buffers：</p>
-<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html</a></p>
-<a id="more"></a>
-<p><br></p>
-<h2 id="Google-Protocol-Buffers（Protobuf）"><a href="#Google-Protocol-Buffers（Protobuf）" class="headerlink" title="Google Protocol Buffers（Protobuf）"></a>Google Protocol Buffers（Protobuf）</h2><p>Google Protocol Buffers（Protobuf）：一种结构化数据存储格式</p>
-<p>PS：我的理解用 Protobuf 编译器将 proto 编译成对应的语言后，就可以对结构化数据写入读出</p>
-<p><strong>适合不同语言之间的数据交换</strong>，即只要将相同协议格式的proto文件被编译成不同的语言版本，加入到各自的工程中，这样不同语言就可以通过protobuf序列化的数据解析其他语言</p>
-<p><br></p>
-<h3 id="1-编写-proto-文件"><a href="#1-编写-proto-文件" class="headerlink" title="1. 编写 .proto 文件"></a>1. 编写 .proto 文件</h3><p>编写一个 proto 文件，定义程序中需要处理的结构化数据（被称为 Message）</p>
-<p>proto文件的结构：<a href="https://www.jianshu.com/p/5ea08c6b7031" target="_blank" rel="noopener">https://www.jianshu.com/p/5ea08c6b7031</a></p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th style="text-align:left">定义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>message</td>
-<td style="text-align:left">是消息定义的关键字</td>
-</tr>
-<tr>
-<td>required</td>
-<td style="text-align:left">这个字段必须的，必须在序列化的时候被赋值</td>
-</tr>
-<tr>
-<td>optional</td>
-<td style="text-align:left">代表这个字段是可选的，可以为0个或1个但不能大于1个</td>
-</tr>
-<tr>
-<td>repeated</td>
-<td style="text-align:left">代表此字段可以被重复任意多次包括0次</td>
-</tr>
-<tr>
-<td>int32和string</td>
-<td style="text-align:left">字段的类型</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 命名规则：packageName.MessageName.proto</span><br><span class="line"></span><br><span class="line">package lm; </span><br><span class="line">message helloworld </span><br><span class="line">&#123; </span><br><span class="line">   required int32     id = 1;  // ID </span><br><span class="line">   required string    str = 2;  // str </span><br><span class="line">   optional int32     opt = 3;  //optional field </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="2-编译-proto-文件"><a href="#2-编译-proto-文件" class="headerlink" title="2. 编译 .proto 文件"></a>2. 编译 .proto 文件</h3><p>用 Protobuf 编译器将 proto 编译成对应的目标语言（C++为例），生成一下两个文件</p>
-<ul>
-<li><p>packageName.MessageName.pb.h 头文件：类的定义，类名为 packageName::MessageName</p>
-</li>
-<li><p>packageName.MessageName.pb.cc文件：类的实现</p>
-<ul>
-<li>类的实现提供了一系列的函数用来修改和读取结构化数据中的数据成员</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>类的实现提供相应的方法来把一个复杂的数据变成一个字节序列，可以将这个字节序列写入磁盘</li>
-</ul>
-<p><br></p>
-<p>例子：</p>
-<p>若目标语言是 C++，则lm.helloworld. .proto 文件，经过编译生成了对应了一个 C++ 的 helloworld 类</p>
-<p>lm.helloworld.pb.h ：  C++ 类的定义头文件</p>
-<p>lm.helloworld.pb.cc ： C++ 类的实现文件</p>
-<p><br></p>
-<h3 id="3-编写-writer-和-Reader具体实现结构化数据的写入读出"><a href="#3-编写-writer-和-Reader具体实现结构化数据的写入读出" class="headerlink" title="3. 编写 writer 和 Reader具体实现结构化数据的写入读出"></a>3. 编写 writer 和 Reader具体实现结构化数据的写入读出</h3><p>Writer 、Reader 文件中 include 编译后的头文件 lm.helloworld.pb.h 就可以使用 lm::helloworld类</p>
-<ul>
-<li><strong>Writer ：把一个结构化数据写入磁盘，以便其他人来读取</strong></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lm.helloworld.pb.h"</span> <span class="comment">// lm::helloworld 类定义在 lm.helloworld.pb.h 头文件中</span></span></span><br><span class="line">…</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span></span><br><span class="line"><span class="function"> </span>&#123; </span><br><span class="line">  lm::helloworld msg1;    <span class="comment">//类的实现</span></span><br><span class="line">  msg1.set_id(<span class="number">101</span>);        </span><br><span class="line">  msg1.set_str(“hello”); </span><br><span class="line">     </span><br><span class="line">  <span class="comment">// Write the new address book back to disk. </span></span><br><span class="line">  <span class="function">fstream <span class="title">output</span><span class="params">(<span class="string">"./log"</span>, ios::out | ios::trunc | ios::binary)</span></span>;  <span class="comment">//对象序列化写入</span></span><br><span class="line">         </span><br><span class="line">  <span class="keyword">if</span> (!msg1.SerializeToOstream(&amp;output)) &#123; </span><br><span class="line">      <span class="built_in">cerr</span> &lt;&lt; <span class="string">"Failed to write msg."</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>; </span><br><span class="line">  &#125;         </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<ul>
-<li><strong>Reader：把写入磁盘的结构化数据读出</strong></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lm.helloworld.pb.h"</span> </span></span><br><span class="line">…</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">ListMsg</span><span class="params">(<span class="keyword">const</span> lm::helloworld &amp; msg)</span> </span>&#123; </span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; msg.id() &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; msg.str() &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line"> &#125; </span><br><span class="line">  </span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123; </span><br><span class="line"> </span><br><span class="line">  lm::helloworld msg1; </span><br><span class="line">  </span><br><span class="line">  &#123; </span><br><span class="line">    <span class="function">fstream <span class="title">input</span><span class="params">(<span class="string">"./log"</span>, ios::in | ios::binary)</span></span>; </span><br><span class="line">    <span class="keyword">if</span> (!msg1.ParseFromIstream(&amp;input)) &#123; </span><br><span class="line">      <span class="built_in">cerr</span> &lt;&lt; <span class="string">"Failed to parse address book."</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>; </span><br><span class="line">    &#125; </span><br><span class="line">  &#125; </span><br><span class="line">  </span><br><span class="line">  ListMsg(msg1); </span><br><span class="line">  … </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+        
       
 
       
@@ -357,7 +260,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Google-Protocol-Buffers（Protobuf）"><span class="toc-number">1.</span> <span class="toc-text">Google Protocol Buffers（Protobuf）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-编写-proto-文件"><span class="toc-number">1.1.</span> <span class="toc-text">1. 编写 .proto 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编译-proto-文件"><span class="toc-number">1.2.</span> <span class="toc-text">2. 编译 .proto 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-编写-writer-和-Reader具体实现结构化数据的写入读出"><span class="toc-number">1.3.</span> <span class="toc-text">3. 编写 writer 和 Reader具体实现结构化数据的写入读出</span></a></li></ol></li></ol>
+                    懒得写目录啦~
                     </div>
                 </span>
             </div>
@@ -474,6 +377,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CMake</a>
               </li>
              
@@ -482,19 +389,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,15 +397,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,11 +417,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,11 +449,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color1">caffe</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">caffe</a>
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">

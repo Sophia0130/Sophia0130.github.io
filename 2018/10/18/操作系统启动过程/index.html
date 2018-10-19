@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>操作系统启动过程 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="操作系统启动过程 http://www.ruanyifeng.com/blog/2013/02/booting.html  BIOS 硬件自检 根据启动顺序，定位到存储设备 根据主引导记录中的分区表（存储设备的第一个扇区），定位到主分区  一、BIOS计算机通电后，第一件事就是读取被刷入ROM芯片的开机程序，这块芯片里的程序叫做『基本输入输出系统，Basic Input/Output System">
+  <meta name="description" content="操作系统启动过程 http://www.ruanyifeng.com/blog/2013/02/booting.html  BIOS 硬件自检 根据启动顺序，定位到存储设备 根据主引导记录中的分区表（存储设备的第一个扇区），定位到主分区">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统启动过程">
 <meta property="og:url" content="http://yoursite.com/2018/10/18/操作系统启动过程/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="操作系统启动过程 http://www.ruanyifeng.com/blog/2013/02/booting.html  BIOS 硬件自检 根据启动顺序，定位到存储设备 根据主引导记录中的分区表（存储设备的第一个扇区），定位到主分区  一、BIOS计算机通电后，第一件事就是读取被刷入ROM芯片的开机程序，这块芯片里的程序叫做『基本输入输出系统，Basic Input/Output System">
+<meta property="og:description" content="操作系统启动过程 http://www.ruanyifeng.com/blog/2013/02/booting.html  BIOS 硬件自检 根据启动顺序，定位到存储设备 根据主引导记录中的分区表（存储设备的第一个扇区），定位到主分区">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-18T14:17:59.058Z">
+<meta property="og:updated_time" content="2018-10-19T03:38:45.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统启动过程">
-<meta name="twitter:description" content="操作系统启动过程 http://www.ruanyifeng.com/blog/2013/02/booting.html  BIOS 硬件自检 根据启动顺序，定位到存储设备 根据主引导记录中的分区表（存储设备的第一个扇区），定位到主分区  一、BIOS计算机通电后，第一件事就是读取被刷入ROM芯片的开机程序，这块芯片里的程序叫做『基本输入输出系统，Basic Input/Output System">
+<meta name="twitter:description" content="操作系统启动过程 http://www.ruanyifeng.com/blog/2013/02/booting.html  BIOS 硬件自检 根据启动顺序，定位到存储设备 根据主引导记录中的分区表（存储设备的第一个扇区），定位到主分区">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -181,6 +181,7 @@
 <li>根据启动顺序，定位到存储设备</li>
 <li>根据主引导记录中的分区表（存储设备的第一个扇区），定位到主分区</li>
 </ol>
+<a id="more"></a>
 <h2 id="一、BIOS"><a href="#一、BIOS" class="headerlink" title="一、BIOS"></a>一、BIOS</h2><p>计算机通电后，第一件事就是读取被刷入ROM芯片的开机程序，这块芯片里的程序叫做<strong>『基本输入输出系统，Basic Input/Output System，BIOS』</strong></p>
 <p>BIOS 程序首先检查，计算机硬件能否满足运行的基本条件，这叫做<strong>『硬件自检，Power-On Self-Test，POST』</strong></p>
 <h2 id="二、主引导记录"><a href="#二、主引导记录" class="headerlink" title="二、主引导记录"></a>二、主引导记录</h2><h3 id="1-启动顺序"><a href="#1-启动顺序" class="headerlink" title="1. 启动顺序"></a>1. 启动顺序</h3><p>BIOS 根据启动顺序，把控制权转交给启动顺序排在第一位的储存设备，读取该设备的第一个扇区，即主引导记录，进行下一阶段的启动程序</p>
@@ -280,6 +281,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/10/19/C-学习：标准库和标准模板库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C++学习：标准库和标准模板库
+        
+      </div>
+    </a>
   
   
     <a href="/2018/10/18/处理器/" id="article-nav-older" class="article-nav-link-wrap">
@@ -427,6 +437,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CMake</a>
               </li>
              
@@ -435,19 +449,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,15 +457,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,11 +477,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,11 +509,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color1">caffe</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">caffe</a>
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
