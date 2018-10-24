@@ -9,14 +9,14 @@
   <title>VS+opencv的配置 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~  想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样">
-<meta name="keywords" content="软件,编译">
+<meta name="keywords" content="编译,配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VS+opencv的配置">
 <meta property="og:url" content="http://yoursite.com/2018/08/19/VS-opencv的配置/index.html">
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~  想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-22T09:01:42.962Z">
+<meta property="og:updated_time" content="2018-10-24T11:48:13.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS+opencv的配置">
 <meta name="twitter:description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~  想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样">
@@ -222,6 +222,13 @@
 <p>（3）lib文件：一般放在lib路径下</p>
 <p><strong>lib文件是库文件</strong>，所以对应的是库目录</p>
 <p><br></p>
+<h2 id="五、第三方库的使用"><a href="#五、第三方库的使用" class="headerlink" title="五、第三方库的使用"></a>五、第三方库的使用</h2><h3 id="1-添加头文件"><a href="#1-添加头文件" class="headerlink" title="1. 添加头文件"></a>1. 添加头文件</h3><p>C/C++附加包含目录：头文件的路径</p>
+<h3 id="2-添加库"><a href="#2-添加库" class="headerlink" title="2. 添加库"></a>2. 添加库</h3><p>链接器-附加库目录：库文件的路径</p>
+<p>链接器-附加依赖项：库文件</p>
+<p>PS：我今天突发奇想问了师兄一个问题，就是在添加其它库的时候，是否可以不添加相应的头文件？</p>
+<p>我看知乎上有人就有问，编写C语言程序时必须有#include\&lt;stdio.h&gt;？</p>
+<p>有一条回答可以解答这个疑问，主要还是看编译器，有些编译器会<strong>默认隐含包含</strong>stdio.h和stdlib.h两个头文件，使没有自己手动包含也不会报错</p>
+<p><br></p>
 <p>关于静态链接和动态链接：</p>
 <p><a href="https://sophia0130.github.io/2018/08/19/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5/" target="_blank" rel="noopener">https://sophia0130.github.io/2018/08/19/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5/</a></p>
 
@@ -237,11 +244,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">软件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">配置</a>
         		</li>
       		
 		</ul>
@@ -349,7 +356,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、VS"><span class="toc-number">1.</span> <span class="toc-text">一、VS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Debug和Relesse版本"><span class="toc-number">2.</span> <span class="toc-text">二、Debug和Relesse版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Debug"><span class="toc-number">2.1.</span> <span class="toc-text">1. Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Release"><span class="toc-number">2.2.</span> <span class="toc-text">2.Release</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、运行时库"><span class="toc-number">3.</span> <span class="toc-text">三、运行时库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-运行时库"><span class="toc-number">3.1.</span> <span class="toc-text">1. 运行时库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-设置"><span class="toc-number">3.2.</span> <span class="toc-text">2. 设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-CRT的类型"><span class="toc-number">3.3.</span> <span class="toc-text">3. CRT的类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、opencv"><span class="toc-number">4.</span> <span class="toc-text">四、opencv</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、VS"><span class="toc-number">1.</span> <span class="toc-text">一、VS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Debug和Relesse版本"><span class="toc-number">2.</span> <span class="toc-text">二、Debug和Relesse版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Debug"><span class="toc-number">2.1.</span> <span class="toc-text">1. Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Release"><span class="toc-number">2.2.</span> <span class="toc-text">2.Release</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、运行时库"><span class="toc-number">3.</span> <span class="toc-text">三、运行时库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-运行时库"><span class="toc-number">3.1.</span> <span class="toc-text">1. 运行时库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-设置"><span class="toc-number">3.2.</span> <span class="toc-text">2. 设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-CRT的类型"><span class="toc-number">3.3.</span> <span class="toc-text">3. CRT的类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、opencv"><span class="toc-number">4.</span> <span class="toc-text">四、opencv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、第三方库的使用"><span class="toc-number">5.</span> <span class="toc-text">五、第三方库的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-添加头文件"><span class="toc-number">5.1.</span> <span class="toc-text">1. 添加头文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-添加库"><span class="toc-number">5.2.</span> <span class="toc-text">2. 添加库</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -466,11 +473,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,11 +489,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,15 +497,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,7 +505,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,10 +530,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,11 +545,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">caffe</a>
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">caffe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,6 +562,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">
