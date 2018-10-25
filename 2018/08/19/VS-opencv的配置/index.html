@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~  想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-24T11:48:13.994Z">
+<meta property="og:updated_time" content="2018-10-25T03:52:42.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS+opencv的配置">
 <meta name="twitter:description" content="https://blog.csdn.net/u013634684/article/details/48289449 https://blog.csdn.net/woainishifu/article/details/53507723 PS ：关于使用VS时，遇到的一些疑问，做了个整理 ~  想要发一些感慨，之前很多东西其实是不理解的，现在看多了，慢慢脑子里面有个大概的图谱，把学到的东西串起来，这样">
@@ -222,7 +222,22 @@
 <p>（3）lib文件：一般放在lib路径下</p>
 <p><strong>lib文件是库文件</strong>，所以对应的是库目录</p>
 <p><br></p>
-<h2 id="五、第三方库的使用"><a href="#五、第三方库的使用" class="headerlink" title="五、第三方库的使用"></a>五、第三方库的使用</h2><h3 id="1-添加头文件"><a href="#1-添加头文件" class="headerlink" title="1. 添加头文件"></a>1. 添加头文件</h3><p>C/C++附加包含目录：头文件的路径</p>
+<h2 id="五、第三方库的使用"><a href="#五、第三方库的使用" class="headerlink" title="五、第三方库的使用"></a>五、第三方库的使用</h2><h3 id="1-添加头文件"><a href="#1-添加头文件" class="headerlink" title="1. 添加头文件"></a>1. 添加头文件</h3><p>PS：这里其实我不是很理解，分成VC++目录和C/C++，看到网上是这样区分的</p>
+<ul>
+<li><p>VC++的包含目录：头文件的路径</p>
+<p>（PS：这实我不是很理解，VC++目录和C/C++的包含目录有什么区别，看到网上是这样区分）</p>
+<ul>
+<li>VC++的包含目录：代表的是所有项目的包含目录，配置过VC++里面的库，C/C++里面的就可以不用配置</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>C/C++的附加包含目录：代表的是C/C++文件编译时所需要的头文件，针对当前项目</li>
+</ul>
+<ul>
+<li>VC++的可执行文件目录：dll的路径</li>
+<li>VC++的库目录：lib的路径</li>
+</ul>
 <h3 id="2-添加库"><a href="#2-添加库" class="headerlink" title="2. 添加库"></a>2. 添加库</h3><p>链接器-附加库目录：库文件的路径</p>
 <p>链接器-附加依赖项：库文件</p>
 <p>PS：我今天突发奇想问了师兄一个问题，就是在添加其它库的时候，是否可以不添加相应的头文件？</p>
@@ -481,7 +496,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CMake</a>
+                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,7 +512,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cmake</a>
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,19 +524,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,6 +537,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,11 +560,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color1">caffe</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">caffe</a>
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,11 +576,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">云</a>
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
              
               <li class="article-tag-list-item">
