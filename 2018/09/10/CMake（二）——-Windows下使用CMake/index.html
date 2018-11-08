@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/cmake%E4%BD%BF%E7%94%A81.png">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/cmake2.png">
 <meta property="og:image" content="http://www.g-var.com/images/cmake/cmake_and_visual_studio.png">
-<meta property="og:updated_time" content="2018-09-10T08:53:44.599Z">
+<meta property="og:updated_time" content="2018-10-25T05:45:10.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CMake（二）—— Windows下使用CMake">
 <meta name="twitter:description" content="PS：我现在陷入了不同开发环境如何编译这么个问题里，感觉自己脑袋一团浆糊 ~">
@@ -194,8 +194,8 @@
 <p>（1）在test1工程下写了 hello.cpp 和CMakeLists.txt两个文件</p>
 <p>（2）打开 cmake-gui.exe 将 CMakeLists.txt 拖到 <code>Where is the source code</code></p>
 <p>（3）Configure：  选择代码编译工具</p>
-<p>（4）Generate：   在<code>where to build the binaries</code> 目录下生成vs编译工程文件</p>
-<p><strong>注意：中间文件和可执行文件一般将存放在build目录中，所以修改到 /build</strong> </p>
+<p>（4）Generate：   产生指定平台的build file（Linux的Makefile或者Visual Studio的sln file）</p>
+<p><code>where to build the binaries</code> ：一般会新建一个build文件，存放上述生成的文件</p>
 <p>（5）打开解决方案文件<strong>.sln</strong> ，可以开始调试运行，这里<strong>注意：要把需要运行的项目设置为启动项</strong></p>
 <p><br></p>
 <p><img src="http://p8ge6t5tt.bkt.clouddn.com/cmake2.png" alt=""></p>
@@ -479,23 +479,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,6 +519,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cs144</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
@@ -531,15 +535,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>

@@ -17,7 +17,7 @@
 <meta property="og:description" content="指令集和处理器架构：https://www.zhihu.com/question/23474438 （我的理解：处理器架构是指硬件设计，对应相应指令集，即二进制机器码，实现某种功能，两者是配套的）">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic3.zhimg.com/v2-73ba36e9a085e8f666d039a1a465e44a_r.jpg">
-<meta property="og:updated_time" content="2018-10-24T01:36:03.487Z">
+<meta property="og:updated_time" content="2018-10-26T02:14:53.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="处理器">
 <meta name="twitter:description" content="指令集和处理器架构：https://www.zhihu.com/question/23474438 （我的理解：处理器架构是指硬件设计，对应相应指令集，即二进制机器码，实现某种功能，两者是配套的）">
@@ -198,7 +198,8 @@
 <h2 id="三、汇编语言"><a href="#三、汇编语言" class="headerlink" title="三、汇编语言"></a>三、汇编语言</h2><p>汇编语言是为了方便人类操作指令集，所以汇编语言是和指令集配套</p>
 <p>汇编语言通过汇编器转为二进制</p>
 <p><br></p>
-<h2 id="四、操作系统"><a href="#四、操作系统" class="headerlink" title="四、操作系统"></a>四、操作系统</h2><p>指令集是二进制，操作系统其实是应用程序，普通应用程序和操作系统都需要经过编译器，编译为二进</p>
+<h2 id="四、操作系统"><a href="#四、操作系统" class="headerlink" title="四、操作系统"></a>四、操作系统</h2><p>四、操作系统</p>
+<p>指令集是二进制，操作系统其实是应用程序，普通应用程序和操作系统都需要经过编译器，编译为二进</p>
 <p>不同CPU对应的指令集不一样，对应的编译器也不一样，所以相同高级语言用不同编译器编译得到的二进制代码是不同的</p>
 <p>windows 只能在x86架构的CPU上运行，因为Windows系统设计的时候是基于x86架构</p>
 <p>Linux 可以运行在不同架构的CPU，因为Linux 的不同版本可以支持不同架构的指令集</p>
@@ -206,9 +207,12 @@
 <p><br></p>
 <h2 id="五、汇编器和编译器的区别"><a href="#五、汇编器和编译器的区别" class="headerlink" title="五、汇编器和编译器的区别"></a>五、汇编器和编译器的区别</h2><p>汇编器，用来编译汇编语言的</p>
 <p>编译器的作用是，将源文件，这是已经是二进制代码了。，最后由连接器（Linker），将目标代码连接起来，这样就形成了可执行文件</p>
+<p><br></p>
 <h2 id="六、CPU性能指标"><a href="#六、CPU性能指标" class="headerlink" title="六、CPU性能指标"></a>六、CPU性能指标</h2><h3 id="1-字长"><a href="#1-字长" class="headerlink" title="1.字长"></a>1.字长</h3><p>单位时间内CPU能处理的二进制数据的位数，32位、64位</p>
 <h3 id="2-主频"><a href="#2-主频" class="headerlink" title="2.主频"></a>2.主频</h3><p>CPU内的动作都是按<strong>时钟周期</strong>计算，一秒内有几个时钟周期，主频就是多少赫兹</p>
 <h3 id="3-外频"><a href="#3-外频" class="headerlink" title="3.外频"></a>3.外频</h3><p>外频是由主板为CPU提供的基准时钟频率，就是主板规定CPU<strong>1秒内对外进行数据交换的次数</strong></p>
+<p>PS：关于处理器性能好坏，我之前的理解就是 i7 总比 i5 要好吧，后来发现并不是如此，功耗不同用于平台不同，还是要看天梯图</p>
+<p><br></p>
 <h2 id="七、核心数、线程数"><a href="#七、核心数、线程数" class="headerlink" title="七、核心数、线程数"></a>七、核心数、线程数</h2><p>核心数：指硬件上存在着几个核心个数。比如，双核就是包括2个相对独立的CPU核心单元组，四核就包含4个相对独立的CPU核心单元组。</p>
 <p>线程数：线程数概念仅仅只针对Intel的CPU才有用，因为它是通过Intel<strong>超线程</strong>技术来实现的，就是可以<strong>模拟出的CPU核心数</strong>，一个核心可以对应两个线程，即可以同时运行两个线程</p>
 
@@ -485,23 +489,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,6 +529,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cs144</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
@@ -537,15 +545,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">云</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-25T01:18:23.688Z</updated>
+  <updated>2018-11-08T12:58:26.987Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,68 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>C++学习：多线程</title>
+    <link href="http://yoursite.com/2018/11/08/C-%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/11/08/C-学习：多线程/</id>
+    <published>2018-11-08T12:56:35.000Z</published>
+    <updated>2018-11-08T12:58:26.987Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：真的好难啊，看不懂，有没有什么多线程的资料可以系统读一下，完全云里雾里啊~<br><a id="more"></a></p><h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><p>POSIX 可移植操作系统接口（Portable Operating System Interface of UNIX ）是为了各操作系统间保持兼容性而制定的系列标准，POSIX并不局限于UNIX</p><p>个人理解：应用程序接口 API（Application Programming Interface）是操作系统提供给应用程序调用的代码，POSIX标准就是规范了不同操作系统的API。<strong>这样，为一个POSIX兼容的操作系统编写的应用程序，应该可以在任何其它的POSIX操作系统上编译执行</strong>。<br><br></p><h2 id="POSIX线程"><a href="#POSIX线程" class="headerlink" title="POSIX线程"></a>POSIX线程</h2><p>POSIX线程（POSIX Threads，Pthreads）是POSIX的线程标准，定义了创建和操纵线程的一套API<br>创建线程之后，由CPU决定何时执行线程调用的函数<br><br>   </p><h2 id="进程、线程"><a href="#进程、线程" class="headerlink" title="进程、线程"></a>进程、线程</h2><p><a href="https://www.cnblogs.com/xh0102/p/5710074.html" target="_blank" rel="noopener">https://www.cnblogs.com/xh0102/p/5710074.html</a><br>1.进程<br>每个进程有自己的地址空间。<strong>两个进程中的地址即使值相同，实际指向的位置也不同。</strong>进程间通信一般 <strong>通过操作系统</strong>的公共区进行。<br>2.线程<br>同一进程中的线程属于同一地址空间，<strong>共享全局变量和内存</strong>，所以一个线程的数据可以直接提供给其他线程使用，而 <strong>不必通过操作系统</strong>，也就是内核的调度。<br><br></p><h2 id="并行、并发"><a href="#并行、并发" class="headerlink" title="并行、并发"></a>并行、并发</h2><p>1.并行<br>是指两个或多个独立的操作同时进行。对于多核，多个线程可以在多核上真正独立的并行执行。<br>2.并发<br>是指在一段时间内执行多个操作。对于单核，多个线程是并发的，在一个时间段内轮流执行。<br>例如，4核4线程可以并行4个线程，4核8线程则使用了超线程技术，把一个物理核模拟为2个逻辑核心，可以并行8个线程。<br><br></p><h2 id="可结合和分离的线程"><a href="#可结合和分离的线程" class="headerlink" title="可结合和分离的线程"></a>可结合和分离的线程</h2><p>线程可结合或可分离是属于内核的属性，决定一个线程以什么样的方式来终止自己<br>1.joinable 可结合，非分离状态<br><strong>需要被其他线程收回其资源和杀死</strong>，在被其他线程回收之前，它的存储器资源是不释放的<br>原有的线程等待创建的线程结束，只有当pthread_join（）函数返回时，创建的线程才算终止，才能释放创建的线程占用的系统资源       </p><ol start="2"><li>detached 分离线程<br>一个分离的线程没有被其他的线程所等待，<strong>不能被其他线程回收或杀死</strong>，等到运行结束，线程也就终止，才释放系统资源<br><br></li></ol><h2 id="线程通信"><a href="#线程通信" class="headerlink" title="线程通信"></a>线程通信</h2><p>线程通信基本问题是同步和互斥<br>1.线程同步<br>一个线程的执行依赖于另一个线程的消息，当它没有得到另一个线程的消息时应等待，直到消息到达时才被唤醒<br>线程同步的四种方法：<a href="https://blog.csdn.net/zm_jacker/article/details/9787829" target="_blank" rel="noopener">https://blog.csdn.net/zm_jacker/article/details/9787829</a><br>2.线程互斥<br>当有若干个线程都要使用某一共享资源时，任何时刻最多只允许一个线程去使用，其它要使用该资源的线程必须等待，直到占用资源者释放该资源<br>同步其实已经实现了互斥，而互斥是一种特殊的同步<br><br></p><h2 id="临界资源、临界区"><a href="#临界资源、临界区" class="headerlink" title="临界资源、临界区"></a>临界资源、临界区</h2><p>临界资源：能够被多个线程共享的数据<br>临界区：对临界资源进行操作的那一段代码<br><br></p><h2 id="互斥锁-互斥锁（mutual-exclusive-lock-variable-mutex-）"><a href="#互斥锁-互斥锁（mutual-exclusive-lock-variable-mutex-）" class="headerlink" title="互斥锁/互斥锁（mutual exclusive lock variable / mutex ）"></a>互斥锁/互斥锁（mutual exclusive lock variable / mutex ）</h2><p>在访问共享资源前对互斥量加锁，在访问完成后释放互斥量上的锁。对互斥量加锁以后，任何其他试图对互斥量加锁的线程将会阻塞，直到当前线程释放该互斥锁。<br>如果释放互斥锁时有多个线程阻塞，所有在该互斥锁上的阻塞线程都会变成可运行状态，第一个变为运行状态的线程可以对互斥锁加锁，其他线程将会看到互斥锁依然被锁住，只能回去再次等待它重新变为可用。<br>个人理解：互斥量和互斥锁是一个意思<br><br></p><h2 id="条件变量和互斥锁"><a href="#条件变量和互斥锁" class="headerlink" title="条件变量和互斥锁"></a>条件变量和互斥锁</h2><p>条件变量是和互斥锁搭配使用<br>线程A需要等某个条件成立才能继续往下执行，现在这个条件不成立，线程A就阻塞等待，而线程B在执行过程中使这个条件成立了，就唤醒线程A继续执行<br><br></p><h2 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h2><p>信号量强调的是多线程的同步，一个线程完成了某一个动作就通过信号量告诉别的线程，别的线程再进行某些动作<br><br></p><h2 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h2><p><strong>原子操作是CPU执行指令的最小单元</strong>，这种操作一旦开始，就一直运行到结束，不会被中断<br>能够在单条指令中完成的操作都可以认为是原子操作</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：真的好难啊，看不懂，有没有什么多线程的资料可以系统读一下，完全云里雾里啊~&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cs144:1-1</title>
+    <link href="http://yoursite.com/2018/10/29/cs144-1-1/"/>
+    <id>http://yoursite.com/2018/10/29/cs144-1-1/</id>
+    <published>2018-10-29T09:20:55.000Z</published>
+    <updated>2018-10-29T09:22:39.334Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="http://phcnyb3sl.bkt.clouddn.com/summary.png" alt=""></p><ul><li>模型：Bidirectional byte stream</li><li>模型的三种应用：<ul><li>World Wide Web(HTTP)</li><li>Skype</li><li>BitTorrent</li></ul></li></ul><a id="more"></a><p><br></p><h2 id="1-Bidirectional-byte-stream"><a href="#1-Bidirectional-byte-stream" class="headerlink" title="1. Bidirectional byte stream"></a>1. Bidirectional byte stream</h2><p>The most common communication model of networked applications.</p><p>This allows two programs running on different computers exchange data.</p><p>将网络抽象A和B之间双向的读/写</p><p><img src="http://phcnyb3sl.bkt.clouddn.com/bytestreammodel.png" alt=""></p><p><br></p><h2 id="2-1-World-Wide-Web"><a href="#2-1-World-Wide-Web" class="headerlink" title="2-1 World Wide Web"></a>2-1 World Wide Web</h2><p><img src="http://phcnyb3sl.bkt.clouddn.com/http.png" alt=""></p><p><strong>client-server model    客户端-服务端</strong> </p><p>Client open connection to a server and requests <strong>documents</strong>.</p><p>Server responses documents.</p><p><br></p><h2 id="2-2-BitTorrent"><a href="#2-2-BitTorrent" class="headerlink" title="2-2 BitTorrent"></a>2-2 BitTorrent</h2><p><img src="http://phcnyb3sl.bkt.clouddn.com/bittorrent.png" alt=""></p><p><strong>peer-to-peer model</strong></p><p>Swarms of clients open connections to each other to exchange pieces of data.</p><p>A single client can request from many other clients in parallel.</p><p>每个客户端拥有文件的 <strong>piece</strong> 即一部分，这些客户端形成了<strong>swarms</strong> 即集群，客户端可以选择加入或退出这个 swarm</p><p>客户端要load file时，向Tracker请求拥有piece的client lists客户列表，从各客户端load piece，且是个并发的过程</p><p><br></p><h2 id="2-3-Skype"><a href="#2-3-Skype" class="headerlink" title="2-3 Skype"></a>2-3 Skype</h2><p>Clients can`t open connections directly, so go through Rendezvous or Relay server.</p><p>NAT:Network Address Translator</p><p>个人理解：NAT是个单向的过程，所以需要 reverse connection</p><p>正常情况下，A try to open connection to B，但是由于B在NAT后面，B无法通过NAT回发信息给A，实际上是B open connection to A</p><p>通常，public server 不会在NAT后面，但是 personal machine 为了安全，所以需要NAT</p><p> <img src="http://phcnyb3sl.bkt.clouddn.com/skpye1.png" alt=""></p><p><img src="http://phcnyb3sl.bkt.clouddn.com/skype2.png" alt=""></p><p><br></p><h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><p>互联网包含因特网，因特网包含万维网</p><p><br></p><h3 id="1-互联网"><a href="#1-互联网" class="headerlink" title="1. 互联网"></a>1. 互联网</h3><p>凡是能彼此通信的设备组成的网络就叫互联网</p><p><br></p><h3 id="2-Internet-因特网"><a href="#2-Internet-因特网" class="headerlink" title="2. Internet 因特网"></a>2. Internet 因特网</h3><p><strong>基于TCP/IP协议</strong>让不同的设备可以彼此通信。但使用TCP/IP协议的网络并不一定是因特网，一个局域网也可以使用TCP/IP协议。</p><p>TCP/IP协议由很多协议组成，不同类型的协议又被放在不同的层，其中，位于应用层的协议就有很多，比如FTP、SMTP、HTTP。只要<strong>应用层使用的是HTTP协议，就称为万维网</strong>。</p><p>Internet 提供的主要服务有万维网（WWW）、文件传输（FTP）、电子邮件（E-mail）、远程登录（Telnet）、手机 (3GHZ) 等。</p><p><br></p><h3 id="3-www万维网"><a href="#3-www万维网" class="headerlink" title="3. www万维网"></a>3. www万维网</h3><p>浏览器通过超文本传输协议(HTTP)，将Web服务器上站点的网页代码HTML提取出来，并翻译成网页。</p><p>URL （Uniform Resource Locator，统一资源定位符）：<a href="http://www.microsoft.com/china/index.htm" target="_blank" rel="noopener">http://www.microsoft.com/china/index.htm</a></p><ol><li>http://：超文本传输协议，通常不用输入</li><li>www：一个万维网服务器</li><li>Microsoft.com/：站点服务器的名称</li><li>China/：该服务器上的子目录</li><li>Index.htm：该子目录下的一个HTML文件，HTML语言描述的文件，需要通过www浏览器显示效果</li></ol><p><br></p><p>PS：万维网与因特网的差别，因特网指的是一个硬件的网络，全球的所有电脑通过网络连接后便形成了因特网，而万维网更倾向于一种浏览网页的功能。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://phcnyb3sl.bkt.clouddn.com/summary.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模型：Bidirectional byte stream&lt;/li&gt;
+&lt;li&gt;模型的三种应用：&lt;ul&gt;
+&lt;li&gt;World Wide Web(HTTP)&lt;/li&gt;
+&lt;li&gt;Skype&lt;/li&gt;
+&lt;li&gt;BitTorrent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="cs144" scheme="http://yoursite.com/tags/cs144/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[置顶]目录检索</title>
     <link href="http://yoursite.com/2018/10/25/%E7%BD%AE%E9%A1%B6-%E7%9B%AE%E5%BD%95%E6%A3%80%E7%B4%A2/"/>
     <id>http://yoursite.com/2018/10/25/置顶-目录检索/</id>
     <published>2018-10-25T01:17:52.000Z</published>
-    <updated>2018-10-25T01:18:23.688Z</updated>
+    <updated>2018-10-25T05:32:18.458Z</updated>
     
-    <content type="html"><![CDATA[<p>检索目录列表</p><a id="more"></a><p><br></p><h2 id="opencv"><a href="#opencv" class="headerlink" title="opencv"></a>opencv</h2><p><a href="https://sophia0130.github.io/2018/05/07/ImageWatch/" target="_blank" rel="noopener">ImageWatch — VS编译小工具</a></p><p>opencv（一）~（六）学习笔记系列 （PS：其实写了很多功能的代码，但是最近实在没有时间整理）</p><p><br></p><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>贝叶斯分类器和概率图模型</p><p><a href="https://sophia0130.github.io/2018/05/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%A4%A7%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">机器学习算法大总结</a></p><p><br></p><h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><p><a href="https://sophia0130.github.io/2018/06/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" target="_blank" rel="noopener">深度学习与强化学习</a></p><p>Deep-Learning—吴恩达—作业（一）~（七）系列</p><p><br></p><h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><p>1.cs231n笔记（一）~（十一）系列</p><ul><li>线性回归、逻辑回归、多分类</li><li>最优化（Optimization）：最小化损失函数</li><li>反向传播：链式法则求梯度</li><li>深度学习框架：PyTorch（Facebook）、Tensorflow（Google）</li><li>分类、检测、分割、跟踪</li><li>反卷积与特征可视化</li></ul><p>不同种类的网络：</p><ul><li>神经网络</li><li>卷积神经网络</li><li>经典CNN网络</li><li>循环神经网络</li><li>生成式对抗网络</li></ul><p>2.<a href="https://sophia0130.github.io/2018/08/01/NLP%E2%80%94%E2%80%94word2vec/" target="_blank" rel="noopener">NLP——word2vec</a> （PS：了解了一下自然语言处理，果然比图像要难啊 ~）</p><p><br></p><h2 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h2><p><a href="https://sophia0130.github.io/2018/08/05/TensorFlow-%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">TensorFlow 使用总结</a></p><p><a href="https://sophia0130.github.io/2018/08/05/Tensorboard-%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">Tensorboard 使用总结</a></p><p>TensorFlow代码实现（一）~（四）系列</p><p><br></p><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>ubuntu（一）~？    </p><p>Linux（一）~？</p><p>CMake（一）~？</p><p><br></p><h2 id="python安装"><a href="#python安装" class="headerlink" title="python安装"></a>python安装</h2><p><a href="https://sophia0130.github.io/2018/06/13/anaconda%EF%BC%8Cconda%EF%BC%8Cpip%E7%9A%84%E5%85%B3%E7%B3%BB/" target="_blank" rel="noopener">anaconda，conda，pip的关系</a></p><p><a href="https://sophia0130.github.io/2018/07/29/Ipython-%E4%B8%8E-Jupyter-Notebook/" target="_blank" rel="noopener">Ipython 与 Jupyter Notebook</a></p><p><a href="https://sophia0130.github.io/2018/06/28/%E8%A7%A3%E5%86%B3pip%E5%AE%89%E8%A3%85%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank" rel="noopener">解决pip安装慢的问题</a></p><p><br></p><h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><p><a href="https://sophia0130.github.io/2018/07/14/%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84/" target="_blank" rel="noopener">《程序是怎样跑起来的》读书笔记</a></p><p><a href="https://sophia0130.github.io/2018/08/05/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%90%84%E7%A7%8D%E6%9D%BF%E5%AD%90/" target="_blank" rel="noopener">嵌入式与板子：MCU、ARM、DSP、FPGA、SOC</a></p><p><a href="https://sophia0130.github.io/2018/07/15/%E6%98%BE%E5%8D%A1/" target="_blank" rel="noopener">显卡</a></p><p><a href="https://sophia0130.github.io/2018/07/26/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" target="_blank" rel="noopener">进程和线程</a></p><p><br></p><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p><a href="https://sophia0130.github.io/2018/08/22/%E7%BC%96%E8%AF%91%E5%99%A8%E3%80%81%E7%BC%96%E8%BE%91%E5%99%A8%E3%80%81IDE/" target="_blank" rel="noopener">编译器、IDE、编辑器种类整理</a></p><p><a href="https://sophia0130.github.io/2018/05/04/%E7%BC%96%E8%AF%91%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8/" target="_blank" rel="noopener">编译器和解释器</a></p><p>CMake（一）~？</p><p><br></p><h2 id="剑指offer"><a href="#剑指offer" class="headerlink" title="剑指offer"></a>剑指offer</h2><p>剑指offer（一）~？持续更</p><p><br></p><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p><a href="https://sophia0130.github.io/2018/05/14/XML%E3%80%81YAML%E3%80%81JSON/" target="_blank" rel="noopener">序列化数据格式 ：xml、yaml、json</a></p><p><a href="https://sophia0130.github.io/2018/05/18/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BA%91-%E7%89%B9%E5%88%AB%E7%AE%80%E9%99%8B%E7%9A%84%E8%AE%A4%E8%AF%86/" target="_blank" rel="noopener">虚拟机和云</a></p><p><a href="https://sophia0130.github.io/2018/05/04/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" target="_blank" rel="noopener">网络基础知识</a></p><p><br></p><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p><a href="https://sophia0130.github.io/2018/06/01/Git-%E5%AD%A6%E4%B9%A0/" target="_blank" rel="noopener">Git学习笔记</a></p>]]></content>
+    <content type="html"><![CDATA[<p>[置顶]检索目录列表</p><a id="more"></a><p><br></p><h2 id="opencv"><a href="#opencv" class="headerlink" title="opencv"></a>opencv</h2><p><a href="https://sophia0130.github.io/2018/05/07/ImageWatch/" target="_blank" rel="noopener">ImageWatch — VS编译小工具</a></p><p>opencv（一）~（六）学习笔记系列 （PS：其实写了很多功能的代码，但是最近实在没有时间整理）</p><p><br></p><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>贝叶斯分类器和概率图模型</p><p><a href="https://sophia0130.github.io/2018/05/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%A4%A7%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">机器学习算法大总结</a></p><p><br></p><h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><p><a href="https://sophia0130.github.io/2018/06/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%92%8C%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" target="_blank" rel="noopener">深度学习与强化学习</a></p><p>Deep-Learning—吴恩达—作业（一）~（七）系列</p><p><br></p><h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><p>1.cs231n笔记（一）~（十一）系列</p><ul><li>线性回归、逻辑回归、多分类</li><li>最优化（Optimization）：最小化损失函数</li><li>反向传播：链式法则求梯度</li><li>深度学习框架：PyTorch（Facebook）、Tensorflow（Google）</li><li>分类、检测、分割、跟踪</li><li>反卷积与特征可视化</li></ul><p>不同种类的网络：</p><ul><li>神经网络</li><li>卷积神经网络</li><li>经典CNN网络</li><li>循环神经网络</li><li>生成式对抗网络</li></ul><p>2.<a href="https://sophia0130.github.io/2018/08/01/NLP%E2%80%94%E2%80%94word2vec/" target="_blank" rel="noopener">NLP——word2vec</a> （PS：了解了一下自然语言处理，果然比图像要难啊 ~）</p><p><br></p><h2 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h2><p><a href="https://sophia0130.github.io/2018/08/05/TensorFlow-%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">TensorFlow 使用总结</a></p><p><a href="https://sophia0130.github.io/2018/08/05/Tensorboard-%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">Tensorboard 使用总结</a></p><p>TensorFlow代码实现（一）~（四）系列</p><p><br></p><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>ubuntu（一）~？    </p><p>Linux（一）~？</p><p>CMake（一）~？</p><p><br></p><h2 id="python安装"><a href="#python安装" class="headerlink" title="python安装"></a>python安装</h2><p><a href="https://sophia0130.github.io/2018/06/13/anaconda%EF%BC%8Cconda%EF%BC%8Cpip%E7%9A%84%E5%85%B3%E7%B3%BB/" target="_blank" rel="noopener">anaconda，conda，pip的关系</a></p><p><a href="https://sophia0130.github.io/2018/07/29/Ipython-%E4%B8%8E-Jupyter-Notebook/" target="_blank" rel="noopener">Ipython 与 Jupyter Notebook</a></p><p><a href="https://sophia0130.github.io/2018/06/28/%E8%A7%A3%E5%86%B3pip%E5%AE%89%E8%A3%85%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" target="_blank" rel="noopener">解决pip安装慢的问题</a></p><p><br></p><h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><p><a href="https://sophia0130.github.io/2018/07/14/%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84/" target="_blank" rel="noopener">《程序是怎样跑起来的》读书笔记</a></p><p><a href="https://sophia0130.github.io/2018/08/05/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%8E%E5%90%84%E7%A7%8D%E6%9D%BF%E5%AD%90/" target="_blank" rel="noopener">嵌入式与板子：MCU、ARM、DSP、FPGA、SOC</a></p><p><a href="https://sophia0130.github.io/2018/07/15/%E6%98%BE%E5%8D%A1/" target="_blank" rel="noopener">显卡</a></p><p><a href="https://sophia0130.github.io/2018/07/26/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" target="_blank" rel="noopener">进程和线程</a></p><p><br></p><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p><a href="https://sophia0130.github.io/2018/08/22/%E7%BC%96%E8%AF%91%E5%99%A8%E3%80%81%E7%BC%96%E8%BE%91%E5%99%A8%E3%80%81IDE/" target="_blank" rel="noopener">编译器、IDE、编辑器种类整理</a></p><p><a href="https://sophia0130.github.io/2018/05/04/%E7%BC%96%E8%AF%91%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8/" target="_blank" rel="noopener">编译器和解释器</a></p><p>CMake（一）~？</p><p><br></p><h2 id="剑指offer"><a href="#剑指offer" class="headerlink" title="剑指offer"></a>剑指offer</h2><p>剑指offer（一）~？持续更</p><p><br></p><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p><a href="https://sophia0130.github.io/2018/05/14/XML%E3%80%81YAML%E3%80%81JSON/" target="_blank" rel="noopener">序列化数据格式 ：xml、yaml、json</a></p><p><a href="https://sophia0130.github.io/2018/05/18/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E4%BA%91-%E7%89%B9%E5%88%AB%E7%AE%80%E9%99%8B%E7%9A%84%E8%AE%A4%E8%AF%86/" target="_blank" rel="noopener">虚拟机和云</a></p><p><a href="https://sophia0130.github.io/2018/05/04/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" target="_blank" rel="noopener">网络基础知识</a></p><p><br></p><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p><a href="https://sophia0130.github.io/2018/06/01/Git-%E5%AD%A6%E4%B9%A0/" target="_blank" rel="noopener">Git学习笔记</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;检索目录列表&lt;/p&gt;
+      &lt;p&gt;[置顶]检索目录列表&lt;/p&gt;
     
     </summary>
     
@@ -39,9 +90,9 @@
     <link href="http://yoursite.com/2018/10/25/%E7%BD%AE%E9%A1%B6-%E5%88%86%E4%BA%AB/"/>
     <id>http://yoursite.com/2018/10/25/置顶-分享/</id>
     <published>2018-10-25T01:14:56.000Z</published>
-    <updated>2018-10-25T05:26:31.286Z</updated>
+    <updated>2018-10-25T05:31:21.936Z</updated>
     
-    <content type="html"><![CDATA[<p>[置顶] 书单分享和大神的博客分享</p><a id="more"></a><p><br></p><h2 id="一、书单"><a href="#一、书单" class="headerlink" title="一、书单"></a>一、书单</h2><h3 id="数据结构与算法："><a href="#数据结构与算法：" class="headerlink" title="数据结构与算法："></a>数据结构与算法：</h3><ul><li>《数据结构与算法C语言版本》</li><li>《大话数据结构》</li></ul><p><br></p><h3 id="C-："><a href="#C-：" class="headerlink" title="C++："></a>C++：</h3><ul><li>《C++primer》</li><li>《effective C++》</li><li>《深度探索C++对象模型》</li></ul><p><br></p><h3 id="计算机："><a href="#计算机：" class="headerlink" title="计算机："></a>计算机：</h3><ul><li><p>《计算机程序的构造和解释（SICP）》</p></li><li><p>《程序员的自我修养——链接、装载与库》</p></li><li>《程序是怎样跑起来的》</li></ul><p><br></p><h2 id="二、大神-Blog"><a href="#二、大神-Blog" class="headerlink" title="二、大神 Blog"></a>二、大神 Blog</h2><p>邹欣：<a href="https://www.cnblogs.com/xinz/" target="_blank" rel="noopener">https://www.cnblogs.com/xinz/</a> （师兄推荐给我的，对于怎么做工程蛮有帮助的）</p><p>莫烦：<a href="https://morvanzhou.github.io/" target="_blank" rel="noopener">https://morvanzhou.github.io/</a> （深度学习实战使用各种框架的入门教程）</p><p>鸟哥：<a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php" target="_blank" rel="noopener">http://cn.linux.vbird.org/linux_basic/linux_basic.php</a> （为什么要叫这么个名字，Linux 学习）</p>]]></content>
+    <content type="html"><![CDATA[<p>[置顶] 书单分享和大神的博客分享</p><a id="more"></a><p><br></p><h2 id="一、书单"><a href="#一、书单" class="headerlink" title="一、书单"></a>一、书单</h2><h3 id="数据结构与算法："><a href="#数据结构与算法：" class="headerlink" title="数据结构与算法："></a>数据结构与算法：</h3><ul><li>《数据结构与算法C语言版本》</li><li>《大话数据结构》</li></ul><p><br></p><h3 id="C-："><a href="#C-：" class="headerlink" title="C++："></a>C++：</h3><ul><li>《C++primer》</li><li>《effective C++》</li><li>《深度探索C++对象模型》</li></ul><p><br></p><h3 id="计算机："><a href="#计算机：" class="headerlink" title="计算机："></a>计算机：</h3><ul><li><p>《计算机程序的构造和解释（SICP）》</p></li><li><p>《程序员的自我修养——链接、装载与库》</p></li><li>《程序是怎样跑起来的》</li></ul><p><br></p><h2 id="机器学习："><a href="#机器学习：" class="headerlink" title="机器学习："></a>机器学习：</h2><p>《机器学习》</p><p>《深度学习500问》GitHub 上：<a href="https://github.com/scutan90" target="_blank" rel="noopener">https://github.com/scutan90</a></p><p><br></p><h2 id="二、大神-Blog"><a href="#二、大神-Blog" class="headerlink" title="二、大神 Blog"></a>二、大神 Blog</h2><p>邹欣：<a href="https://www.cnblogs.com/xinz/" target="_blank" rel="noopener">https://www.cnblogs.com/xinz/</a> （师兄推荐给我的，对于怎么做工程蛮有帮助的）</p><p>莫烦：<a href="https://morvanzhou.github.io/" target="_blank" rel="noopener">https://morvanzhou.github.io/</a> （深度学习实战使用各种框架的入门教程）</p><p>鸟哥：<a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php" target="_blank" rel="noopener">http://cn.linux.vbird.org/linux_basic/linux_basic.php</a> （为什么要叫这么个名字，Linux 学习）</p>]]></content>
     
     <summary type="html">
     
@@ -290,9 +341,9 @@
     <link href="http://yoursite.com/2018/10/18/%E5%A4%84%E7%90%86%E5%99%A8/"/>
     <id>http://yoursite.com/2018/10/18/处理器/</id>
     <published>2018-10-18T01:34:38.000Z</published>
-    <updated>2018-10-24T01:36:03.487Z</updated>
+    <updated>2018-10-26T02:14:53.820Z</updated>
     
-    <content type="html"><![CDATA[<p>指令集和处理器架构：<a href="https://www.zhihu.com/question/23474438" target="_blank" rel="noopener">https://www.zhihu.com/question/23474438</a></p><p>（我的理解：处理器架构是指硬件设计，对应相应指令集，即二进制机器码，实现某种功能，两者是配套的）</p><a id="more"></a><p><br></p><h2 id="一、指令集"><a href="#一、指令集" class="headerlink" title="一、指令集"></a>一、指令集</h2><p>指令集，规定处理器相应操作，通过指令集去控制处理器实现相应功能，但处理器是一堆硬件电路，只能识别二进制数据，所以指令集是由一堆二进制数据组成</p><p>（我的理解： CPU 读入调用指令集的命令，通过指令集来实现具体的功能）</p><p><br></p><h2 id="二、处理器架构"><a href="#二、处理器架构" class="headerlink" title="二、处理器架构"></a>二、处理器架构</h2><p><strong>处理器架构是用硬件电路实现指令集所规定的操作运算，所以是指令集决定了处理器的架构</strong></p><p>四大CPU体系架构：前两个为主流</p><ul><li><strong>x86 ：Intel、AMD（复杂指令集）</strong></li><li><strong>ARM架构：ARM公司（精简指令集）</strong></li><li>PowerPC架构：IBM公司（精简指令集）</li><li>MIPS架构（精简指令集）</li></ul><p><br></p><p>Intel 处理器分类：<a href="https://www.zhihu.com/question/32669957" target="_blank" rel="noopener">https://www.zhihu.com/question/32669957</a></p><p><img src="https://pic3.zhimg.com/v2-73ba36e9a085e8f666d039a1a465e44a_r.jpg" alt="preview"></p><p><br></p><h2 id="三、汇编语言"><a href="#三、汇编语言" class="headerlink" title="三、汇编语言"></a>三、汇编语言</h2><p>汇编语言是为了方便人类操作指令集，所以汇编语言是和指令集配套</p><p>汇编语言通过汇编器转为二进制</p><p><br></p><h2 id="四、操作系统"><a href="#四、操作系统" class="headerlink" title="四、操作系统"></a>四、操作系统</h2><p>指令集是二进制，操作系统其实是应用程序，普通应用程序和操作系统都需要经过编译器，编译为二进</p><p>不同CPU对应的指令集不一样，对应的编译器也不一样，所以相同高级语言用不同编译器编译得到的二进制代码是不同的</p><p>windows 只能在x86架构的CPU上运行，因为Windows系统设计的时候是基于x86架构</p><p>Linux 可以运行在不同架构的CPU，因为Linux 的不同版本可以支持不同架构的指令集</p><p>（我的理解：编译器最后编译生成的二进制就是各条指令集）</p><p><br></p><h2 id="五、汇编器和编译器的区别"><a href="#五、汇编器和编译器的区别" class="headerlink" title="五、汇编器和编译器的区别"></a>五、汇编器和编译器的区别</h2><p>汇编器，用来编译汇编语言的</p><p>编译器的作用是，将源文件，这是已经是二进制代码了。，最后由连接器（Linker），将目标代码连接起来，这样就形成了可执行文件</p><h2 id="六、CPU性能指标"><a href="#六、CPU性能指标" class="headerlink" title="六、CPU性能指标"></a>六、CPU性能指标</h2><h3 id="1-字长"><a href="#1-字长" class="headerlink" title="1.字长"></a>1.字长</h3><p>单位时间内CPU能处理的二进制数据的位数，32位、64位</p><h3 id="2-主频"><a href="#2-主频" class="headerlink" title="2.主频"></a>2.主频</h3><p>CPU内的动作都是按<strong>时钟周期</strong>计算，一秒内有几个时钟周期，主频就是多少赫兹</p><h3 id="3-外频"><a href="#3-外频" class="headerlink" title="3.外频"></a>3.外频</h3><p>外频是由主板为CPU提供的基准时钟频率，就是主板规定CPU<strong>1秒内对外进行数据交换的次数</strong></p><h2 id="七、核心数、线程数"><a href="#七、核心数、线程数" class="headerlink" title="七、核心数、线程数"></a>七、核心数、线程数</h2><p>核心数：指硬件上存在着几个核心个数。比如，双核就是包括2个相对独立的CPU核心单元组，四核就包含4个相对独立的CPU核心单元组。</p><p>线程数：线程数概念仅仅只针对Intel的CPU才有用，因为它是通过Intel<strong>超线程</strong>技术来实现的，就是可以<strong>模拟出的CPU核心数</strong>，一个核心可以对应两个线程，即可以同时运行两个线程</p>]]></content>
+    <content type="html"><![CDATA[<p>指令集和处理器架构：<a href="https://www.zhihu.com/question/23474438" target="_blank" rel="noopener">https://www.zhihu.com/question/23474438</a></p><p>（我的理解：处理器架构是指硬件设计，对应相应指令集，即二进制机器码，实现某种功能，两者是配套的）</p><a id="more"></a><p><br></p><h2 id="一、指令集"><a href="#一、指令集" class="headerlink" title="一、指令集"></a>一、指令集</h2><p>指令集，规定处理器相应操作，通过指令集去控制处理器实现相应功能，但处理器是一堆硬件电路，只能识别二进制数据，所以指令集是由一堆二进制数据组成</p><p>（我的理解： CPU 读入调用指令集的命令，通过指令集来实现具体的功能）</p><p><br></p><h2 id="二、处理器架构"><a href="#二、处理器架构" class="headerlink" title="二、处理器架构"></a>二、处理器架构</h2><p><strong>处理器架构是用硬件电路实现指令集所规定的操作运算，所以是指令集决定了处理器的架构</strong></p><p>四大CPU体系架构：前两个为主流</p><ul><li><strong>x86 ：Intel、AMD（复杂指令集）</strong></li><li><strong>ARM架构：ARM公司（精简指令集）</strong></li><li>PowerPC架构：IBM公司（精简指令集）</li><li>MIPS架构（精简指令集）</li></ul><p><br></p><p>Intel 处理器分类：<a href="https://www.zhihu.com/question/32669957" target="_blank" rel="noopener">https://www.zhihu.com/question/32669957</a></p><p><img src="https://pic3.zhimg.com/v2-73ba36e9a085e8f666d039a1a465e44a_r.jpg" alt="preview"></p><p><br></p><h2 id="三、汇编语言"><a href="#三、汇编语言" class="headerlink" title="三、汇编语言"></a>三、汇编语言</h2><p>汇编语言是为了方便人类操作指令集，所以汇编语言是和指令集配套</p><p>汇编语言通过汇编器转为二进制</p><p><br></p><h2 id="四、操作系统"><a href="#四、操作系统" class="headerlink" title="四、操作系统"></a>四、操作系统</h2><p>四、操作系统</p><p>指令集是二进制，操作系统其实是应用程序，普通应用程序和操作系统都需要经过编译器，编译为二进</p><p>不同CPU对应的指令集不一样，对应的编译器也不一样，所以相同高级语言用不同编译器编译得到的二进制代码是不同的</p><p>windows 只能在x86架构的CPU上运行，因为Windows系统设计的时候是基于x86架构</p><p>Linux 可以运行在不同架构的CPU，因为Linux 的不同版本可以支持不同架构的指令集</p><p>（我的理解：编译器最后编译生成的二进制就是各条指令集）</p><p><br></p><h2 id="五、汇编器和编译器的区别"><a href="#五、汇编器和编译器的区别" class="headerlink" title="五、汇编器和编译器的区别"></a>五、汇编器和编译器的区别</h2><p>汇编器，用来编译汇编语言的</p><p>编译器的作用是，将源文件，这是已经是二进制代码了。，最后由连接器（Linker），将目标代码连接起来，这样就形成了可执行文件</p><p><br></p><h2 id="六、CPU性能指标"><a href="#六、CPU性能指标" class="headerlink" title="六、CPU性能指标"></a>六、CPU性能指标</h2><h3 id="1-字长"><a href="#1-字长" class="headerlink" title="1.字长"></a>1.字长</h3><p>单位时间内CPU能处理的二进制数据的位数，32位、64位</p><h3 id="2-主频"><a href="#2-主频" class="headerlink" title="2.主频"></a>2.主频</h3><p>CPU内的动作都是按<strong>时钟周期</strong>计算，一秒内有几个时钟周期，主频就是多少赫兹</p><h3 id="3-外频"><a href="#3-外频" class="headerlink" title="3.外频"></a>3.外频</h3><p>外频是由主板为CPU提供的基准时钟频率，就是主板规定CPU<strong>1秒内对外进行数据交换的次数</strong></p><p>PS：关于处理器性能好坏，我之前的理解就是 i7 总比 i5 要好吧，后来发现并不是如此，功耗不同用于平台不同，还是要看天梯图</p><p><br></p><h2 id="七、核心数、线程数"><a href="#七、核心数、线程数" class="headerlink" title="七、核心数、线程数"></a>七、核心数、线程数</h2><p>核心数：指硬件上存在着几个核心个数。比如，双核就是包括2个相对独立的CPU核心单元组，四核就包含4个相对独立的CPU核心单元组。</p><p>线程数：线程数概念仅仅只针对Intel的CPU才有用，因为它是通过Intel<strong>超线程</strong>技术来实现的，就是可以<strong>模拟出的CPU核心数</strong>，一个核心可以对应两个线程，即可以同时运行两个线程</p>]]></content>
     
     <summary type="html">
     
@@ -404,53 +455,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Linux（五）—— .o、.a、.so</title>
-    <link href="http://yoursite.com/2018/09/13/Linux%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94-o%E3%80%81-a%E3%80%81-so/"/>
-    <id>http://yoursite.com/2018/09/13/Linux（五）——-o、-a、-so/</id>
-    <published>2018-09-13T12:58:35.000Z</published>
-    <updated>2018-09-13T13:00:27.412Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：Linux与windows的对应起来看</p><p><a href="https://blog.csdn.net/chlele0105/article/details/23691147" target="_blank" rel="noopener">https://blog.csdn.net/chlele0105/article/details/23691147</a></p><a id="more"></a><h2 id="windows下obj、lib、dll"><a href="#windows下obj、lib、dll" class="headerlink" title="windows下obj、lib、dll"></a>windows下obj、lib、dll</h2><ol><li><p>lib  是静态链接库的库文件</p></li><li><p>dll  是动态链接库的库文件</p></li><li><p>obj 是中间代码</p><p>因为不可能一次得到目标文件，一个exe需要很多的cpp文件生成，而编译器一次只能编译一个cpp文件，这样编译器编译好一个cpp以后会将其编译成obj，当所有必须要的cpp都编译成obj以后，再统一link成所需要的exe</p></li></ol><p><br></p><h2 id="linux下-o、-a、-so"><a href="#linux下-o、-a、-so" class="headerlink" title="linux下 .o、.a、.so"></a>linux下 .o、.a、.so</h2><ul><li><p>.o      是目标文件，相当于windows中的.obj文件 </p></li><li><p>.a      是静态库，是好多个.o合在一起，用于静态连接 ，相当于windows下的lib</p></li><li><p>.so    是共享库（shared object）用于动态链接，相当于windows下的dll </p><p>相对于静态函数库，共享函数库在编译的时候，并没有被编译进目标代码中</p><p>当程序执行到相关函数时才调用共享函数库里相应的函数</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：Linux与windows的对应起来看&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/chlele0105/article/details/23691147&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/chlele0105/article/details/23691147&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CMake（三）—— Linux下使用CMake</title>
-    <link href="http://yoursite.com/2018/09/13/CMake%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94-Linux%E4%B8%8B%E4%BD%BF%E7%94%A8CMake/"/>
-    <id>http://yoursite.com/2018/09/13/CMake（三）——-Linux下使用CMake/</id>
-    <published>2018-09-13T09:16:21.000Z</published>
-    <updated>2018-10-25T01:48:36.182Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="CMake在Linux下的使用"><a href="#CMake在Linux下的使用" class="headerlink" title="CMake在Linux下的使用"></a>CMake在Linux下的使用</h2><ol><li>工程文件下包含你需要的cpp和CMakeLists.txt</li><li>在工程目录下打开终端</li></ol><ul><li><code>mkdir build</code>        新建一个文件夹放编译的文件（和cpp、CMakeLists.txt分开放）</li><li><code>cd ./build</code>          进入该文件目录</li><li><code>cmake ../</code>            build目录下生成一系列文件</li><li><code>make</code>                     在build目录下生成可执行文件</li><li><code>./可执行文件</code>        执行可执行文件</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;CMake在Linux下的使用&quot;&gt;&lt;a href=&quot;#CMake在Linux下的使用&quot; class=&quot;headerlink&quot; title=&quot;CMake在Linux下的使用&quot;&gt;&lt;/a&gt;CMake在Linux下的使用&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;工程文件下包含你需要的c
-      
-    
-    </summary>
-    
-    
-      <category term="cmake" scheme="http://yoursite.com/tags/cmake/"/>
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
