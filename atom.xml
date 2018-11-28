@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-28T09:37:24.692Z</updated>
+  <updated>2018-11-28T13:22:48.107Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/11/28/Debug%E3%80%81Release%E7%89%88%E6%9C%AC%E4%B8%8B-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2018/11/28/Debug、Release版本下-多线程问题/</id>
     <published>2018-11-28T09:16:44.000Z</published>
-    <updated>2018-11-28T09:37:24.692Z</updated>
+    <updated>2018-11-28T13:22:48.107Z</updated>
     
-    <content type="html"><![CDATA[<p>PS：今天做项目的时候，开多线程测试，遇到了一个奇怪的问题，到现在都没有办法解释～<br><a id="more"></a></p><p>多线程在Debug版本下的cout部分会正常输出   </p><p>多线程在Release版本下的cout部分似乎受到了阻塞</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//开了四个线程</span><br><span class="line">while(times&lt;4) &#123;&#125;;  //保证4个线程运行完进行cout</span><br><span class="line">//其它代码</span><br><span class="line">//cout部分</span><br></pre></td></tr></table></figure><p>Release版本的代码改为以下形式，while里加cout，所有cout部分就都能正常输出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//开了四个线程</span><br><span class="line">while(tims&lt;4) &#123;cout&lt;&lt;&quot;&quot;;&#125;       //保证4个线程运行完进行cout</span><br><span class="line">//其它代码</span><br><span class="line">//cout部分</span><br></pre></td></tr></table></figure><p><br><br>很服气，到底cout、while、Release是什么关系</p>]]></content>
+    <content type="html"><![CDATA[<p>PS：今天做项目的时候，开多线程测试，遇到了一个奇怪的问题，到现在都没有办法解释～<br><a id="more"></a>      </p><p>多线程在Debug版本下的cout部分会正常输出   </p><p>多线程在Release版本下的cout部分似乎受到了阻塞</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//开了四个线程</span><br><span class="line">while(times&lt;4) &#123;&#125;;  //保证4个线程运行完进行cout</span><br><span class="line">//其它代码</span><br><span class="line">//cout部分</span><br></pre></td></tr></table></figure><p>Release版本的代码改为以下形式，while里加cout，所有cout部分就都能正常输出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//开了四个线程</span><br><span class="line">while(tims&lt;4) &#123;cout&lt;&lt;&quot;&quot;;&#125;       //保证4个线程运行完进行cout</span><br><span class="line">//其它代码</span><br><span class="line">//cout部分</span><br></pre></td></tr></table></figure><p><br><br>很服气，到底cout、while、Release是什么关系</p><hr><p>更新问题：</p><p>哇，真的超级崇拜我家Uncle D，晚上他试了几次，就找到问题所在，其实是Release优化库的问题 </p><p>（1）首先，这个和cout无关，之前觉得是cout多线程缓存区刷新的问题，后来发现不论将后面的代码改为printf还是文件输出都没有反应</p><p>（2）其次，这个问题和Release优化相关，将VS项目属性里C/C++下的优化改为禁用，while后面部分就能正常执行</p><p>（3）接着，解释为什么while后面的代码不执行，因为编译器觉得当前线程中times只加1次，所以times不能加到4，while是个死循环，所以while后的代码不执行</p><p>（4）最后，解释为什么在while的循环体内使用cin、cout、printf这些输入输出流，就能跨过while，因为编译器没有那么智能，编译器会觉得输入输出流会对times产生影响，所以编译器并不认为hile是个死循环        </p><p>最后的最后，他说是我程序写的有问题，因为我将times定义为全局，在每个线程结束处进行times++，编译器会觉得times加不到4，如果将times++放到主函数中等到线程退出才执行，就不会出现这个问题了         </p><p>怎么办，现在越来越崇拜Uncle D了，无法自拔的痴迷~</p>]]></content>
     
     <summary type="html">
     
