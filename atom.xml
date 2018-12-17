@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-03T08:40:07.893Z</updated>
+  <updated>2018-12-17T08:44:52.829Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux（六）——进程调度</title>
+    <link href="http://yoursite.com/2018/12/17/Linux%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6/"/>
+    <id>http://yoursite.com/2018/12/17/Linux（六）——进程调度/</id>
+    <published>2018-12-17T08:34:34.000Z</published>
+    <updated>2018-12-17T08:44:52.829Z</updated>
+    
+    <content type="html"><![CDATA[<p>转载自：</p><p><a href="https://blog.csdn.net/qq_32811489/article/details/70768264" target="_blank" rel="noopener">https://blog.csdn.net/qq_32811489/article/details/70768264</a></p><a id="more"></a><h2 id="linux内核的三种调度方法"><a href="#linux内核的三种调度方法" class="headerlink" title="linux内核的三种调度方法"></a>linux内核的三种调度方法</h2><p>1.SCHED_OTHER<br>分时调度策略</p><p>2.SCHED_FIFO 实时调度策略，先到先服务，一旦占用cpu则一直运行，直到有更高优先级任务到达或自己放弃 </p><p>3.SCHED_RR<br>实时调度策略，时间片轮转，当进程的时间片用完，系统将重新分配时间片，并置于就绪队列尾，保证了所有具有相同优先级的RR任务的 <strong>调度公平</strong></p><p>实时进程：得到优先调用，实时进程根据 <strong>实时优先级</strong>决定调度权值<br>分时进程：曾经使用cpu最少的进程将会得到优先调度</p><p><br></p><h2 id="既有分时调度，又有时间片轮转调度和先进先出调度"><a href="#既有分时调度，又有时间片轮转调度和先进先出调度" class="headerlink" title="既有分时调度，又有时间片轮转调度和先进先出调度"></a>既有分时调度，又有时间片轮转调度和先进先出调度</h2><p>1.当实时进程准备就绪，如果当前cpu正运行非实时进程，则 <strong>实时进程立即抢占非实时进程</strong></p><p>2.RR进程和FIFO进程都采用实时优先级做为调度的权值</p><p>3.对于FIFO，如果两个进程的优先级一样，则这两个优级一样的进程具体执行哪一个是由其在队列中的位置决定的，这样导致一些不公正性</p><p>4.对于RR，两个优先级一样的任务可以循环执行，保证了公平</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转载自：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_32811489/article/details/70768264&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_32811489/article/details/70768264&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dlib 目标检测源码解析</title>
+    <link href="http://yoursite.com/2018/12/12/Dlib-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
+    <id>http://yoursite.com/2018/12/12/Dlib-目标检测源码解析/</id>
+    <published>2018-12-12T13:39:46.000Z</published>
+    <updated>2018-12-12T13:39:46.300Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>头文件与库</title>
+    <link href="http://yoursite.com/2018/12/03/%E5%A4%B4%E6%96%87%E4%BB%B6%E4%B8%8E%E5%BA%93/"/>
+    <id>http://yoursite.com/2018/12/03/头文件与库/</id>
+    <published>2018-12-03T11:22:42.000Z</published>
+    <updated>2018-12-03T11:50:02.557Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：之前觉得链接库之后一定要有头文件，是因为这个头文件提供了一个函数的入口地址，现在发现，完全理解错了</p><a id="more"></a><p>头文件和库没有什么关系<br>头文件包含在源文件中，是为了在编译时说明源文件中调用的函数存在，而真正链接时，源文件编译生成的目标文件.o与库文件链接，这才实现源文件调用库中的函数</p><p><br></p><h2 id="一、源文件调用源文件下的函数"><a href="#一、源文件调用源文件下的函数" class="headerlink" title="一、源文件调用源文件下的函数"></a>一、源文件调用源文件下的函数</h2><p>先不讨论库，先看一个c文件调用另一个c文件下定义的函数<br>main() 函数调用了 func() 函数，由于 main.c 文件中并没有定义该函数，所以需要有该函数的声明，表明存在该函数，不然编译的时候会报错，下面有两种方式声明该函数</p><h3 id="1-在头文件中声明该函数，源文件包含该头文件"><a href="#1-在头文件中声明该函数，源文件包含该头文件" class="headerlink" title="1.在头文件中声明该函数，源文件包含该头文件"></a>1.在头文件中声明该函数，源文件包含该头文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">===============c文件===============</span><br><span class="line">//main.c</span><br><span class="line">#include &quot;func.h&quot;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    func();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//func.c</span><br><span class="line"></span><br><span class="line">void func()</span><br><span class="line">&#123;</span><br><span class="line">    int a=1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">===============头文件===============</span><br><span class="line">//func.h</span><br><span class="line">void func();</span><br></pre></td></tr></table></figure><p><br></p><h3 id="2-在调用该函数的源文件声明该函数"><a href="#2-在调用该函数的源文件声明该函数" class="headerlink" title="2.在调用该函数的源文件声明该函数"></a>2.在调用该函数的源文件声明该函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">===============c文件===============</span><br><span class="line">//main.c</span><br><span class="line">void func();</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    func();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//func.c</span><br><span class="line"></span><br><span class="line">void func()</span><br><span class="line">&#123;</span><br><span class="line">    int a=1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><br></p><h2 id="二、源文件调用库里的函数"><a href="#二、源文件调用库里的函数" class="headerlink" title="二、源文件调用库里的函数"></a>二、源文件调用库里的函数</h2><p>库函数可以理解为多个源文件编译后生成的目标文件的集合，其实和第一种情况一样<br>源文件包含库的头文件，相当于函数声明，即编译源文件时，表明该库函数存在，不会把报错<br>但链接的时候，还是编译后的源文件与库函数链接，实现函数的调用</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：之前觉得链接库之后一定要有头文件，是因为这个头文件提供了一个函数的入口地址，现在发现，完全理解错了&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="编译" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>头文件与重定义</title>
@@ -146,9 +201,9 @@
     <link href="http://yoursite.com/2018/10/25/%E7%BD%AE%E9%A1%B6-%E5%88%86%E4%BA%AB/"/>
     <id>http://yoursite.com/2018/10/25/置顶-分享/</id>
     <published>2018-10-25T01:14:56.000Z</published>
-    <updated>2018-10-25T05:31:21.936Z</updated>
+    <updated>2018-12-08T09:15:21.788Z</updated>
     
-    <content type="html"><![CDATA[<p>[置顶] 书单分享和大神的博客分享</p><a id="more"></a><p><br></p><h2 id="一、书单"><a href="#一、书单" class="headerlink" title="一、书单"></a>一、书单</h2><h3 id="数据结构与算法："><a href="#数据结构与算法：" class="headerlink" title="数据结构与算法："></a>数据结构与算法：</h3><ul><li>《数据结构与算法C语言版本》</li><li>《大话数据结构》</li></ul><p><br></p><h3 id="C-："><a href="#C-：" class="headerlink" title="C++："></a>C++：</h3><ul><li>《C++primer》</li><li>《effective C++》</li><li>《深度探索C++对象模型》</li></ul><p><br></p><h3 id="计算机："><a href="#计算机：" class="headerlink" title="计算机："></a>计算机：</h3><ul><li><p>《计算机程序的构造和解释（SICP）》</p></li><li><p>《程序员的自我修养——链接、装载与库》</p></li><li>《程序是怎样跑起来的》</li></ul><p><br></p><h2 id="机器学习："><a href="#机器学习：" class="headerlink" title="机器学习："></a>机器学习：</h2><p>《机器学习》</p><p>《深度学习500问》GitHub 上：<a href="https://github.com/scutan90" target="_blank" rel="noopener">https://github.com/scutan90</a></p><p><br></p><h2 id="二、大神-Blog"><a href="#二、大神-Blog" class="headerlink" title="二、大神 Blog"></a>二、大神 Blog</h2><p>邹欣：<a href="https://www.cnblogs.com/xinz/" target="_blank" rel="noopener">https://www.cnblogs.com/xinz/</a> （师兄推荐给我的，对于怎么做工程蛮有帮助的）</p><p>莫烦：<a href="https://morvanzhou.github.io/" target="_blank" rel="noopener">https://morvanzhou.github.io/</a> （深度学习实战使用各种框架的入门教程）</p><p>鸟哥：<a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php" target="_blank" rel="noopener">http://cn.linux.vbird.org/linux_basic/linux_basic.php</a> （为什么要叫这么个名字，Linux 学习）</p>]]></content>
+    <content type="html"><![CDATA[<p>[置顶] 书单分享和大神的博客分享</p><a id="more"></a><p><br></p><h2 id="一、书单"><a href="#一、书单" class="headerlink" title="一、书单"></a>一、书单</h2><h3 id="数据结构与算法："><a href="#数据结构与算法：" class="headerlink" title="数据结构与算法："></a>数据结构与算法：</h3><ul><li><p>《数据结构与算法C语言版本》</p></li><li><p>《大话数据结构》</p></li></ul><p><br></p><h3 id="C-："><a href="#C-：" class="headerlink" title="C++："></a>C++：</h3><ul><li><p>《C++primer》</p></li><li><p>《effective C++》</p></li><li><p>《深度探索C++对象模型》</p></li></ul><p><br></p><h3 id="计算机："><a href="#计算机：" class="headerlink" title="计算机："></a>计算机：</h3><ul><li><p>《计算机程序的构造和解释（SICP）》</p></li><li><p>《程序员的自我修养——链接、装载与库》</p></li><li><p>《程序是怎样跑起来的》</p></li><li><p>《黑客与画家》</p></li></ul><p><br></p><h2 id="机器学习："><a href="#机器学习：" class="headerlink" title="机器学习："></a>机器学习：</h2><p>《机器学习》</p><p><br></p><h2 id="深度学习："><a href="#深度学习：" class="headerlink" title="深度学习："></a>深度学习：</h2><p>《深度学习500问》GitHub 上：<a href="https://github.com/scutan90" target="_blank" rel="noopener">https://github.com/scutan90</a></p><p><br></p><h2 id="通信网络"><a href="#通信网络" class="headerlink" title="通信网络"></a>通信网络</h2><p>《网络是怎样连接的》</p><p><br></p><h2 id="二、大神-Blog"><a href="#二、大神-Blog" class="headerlink" title="二、大神 Blog"></a>二、大神 Blog</h2><p>邹欣：<a href="https://www.cnblogs.com/xinz/" target="_blank" rel="noopener">https://www.cnblogs.com/xinz/</a> （师兄推荐给我的，对于怎么做工程蛮有帮助的）</p><p>莫烦：<a href="https://morvanzhou.github.io/" target="_blank" rel="noopener">https://morvanzhou.github.io/</a> （深度学习实战使用各种框架的入门教程）</p><p>鸟哥：<a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php" target="_blank" rel="noopener">http://cn.linux.vbird.org/linux_basic/linux_basic.php</a> （为什么要叫这么个名字，Linux 学习）</p><p><br></p><h2 id="三、学习笔记"><a href="#三、学习笔记" class="headerlink" title="三、学习笔记"></a>三、学习笔记</h2><p>吴恩达机器学习课程笔记：</p><p><a href="https://www.cnblogs.com/llhthinker/tag/Machine%20Learning/" target="_blank" rel="noopener">https://www.cnblogs.com/llhthinker/tag/Machine%20Learning/</a></p><p><a href="https://github.com/fengdu78/Coursera-ML-AndrewNg-Notes" target="_blank" rel="noopener">https://github.com/fengdu78/Coursera-ML-AndrewNg-Notes</a></p><p>吴恩达深度学习课程笔记：</p><p><a href="https://blog.csdn.net/koala_tree/article/details/79913655" target="_blank" rel="noopener">https://blog.csdn.net/koala_tree/article/details/79913655</a></p><p><a href="http://kyonhuang.top/Andrew-Ng-Deep-Learning-notes/#/Convolutional_Neural_Networks/%E6%B7%B1%E5%BA%A6%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%AE%9E%E4%BE%8B%E6%8E%A2%E7%A9%B6" target="_blank" rel="noopener">http://kyonhuang.top/Andrew-Ng-Deep-Learning-notes/#/Convolutional_Neural_Networks/%E6%B7%B1%E5%BA%A6%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%AE%9E%E4%BE%8B%E6%8E%A2%E7%A9%B6</a></p><p>cs231n课程笔记：</p><p><a href="https://zhuanlan.zhihu.com/p/21930884" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/21930884</a></p><p>作业 <a href="https://github.com/Halfish/cs231n" target="_blank" rel="noopener">https://github.com/Halfish/cs231n</a></p><p>机器学习：</p><p><a href="https://feisky.xyz/machine-learning/" target="_blank" rel="noopener">https://feisky.xyz/machine-learning/</a></p>]]></content>
     
     <summary type="html">
     
@@ -164,19 +219,18 @@
     <link href="http://yoursite.com/2018/10/22/win10-VS2013-Dlib-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2018/10/22/win10-VS2013-Dlib-安装配置/</id>
     <published>2018-10-22T13:55:40.000Z</published>
-    <updated>2018-10-25T03:53:50.235Z</updated>
+    <updated>2018-12-04T01:43:08.534Z</updated>
     
-    <content type="html"><![CDATA[<p>PS：我下载的是19.0版本（19.2及以上版本需用vs2015或更高版本）</p><p>这是之前的Dlib版本：<a href="http://dlib.net/files/" target="_blank" rel="noopener">http://dlib.net/files/</a></p><a id="more"></a><p><br></p><h1 id="一、Cmake-生成-dlib-lib文件"><a href="#一、Cmake-生成-dlib-lib文件" class="headerlink" title="一、Cmake 生成 dlib.lib文件"></a>一、Cmake 生成 dlib.lib文件</h1><h3 id="1-cmake-转-VS-工程"><a href="#1-cmake-转-VS-工程" class="headerlink" title="1. cmake 转 VS 工程"></a>1. cmake 转 VS 工程</h3><p>（1）点击configure，选择 Visual Studio 12 2013 Win64、Visual Studio 12 2013 </p><p><strong>注意：这里的平台和以后用的平台要一致</strong></p><p>PS：之前用的是 Visual Studio 12 2013 Win64  后编译生成 dlib.lib 添加到 Win32 平台就一直报错</p><p>（2）选择Genarate</p><p><br></p><h3 id="2-VS2013编译生成-dlib-lib"><a href="#2-VS2013编译生成-dlib-lib" class="headerlink" title="2. VS2013编译生成 dlib.lib"></a>2. VS2013编译生成 dlib.lib</h3><p>（1）build 文件夹下生成 .sln 解决方案，打开解决方案</p><p>（2）切换 vs2013 的平台至 debug 或 release模式</p><p>（3）找到AllBuild工程右击生成，Debug 文件下会生成dlib.lib</p><p>注意：生成之前，检查dlib项目中的属性配置，参考这篇博文：</p><p><a href="https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1" target="_blank" rel="noopener">https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1</a></p><p><strong>注意：这里有一个坑，到后面才发现，自己建工程，添加lib后，一直报“Runtime Library”的不匹配项，就是因为，生成dlib.lib时候，dlib 项目中的属性配置中的代码生成运行库需要改，我改成了MTd</strong></p><p>大型项目中必须要求所有组件和第三方库的运行时库是统一的，否则将会出现LNK2005井喷</p><p><br></p><p>注意点：（！！真的要注意，很重要！！）</p><ul><li><strong>cmake 的平台 x64 还是 win32</strong></li><li><strong>编译时的模式 Debug 还是 Release</strong></li><li><strong>链接的 Runtime Library</strong> </li></ul><p>我今天突然对上面有了不一样的领悟</p><p><br></p><h2 id="二、属性配置"><a href="#二、属性配置" class="headerlink" title="二、属性配置"></a>二、属性配置</h2><p>属性配置，验证dlib.lib可用性，完全按照下面这篇博文：</p><p><a href="https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1" target="_blank" rel="noopener">https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1</a></p><p><br></p><h2 id="三、使用dlib的imglab工具标注数据集"><a href="#三、使用dlib的imglab工具标注数据集" class="headerlink" title="三、使用dlib的imglab工具标注数据集"></a>三、使用dlib的imglab工具标注数据集</h2><p>不知道为什么win10下这个工具编译不成功，只好到虚拟机ubuntu上编译</p><p><a href="https://blog.csdn.net/qq_15715657/article/details/81504253" target="_blank" rel="noopener">https://blog.csdn.net/qq_15715657/article/details/81504253</a></p>]]></content>
+    <content type="html"><![CDATA[<p>PS：我下载的是19.0版本（19.2及以上版本需用vs2015或更高版本）</p><p>（这是之前的Dlib版本：<a href="http://dlib.net/files/" target="_blank" rel="noopener">http://dlib.net/files/</a> ）</p><p>PS：最近移一直被一个问题困惑，Dlib是不依赖于其他库（自带图像编解码库源码），所以直接包含头文件即可，为什么要编译Dlib库，这个Dlib.lib到底有什么用？</p><a id="more"></a><p><br></p><h1 id="一、Cmake-生成-dlib-lib文件"><a href="#一、Cmake-生成-dlib-lib文件" class="headerlink" title="一、Cmake 生成 dlib.lib文件"></a>一、Cmake 生成 dlib.lib文件</h1><h3 id="1-cmake-转-VS-工程"><a href="#1-cmake-转-VS-工程" class="headerlink" title="1. cmake 转 VS 工程"></a>1. cmake 转 VS 工程</h3><p>（1）点击configure，选择 Visual Studio 12 2013 Win64、Visual Studio 12 2013 </p><p><strong>注意：这里的平台和以后用的平台要一致</strong></p><p>PS：之前用的是 Visual Studio 12 2013 Win64  后编译生成 dlib.lib 添加到 Win32 平台就一直报错</p><p>（2）选择Genarate</p><p><br></p><h3 id="2-VS2013编译生成-dlib-lib"><a href="#2-VS2013编译生成-dlib-lib" class="headerlink" title="2. VS2013编译生成 dlib.lib"></a>2. VS2013编译生成 dlib.lib</h3><p>（1）build 文件夹下生成 .sln 解决方案，打开解决方案</p><p>（2）切换 vs2013 的平台至 debug 或 release模式</p><p>（3）找到AllBuild工程右击生成，Debug 文件下会生成dlib.lib</p><p>注意：生成之前，检查dlib项目中的属性配置，参考这篇博文：</p><p><a href="https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1" target="_blank" rel="noopener">https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1</a></p><p><strong>注意：这里有一个坑，到后面才发现，自己建工程，添加lib后，一直报“Runtime Library”的不匹配项，就是因为，生成dlib.lib时候，dlib 项目中的属性配置中的代码生成运行库需要改，我改成了MTd</strong></p><p>大型项目中必须要求所有组件和第三方库的运行时库是统一的，否则将会出现LNK2005井喷</p><p><br></p><p>注意点：（！！真的要注意，很重要！！）</p><ul><li><strong>cmake 的平台 x64 还是 win32</strong></li><li><strong>编译时的模式 Debug 还是 Release</strong></li><li><strong>链接的 Runtime Library</strong> </li></ul><p>我今天突然对上面有了不一样的领悟</p><p><br></p><h2 id="二、属性配置"><a href="#二、属性配置" class="headerlink" title="二、属性配置"></a>二、属性配置</h2><p>属性配置，验证dlib.lib可用性，完全按照下面这篇博文：</p><p><a href="https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1" target="_blank" rel="noopener">https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1</a></p><p><br></p><h2 id="三、使用dlib的imglab工具标注数据集"><a href="#三、使用dlib的imglab工具标注数据集" class="headerlink" title="三、使用dlib的imglab工具标注数据集"></a>三、使用dlib的imglab工具标注数据集</h2><p>不知道为什么win10下这个工具编译不成功，只好到虚拟机ubuntu上编译</p><p><a href="https://blog.csdn.net/qq_15715657/article/details/81504253" target="_blank" rel="noopener">https://blog.csdn.net/qq_15715657/article/details/81504253</a></p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;PS：我下载的是19.0版本（19.2及以上版本需用vs2015或更高版本）&lt;/p&gt;
-&lt;p&gt;这是之前的Dlib版本：&lt;a href=&quot;http://dlib.net/files/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://dlib.net/files/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（这是之前的Dlib版本：&lt;a href=&quot;http://dlib.net/files/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://dlib.net/files/&lt;/a&gt; ）&lt;/p&gt;
+&lt;p&gt;PS：最近移一直被一个问题困惑，Dlib是不依赖于其他库（自带图像编解码库源码），所以直接包含头文件即可，为什么要编译Dlib库，这个Dlib.lib到底有什么用？&lt;/p&gt;
     
     </summary>
     
-    
-      <category term="安装" scheme="http://yoursite.com/tags/%E5%AE%89%E8%A3%85/"/>
     
       <category term="配置" scheme="http://yoursite.com/tags/%E9%85%8D%E7%BD%AE/"/>
     
@@ -389,70 +443,6 @@
     
     
       <category term="操作系统" scheme="http://yoursite.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>处理器</title>
-    <link href="http://yoursite.com/2018/10/18/%E5%A4%84%E7%90%86%E5%99%A8/"/>
-    <id>http://yoursite.com/2018/10/18/处理器/</id>
-    <published>2018-10-18T01:34:38.000Z</published>
-    <updated>2018-10-26T02:14:53.820Z</updated>
-    
-    <content type="html"><![CDATA[<p>指令集和处理器架构：<a href="https://www.zhihu.com/question/23474438" target="_blank" rel="noopener">https://www.zhihu.com/question/23474438</a></p><p>（我的理解：处理器架构是指硬件设计，对应相应指令集，即二进制机器码，实现某种功能，两者是配套的）</p><a id="more"></a><p><br></p><h2 id="一、指令集"><a href="#一、指令集" class="headerlink" title="一、指令集"></a>一、指令集</h2><p>指令集，规定处理器相应操作，通过指令集去控制处理器实现相应功能，但处理器是一堆硬件电路，只能识别二进制数据，所以指令集是由一堆二进制数据组成</p><p>（我的理解： CPU 读入调用指令集的命令，通过指令集来实现具体的功能）</p><p><br></p><h2 id="二、处理器架构"><a href="#二、处理器架构" class="headerlink" title="二、处理器架构"></a>二、处理器架构</h2><p><strong>处理器架构是用硬件电路实现指令集所规定的操作运算，所以是指令集决定了处理器的架构</strong></p><p>四大CPU体系架构：前两个为主流</p><ul><li><strong>x86 ：Intel、AMD（复杂指令集）</strong></li><li><strong>ARM架构：ARM公司（精简指令集）</strong></li><li>PowerPC架构：IBM公司（精简指令集）</li><li>MIPS架构（精简指令集）</li></ul><p><br></p><p>Intel 处理器分类：<a href="https://www.zhihu.com/question/32669957" target="_blank" rel="noopener">https://www.zhihu.com/question/32669957</a></p><p><img src="https://pic3.zhimg.com/v2-73ba36e9a085e8f666d039a1a465e44a_r.jpg" alt="preview"></p><p><br></p><h2 id="三、汇编语言"><a href="#三、汇编语言" class="headerlink" title="三、汇编语言"></a>三、汇编语言</h2><p>汇编语言是为了方便人类操作指令集，所以汇编语言是和指令集配套</p><p>汇编语言通过汇编器转为二进制</p><p><br></p><h2 id="四、操作系统"><a href="#四、操作系统" class="headerlink" title="四、操作系统"></a>四、操作系统</h2><p>四、操作系统</p><p>指令集是二进制，操作系统其实是应用程序，普通应用程序和操作系统都需要经过编译器，编译为二进</p><p>不同CPU对应的指令集不一样，对应的编译器也不一样，所以相同高级语言用不同编译器编译得到的二进制代码是不同的</p><p>windows 只能在x86架构的CPU上运行，因为Windows系统设计的时候是基于x86架构</p><p>Linux 可以运行在不同架构的CPU，因为Linux 的不同版本可以支持不同架构的指令集</p><p>（我的理解：编译器最后编译生成的二进制就是各条指令集）</p><p><br></p><h2 id="五、汇编器和编译器的区别"><a href="#五、汇编器和编译器的区别" class="headerlink" title="五、汇编器和编译器的区别"></a>五、汇编器和编译器的区别</h2><p>汇编器，用来编译汇编语言的</p><p>编译器的作用是，将源文件，这是已经是二进制代码了。，最后由连接器（Linker），将目标代码连接起来，这样就形成了可执行文件</p><p><br></p><h2 id="六、CPU性能指标"><a href="#六、CPU性能指标" class="headerlink" title="六、CPU性能指标"></a>六、CPU性能指标</h2><h3 id="1-字长"><a href="#1-字长" class="headerlink" title="1.字长"></a>1.字长</h3><p>单位时间内CPU能处理的二进制数据的位数，32位、64位</p><h3 id="2-主频"><a href="#2-主频" class="headerlink" title="2.主频"></a>2.主频</h3><p>CPU内的动作都是按<strong>时钟周期</strong>计算，一秒内有几个时钟周期，主频就是多少赫兹</p><h3 id="3-外频"><a href="#3-外频" class="headerlink" title="3.外频"></a>3.外频</h3><p>外频是由主板为CPU提供的基准时钟频率，就是主板规定CPU<strong>1秒内对外进行数据交换的次数</strong></p><p>PS：关于处理器性能好坏，我之前的理解就是 i7 总比 i5 要好吧，后来发现并不是如此，功耗不同用于平台不同，还是要看天梯图</p><p><br></p><h2 id="七、核心数、线程数"><a href="#七、核心数、线程数" class="headerlink" title="七、核心数、线程数"></a>七、核心数、线程数</h2><p>核心数：指硬件上存在着几个核心个数。比如，双核就是包括2个相对独立的CPU核心单元组，四核就包含4个相对独立的CPU核心单元组。</p><p>线程数：线程数概念仅仅只针对Intel的CPU才有用，因为它是通过Intel<strong>超线程</strong>技术来实现的，就是可以<strong>模拟出的CPU核心数</strong>，一个核心可以对应两个线程，即可以同时运行两个线程</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;指令集和处理器架构：&lt;a href=&quot;https://www.zhihu.com/question/23474438&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.zhihu.com/question/23474438&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;（我的理解：处理器架构是指硬件设计，对应相应指令集，即二进制机器码，实现某种功能，两者是配套的）&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="硬件" scheme="http://yoursite.com/tags/%E7%A1%AC%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>远程登陆</title>
-    <link href="http://yoursite.com/2018/10/17/%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86/"/>
-    <id>http://yoursite.com/2018/10/17/远程登陆/</id>
-    <published>2018-10-17T12:57:24.000Z</published>
-    <updated>2018-10-17T13:00:11.323Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>局域网远程控制：<a href="https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html</a></li></ul><ul><li>SSH 远程登陆：<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a></li></ul><p>（可以不在同一个局域网）</p><p>PS：最近实在忙，没时间研究，只能用到什么，先记录下来</p><a id="more"></a><p><br></p><h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>SSH是一种网络协议，用于计算机之间的加密登录，采用了公钥加密</p><p>GitHub 就是用SSH</p><p><br></p><h3 id="1-公开密钥加密"><a href="#1-公开密钥加密" class="headerlink" title="1. 公开密钥加密"></a>1. 公开密钥加密</h3><p>公开密钥加密也称为非对称加密，需要两个密钥，一个是公开密钥，另一个是私有密。其中一个密钥把明文加密后所得的密文，只能用相对应的另一个密钥才能解密得到原本的明文，由于加密和解密需要两个不同的密钥，故称为<strong>非对称加密</strong>。</p><p>原理：</p><p>（1）远程主机收到用户的登录请求，把自己的<strong>公钥</strong>发给用户</p><p>（2）用户使用这个公钥，将<strong>登录密码</strong>加密后，发送回来</p><p>（3）远程主机用自己的<strong>私钥</strong>，解密登录密码，如果密码正确，就同意用户登录</p><p><br></p><h3 id="2-中间人攻击"><a href="#2-中间人攻击" class="headerlink" title="2. 中间人攻击"></a>2. 中间人攻击</h3><p>如果有人截获了登录请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪。因为不像https协议，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。</p><p>如果攻击者插在用户与远程主机之间（比如在公共的wifi区域），用伪造的公钥，获取用户的登录密码，再用这个密码登录远程主机。</p><p><br></p><h3 id="3-公钥登陆"><a href="#3-公钥登陆" class="headerlink" title="3. 公钥登陆"></a>3. 公钥登陆</h3><p>使用密码登录，非常麻烦，SSH 还提供了公钥登录，省去输入密码的步骤</p><p>原理：</p><p>用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;局域网远程控制：&lt;a href=&quot;https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jingyan.baidu.com/article/84b4f565d448f760f6da32e2.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;SSH 远程登陆：&lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;（可以不在同一个局域网）&lt;/p&gt;
-&lt;p&gt;PS：最近实在忙，没时间研究，只能用到什么，先记录下来&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>文本文件和二进制文件</title>
-    <link href="http://yoursite.com/2018/09/20/%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2018/09/20/文本文件和二进制文件/</id>
-    <published>2018-09-20T08:02:13.000Z</published>
-    <updated>2018-09-20T08:03:39.520Z</updated>
-    
-    <content type="html"><![CDATA[<p>二进制文件和文本文件的区别 ：<a href="https://www.jianshu.com/p/af0b4f8b030e" target="_blank" rel="noopener">https://www.jianshu.com/p/af0b4f8b030e</a></p><a id="more"></a><p><br></p><h4 id="（1）文本文件"><a href="#（1）文本文件" class="headerlink" title="（1）文本文件"></a>（1）文本文件</h4><ul><li><p>基于字符编码的文件，常见的编码有 ASCII 编码，UNICODE 编码</p></li><li><p><strong>只能存储 char 型字符变量</strong></p></li><li><p>数据通常是固定长度，以ASCII为例，每个字符都是1个字节</p></li><li><p>文本文件编辑器就可以读写</p></li><li><p>进行编辑的最小单位是字节(byte)</p></li><li><p>纯文本文件没有控制格式的信息，实际上也是一种<strong>特殊的二进制文件</strong></p><p><br></p></li></ul><h4 id="（2）二进制文件"><a href="#（2）二进制文件" class="headerlink" title="（2）二进制文件"></a>（2）二进制文件</h4><ul><li>基于值编码的文件</li><li><strong>可以存储 char/int/short/long/float/……各种变量值</strong></li><li>不同变量占据长度不同，short占两个字节，int占四个字节，float占8个字节……</li><li>二进制文件<strong>需要特别的解码器</strong>，比如bmp文件需要图像查看器，rmvb需要播放器</li><li>进行编辑的最小单位则是位(bit)（但，不会直接通过手工的方式对二进制文件进行编辑）</li><li>二进制文件，都往往有一个头 head，提供文件信息和解释方式</li></ul><p><strong>记事本</strong>只能够识别字符类型，支持文本文件而不支持二进制文件。如果用记事本打开文本文件一切正常，如果打开的是二进制文件就会出现乱码，但也有不乱码的地方，那些地方都是<strong>字符编码</strong>的，而对于int、double 等类型所对应的值都是乱码的。</p><p>PS：字符编码有 ASCII、Unicode、GBK 和 UTF-8 </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;二进制文件和文本文件的区别 ：&lt;a href=&quot;https://www.jianshu.com/p/af0b4f8b030e&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/p/af0b4f8b030e&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
     
   </entry>
   
