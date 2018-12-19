@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>静态链接和动态链接 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="预处理（需要头文件）（.c） -&amp;gt; 编译（.asm） -&amp;gt; 汇编 （.obj）-&amp;gt; 链接（需要库文件）（.exe）-&amp;gt;运行（动态链接）">
+  <meta name="description" content="预处理（需要头文件）（.c） -&amp;gt; 编译器将源码转换为汇编代码（.asm） -&amp;gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&amp;gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&amp;gt;运行">
 <meta name="keywords" content="编译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="静态链接和动态链接">
 <meta property="og:url" content="http://yoursite.com/2018/08/19/静态链接和动态链接/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="预处理（需要头文件）（.c） -&amp;gt; 编译（.asm） -&amp;gt; 汇编 （.obj）-&amp;gt; 链接（需要库文件）（.exe）-&amp;gt;运行（动态链接）">
+<meta property="og:description" content="预处理（需要头文件）（.c） -&amp;gt; 编译器将源码转换为汇编代码（.asm） -&amp;gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&amp;gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&amp;gt;运行">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/92071/201310/16201602-9c6047fe25ac46659d0a5ab2945552ce.png">
+<meta property="og:image" content="D:\\program\\GitHub\\Hexo\\source\\img\\编译\\过程.jpg">
 <meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5.png">
-<meta property="og:updated_time" content="2018-08-19T05:39:42.156Z">
+<meta property="og:updated_time" content="2018-12-19T07:08:50.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="静态链接和动态链接">
-<meta name="twitter:description" content="预处理（需要头文件）（.c） -&amp;gt; 编译（.asm） -&amp;gt; 汇编 （.obj）-&amp;gt; 链接（需要库文件）（.exe）-&amp;gt;运行（动态链接）">
-<meta name="twitter:image" content="https://images0.cnblogs.com/blog/92071/201310/16201602-9c6047fe25ac46659d0a5ab2945552ce.png">
+<meta name="twitter:description" content="预处理（需要头文件）（.c） -&amp;gt; 编译器将源码转换为汇编代码（.asm） -&amp;gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&amp;gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&amp;gt;运行">
+<meta name="twitter:image" content="D:\\program\\GitHub\\Hexo\\source\\img\\编译\\过程.jpg">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -177,8 +177,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>预处理（需要头文件）（.c） -&gt; 编译（.asm） -&gt; 汇编 （.obj）-&gt; 链接（需要库文件）（.exe）-&gt;运行（动态链接）</p>
-<p><img src="https://images0.cnblogs.com/blog/92071/201310/16201602-9c6047fe25ac46659d0a5ab2945552ce.png" alt=""></p>
+        <p>预处理（需要头文件）（.c） -&gt; 编译器将源码转换为汇编代码（.asm） -&gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&gt;运行</p>
+<p><img src="D:\\program\\GitHub\\Hexo\\source\\img\\编译\\过程.jpg" alt=""></p>
 <a id="more"></a>
 <p><br></p>
 <h2 id="一、编译和链接"><a href="#一、编译和链接" class="headerlink" title="一、编译和链接"></a>一、编译和链接</h2><p>编译：只要有头文件中的声明就足够了，头文件只是告诉编译器，函数是如何去调用如何返回</p>
@@ -195,7 +195,7 @@
 <h3 id="2-dll后缀的库"><a href="#2-dll后缀的库" class="headerlink" title="2. dll后缀的库"></a>2. dll后缀的库</h3><p>动态链接库（.dll）：是具体的实现，程序运行时动态调用</p>
 <p><br></p>
 <h2 id="四、静态链接"><a href="#四、静态链接" class="headerlink" title="四、静态链接"></a>四、静态链接</h2><h3 id="1-用到的库"><a href="#1-用到的库" class="headerlink" title="1. 用到的库"></a>1. 用到的库</h3><p>静态链接库：（.lib为后缀）是一个或者多个obj文件的打包 ，<strong>『 链接时使用』</strong></p>
-<h3 id="2-静态链接"><a href="#2-静态链接" class="headerlink" title="2. 静态链接"></a>2. 静态链接</h3><p>把.lib文件中用到的函数代码直接链接进可执行文件，程序运行的时候不再需要其它的库文件</p>
+<h3 id="2-静态链接"><a href="#2-静态链接" class="headerlink" title="2. 静态链接"></a>2. 静态链接</h3><p><strong>把.lib文件中用到的函数代码直接链接进可执行文件</strong>，程序运行的时候不再需要其它的库文件</p>
 <h3 id="3-优点"><a href="#3-优点" class="headerlink" title="3. 优点"></a>3. 优点</h3><p>程序在运行时与其它库函数无关，用户安装时就不需要再挂动态库，移植方便</p>
 <h3 id="4-缺点"><a href="#4-缺点" class="headerlink" title="4. 缺点"></a>4. 缺点</h3><p>所有相关的目标文件和函数库被链接合成一个可执行文件，当多个程序都调用相同函数时，内存中就会存在这个函数的多个拷贝，浪费空间和资源</p>
 <p><br></p>
@@ -461,15 +461,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,14 +505,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">caffe</a>
               </li>
              
@@ -526,6 +518,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
