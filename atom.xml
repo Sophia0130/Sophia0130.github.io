@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-19T12:51:55.155Z</updated>
+  <updated>2018-12-19T12:47:07.559Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,20 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>source/github_img</title>
-    <link href="http://yoursite.com/2018/12/19/source-github-img/"/>
-    <id>http://yoursite.com/2018/12/19/source-github-img/</id>
-    <published>2018-12-19T12:51:55.000Z</published>
-    <updated>2018-12-19T12:51:55.155Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>编译和链接（四）——重定义</title>
@@ -96,15 +82,15 @@
     <link href="http://yoursite.com/2018/12/19/%E7%BC%96%E8%AF%91%E5%92%8C%E9%93%BE%E6%8E%A5%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E9%A2%84%E5%A4%84%E7%90%86%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E9%93%BE%E6%8E%A5/"/>
     <id>http://yoursite.com/2018/12/19/编译和链接（一）——预处理、编译、链接/</id>
     <published>2018-12-19T12:19:02.000Z</published>
-    <updated>2018-12-19T13:07:47.841Z</updated>
+    <updated>2018-12-19T13:27:35.997Z</updated>
     
-    <content type="html"><![CDATA[<p>PS：这个博主连载了四篇关于编译、链接的博文，思路很清晰，推荐看原文，我只是用自己的话做了个总结</p><p><a href="https://segmentfault.com/a/1190000016433947" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016433947</a></p><p><img src="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg" alt=""></p><font color="#f58220"><strong>注意：编译包括了使用编译器生成汇编代码，和使用汇编器生成目标文件两部分</strong></font><p>1.编译：将一个源文件转为目标文件<br>2.链接：将多个目标文件之间产生关联</p><a id="more"></a><h2 id="一、预处理"><a href="#一、预处理" class="headerlink" title="一、预处理"></a>一、预处理</h2><p>预处理不对源代码进行解析，主要是 <strong>文本替换</strong>，即展开的过程</p><p>1.文件包含<br>2.宏定义<br>3.条件编译</p><h2 id="一、编译与目标文件"><a href="#一、编译与目标文件" class="headerlink" title="一、编译与目标文件"></a>一、编译与目标文件</h2><h3 id="1-编译"><a href="#1-编译" class="headerlink" title="1.编译"></a>1.编译</h3><p>编译的任务就是将汇编或高级计算机语言源程序转换成目标文件，即机器可以执行的机器指令</p><p>源文件被编译后生成的目标文件可以简单的理解为两部分：</p><p>代码段：源文件中定义的所有函数翻译成机器指令，存放在目标文件的代码部分<br>数据段：源文件中定义的全局变量，存放在目标文件的数据部分<br>（注意：局部变量是函数私有的，所以被放在了代码段中，作为机器指令的操作数）</p><p>在遇到外部定义的全局变量或者函数时 <font color="#f58220"><strong>只要能在当前文件找到其声明</strong></font>，编译器就认为编译正确<br>而寻找使用变量定义的这项任务就被留给了链接器，链接器的其中一项任务就是要确定所使用的变量要有其唯一的定义<br><br></p><h3 id="2-符号表-Symbol-table"><a href="#2-符号表-Symbol-table" class="headerlink" title="2.符号表(Symbol table)"></a>2.符号表(Symbol table)</h3><p>在编译过程中每次遇到一个全局变量或者函数名就会在符号表中添加一项，最终编译器会统计出一张符号表</p><p>符号表中保存的信息有两部分：</p><ul><li>目标文件中引用的全局变量以及函数，仅仅只是声明，未定义</li><li>目标文件中定义的全局变量以及函数</li></ul><p>符号表想表达的两件事：</p><ul><li>我能提供给其它文件使用的符号</li><li>我需要其它文件提供给我使用的符号</li></ul><p>符号表被放在目标文件中<br><br></p><h3 id="3-目标文件"><a href="#3-目标文件" class="headerlink" title="3.目标文件"></a>3.目标文件</h3><p>当前代码中引用，定义在其它源文件中的变量、函数，编译无法确定其内存地址，只有在进行链接时才能够确定这类变量、函数的内存地址</p><p>因此在目标文件中对于这些变量、函数的引用，对应的机器指令可能是:<br><code>call 0x000000</code></p><p>即编译器将不能确定的地址都这设置为空(0x000000)，同时编译器还会生成一条记录，告诉链接器在进行链接时要修正这条指令中的内存地址</p><ul><li>使用外部定义的函数，这个记录就放在了目标文件的.rel.text段中</li><li>使用外部定义的全局变量，则该记录放在了目标文件的.rel.data段中</li></ul><p>即链接器需要在链接过程中根据.rel.data以及.rel.text来填好编译器留下的空白位置(0x000000)</p><p>目标文件的内容如下图：<br><img src="https://image-static.segmentfault.com/340/576/3405765965-5b9f3fc6b5f70" alt=""></p><p><br></p><h2 id="二、链接器"><a href="#二、链接器" class="headerlink" title="二、链接器"></a>二、链接器</h2><h3 id="1-符号表决"><a href="#1-符号表决" class="headerlink" title="1.符号表决"></a>1.符号表决</h3><p>根据编译后得到的目标文件中的符号表，链接器根据所有目表文件进行符号决议，即 <font color="#f58220"><strong>确保所有目标文件中的符号引用都有唯一的定义</strong></font></p><p>1.对于当前目标文件，查找其符号表，并将已定义的符号并添加到已定义符号集合D中<br>2.对于当前目标文件，查找其符号表，将每一个当前目标文件引用的符号与已定义符号集合D进行对比，如果该符号不在集合D中则将其添加到未定义符合集合U中<br>3.当所有文件都扫描完成后，如果 <strong>未定义符号集合U不为空</strong>，则说明当前输入的目标文件集合中有未定义错误，链接器报错，整个编译过程终止<br><br></p><h3 id="2-重定位"><a href="#2-重定位" class="headerlink" title="2.重定位"></a>2.重定位</h3><p>PS：以下关于重定义的分析， <font color="#f58220"><strong>仅限于静态链接</strong></font>，该情况下，代码和数据都合并到可执行文件中，因此需要确定代码和数据的最终位置</p><p>编译时，无法确定，定义在其它源文件中的变量、函数的内存地址<br>链接时，才能确定可执行文件中代码和数据运行时的内存地址</p><p>确定程序运行时地址的过程就是重定位，重定位分为两步：</p><p>1.链接时，需要对所有目标文件的数据段和代码段的内存地址进行修正，编译得到的目标文件得到的只是相对地址<br>2.链接器扫描所有的.rel.text以及.rel.data段并找到相应记录的最终内存地址，并将机器指令中的<code>0x000000</code>修正为最终内存地址</p><p>PS：最后博主提出了一个疑问，而我读刚开始读重定义这部分的时候，确实也有这个疑问，哎，得放后面解决了</p><p>对于一个可执行文件分别运行两次，那么这两个程序数据段变量的地址一样，操作系统怎么能做到基于同一个可执行文件的两个程序能在各自的内存空间中运行而不相互干扰？</p>]]></content>
+    <content type="html"><![CDATA[<p>PS：这个博主连载了四篇关于编译、链接的博文，思路很清晰，推荐看原文，我只是用自己的话做了个总结</p><p><a href="https://segmentfault.com/a/1190000016433947" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016433947</a></p><p><img src="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true" alt=""></p><font color="#f58220"><strong>注意：编译包括了使用编译器生成汇编代码，和使用汇编器生成目标文件两部分</strong></font><p>1.编译：将一个源文件转为目标文件<br>2.链接：将多个目标文件之间产生关联</p><a id="more"></a><h2 id="一、预处理"><a href="#一、预处理" class="headerlink" title="一、预处理"></a>一、预处理</h2><p>预处理不对源代码进行解析，主要是 <strong>文本替换</strong>，即展开的过程</p><p>1.文件包含<br>2.宏定义<br>3.条件编译</p><h2 id="一、编译与目标文件"><a href="#一、编译与目标文件" class="headerlink" title="一、编译与目标文件"></a>一、编译与目标文件</h2><h3 id="1-编译"><a href="#1-编译" class="headerlink" title="1.编译"></a>1.编译</h3><p>编译的任务就是将汇编或高级计算机语言源程序转换成目标文件，即机器可以执行的机器指令</p><p>源文件被编译后生成的目标文件可以简单的理解为两部分：</p><p>代码段：源文件中定义的所有函数翻译成机器指令，存放在目标文件的代码部分<br>数据段：源文件中定义的全局变量，存放在目标文件的数据部分<br>（注意：局部变量是函数私有的，所以被放在了代码段中，作为机器指令的操作数）</p><p>在遇到外部定义的全局变量或者函数时 <font color="#f58220"><strong>只要能在当前文件找到其声明</strong></font>，编译器就认为编译正确<br>而寻找使用变量定义的这项任务就被留给了链接器，链接器的其中一项任务就是要确定所使用的变量要有其唯一的定义<br><br></p><h3 id="2-符号表-Symbol-table"><a href="#2-符号表-Symbol-table" class="headerlink" title="2.符号表(Symbol table)"></a>2.符号表(Symbol table)</h3><p>在编译过程中每次遇到一个全局变量或者函数名就会在符号表中添加一项，最终编译器会统计出一张符号表</p><p>符号表中保存的信息有两部分：</p><ul><li>目标文件中引用的全局变量以及函数，仅仅只是声明，未定义</li><li>目标文件中定义的全局变量以及函数</li></ul><p>符号表想表达的两件事：</p><ul><li>我能提供给其它文件使用的符号</li><li>我需要其它文件提供给我使用的符号</li></ul><p>符号表被放在目标文件中<br><br></p><h3 id="3-目标文件"><a href="#3-目标文件" class="headerlink" title="3.目标文件"></a>3.目标文件</h3><p>当前代码中引用，定义在其它源文件中的变量、函数，编译无法确定其内存地址，只有在进行链接时才能够确定这类变量、函数的内存地址</p><p>因此在目标文件中对于这些变量、函数的引用，对应的机器指令可能是:<br><code>call 0x000000</code></p><p>即编译器将不能确定的地址都这设置为空(0x000000)，同时编译器还会生成一条记录，告诉链接器在进行链接时要修正这条指令中的内存地址</p><ul><li>使用外部定义的函数，这个记录就放在了目标文件的.rel.text段中</li><li>使用外部定义的全局变量，则该记录放在了目标文件的.rel.data段中</li></ul><p>即链接器需要在链接过程中根据.rel.data以及.rel.text来填好编译器留下的空白位置(0x000000)</p><p>目标文件的内容如下图：<br><img src="https://image-static.segmentfault.com/340/576/3405765965-5b9f3fc6b5f70" alt=""></p><p><br></p><h2 id="二、链接器"><a href="#二、链接器" class="headerlink" title="二、链接器"></a>二、链接器</h2><h3 id="1-符号表决"><a href="#1-符号表决" class="headerlink" title="1.符号表决"></a>1.符号表决</h3><p>根据编译后得到的目标文件中的符号表，链接器根据所有目表文件进行符号决议，即 <font color="#f58220"><strong>确保所有目标文件中的符号引用都有唯一的定义</strong></font></p><p>1.对于当前目标文件，查找其符号表，并将已定义的符号并添加到已定义符号集合D中<br>2.对于当前目标文件，查找其符号表，将每一个当前目标文件引用的符号与已定义符号集合D进行对比，如果该符号不在集合D中则将其添加到未定义符合集合U中<br>3.当所有文件都扫描完成后，如果 <strong>未定义符号集合U不为空</strong>，则说明当前输入的目标文件集合中有未定义错误，链接器报错，整个编译过程终止<br><br></p><h3 id="2-重定位"><a href="#2-重定位" class="headerlink" title="2.重定位"></a>2.重定位</h3><p>PS：以下关于重定义的分析， <font color="#f58220"><strong>仅限于静态链接</strong></font>，该情况下，代码和数据都合并到可执行文件中，因此需要确定代码和数据的最终位置</p><p>编译时，无法确定，定义在其它源文件中的变量、函数的内存地址<br>链接时，才能确定可执行文件中代码和数据运行时的内存地址</p><p>确定程序运行时地址的过程就是重定位，重定位分为两步：</p><p>1.链接时，需要对所有目标文件的数据段和代码段的内存地址进行修正，编译得到的目标文件得到的只是相对地址<br>2.链接器扫描所有的.rel.text以及.rel.data段并找到相应记录的最终内存地址，并将机器指令中的<code>0x000000</code>修正为最终内存地址</p><p>注意：以上说的这些地址都是相对于程序的起始0地址的，运行程序时，会根据物理地址，再加上偏移量</p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;PS：这个博主连载了四篇关于编译、链接的博文，思路很清晰，推荐看原文，我只是用自己的话做了个总结&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000016433947&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://segmentfault.com/a/1190000016433947&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;font color=&quot;#f58220&quot;&gt;&lt;strong&gt;注意：编译包括了使用编译器生成汇编代码，和使用汇编器生成目标文件两部分&lt;/strong&gt;&lt;/font&gt;
 
 &lt;p&gt;1.编译：将一个源文件转为目标文件&lt;br&gt;2.链接：将多个目标文件之间产生关联&lt;/p&gt;
@@ -426,6 +412,32 @@
     
       &lt;p&gt;PS：这篇博客写得很详细，下面的学习笔记都是参考其完成&lt;/p&gt;
 &lt;p&gt; &lt;a href=&quot;https://blog.csdn.net/markl22222/article/details/38051483&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/markl22222/article/details/38051483&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++学习：类</title>
+    <link href="http://yoursite.com/2018/10/19/C-%E5%AD%A6%E4%B9%A0%EF%BC%9A%E7%B1%BB/"/>
+    <id>http://yoursite.com/2018/10/19/C-学习：类/</id>
+    <published>2018-10-19T07:08:35.000Z</published>
+    <updated>2018-10-19T07:11:46.060Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>类与对象</li><li>继承</li><li>重载</li><li>多态</li><li>抽象类</li><li><a id="more"></a></li></ol><p><br></p><h1 id="一、类与对象"><a href="#一、类与对象" class="headerlink" title="一、类与对象"></a>一、类与对象</h1><p><br></p><h2 id="1-成员函数"><a href="#1-成员函数" class="headerlink" title="1. 成员函数"></a>1. 成员函数</h2><p>定义</p><ul><li>在类定义内部定义（默认 inline）</li><li>在类的外部使用<strong>范围解析运算符 ::</strong> 来定义</li></ul><p><br></p><h2 id="2-类访问修饰符"><a href="#2-类访问修饰符" class="headerlink" title="2. 类访问修饰符"></a>2. 类访问修饰符</h2><ul><li>public：数据和函数在类的外部是可访问的，可以不使用任何成员函数来访问工有数据</li><li>private：</li><li><ul><li>数据和函数在类的外部是不可访问的</li><li><strong>只有类和友元函数可以访问私有成员，不能被派生类访问</strong></li></ul></li><li>（PS：没有使用任何访问修饰符，类的成员将被假定为私有成员）</li><li>protected：数据和函数在类的外部是不可访问的，<strong>在派生类（即子类）中是可访问的</strong></li></ul><p><br></p><h2 id="3-构造函数与析构函数"><a href="#3-构造函数与析构函数" class="headerlink" title="3. 构造函数与析构函数"></a>3. 构造函数与析构函数</h2><ol><li><p>构造函数的名称与类的名称完全相同，并且<strong>不会返回任何类型，也不会返回 void</strong>   </p><p>可以使用初始化列表来初始化字段</p></li><li><p>析构函数的名称与类的名称完全相同，只是在前面加了 ~，不会返回任何值，也不能带有任何参数</p><p>析构函数完成对象被删除前的一些清理工作</p></li></ol><p><br></p><h2 id="4-拷贝构造函数"><a href="#4-拷贝构造函数" class="headerlink" title="4. 拷贝构造函数"></a>4. 拷贝构造函数</h2><p>拷贝构造函数是一种特殊的构造函数，使用同一类中之前创建的对象来初始化新创建的对象</p><p>拷贝造函数的名称与类的名称完全相同，并且不会返回任何类型，其<strong>参数是同类对象的引用</strong></p><p><br></p><h2 id="5-友元函数"><a href="#5-友元函数" class="headerlink" title="5. 友元函数"></a>5. 友元函数</h2><p>类的友元函数<strong>『并不是成员函数』</strong>，是定义在类外部，但<strong>有权访问类的所有私有和保护成员</strong></p><p>在类定义中该函数原型前使用关键字 <strong>friend</strong></p><p><br></p><h2 id="6-内联函数"><a href="#6-内联函数" class="headerlink" title="6. 内联函数"></a>6. 内联函数</h2><p>如果一个函数是内联的，那么在编译时，编译器会把出现内联函数调用表达式的地方，用内联函数的函数体进行替换</p><p>在函数名前面放置关键字 <strong>inline</strong></p><p>内联函数是为了解决程序中函数调用的效率问题，就是<strong>空间换时间</strong>，所以内联函数一般都是小函数</p><p>注意：</p><ul><li><p>在内联函数内不允许使用循环语句和开关语句</p></li><li><p>内联函数的定义必须出现在内联函数第一次调用之前</p></li><li><p><strong>在类内部定义的函数会默认声明为inline函数，所有不用显示地去声明inline</strong></p><p><br></p></li></ul><h2 id="7-this-指针"><a href="#7-this-指针" class="headerlink" title="7. this 指针"></a>7. this 指针</h2><p>每一个对象都能通过 this 指针来访问自己的地址</p><p>this指针是所有成员函数的隐含参数，<strong>在成员函数内部，this指针可以用来指向目前调用的对象</strong></p><p>友元函数没有 this 指针，因为不是类的成员</p><p><br></p><h2 id="8-静态成员"><a href="#8-静态成员" class="headerlink" title="8. 静态成员"></a>8. 静态成员</h2><p>静态成员在类的所有对象中是共享的</p><h3 id="1）-静态成员数据"><a href="#1）-静态成员数据" class="headerlink" title="1） 静态成员数据"></a>1） 静态成员数据</h3><p>如果不存在初始化语句，在创建第一个对象时，所有的静态数据都会被初始化为零</p><p><strong>不能把静态数据的初始化放在类的定义</strong>中，而是在类的外部使用范围解析运算符 :: 来进行初始化</p><p><br></p><h3 id="2）-静态成员函数"><a href="#2）-静态成员函数" class="headerlink" title="2） 静态成员函数"></a>2） 静态成员函数</h3><p>静态成员函<strong>与类的对象是独立的</strong>，<strong>在类对象不存在的情况下也能被调用</strong></p><p><strong>『静态成员函数只能访问静态成员数据、其他静态成员函数和类外部的其他函数，且没有 this 指针』</strong></p><p>这个例子挺好的：<a href="http://www.runoob.com/cplusplus/cpp-static-members.html" target="_blank" rel="noopener">http://www.runoob.com/cplusplus/cpp-static-members.html</a></p><p><br></p><h1 id="二、继承"><a href="#二、继承" class="headerlink" title="二、继承"></a>二、继承</h1><h2 id="1-继承"><a href="#1-继承" class="headerlink" title="1. 继承"></a>1. 继承</h2><p>一个类可以派生自多个类，即一个（子类/派生类）可以有多个（父类/基类）</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> &lt;派生类名&gt;:</span>&lt;继承方式<span class="number">1</span>&gt;&lt;基类名<span class="number">1</span>&gt;,&lt;继承方式<span class="number">2</span>&gt;&lt;基类名<span class="number">2</span>&gt;,…</span><br><span class="line">&#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p><br></p><h2 id="2-继承方式不同，基类成员在派生类中的访问属性不同"><a href="#2-继承方式不同，基类成员在派生类中的访问属性不同" class="headerlink" title="2. 继承方式不同，基类成员在派生类中的访问属性不同"></a>2. 继承方式不同，基类成员在派生类中的访问属性不同</h2><p>三种继承方式，使得基类 public 成员，protected 成员，private 成员的访问属性在派生类中分别变成：</p><ul><li>public 继承：public, protected, private</li><li>protected 继承：protected, protected, private</li><li>private 继承：private, private, private</li></ul><p><br></p><h2 id="3-派生类中构造函数和析构函数的调用"><a href="#3-派生类中构造函数和析构函数的调用" class="headerlink" title="3. 派生类中构造函数和析构函数的调用"></a>3. 派生类中构造函数和析构函数的调用</h2><ul><li>创建子类时先调用父类的构造函数然后再调用自己的构造函数</li><li>子类先调用自身的析构函数再调用父类的析构函数</li></ul><p><br></p><h3 id="1）构造函数不能是虚函数"><a href="#1）构造函数不能是虚函数" class="headerlink" title="1）构造函数不能是虚函数"></a>1）构造函数不能是虚函数</h3><p>从继承来讲，总是要先构造父类对象,然后才能是子类对象</p><p>虚函数的作用在于通过父类的指针或者引用，来调用子类的成员函数，而构造函数是在创建对象时<strong>自动调用</strong>，不可能通过父类的指针或者引用去调用，因此也就规定构造函数不能是虚函数</p><p><br></p><h3 id="2）通常将基类的析构函数定义为虚函数的原因"><a href="#2）通常将基类的析构函数定义为虚函数的原因" class="headerlink" title="2）通常将基类的析构函数定义为虚函数的原因"></a>2）通常将基类的析构函数定义为虚函数的原因</h3><ul><li>当派生类指针指向派生类时，先调用派生类的析构函数再调用基类的析构函数</li><li>当基类指针指向派生类对象实现多态时，在析构时<strong>为了防止只析构基类而不析构派生类</strong>，一般会将基类析构函数定义为虚基类，这样就会先调用派生类析构函数，再调用基类析构函数</li></ul><p><br></p><h1 id="三、函数重载和运算符重载"><a href="#三、函数重载和运算符重载" class="headerlink" title="三、函数重载和运算符重载"></a>三、函数重载和运算符重载</h1><p>重载声明是指一个与之前已经在该作用域内声明过的函数或方法具有相同名称的声明，但是它们的参数列表和定义不同</p><p>重载的运算符其实是带有特殊名称的函数，函数名是由关键字 operator 和其后要重载的运算符构成</p><p>并且重载运算符这个特殊函数是有返回类型和参数列表</p><p><br></p><p>注意：</p><ul><li>运算重载符不可以改变操作数的个数</li><li>运算重载符不可以改变优先级</li><li>运算重载符不可以改变结合性</li><li>有些运算符是不可重载的 </li></ul><p><br></p><h1 id="四、多态"><a href="#四、多态" class="headerlink" title="四、多态"></a>四、多态</h1><p>多态发生的条件：<strong>多态只在『基类指针或引用指向派生类对象』的时候才发生，并且基类函数是虚函数</strong></p><p><br></p><h2 id="1-基类、派生类指针指向的对象"><a href="#1-基类、派生类指针指向的对象" class="headerlink" title="1. 基类、派生类指针指向的对象"></a>1. 基类、派生类指针指向的对象</h2><ul><li>基类指针指向派生类对象，是安全的</li><li>派生类指针指向基类对象，会产生编译错误</li><li>派生类指针指向派生类对象，调用的是派生类的成员</li></ul><h2 id="2-虚函数"><a href="#2-虚函数" class="headerlink" title="2. 虚函数"></a>2. 虚函数</h2><p>在基类中使用关键字 <strong>virtual</strong> 声明的函数，派生类中重新定义基类中定义的虚函数</p><p>虚函数使用条件是当<strong>『基类指针指向派生类对象』</strong>时，会告诉编译器不要<strong>静态链接</strong>到基类的虚函数，而是根据所调用的对象类型<strong>动态链接</strong>到派生类中的成员函数</p><p>基类的指针指向派生类的对象，当调用同名的成员函数时：</p><ul><li>如果在基类中成员函数为虚函数，那么基类指针调用的就是派生类的同名函数</li><li>如果基类中成员函数为非虚函数，则调用的是基类的成员函数</li></ul><h2 id="3-纯虚函数"><a href="#3-纯虚函数" class="headerlink" title="3. 纯虚函数"></a>3. 纯虚函数</h2><p>在基类中不给虚函数提供有意义的定义实现，纯虚函数的意义在于定义抽象类</p><p>声明是在普通的虚函数后面加上”=0”  <code>virtual int area() = 0;</code></p><p><br></p><h1 id="五、抽象类"><a href="#五、抽象类" class="headerlink" title="五、抽象类"></a>五、抽象类</h1><p>抽象类：如果类中<strong>至少有一个函数被声明为纯虚函数</strong>，则这个类就是抽象类</p><p>抽象类不能被用于实例化对象</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;类与对象&lt;/li&gt;
+&lt;li&gt;继承&lt;/li&gt;
+&lt;li&gt;重载&lt;/li&gt;
+&lt;li&gt;多态&lt;/li&gt;
+&lt;li&gt;抽象类&lt;/li&gt;
+&lt;li&gt;
     
     </summary>
     

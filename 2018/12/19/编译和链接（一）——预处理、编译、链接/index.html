@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="PS：这个博主连载了四篇关于编译、链接的博文，思路很清晰，推荐看原文，我只是用自己的话做了个总结 https://segmentfault.com/a/1190000016433947  注意：编译包括了使用编译器生成汇编代码，和使用汇编器生成目标文件两部分  1.编译：将一个源文件转为目标文件2.链接：将多个目标文件之间产生关联">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg">
+<meta property="og:image" content="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true">
 <meta property="og:image" content="https://image-static.segmentfault.com/340/576/3405765965-5b9f3fc6b5f70">
-<meta property="og:updated_time" content="2018-12-19T13:07:47.841Z">
+<meta property="og:updated_time" content="2018-12-19T13:27:35.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译和链接（一）——预处理、编译、链接">
 <meta name="twitter:description" content="PS：这个博主连载了四篇关于编译、链接的博文，思路很清晰，推荐看原文，我只是用自己的话做了个总结 https://segmentfault.com/a/1190000016433947  注意：编译包括了使用编译器生成汇编代码，和使用汇编器生成目标文件两部分  1.编译：将一个源文件转为目标文件2.链接：将多个目标文件之间产生关联">
-<meta name="twitter:image" content="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg">
+<meta name="twitter:image" content="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -179,7 +179,7 @@
       
         <p>PS：这个博主连载了四篇关于编译、链接的博文，思路很清晰，推荐看原文，我只是用自己的话做了个总结</p>
 <p><a href="https://segmentfault.com/a/1190000016433947" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016433947</a></p>
-<p><img src="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg" alt=""></p>
+<p><img src="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true" alt=""></p>
 <font color="#f58220"><strong>注意：编译包括了使用编译器生成汇编代码，和使用汇编器生成目标文件两部分</strong></font>
 
 <p>1.编译：将一个源文件转为目标文件<br>2.链接：将多个目标文件之间产生关联</p>
@@ -218,8 +218,7 @@
 <p>编译时，无法确定，定义在其它源文件中的变量、函数的内存地址<br>链接时，才能确定可执行文件中代码和数据运行时的内存地址</p>
 <p>确定程序运行时地址的过程就是重定位，重定位分为两步：</p>
 <p>1.链接时，需要对所有目标文件的数据段和代码段的内存地址进行修正，编译得到的目标文件得到的只是相对地址<br>2.链接器扫描所有的.rel.text以及.rel.data段并找到相应记录的最终内存地址，并将机器指令中的<code>0x000000</code>修正为最终内存地址</p>
-<p>PS：最后博主提出了一个疑问，而我读刚开始读重定义这部分的时候，确实也有这个疑问，哎，得放后面解决了</p>
-<p>对于一个可执行文件分别运行两次，那么这两个程序数据段变量的地址一样，操作系统怎么能做到基于同一个可执行文件的两个程序能在各自的内存空间中运行而不相互干扰？</p>
+<p>注意：以上说的这些地址都是相对于程序的起始0地址的，运行程序时，会根据物理地址，再加上偏移量</p>
 
       
 
