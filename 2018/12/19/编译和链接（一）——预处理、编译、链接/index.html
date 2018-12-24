@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true">
 <meta property="og:image" content="https://image-static.segmentfault.com/340/576/3405765965-5b9f3fc6b5f70">
-<meta property="og:updated_time" content="2018-12-19T13:27:35.997Z">
+<meta property="og:updated_time" content="2018-12-20T01:21:48.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译和链接（一）——预处理、编译、链接">
 <meta name="twitter:description" content="PS：这个博主连载了四篇关于编译、链接的博文，思路很清晰，推荐看原文，我只是用自己的话做了个总结 https://segmentfault.com/a/1190000016433947  注意：编译包括了使用编译器生成汇编代码，和使用汇编器生成目标文件两部分  1.编译：将一个源文件转为目标文件2.链接：将多个目标文件之间产生关联">
@@ -218,7 +218,8 @@
 <p>编译时，无法确定，定义在其它源文件中的变量、函数的内存地址<br>链接时，才能确定可执行文件中代码和数据运行时的内存地址</p>
 <p>确定程序运行时地址的过程就是重定位，重定位分为两步：</p>
 <p>1.链接时，需要对所有目标文件的数据段和代码段的内存地址进行修正，编译得到的目标文件得到的只是相对地址<br>2.链接器扫描所有的.rel.text以及.rel.data段并找到相应记录的最终内存地址，并将机器指令中的<code>0x000000</code>修正为最终内存地址</p>
-<p>注意：以上说的这些地址都是相对于程序的起始0地址的，运行程序时，会根据物理地址，再加上偏移量</p>
+<p>PS：最后那个博主提出了一个问题，如果运行两次可执行文件，会不会出现内存内存占用的问题，而两个程序之间产生影响</p>
+<p>回答肯定是不会的，从 <strong>操作系统</strong>层面来解释，从<font color="#f58220"><strong>虚拟内存里面看到的内存地址是一样的</strong></font>，但是物理地址不可能一样</p>
 
       
 
@@ -473,7 +474,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,7 +482,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,15 +530,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cs144</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
