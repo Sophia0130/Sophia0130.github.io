@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>编译和链接（二）——静态链接和动态链接 | 绿小蕤</title>
+  <title>机器学习（四）——XGBoost | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="预处理（需要头文件）（.c） -&amp;gt; 编译器将源码转换为汇编代码（.asm） -&amp;gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&amp;gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&amp;gt;运行">
-<meta name="keywords" content="编译">
+  <meta name="description" content="XGBoost1.多个决策树的 集成                2.一个树一个树向里增加，同时每加一个树，需要保证效果是提升的当要增加树的时候，会将前面的树当成一个整体，构造的树，使得之前当成整体的目标函数减小">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编译和链接（二）——静态链接和动态链接">
-<meta property="og:url" content="http://yoursite.com/2018/12/19/编译和链接（二）——静态链接和动态链接/index.html">
+<meta property="og:title" content="机器学习（四）——XGBoost">
+<meta property="og:url" content="http://yoursite.com/2018/12/25/机器学习（四）——XGBoost/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="预处理（需要头文件）（.c） -&amp;gt; 编译器将源码转换为汇编代码（.asm） -&amp;gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&amp;gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&amp;gt;运行">
+<meta property="og:description" content="XGBoost1.多个决策树的 集成                2.一个树一个树向里增加，同时每加一个树，需要保证效果是提升的当要增加树的时候，会将前面的树当成一个整体，构造的树，使得之前当成整体的目标函数减小">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="D:\\program\\GitHub\\Hexo\\source\\img\\编译\\过程.jpg">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5.png">
-<meta property="og:updated_time" content="2018-12-19T12:43:09.906Z">
+<meta property="og:updated_time" content="2018-12-25T01:13:36.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编译和链接（二）——静态链接和动态链接">
-<meta name="twitter:description" content="预处理（需要头文件）（.c） -&amp;gt; 编译器将源码转换为汇编代码（.asm） -&amp;gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&amp;gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&amp;gt;运行">
-<meta name="twitter:image" content="D:\\program\\GitHub\\Hexo\\source\\img\\编译\\过程.jpg">
+<meta name="twitter:title" content="机器学习（四）——XGBoost">
+<meta name="twitter:description" content="XGBoost1.多个决策树的 集成                2.一个树一个树向里增加，同时每加一个树，需要保证效果是提升的当要增加树的时候，会将前面的树当成一个整体，构造的树，使得之前当成整体的目标函数减小">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -146,25 +143,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-编译和链接（二）——静态链接和动态链接" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-机器学习（四）——XGBoost" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      编译和链接（二）——静态链接和动态链接
+      机器学习（四）——XGBoost
     </h1>
   
 
         
-        <a href="/2018/12/19/编译和链接（二）——静态链接和动态链接/" class="archive-article-date">
-  	<time datetime="2018-12-19T12:42:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-19</time>
+        <a href="/2018/12/25/机器学习（四）——XGBoost/" class="archive-article-date">
+  	<time datetime="2018-12-25T01:09:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-25</time>
 </a>
 
 
-<a href="/2018/12/19/编译和链接（二）——静态链接和动态链接/" class="archive-article-date">
-  	<time datetime="2018-12-19T12:42:24.000Z" itemprop="datePublished">2018-12-19</time>
+<a href="/2018/12/25/机器学习（四）——XGBoost/" class="archive-article-date">
+  	<time datetime="2018-12-25T01:09:43.000Z" itemprop="datePublished">2018-12-25</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -177,37 +174,11 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>预处理（需要头文件）（.c） -&gt; 编译器将源码转换为汇编代码（.asm） -&gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&gt;运行</p>
-<p><img src="D:\\program\\GitHub\\Hexo\\source\\img\\编译\\过程.jpg" alt=""></p>
+        <h2 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h2><p>1.多个决策树的 <strong>集成</strong>               </p>
+<p>2.一个树一个树向里增加，同时每加一个树，需要保证效果是提升的<br>当要增加树的时候，会将前面的树当成一个整体，构造的树，使得之前当成整体的目标函数减小</p>
 <a id="more"></a>
-<p><br></p>
-<h2 id="一、编译和链接"><a href="#一、编译和链接" class="headerlink" title="一、编译和链接"></a>一、编译和链接</h2><p>编译：只要有头文件中的声明就足够了，头文件只是告诉编译器，函数是如何去调用如何返回</p>
-<p>链接：把已经编译好的.obj和现有的.lib文件进行链接，这时生成可执行文件</p>
-<p><br></p>
-<h2 id="二、头文件和库文件"><a href="#二、头文件和库文件" class="headerlink" title="二、头文件和库文件"></a>二、头文件和库文件</h2><p>头文件：提供声明，编译的时候需要</p>
-<p>库文件：提供定义/实现，链接时将指定的目标文件抽取出</p>
-<p><br></p>
-<h2 id="三、库"><a href="#三、库" class="headerlink" title="三、库"></a>三、库</h2><h3 id="1-lib后缀的库有两种"><a href="#1-lib后缀的库有两种" class="headerlink" title="1. lib后缀的库有两种"></a>1. lib后缀的库有两种</h3><ol>
-<li>静态链接库（.lib）：静态库是一个或者多个obj文件的打包，包含了实际执行代码</li>
-<li>动态链接库的导入库（.lib）：属于动态链接库的附加依赖项，只包含了确保程序找到对应函数的一些基本索引信息</li>
-</ol>
-<p><br></p>
-<h3 id="2-dll后缀的库"><a href="#2-dll后缀的库" class="headerlink" title="2. dll后缀的库"></a>2. dll后缀的库</h3><p>动态链接库（.dll）：是具体的实现，程序运行时动态调用</p>
-<p><br></p>
-<p> n</p>
-<h2 id="四、静态链接"><a href="#四、静态链接" class="headerlink" title="四、静态链接"></a>四、静态链接</h2><h3 id="1-用到的库"><a href="#1-用到的库" class="headerlink" title="1. 用到的库"></a>1. 用到的库</h3><p>静态链接库：（.lib为后缀）是一个或者多个obj文件的打包 ，<strong>『 链接时使用』</strong></p>
-<h3 id="2-静态链接"><a href="#2-静态链接" class="headerlink" title="2. 静态链接"></a>2. 静态链接</h3><p><strong>把.lib文件中用到的函数代码直接链接进可执行文件</strong>，程序运行的时候不再需要其它的库文件</p>
-<h3 id="3-优点"><a href="#3-优点" class="headerlink" title="3. 优点"></a>3. 优点</h3><p>程序在运行时与其它库函数无关，用户安装时就不需要再挂动态库，移植方便</p>
-<h3 id="4-缺点"><a href="#4-缺点" class="headerlink" title="4. 缺点"></a>4. 缺点</h3><p>所有相关的目标文件和函数库被链接合成一个可执行文件，当多个程序都调用相同函数时，内存中就会存在这个函数的多个拷贝，浪费空间和资源</p>
-<p><br></p>
-<h2 id="五、动态链接"><a href="#五、动态链接" class="headerlink" title="五、动态链接"></a>五、动态链接</h2><h3 id="1-用到的库-1"><a href="#1-用到的库-1" class="headerlink" title="1. 用到的库"></a>1. 用到的库</h3><ul>
-<li>动态链接库的导入库： （.lib为后缀）属于动态链接库的附加依赖项，一般是一些索引信息，告诉链接器调用的函数在哪个dll中，函数执行代码在dll中的什么位置，<strong>『 链接时使用』</strong></li>
-<li>动态链接库：（.dll为后缀）具体的实现，<strong>『 程序运行时使用』</strong></li>
-</ul>
-<h3 id="2-动态链接"><a href="#2-动态链接" class="headerlink" title="2. 动态链接"></a>2. 动态链接</h3><p>调用的函数代码并没有被拷贝到可执行文件中，仅仅在其中加入了所调用函数的索引信息，只有当应用程序被装入内存开始运行时，在Windows的管理下，才在应用程序与相应的dll之间建立链接关系。</p>
-<h3 id="3-优点-1"><a href="#3-优点-1" class="headerlink" title="3. 优点"></a>3. 优点</h3><p>这样当一个或多个应用程序运行时，才将程序代码和被调用的函数代码链接起来，从而节省了内存资源</p>
-<h3 id="4-缺点-1"><a href="#4-缺点-1" class="headerlink" title="4. 缺点"></a>4. 缺点</h3><p>dll 和 lib 文件必须随应用程序一起发行，否则应用程序将会产生错误</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5.png" alt=""></p>
+<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><p>两者具体的区别：<a href="https://blog.csdn.net/u013709270/article/details/72553282" target="_blank" rel="noopener">https://blog.csdn.net/u013709270/article/details/72553282</a></p>
+<p>Bagging <strong>并行</strong>生成<br>Boosting 将弱分类器 <strong>提升</strong>为强分类器，<strong>串行</strong>生成</p>
 
       
 
@@ -221,7 +192,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
@@ -277,7 +248,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/19/编译和链接（二）——静态链接和动态链接/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/25/机器学习（四）——XGBoost/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,18 +262,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/19/编译和链接（三）——头文件与库/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          编译和链接（三）——头文件与库
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/19/编译和链接（一）——预处理、编译、链接/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">编译和链接（一）——预处理、编译、链接</div>
+    <a href="/2018/12/24/机器学习（三）——PCA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习（三）——PCA</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -329,7 +291,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、编译和链接"><span class="toc-number">1.</span> <span class="toc-text">一、编译和链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、头文件和库文件"><span class="toc-number">2.</span> <span class="toc-text">二、头文件和库文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、库"><span class="toc-number">3.</span> <span class="toc-text">三、库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-lib后缀的库有两种"><span class="toc-number">3.1.</span> <span class="toc-text">1. lib后缀的库有两种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-dll后缀的库"><span class="toc-number">3.2.</span> <span class="toc-text">2. dll后缀的库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、静态链接"><span class="toc-number">4.</span> <span class="toc-text">四、静态链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-用到的库"><span class="toc-number">4.1.</span> <span class="toc-text">1. 用到的库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-静态链接"><span class="toc-number">4.2.</span> <span class="toc-text">2. 静态链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-优点"><span class="toc-number">4.3.</span> <span class="toc-text">3. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-缺点"><span class="toc-number">4.4.</span> <span class="toc-text">4. 缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、动态链接"><span class="toc-number">5.</span> <span class="toc-text">五、动态链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-用到的库-1"><span class="toc-number">5.1.</span> <span class="toc-text">1. 用到的库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-动态链接"><span class="toc-number">5.2.</span> <span class="toc-text">2. 动态链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-优点-1"><span class="toc-number">5.3.</span> <span class="toc-text">3. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-缺点-1"><span class="toc-number">5.4.</span> <span class="toc-text">4. 缺点</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XGBoost"><span class="toc-number">1.</span> <span class="toc-text">XGBoost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集成学习"><span class="toc-number">2.</span> <span class="toc-text">集成学习</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-24T11:10:33.850Z</updated>
+  <updated>2018-12-25T01:13:36.434Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习（四）——XGBoost</title>
+    <link href="http://yoursite.com/2018/12/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94XGBoost/"/>
+    <id>http://yoursite.com/2018/12/25/机器学习（四）——XGBoost/</id>
+    <published>2018-12-25T01:09:43.000Z</published>
+    <updated>2018-12-25T01:13:36.434Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h2><p>1.多个决策树的 <strong>集成</strong>               </p><p>2.一个树一个树向里增加，同时每加一个树，需要保证效果是提升的<br>当要增加树的时候，会将前面的树当成一个整体，构造的树，使得之前当成整体的目标函数减小</p><a id="more"></a><h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><p>两者具体的区别：<a href="https://blog.csdn.net/u013709270/article/details/72553282" target="_blank" rel="noopener">https://blog.csdn.net/u013709270/article/details/72553282</a></p><p>Bagging <strong>并行</strong>生成<br>Boosting 将弱分类器 <strong>提升</strong>为强分类器，<strong>串行</strong>生成</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;XGBoost&quot;&gt;&lt;a href=&quot;#XGBoost&quot; class=&quot;headerlink&quot; title=&quot;XGBoost&quot;&gt;&lt;/a&gt;XGBoost&lt;/h2&gt;&lt;p&gt;1.多个决策树的 &lt;strong&gt;集成&lt;/strong&gt;               &lt;/p&gt;
+&lt;p&gt;2.一个树一个树向里增加，同时每加一个树，需要保证效果是提升的&lt;br&gt;当要增加树的时候，会将前面的树当成一个整体，构造的树，使得之前当成整体的目标函数减小&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>机器学习（三）——PCA</title>
@@ -412,26 +433,6 @@
 &lt;li&gt;引用：和原变量实质上是同一东西，只不过是原变量的一个别名&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; *p=&amp;amp;a;  &lt;span class=&quot;comment&quot;&gt;// p的值是a的地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &amp;amp;b=a;   &lt;span class=&quot;comment&quot;&gt;// a、b占据同一块内存&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++学习：内存管理</title>
-    <link href="http://yoursite.com/2018/10/19/C-%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2018/10/19/C-学习：内存管理/</id>
-    <published>2018-10-19T13:58:27.000Z</published>
-    <updated>2018-10-19T14:00:09.106Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p>学习笔记参考：<a href="https://chenqx.github.io/2014/09/25/Cpp-Memory-Management/" target="_blank" rel="noopener">https://chenqx.github.io/2014/09/25/Cpp-Memory-Management/</a></p><a id="more"></a><p><br></p><h2 id="一、内存分配"><a href="#一、内存分配" class="headerlink" title="一、内存分配"></a>一、内存分配</h2><p>C++中，内存分成<strong>5个区</strong>，和 C 的内存分配不太一样，整体上一致</p><p><br></p><ol><li><p><strong>栈</strong>：由编译器在需要时自动分配和释放。通常用来存储局部变量、函数参数、返回地址等</p></li><li><p><strong>堆</strong>：由程序员分配释放，程序员没有释放掉，那么在程序结束后，操作系统会自动回收</p></li><li><p><strong>自由存储区</strong>：是C++中通过 new/delete 动态分配和释放对象的抽象概念</p></li><li><p><strong>全局/静态存储区</strong>：全局变量和静态变量被分配到同一块内存中</p></li><li><p><strong>常量存储区</strong>：存放的是常量，不允许修改</p><p>​</p></li></ol><p><img src="http://img.it610.com/image/info5/eae8b1536ec547d1ab59f6dab3b79347.jpg" alt="“c 语言 内存 分配”的图片搜索结果"></p><p><br></p><h2 id="二、动态内存分配和静态内存分配"><a href="#二、动态内存分配和静态内存分配" class="headerlink" title="二、动态内存分配和静态内存分配"></a>二、动态内存分配和静态内存分配</h2><h3 id="1-时间不同"><a href="#1-时间不同" class="headerlink" title="1. 时间不同"></a>1. 时间不同</h3><p>静态分配发生在程序编译和连接的时候</p><p>动态分配则发生在程序调入和执行的时候</p><h3 id="2-空间不同"><a href="#2-空间不同" class="headerlink" title="2. 空间不同"></a>2. 空间不同</h3><p>堆都是动态分配的，没有静态分配的堆</p><p>栈有静态分配和动态分配</p><p><br></p><h2 id="三、堆和栈的区别"><a href="#三、堆和栈的区别" class="headerlink" title="三、堆和栈的区别"></a>三、堆和栈的区别</h2><h3 id="1-管理方式"><a href="#1-管理方式" class="headerlink" title="1. 管理方式"></a>1. 管理方式</h3><p>栈：由<strong>编译器</strong>自动管理</p><p>堆：由程序员控制，容易产生内存泄漏</p><h3 id="2-碎片问题"><a href="#2-碎片问题" class="headerlink" title="2. 碎片问题"></a>2. 碎片问题</h3><p>堆：频繁的 <code>new/delete</code> 会造成内存空间的不连续，从而造成大量的碎片，使程序效率降低</p><p>栈：是先进后出的队列，不可能有一个内存块从栈中间弹出</p><h3 id="3-生长方向"><a href="#3-生长方向" class="headerlink" title="3. 生长方向"></a>3. 生长方向</h3><p>堆：生长方向是向上的，也就是向着内存地址增加的方向</p><p>栈：生长方向是向下的，是向着内存地址减小的方向增长</p><h3 id="4-分配方式"><a href="#4-分配方式" class="headerlink" title="4. 分配方式"></a>4. 分配方式</h3><p>堆：动态分配，没有静态分配的堆</p><p>栈：静态分配和动态分配，静态分配是编译器完成</p><h3 id="5-分配效率"><a href="#5-分配效率" class="headerlink" title="5. 分配效率"></a>5. 分配效率</h3><p><strong>堆的效率比栈要低得多</strong></p><p>栈：计算机底层会对栈提供支持，分配专门的寄存器存放栈的地址，压栈出栈都有专门的指令执行</p><p>堆：由C/C++函数库提供</p><p>例如为了分配一块内存，库函数会按照一定的算法在堆内存中搜索可用的足够大小的空间，如果没有足够大小的空间（可能是由于内存碎片太多），就有可能调用系统功能去增加程序数据段的内存空间</p><p><br></p><h2 id="四、new-delete-和-malloc-free-的区别"><a href="#四、new-delete-和-malloc-free-的区别" class="headerlink" title="四、new/delete 和 malloc/free 的区别"></a>四、new/delete 和 malloc/free 的区别</h2><p><a href="https://blog.csdn.net/Hackbuteer1/article/details/6789164" target="_blank" rel="noopener">https://blog.csdn.net/Hackbuteer1/article/details/6789164</a></p><h3 id="1-new-delete"><a href="#1-new-delete" class="headerlink" title="1. new/delete"></a>1. new/delete</h3><p>是C++的<strong>运算符</strong>，无须指定内存块的大小</p><p>内存分配成功时，返回的是对象类型的指针，无须进行类型转换</p><p>注意：</p><p>1.用new 创建对象数组，那么只能使用对象的无参数构造函数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Obj *objects = new Obj[100];           // 创建100 个动态对象</span><br><span class="line">Obj *objects = new Obj[100](1);        // 错误写法，创建100 个动态对象的同时赋初值1</span><br></pre></td></tr></table></figure><p>2.用delete 释放对象数组时，留意不要丢了符号‘[]’</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete []objects;   // 正确的用法</span><br><span class="line">delete objects;     // 错误的用法，只释放了一个对象</span><br></pre></td></tr></table></figure><p><br></p><h3 id="2-malloc与free"><a href="#2-malloc与free" class="headerlink" title="2. malloc与free"></a>2. malloc与free</h3><p>是C++/C 语言的<strong>标准库函数</strong>，<strong>需要显式地指出所需内存大小</strong> ，因为并不知道申请的内存是什么类型，只关心内存的总字节数</p><p>存分配成功则是返回void <em> ，**需要通过强制类型转换将void</em>指针转换成所需类型**</p><p>对于非内部数据类的对象而言，即<strong>用户自定义的对象，无法用 malloc/free 动态管理对象</strong>（我的理解，自己定义了一个类，可以用new实例化该类，但是不能用malloc为该类分配内存，更不能执行构造函数、析构函数）</p><p><br></p><h3 id="3-对象动态管理"><a href="#3-对象动态管理" class="headerlink" title="3. 对象动态管理"></a>3. 对象动态管理</h3><p>对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数</p><p>由于malloc/free是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加于malloc/free</p><p>运算符new能完成动态内存分配和初始化工作，运算符delete能完成清理与释放内存工作</p><p><br></p><h2 id="五、内存错误"><a href="#五、内存错误" class="headerlink" title="五、内存错误"></a>五、内存错误</h2><h3 id="1-内存分配未成功"><a href="#1-内存分配未成功" class="headerlink" title="1. 内存分配未成功"></a>1. 内存分配未成功</h3><p>内存分配未成功，就使用</p><p>常用解决办法是，在使用内存之前检查指针是否为<code>NULL</code></p><h3 id="2-内存越界"><a href="#2-内存越界" class="headerlink" title="2. 内存越界"></a>2. 内存越界</h3><p>例如在使用数组时经常发生下标“多1”或者“少1”的操作</p><h3 id="3-内存泄露（指针不存在）"><a href="#3-内存泄露（指针不存在）" class="headerlink" title="3. 内存泄露（指针不存在）"></a>3. 内存泄露（指针不存在）</h3><p>申请的内存空间没有被正确释放，<strong>而指向这块内存空间的指针不再存在</strong></p><p>含有这种错误的函数每被调用一次就丢失一块内存</p><h3 id="4-释放内存却继续使用"><a href="#4-释放内存却继续使用" class="headerlink" title="4. 释放内存却继续使用"></a>4. 释放内存却继续使用</h3><p>函数  <code>return</code> 了指向栈内存的指针或者引用，但是该内存在函数体结束时就已经被自动销毁了</p><h3 id="5-野指针（指针指向错误的内存）"><a href="#5-野指针（指针指向错误的内存）" class="headerlink" title="5. 野指针（指针指向错误的内存）"></a>5. 野指针（指针指向错误的内存）</h3><p>（1）释放了内存后，指针仍然指向这个已删除的对象，没有将指针设为 <code>NULL</code></p><p>（2）指针未被初始化就被引用，<strong>指向一个未知的地址</strong></p><p><strong>与空指针不同，野指针无法通过简单地判断是否为 NULL 来避免</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;内存管理&quot;&gt;&lt;a href=&quot;#内存管理&quot; class=&quot;headerlink&quot; title=&quot;内存管理&quot;&gt;&lt;/a&gt;内存管理&lt;/h1&gt;&lt;p&gt;学习笔记参考：&lt;a href=&quot;https://chenqx.github.io/2014/09/25/Cpp-Memory-Management/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://chenqx.github.io/2014/09/25/Cpp-Memory-Management/&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
