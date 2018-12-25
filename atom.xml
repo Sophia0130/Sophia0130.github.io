@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-25T11:46:52.259Z</updated>
+  <updated>2018-12-25T12:07:36.334Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,13 @@
     <link href="http://yoursite.com/2018/12/25/Christmas-Gift%E2%80%94%E2%80%94pygame%E3%80%81pyinstaller/"/>
     <id>http://yoursite.com/2018/12/25/Christmas-Gift——pygame、pyinstaller/</id>
     <published>2018-12-25T11:46:52.000Z</published>
-    <updated>2018-12-25T11:46:52.259Z</updated>
+    <updated>2018-12-25T12:07:36.334Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是圣诞节，然后玩了一个下午的pyinstaller，超累的，感觉还是自己太菜了，很多东西都不知道啊，还得多学习啊 ~</p><a id="more"></a><h2 id="一、pygame"><a href="#一、pygame" class="headerlink" title="一、pygame"></a>一、pygame</h2><p><a href="http://www.icode9.com/content-1-22888.html" target="_blank" rel="noopener">http://www.icode9.com/content-1-22888.html</a></p><p>PS：之前在公众号上看到使用pygame这个模块，实现下雪的效果，让我想到了飘雪花的水晶球<br>不知道圣诞节送段叔叔什么礼物，就觉得这个挺好看的，所以折腾了一下午，哈哈，虽然是个很简单的脚本，但是转换成可执行文件，真的有点费事，我还以为做不出来，只不过总算可以运行了，希望段叔叔能喜欢吧 ~</p><p>pygame是一个利用SDL库的写就的游戏库</p><p><br></p><h2 id="二、pyinstaller"><a href="#二、pyinstaller" class="headerlink" title="二、pyinstaller"></a>二、pyinstaller</h2><p>PS：每次卡住的不是代码，而是各种环境、配置，一个下午就一直卡着，一直报错啊，很奔溃啊<br>本来就是个学渣，又不想问段叔叔怎么解决各种warning，总算生成可执行文件</p><p>pyinstaller将.py文件打包为.exe </p><p>下面开始我的各种问题:</p><p>1.Warning一堆API的dll not found</p><p>然后就用了最简单粗暴的方法</p><p>将not found的dll从C:\Windows\System32\downlevel 复制到C:\Windows\System32或python的安装目录下</p><p>2.ImportError: No module named ‘setuptools._vendor’</p><p>开始用了各种方法，都不行，然后看了下面这篇博文，更新了一下setuptools的版本</p><p><a href="https://blog.csdn.net/qq_39360343/article/details/82772916" target="_blank" rel="noopener">https://blog.csdn.net/qq_39360343/article/details/82772916</a></p><p>3.还未解决的就是设置可执行文件的图标</p><p>不知道为什么在 <code>-i</code>后面加图标的路径，dist文件下就没有可执行文件生成，应该不是图片文件的大小的问题吧</p><p>最后放一下，这个超简单的圣诞节动态壁纸吧  </p><p><img src="https://github.com/Sophia0130/Sophia0130.github.io/blob/master/blog-video/video.gif?raw=true" alt=""></p>]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;今天是圣诞节，然后玩了一个下午的pyinstaller，超累的，感觉还是自己太菜了，很多东西都不知道啊，还得多学习啊 ~&lt;/p&gt;
     
     </summary>
     
