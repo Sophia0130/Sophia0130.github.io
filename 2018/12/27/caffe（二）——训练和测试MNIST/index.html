@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Deep-Learning-吴恩达-作业（五） | 绿小蕤</title>
+  <title>caffe（二）——训练和测试MNIST | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RegularizationPS：要明确的是正则化是对过拟合现象的修正，不是必须要做的">
-<meta name="keywords" content="深度学习,python">
+  <meta name="description" content="下面以MNIST为例，通过caffe来训练、测试、单张图片的分类 https://blog.csdn.net/jieleiping/article/details/53134174 可执行文件的目录：caffe-master\Build\x64\Release  可执行文件对应的cpp所在目录：caffe-master\tools">
+<meta name="keywords" content="caffe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Deep-Learning-吴恩达-作业（五）">
-<meta property="og:url" content="http://yoursite.com/2018/06/25/Deep-Learning-吴恩达-作业（五）/index.html">
+<meta property="og:title" content="caffe（二）——训练和测试MNIST">
+<meta property="og:url" content="http://yoursite.com/2018/12/27/caffe（二）——训练和测试MNIST/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="RegularizationPS：要明确的是正则化是对过拟合现象的修正，不是必须要做的">
+<meta property="og:description" content="下面以MNIST为例，通过caffe来训练、测试、单张图片的分类 https://blog.csdn.net/jieleiping/article/details/53134174 可执行文件的目录：caffe-master\Build\x64\Release  可执行文件对应的cpp所在目录：caffe-master\tools">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/regulation5.JPG">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/regulation6.JPG">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E4%BD%9C%E4%B8%9A%E4%BA%94.jpg">
-<meta property="og:updated_time" content="2018-07-26T12:31:26.494Z">
+<meta property="og:updated_time" content="2018-12-27T03:15:56.552Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deep-Learning-吴恩达-作业（五）">
-<meta name="twitter:description" content="RegularizationPS：要明确的是正则化是对过拟合现象的修正，不是必须要做的">
-<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/regulation5.JPG">
+<meta name="twitter:title" content="caffe（二）——训练和测试MNIST">
+<meta name="twitter:description" content="下面以MNIST为例，通过caffe来训练、测试、单张图片的分类 https://blog.csdn.net/jieleiping/article/details/53134174 可执行文件的目录：caffe-master\Build\x64\Release  可执行文件对应的cpp所在目录：caffe-master\tools">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -147,25 +143,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Deep-Learning-吴恩达-作业（五）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-caffe（二）——训练和测试MNIST" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Deep-Learning-吴恩达-作业（五）
+      caffe（二）——训练和测试MNIST
     </h1>
   
 
         
-        <a href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/" class="archive-article-date">
-  	<time datetime="2018-06-25T09:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
+        <a href="/2018/12/27/caffe（二）——训练和测试MNIST/" class="archive-article-date">
+  	<time datetime="2018-12-27T03:08:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-27</time>
 </a>
 
 
-<a href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/" class="archive-article-date">
-  	<time datetime="2018-06-25T09:37:43.000Z" itemprop="datePublished">2018-06-25</time>
+<a href="/2018/12/27/caffe（二）——训练和测试MNIST/" class="archive-article-date">
+  	<time datetime="2018-12-27T03:08:12.000Z" itemprop="datePublished">2018-12-27</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -178,16 +174,51 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h1><p>PS：要明确的是正则化是对过拟合现象的修正，不是必须要做的</p>
+        <p>下面以MNIST为例，通过caffe来训练、测试、单张图片的分类</p>
+<p><a href="https://blog.csdn.net/jieleiping/article/details/53134174" target="_blank" rel="noopener">https://blog.csdn.net/jieleiping/article/details/53134174</a></p>
+<font color="#f58220">可执行文件的目录：caffe-master\Build\x64\Release</font>
+
+<font color="#f58220">可执行文件对应的cpp所在目录：caffe-master\tools</font>
+
 <a id="more"></a>
-<h2 id="1-L2-Regularization"><a href="#1-L2-Regularization" class="headerlink" title="1. L2 Regularization"></a>1. L2 Regularization</h2><p>1.每前向传播完成后计算 cost function 需要加上正则化项</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/regulation5.JPG" alt=""></p>
-<p>2.反向传播计算dW时也需要加上正则化项</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/regulation6.JPG" alt=""></p>
-<p>3.权重W变为较小的值，从而防止过拟合</p>
-<h2 id="2-Dropout"><a href="#2-Dropout" class="headerlink" title="2. Dropout"></a>2. Dropout</h2><p>1.将前一层的输出同时是这一层的输入A[l]，以一定概率keep_prob丢弃，再将剩余的 <strong>A[l]除以keep_prob</strong>  (而不影响下一层的计算)</p>
-<p>2.反向传播时，对于 dA[l] 进行同样的丢弃和缩放</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E4%BD%9C%E4%B8%9A%E4%BA%94.jpg" alt=""></p>
+<p><br></p>
+<h2 id="一、样本格式"><a href="#一、样本格式" class="headerlink" title="一、样本格式"></a>一、样本格式</h2><p><a href="https://blog.csdn.net/hjimce/article/details/49248231" target="_blank" rel="noopener">https://blog.csdn.net/hjimce/article/details/49248231</a></p>
+<p>caffe支持的训练数据格式 lmdb、h5py、levelIDB </p>
+<ul>
+<li>lmdb数据格式常用于单标签数据，分类问题</li>
+<li>h5py数据格式常用于多标签数据，回归问题</li>
+</ul>
+<p><br></p>
+<h2 id="二、-sh和-bat"><a href="#二、-sh和-bat" class="headerlink" title="二、.sh和.bat"></a>二、.sh和.bat</h2><p>.sh和.bat都是批处理文件，一个是Linux下的一个是Windows下的</p>
+<p>注意：路径问题</p>
+<p><br></p>
+<h2 id="三、训练"><a href="#三、训练" class="headerlink" title="三、训练"></a>三、训练</h2><h3 id="1-数据集格式的转换"><a href="#1-数据集格式的转换" class="headerlink" title="(1)数据集格式的转换"></a>(1)数据集格式的转换</h3><p>新建 convert_mnist.bat，调用 convert_mnist.exe 将MNIST数据集转换为lmdb格式</p>
+<h3 id="2-计算图片数据的均值"><a href="#2-计算图片数据的均值" class="headerlink" title="(2)计算图片数据的均值"></a>(2)计算图片数据的均值</h3><p>新建 compute_img_mean.bat，调用 compute_image_mean.exe 生成均值文件 mean.binaryproto</p>
+<p>图片减去均值再训练，会提高训练速度和精度，其实不是很明白这个均值的作用，师兄觉得是归一化</p>
+<p>将其加再 mean_file 位置<br><a href="https://www.cnblogs.com/denny402/p/5083300.html" target="_blank" rel="noopener">https://www.cnblogs.com/denny402/p/5083300.html</a></p>
+<h3 id="3-训练数据集"><a href="#3-训练数据集" class="headerlink" title="(3)训练数据集"></a>(3)训练数据集</h3><p>新建 train_mnist.bat，调用 caffe.exe train 训练，使用的是 net_solver.prototxt</p>
+<p>关于 caffe.exe</p>
+<p>可以输入的4个参数</p>
+<pre><code>train           train or finetune a model
+test            score a model
+device_query    show GPU diagnostic information
+time            benchmark model execution time
+</code></pre><p><br></p>
+<h3 id="四、测试"><a href="#四、测试" class="headerlink" title="四、测试"></a>四、测试</h3><p>test_mnist.bat，调用 caffe.exe test 训练数据集，使用的是模型文件 net.prototxt 和权重文件 net_iter.caffemodel</p>
+<p>PS：刚开始不明白这几个文件的作用，报了下面这个错，就是因为把 net.prototxt 和 net_solver.prototxt 的使用混淆了</p>
+<p>message type caffe.netparameter has no field named net</p>
+<p>解决方法：<a href="https://github.com/alexgkendall/caffe-segnet/issues/16" target="_blank" rel="noopener">https://github.com/alexgkendall/caffe-segnet/issues/16</a></p>
+<p><font color="#f58220">注意：</font>  </p>
+<ul>
+<li>net.prototxt                      对应网络的结构  </li>
+<li>net_solver.prototxt               如何训练网络</li>
+</ul>
+<p>注意prototxt文件中的路径与.bat文件放置的位置有关</p>
+<p><br></p>
+<h3 id="五、对单张图片做分类"><a href="#五、对单张图片做分类" class="headerlink" title="五、对单张图片做分类"></a>五、对单张图片做分类</h3><h4 id="1-标签文件"><a href="#1-标签文件" class="headerlink" title="(1)标签文件"></a>(1)标签文件</h4><p>新建标签文件 synset_words.txt，与分类结果相对应</p>
+<h4 id="2-分类"><a href="#2-分类" class="headerlink" title="(2)分类"></a>(2)分类</h4><p>需要用到5个文件<br>net.prototxt<br>net_iter.caffemodel<br>mean.binaryproto<br>synset_words.txt<br>picture.bmp</p>
+<h5 id="使用可执行文件"><a href="#使用可执行文件" class="headerlink" title="使用可执行文件"></a><1>使用可执行文件</1></h5><p>新建 classify_img.bat，调用 classification.exe 对自己的图片做分类</p>
+<h5 id="调用C-接口"><a href="#调用C-接口" class="headerlink" title="调用C++接口"></a><2>调用C++接口</2></h5><p>调用 caffe-master\examples\classification 接口</p>
 
       
 
@@ -201,11 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">caffe</a>
         		</li>
       		
 		</ul>
@@ -261,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/25/Deep-Learning-吴恩达-作业（五）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/27/caffe（二）——训练和测试MNIST/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +302,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/25/Deep-Learning-吴恩达-作业（六）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Deep-Learning-吴恩达-作业（六）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Deep-Learning-吴恩达-作业——关于plot_decision_boundary()函数的理解</div>
+    <a href="/2018/12/27/caffe（一）——windows下环境配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">caffe（一）——windows下环境配置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +331,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Regularization"><span class="toc-number">1.</span> <span class="toc-text">Regularization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-L2-Regularization"><span class="toc-number">1.1.</span> <span class="toc-text">1. L2 Regularization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Dropout"><span class="toc-number">1.2.</span> <span class="toc-text">2. Dropout</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、样本格式"><span class="toc-number">1.</span> <span class="toc-text">一、样本格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、-sh和-bat"><span class="toc-number">2.</span> <span class="toc-text">二、.sh和.bat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、训练"><span class="toc-number">3.</span> <span class="toc-text">三、训练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据集格式的转换"><span class="toc-number">3.1.</span> <span class="toc-text">(1)数据集格式的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-计算图片数据的均值"><span class="toc-number">3.2.</span> <span class="toc-text">(2)计算图片数据的均值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-训练数据集"><span class="toc-number">3.3.</span> <span class="toc-text">(3)训练数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、测试"><span class="toc-number">3.4.</span> <span class="toc-text">四、测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、对单张图片做分类"><span class="toc-number">3.5.</span> <span class="toc-text">五、对单张图片做分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-标签文件"><span class="toc-number">3.5.1.</span> <span class="toc-text">(1)标签文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-分类"><span class="toc-number">3.5.2.</span> <span class="toc-text">(2)分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用可执行文件"><span class="toc-number">3.5.2.1.</span> <span class="toc-text">使用可执行文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#调用C-接口"><span class="toc-number">3.5.2.2.</span> <span class="toc-text">调用C++接口</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Deep-Learning-吴恩达-作业（五） | 绿小蕤</title>
+  <title>caffe（一）——windows下环境配置 | 绿小蕤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RegularizationPS：要明确的是正则化是对过拟合现象的修正，不是必须要做的">
-<meta name="keywords" content="深度学习,python">
+  <meta name="description" content="PS：心力憔悴，是不是windows下做开发都这么不友好，师兄说Linux下配caffe只要几行命令">
+<meta name="keywords" content="caffe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Deep-Learning-吴恩达-作业（五）">
-<meta property="og:url" content="http://yoursite.com/2018/06/25/Deep-Learning-吴恩达-作业（五）/index.html">
+<meta property="og:title" content="caffe（一）——windows下环境配置">
+<meta property="og:url" content="http://yoursite.com/2018/12/27/caffe（一）——windows下环境配置/index.html">
 <meta property="og:site_name" content="绿小蕤">
-<meta property="og:description" content="RegularizationPS：要明确的是正则化是对过拟合现象的修正，不是必须要做的">
+<meta property="og:description" content="PS：心力憔悴，是不是windows下做开发都这么不友好，师兄说Linux下配caffe只要几行命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/regulation5.JPG">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/regulation6.JPG">
-<meta property="og:image" content="http://p8ge6t5tt.bkt.clouddn.com/%E4%BD%9C%E4%B8%9A%E4%BA%94.jpg">
-<meta property="og:updated_time" content="2018-07-26T12:31:26.494Z">
+<meta property="og:updated_time" content="2018-12-27T03:08:41.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deep-Learning-吴恩达-作业（五）">
-<meta name="twitter:description" content="RegularizationPS：要明确的是正则化是对过拟合现象的修正，不是必须要做的">
-<meta name="twitter:image" content="http://p8ge6t5tt.bkt.clouddn.com/regulation5.JPG">
+<meta name="twitter:title" content="caffe（一）——windows下环境配置">
+<meta name="twitter:description" content="PS：心力憔悴，是不是windows下做开发都这么不友好，师兄说Linux下配caffe只要几行命令">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525430869017&di=259137a8af313f4a4a75d09084c2426f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01762258871cf2a801219c77578c39.jpg">
@@ -147,25 +143,25 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Deep-Learning-吴恩达-作业（五）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-caffe（一）——windows下环境配置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Deep-Learning-吴恩达-作业（五）
+      caffe（一）——windows下环境配置
     </h1>
   
 
         
-        <a href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/" class="archive-article-date">
-  	<time datetime="2018-06-25T09:37:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
+        <a href="/2018/12/27/caffe（一）——windows下环境配置/" class="archive-article-date">
+  	<time datetime="2018-12-27T03:07:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-27</time>
 </a>
 
 
-<a href="/2018/06/25/Deep-Learning-吴恩达-作业（五）/" class="archive-article-date">
-  	<time datetime="2018-06-25T09:37:43.000Z" itemprop="datePublished">2018-06-25</time>
+<a href="/2018/12/27/caffe（一）——windows下环境配置/" class="archive-article-date">
+  	<time datetime="2018-12-27T03:07:05.000Z" itemprop="datePublished">2018-12-27</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
@@ -178,16 +174,28 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h1><p>PS：要明确的是正则化是对过拟合现象的修正，不是必须要做的</p>
+        <p>PS：心力憔悴，是不是windows下做开发都这么不友好，师兄说Linux下配caffe只要几行命令</p>
 <a id="more"></a>
-<h2 id="1-L2-Regularization"><a href="#1-L2-Regularization" class="headerlink" title="1. L2 Regularization"></a>1. L2 Regularization</h2><p>1.每前向传播完成后计算 cost function 需要加上正则化项</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/regulation5.JPG" alt=""></p>
-<p>2.反向传播计算dW时也需要加上正则化项</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/regulation6.JPG" alt=""></p>
-<p>3.权重W变为较小的值，从而防止过拟合</p>
-<h2 id="2-Dropout"><a href="#2-Dropout" class="headerlink" title="2. Dropout"></a>2. Dropout</h2><p>1.将前一层的输出同时是这一层的输入A[l]，以一定概率keep_prob丢弃，再将剩余的 <strong>A[l]除以keep_prob</strong>  (而不影响下一层的计算)</p>
-<p>2.反向传播时，对于 dA[l] 进行同样的丢弃和缩放</p>
-<p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E4%BD%9C%E4%B8%9A%E4%BA%94.jpg" alt=""></p>
+<h1 id="windows下caffe配置"><a href="#windows下caffe配置" class="headerlink" title="windows下caffe配置"></a>windows下caffe配置</h1><h2 id="一、libcaffe的编译"><a href="#一、libcaffe的编译" class="headerlink" title="一、libcaffe的编译"></a>一、libcaffe的编译</h2><p>libcaffe的编译，是为了生成caffe相关的库文件、可执行文件，可以在 caffe-master\Build\x64\Release 中查看</p>
+<p>参考：<a href="https://blog.csdn.net/what_lei/article/details/77857117" target="_blank" rel="noopener">https://blog.csdn.net/what_lei/article/details/77857117</a></p>
+<h3 id="1-修改属性文件"><a href="#1-修改属性文件" class="headerlink" title="1.修改属性文件"></a>1.修改属性文件</h3><p>将 caffe-master\windows 下的 CommonSettings.props.example 重命名为 CommonSettings.props，并且修改相关内容</p>
+<p>本来想支持python接口，但是提供的支持VS2013版本的caffe只支持python2.7，我之前只装了python3.5，就懒得再装一遍python2.7，本来也只想用C++的API</p>
+<p><br></p>
+<h3 id="2-NuGet"><a href="#2-NuGet" class="headerlink" title="2.NuGet"></a>2.NuGet</h3><p>NuGet是.NET平台的包管理工具，类似于python的pip(.NET是个平台，像Java虚拟机一样的一个平台，为支持的语言提供运行时的环境和开发环境)</p>
+<p>NuGet会自动下载第三方库，在 caffe-master 的平级目录下生成 NugetPackages</p>
+<p>caffe依赖库：<a href="https://blog.csdn.net/hqh45/article/details/51675104" target="_blank" rel="noopener">https://blog.csdn.net/hqh45/article/details/51675104</a></p>
+<p><br></p>
+<h3 id="3-无法打开输入文件“libcaffe-lib”-解决方法"><a href="#3-无法打开输入文件“libcaffe-lib”-解决方法" class="headerlink" title="3.无法打开输入文件“libcaffe.lib” 解决方法"></a>3.无法打开输入文件“libcaffe.lib” 解决方法</h3><p><a href="https://blog.csdn.net/liyunlong111/article/details/70435143" target="_blank" rel="noopener">https://blog.csdn.net/liyunlong111/article/details/70435143</a></p>
+<p><br></p>
+<h2 id="二、caffe环境配置"><a href="#二、caffe环境配置" class="headerlink" title="二、caffe环境配置"></a>二、caffe环境配置</h2><p>自己新建一个解决方案，然后调用 libcaffe.lib，而不是在Caffe.sln解决方案里新建一个项目使用 开始以为新建项目的配置属性只要和 CommonSettings.props 一样就可以了，但是很奇怪的是，在这个属性文件里面没有关于 NugetPackages 第三方包相关路径的引用，这个地方卡了很久，后来看到 Caffe 的解决方案的每个项目下面都有 packages.config，这部分是和 NuGet、PackageReference 相关，然后研究了很久，实在不明白这个包引用是怎么操作的，只好把第三方的相关路径直接加到 CommonSettings.props 里，这样任何项目都可以用</p>
+<h3 id="1-CommonSettings-props-添加-NugetPackages-中的第三方库"><a href="#1-CommonSettings-props-添加-NugetPackages-中的第三方库" class="headerlink" title="1.CommonSettings.props 添加 NugetPackages 中的第三方库"></a>1.CommonSettings.props 添加 NugetPackages 中的第三方库</h3><p>这部分我是参考了下面这个博主的，如果真的自己一个个去找，头文件和库文件，我怕是要疯了吧</p>
+<p><a href="http://abumaster.com/2017/04/18/Caffe%E7%9A%84C-%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8/" target="_blank" rel="noopener">http://abumaster.com/2017/04/18/Caffe%E7%9A%84C-%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8/</a></p>
+<p><br></p>
+<h3 id="2-头文件"><a href="#2-头文件" class="headerlink" title="2.头文件"></a>2.头文件</h3><p>然后运行一下，又报错了，能不能通过一下，真的是太不友好了</p>
+<p>F0519 14:54:12.494139 14504 layer_factory.hpp:77] Check failed: registry.count(type) == 1 (0 vs. 1) Unknown layer type: Input (known types: Input )</p>
+<p>将需要用到的layer添加到头文件中</p>
+<p><a href="https://blog.csdn.net/fangjin_kl/article/details/50936952" target="_blank" rel="noopener">https://blog.csdn.net/fangjin_kl/article/details/50936952</a></p>
+<p><a href="https://www.cnblogs.com/love6tao/p/5847480.html" target="_blank" rel="noopener">https://www.cnblogs.com/love6tao/p/5847480.html</a></p>
 
       
 
@@ -201,11 +209,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">caffe</a>
         		</li>
       		
 		</ul>
@@ -261,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/25/Deep-Learning-吴恩达-作业（五）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/27/caffe（一）——windows下环境配置/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +279,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/25/Deep-Learning-吴恩达-作业（六）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/12/27/caffe（二）——训练和测试MNIST/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Deep-Learning-吴恩达-作业（六）
+          caffe（二）——训练和测试MNIST
         
       </div>
     </a>
   
   
-    <a href="/2018/06/25/Deep-Learning-吴恩达-作业——关于plot-decision-boundary-函数的理解/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Deep-Learning-吴恩达-作业——关于plot_decision_boundary()函数的理解</div>
+    <a href="/2018/12/25/Christmas-Gift——pygame、pyinstaller/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Christmas Gift——pygame、pyinstaller</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +317,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Regularization"><span class="toc-number">1.</span> <span class="toc-text">Regularization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-L2-Regularization"><span class="toc-number">1.1.</span> <span class="toc-text">1. L2 Regularization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Dropout"><span class="toc-number">1.2.</span> <span class="toc-text">2. Dropout</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#windows下caffe配置"><span class="toc-number">1.</span> <span class="toc-text">windows下caffe配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、libcaffe的编译"><span class="toc-number">1.1.</span> <span class="toc-text">一、libcaffe的编译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-修改属性文件"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.修改属性文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-NuGet"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.NuGet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-无法打开输入文件“libcaffe-lib”-解决方法"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.无法打开输入文件“libcaffe.lib” 解决方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、caffe环境配置"><span class="toc-number">1.2.</span> <span class="toc-text">二、caffe环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CommonSettings-props-添加-NugetPackages-中的第三方库"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.CommonSettings.props 添加 NugetPackages 中的第三方库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-头文件"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.头文件</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
