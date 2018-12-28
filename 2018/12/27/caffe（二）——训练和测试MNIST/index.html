@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="绿小蕤">
 <meta property="og:description" content="下面以MNIST为例，通过caffe来训练、测试、单张图片的分类 https://blog.csdn.net/jieleiping/article/details/53134174 可执行文件的目录：caffe-master\Build\x64\Release  可执行文件对应的cpp所在目录：caffe-master\tools">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T03:15:56.552Z">
+<meta property="og:updated_time" content="2018-12-28T06:52:25.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="caffe（二）——训练和测试MNIST">
 <meta name="twitter:description" content="下面以MNIST为例，通过caffe来训练、测试、单张图片的分类 https://blog.csdn.net/jieleiping/article/details/53134174 可执行文件的目录：caffe-master\Build\x64\Release  可执行文件对应的cpp所在目录：caffe-master\tools">
@@ -178,7 +178,7 @@
 <p><a href="https://blog.csdn.net/jieleiping/article/details/53134174" target="_blank" rel="noopener">https://blog.csdn.net/jieleiping/article/details/53134174</a></p>
 <font color="#f58220">可执行文件的目录：caffe-master\Build\x64\Release</font>
 
-<font color="#f58220">可执行文件对应的cpp所在目录：caffe-master\tools</font>
+<font color="#f58220">可执行文件对应的cpp所在目录：caffe-master\tools</font>   
 
 <a id="more"></a>
 <p><br></p>
@@ -218,7 +218,14 @@ time            benchmark model execution time
 <h3 id="五、对单张图片做分类"><a href="#五、对单张图片做分类" class="headerlink" title="五、对单张图片做分类"></a>五、对单张图片做分类</h3><h4 id="1-标签文件"><a href="#1-标签文件" class="headerlink" title="(1)标签文件"></a>(1)标签文件</h4><p>新建标签文件 synset_words.txt，与分类结果相对应</p>
 <h4 id="2-分类"><a href="#2-分类" class="headerlink" title="(2)分类"></a>(2)分类</h4><p>需要用到5个文件<br>net.prototxt<br>net_iter.caffemodel<br>mean.binaryproto<br>synset_words.txt<br>picture.bmp</p>
 <h5 id="使用可执行文件"><a href="#使用可执行文件" class="headerlink" title="使用可执行文件"></a><1>使用可执行文件</1></h5><p>新建 classify_img.bat，调用 classification.exe 对自己的图片做分类</p>
-<h5 id="调用C-接口"><a href="#调用C-接口" class="headerlink" title="调用C++接口"></a><2>调用C++接口</2></h5><p>调用 caffe-master\examples\classification 接口</p>
+<h5 id="调用C-接口"><a href="#调用C-接口" class="headerlink" title="调用C++接口"></a><2>调用C++接口</2></h5><p>调用 caffe-master\examples\classification 接口，可能会出现下面的错误</p>
+<h5 id="1）"><a href="#1）" class="headerlink" title="1）"></a>1）</h5><p>error C2220: 警告被视为错误 - 没有生成“object”文件</p>
+<p>将“警告视为错误”的选项改为“否”</p>
+<p><a href="https://blog.csdn.net/bagboy_taobao_com/article/details/5613625" target="_blank" rel="noopener">https://blog.csdn.net/bagboy_taobao_com/article/details/5613625</a></p>
+<h5 id="2）"><a href="#2）" class="headerlink" title="2）"></a>2）</h5><p>F0519 14:54:12.494139 14504 layer_factory.hpp:77] Check failed: registry.count(type) == 1 (0 vs. 1) Unknown layer type: Input (known types: Input )</p>
+<p>将需要用到的layer添加到头文件中</p>
+<p><a href="https://blog.csdn.net/fangjin_kl/article/details/50936952" target="_blank" rel="noopener">https://blog.csdn.net/fangjin_kl/article/details/50936952</a></p>
+<p><a href="https://www.cnblogs.com/love6tao/p/5847480.html" target="_blank" rel="noopener">https://www.cnblogs.com/love6tao/p/5847480.html</a></p>
 
       
 
@@ -331,7 +338,7 @@ time            benchmark model execution time
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、样本格式"><span class="toc-number">1.</span> <span class="toc-text">一、样本格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、-sh和-bat"><span class="toc-number">2.</span> <span class="toc-text">二、.sh和.bat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、训练"><span class="toc-number">3.</span> <span class="toc-text">三、训练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据集格式的转换"><span class="toc-number">3.1.</span> <span class="toc-text">(1)数据集格式的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-计算图片数据的均值"><span class="toc-number">3.2.</span> <span class="toc-text">(2)计算图片数据的均值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-训练数据集"><span class="toc-number">3.3.</span> <span class="toc-text">(3)训练数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、测试"><span class="toc-number">3.4.</span> <span class="toc-text">四、测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、对单张图片做分类"><span class="toc-number">3.5.</span> <span class="toc-text">五、对单张图片做分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-标签文件"><span class="toc-number">3.5.1.</span> <span class="toc-text">(1)标签文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-分类"><span class="toc-number">3.5.2.</span> <span class="toc-text">(2)分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用可执行文件"><span class="toc-number">3.5.2.1.</span> <span class="toc-text">使用可执行文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#调用C-接口"><span class="toc-number">3.5.2.2.</span> <span class="toc-text">调用C++接口</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、样本格式"><span class="toc-number">1.</span> <span class="toc-text">一、样本格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、-sh和-bat"><span class="toc-number">2.</span> <span class="toc-text">二、.sh和.bat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、训练"><span class="toc-number">3.</span> <span class="toc-text">三、训练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据集格式的转换"><span class="toc-number">3.1.</span> <span class="toc-text">(1)数据集格式的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-计算图片数据的均值"><span class="toc-number">3.2.</span> <span class="toc-text">(2)计算图片数据的均值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-训练数据集"><span class="toc-number">3.3.</span> <span class="toc-text">(3)训练数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、测试"><span class="toc-number">3.4.</span> <span class="toc-text">四、测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、对单张图片做分类"><span class="toc-number">3.5.</span> <span class="toc-text">五、对单张图片做分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-标签文件"><span class="toc-number">3.5.1.</span> <span class="toc-text">(1)标签文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-分类"><span class="toc-number">3.5.2.</span> <span class="toc-text">(2)分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用可执行文件"><span class="toc-number">3.5.2.1.</span> <span class="toc-text">使用可执行文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#调用C-接口"><span class="toc-number">3.5.2.2.</span> <span class="toc-text">调用C++接口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1）"><span class="toc-number">3.5.2.3.</span> <span class="toc-text">1）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2）"><span class="toc-number">3.5.2.4.</span> <span class="toc-text">2）</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -464,10 +471,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
@@ -476,11 +479,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,7 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,6 +500,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">纪念第一篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
