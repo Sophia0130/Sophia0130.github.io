@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-28T13:30:54.440Z</updated>
+  <updated>2019-01-02T07:31:59.523Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图神经网络</title>
+    <link href="http://yoursite.com/2019/01/02/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <id>http://yoursite.com/2019/01/02/图神经网络/</id>
+    <published>2019-01-02T07:29:22.000Z</published>
+    <updated>2019-01-02T07:31:59.523Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天看新闻，有关阿里达摩院发布2019年十大科技趋势，有一条，感觉很有意思。<br>原文是这样说的，单纯的深度学习已经成熟，而结合了深度学习的图神经网络将端到端学习与归纳推理相结合，有望解决深度学习无法处理的关系推理、可解释性等一系列问题。<br>开始不是很明白图神经网络是什么意思，所以稍微看了一下，做了个归纳。</p><p>新闻链接：<a href="https://mp.weixin.qq.com/s/Zt1mI-TMdJYxMKwJ4nSRUQ?client=tim&amp;ADUIN=528036346&amp;ADSESSION=1546410913&amp;ADTAG=CLIENT.QQ.5597_.0&amp;ADPUBNO=26878" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Zt1mI-TMdJYxMKwJ4nSRUQ?client=tim&amp;ADUIN=528036346&amp;ADSESSION=1546410913&amp;ADTAG=CLIENT.QQ.5597_.0&amp;ADPUBNO=26878</a></p><a id="more"></a><p><br></p><p>下面是关于图卷积神经网络的理解，参考的是下面这篇知乎:<br><a href="https://zhuanlan.zhihu.com/p/37091549" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37091549</a></p><h2 id="1-图"><a href="#1-图" class="headerlink" title="1.图"></a>1.图</h2><p>卷积神经网络研究的对象还是限制在Euclidean domains的数据，比如图片是二维矩阵，比如语音是规则的一维序列。<br>但现实生活中有很多数据并不具备规则的空间结构，称为Non Euclidean data。</p><p>图为一种数据结构，图(graph)由顶点(vertex)和边(edge)组成，边具有权重(weights)</p><p>图有两个基本的特性：</p><ul><li><p>一是每个节点都有自己的特征信息</p></li><li><p>二是图谱中的每个节点还具有结构信息，即与其它节点的连接</p></li></ul><p><br></p><h2 id="2-图卷计算法"><a href="#2-图卷计算法" class="headerlink" title="2.图卷计算法"></a>2.图卷计算法</h2><p>PS：这部分真心没有明白怎么实现卷积，我只是对图结构有了个概念</p><ul><li>发射（send）每一个节点将自身的特征信息经过变换后发送给邻居节点</li><li>接收（receive）每个节点将邻居节点的特征信息聚集起来</li><li>变换（transform）把前面的信息聚集之后做非线性变换</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天看新闻，有关阿里达摩院发布2019年十大科技趋势，有一条，感觉很有意思。&lt;br&gt;原文是这样说的，单纯的深度学习已经成熟，而结合了深度学习的图神经网络将端到端学习与归纳推理相结合，有望解决深度学习无法处理的关系推理、可解释性等一系列问题。&lt;br&gt;开始不是很明白图神经网络是什么意思，所以稍微看了一下，做了个归纳。&lt;/p&gt;
+&lt;p&gt;新闻链接：&lt;a href=&quot;https://mp.weixin.qq.com/s/Zt1mI-TMdJYxMKwJ4nSRUQ?client=tim&amp;amp;ADUIN=528036346&amp;amp;ADSESSION=1546410913&amp;amp;ADTAG=CLIENT.QQ.5597_.0&amp;amp;ADPUBNO=26878&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://mp.weixin.qq.com/s/Zt1mI-TMdJYxMKwJ4nSRUQ?client=tim&amp;amp;ADUIN=528036346&amp;amp;ADSESSION=1546410913&amp;amp;ADTAG=CLIENT.QQ.5597_.0&amp;amp;ADPUBNO=26878&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Advanced Technology" scheme="http://yoursite.com/tags/Advanced-Technology/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>caffe（二）——训练和测试MNIST</title>
@@ -414,28 +437,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>win10+VS2013+Dlib 安装配置</title>
-    <link href="http://yoursite.com/2018/10/22/win10-VS2013-Dlib-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2018/10/22/win10-VS2013-Dlib-安装配置/</id>
-    <published>2018-10-22T13:55:40.000Z</published>
-    <updated>2018-12-04T01:43:08.534Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：我下载的是19.0版本（19.2及以上版本需用vs2015或更高版本）</p><p>（这是之前的Dlib版本：<a href="http://dlib.net/files/" target="_blank" rel="noopener">http://dlib.net/files/</a> ）</p><p>PS：最近移一直被一个问题困惑，Dlib是不依赖于其他库（自带图像编解码库源码），所以直接包含头文件即可，为什么要编译Dlib库，这个Dlib.lib到底有什么用？</p><a id="more"></a><p><br></p><h1 id="一、Cmake-生成-dlib-lib文件"><a href="#一、Cmake-生成-dlib-lib文件" class="headerlink" title="一、Cmake 生成 dlib.lib文件"></a>一、Cmake 生成 dlib.lib文件</h1><h3 id="1-cmake-转-VS-工程"><a href="#1-cmake-转-VS-工程" class="headerlink" title="1. cmake 转 VS 工程"></a>1. cmake 转 VS 工程</h3><p>（1）点击configure，选择 Visual Studio 12 2013 Win64、Visual Studio 12 2013 </p><p><strong>注意：这里的平台和以后用的平台要一致</strong></p><p>PS：之前用的是 Visual Studio 12 2013 Win64  后编译生成 dlib.lib 添加到 Win32 平台就一直报错</p><p>（2）选择Genarate</p><p><br></p><h3 id="2-VS2013编译生成-dlib-lib"><a href="#2-VS2013编译生成-dlib-lib" class="headerlink" title="2. VS2013编译生成 dlib.lib"></a>2. VS2013编译生成 dlib.lib</h3><p>（1）build 文件夹下生成 .sln 解决方案，打开解决方案</p><p>（2）切换 vs2013 的平台至 debug 或 release模式</p><p>（3）找到AllBuild工程右击生成，Debug 文件下会生成dlib.lib</p><p>注意：生成之前，检查dlib项目中的属性配置，参考这篇博文：</p><p><a href="https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1" target="_blank" rel="noopener">https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1</a></p><p><strong>注意：这里有一个坑，到后面才发现，自己建工程，添加lib后，一直报“Runtime Library”的不匹配项，就是因为，生成dlib.lib时候，dlib 项目中的属性配置中的代码生成运行库需要改，我改成了MTd</strong></p><p>大型项目中必须要求所有组件和第三方库的运行时库是统一的，否则将会出现LNK2005井喷</p><p><br></p><p>注意点：（！！真的要注意，很重要！！）</p><ul><li><strong>cmake 的平台 x64 还是 win32</strong></li><li><strong>编译时的模式 Debug 还是 Release</strong></li><li><strong>链接的 Runtime Library</strong> </li></ul><p>我今天突然对上面有了不一样的领悟</p><p><br></p><h2 id="二、属性配置"><a href="#二、属性配置" class="headerlink" title="二、属性配置"></a>二、属性配置</h2><p>属性配置，验证dlib.lib可用性，完全按照下面这篇博文：</p><p><a href="https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1" target="_blank" rel="noopener">https://blog.csdn.net/Dawnfox/article/details/77282246?utm_source=blogxgwz1</a></p><p><br></p><h2 id="三、使用dlib的imglab工具标注数据集"><a href="#三、使用dlib的imglab工具标注数据集" class="headerlink" title="三、使用dlib的imglab工具标注数据集"></a>三、使用dlib的imglab工具标注数据集</h2><p>不知道为什么win10下这个工具编译不成功，只好到虚拟机ubuntu上编译</p><p><a href="https://blog.csdn.net/qq_15715657/article/details/81504253" target="_blank" rel="noopener">https://blog.csdn.net/qq_15715657/article/details/81504253</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：我下载的是19.0版本（19.2及以上版本需用vs2015或更高版本）&lt;/p&gt;
-&lt;p&gt;（这是之前的Dlib版本：&lt;a href=&quot;http://dlib.net/files/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://dlib.net/files/&lt;/a&gt; ）&lt;/p&gt;
-&lt;p&gt;PS：最近移一直被一个问题困惑，Dlib是不依赖于其他库（自带图像编解码库源码），所以直接包含头文件即可，为什么要编译Dlib库，这个Dlib.lib到底有什么用？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="配置" scheme="http://yoursite.com/tags/%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
