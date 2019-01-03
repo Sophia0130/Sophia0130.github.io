@@ -144,6 +144,292 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-NLP——word2vec" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/NLP——word2vec/">NLP——word2vec</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/01/NLP——word2vec/" class="archive-article-date">
+  	<time datetime="2018-08-01T02:44:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+</a>
+
+
+<a href="/2018/08/01/NLP——word2vec/" class="archive-article-date">
+  	<time datetime="2018-08-01T02:44:45.000Z" itemprop="datePublished">2018-08-01</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：因为TensorFlow的官网教程里有，所以就顺带了解一下NLP，但不做编程训练，我还是要主攻图像</p>
+<p>这篇博文比较清楚得解释了word2vec模型是个什么 ：<a href="https://zhuanlan.zhihu.com/p/26306795" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26306795</a></p>
+<p><br></p>
+        
+          <a class="article-more-a" href="/2018/08/01/NLP——word2vec/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/01/NLP——word2vec/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-TensorFlow（三）——两层CNN神经网络实现MNIST的分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/">TensorFlow（三）——两层CNN神经网络实现MNIST的分类</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-07-31T02:02:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
+</a>
+
+
+<a href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/" class="archive-article-date">
+  	<time datetime="2018-07-31T02:02:49.000Z" itemprop="datePublished">2018-07-31</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>两层CNN神经网络实现MNIST的分类</strong></p>
+<p>version 1：和之前的神经网络训练MNIST数据集实现分类，整体过程差不多，只不过将计算换成卷积</p>
+<p>version 2 ：相比 version 1多了 <strong>权重和卷积结果的图像可视化</strong></p>
+<p>整个网络框架：image —&gt;conv1(32 kernels) —&gt;max pool1 —&gt;conv2 (64 kernels) —&gt;max pool2 </p>
+<p>—&gt;fc1 —&gt;fc2 —&gt;classifier</p>
+<p><br></p>
+        
+          <a class="article-more-a" href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tensorflow</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/31/TensorFlow（三）——两层CNN神经网络实现MNIST的分类/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-Ipython-与-Jupyter-Notebook" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/29/Ipython-与-Jupyter-Notebook/">Ipython 与 Jupyter Notebook</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/29/Ipython-与-Jupyter-Notebook/" class="archive-article-date">
+  	<time datetime="2018-07-29T11:19:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+</a>
+
+
+<a href="/2018/07/29/Ipython-与-Jupyter-Notebook/" class="archive-article-date">
+  	<time datetime="2018-07-29T11:19:01.000Z" itemprop="datePublished">2018-07-29</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：为了理解 Jupyter Notebook 所以展开来查了很多资料，也不知道自己的理解到底对不对</p>
+<p><a href="https://blog.windrunner.me/python/jupyter.html" target="_blank" rel="noopener">https://blog.windrunner.me/python/jupyter.html</a></p>
+<p><a href="http://smilejay.com/2012/10/interactive-shell-login-shell/" target="_blank" rel="noopener">http://smilejay.com/2012/10/interactive-shell-login-shell/</a></p>
+<p><a href="https://blog.csdn.net/wkw1125/article/details/53932945" target="_blank" rel="noopener">https://blog.csdn.net/wkw1125/article/details/53932945</a></p>
+<p><br></p>
+        
+          <a class="article-more-a" href="/2018/07/29/Ipython-与-Jupyter-Notebook/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/29/Ipython-与-Jupyter-Notebook/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="w-TensorFlow（二）——单层神经网络实现MNIST的分类" class="article article-type-w  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -828,246 +1114,6 @@
 
 
   
-    <article id="post-cs231n笔记（一）——线性回归、逻辑回归、多分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/">cs231n笔记（一）——线性回归、逻辑回归、多分类</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/" class="archive-article-date">
-  	<time datetime="2018-07-15T13:23:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
-</a>
-
-
-<a href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/" class="archive-article-date">
-  	<time datetime="2018-07-15T13:23:33.000Z" itemprop="datePublished">2018-07-15</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>一、线性回归</p>
-<p>二、逻辑回归</p>
-<p>三、多分类</p>
-<p>1.根据像素差异分类</p>
-<p>2.线性分类</p>
-<p>   （1）多类SVM分类器-折叶损失</p>
-<p>   （2）softmax分类器-交叉熵损失</p>
-        
-          <a class="article-more-a" href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cs231n</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/15/cs231n笔记（一）——线性回归、逻辑回归、多分类/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-显卡" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/15/显卡/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-程序是怎样跑起来的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/14/程序是怎样跑起来的/">程序是怎样跑起来的</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/14/程序是怎样跑起来的/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-
-
-<a href="/2018/07/14/程序是怎样跑起来的/" class="archive-article-date">
-  	<time datetime="2018-07-14T08:45:16.000Z" itemprop="datePublished">2018-07-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="程序是怎样跑起来的"><a href="#程序是怎样跑起来的" class="headerlink" title="程序是怎样跑起来的"></a>程序是怎样跑起来的</h1><p>PS：超级感谢师兄把这本书借给我，因为我的硬件基础实在是太差，这本书让我对硬件、操作系统有了个基本的概念。</p>
-<p>这篇博就是记录读书笔记，有些章节我比较熟悉，就跳过了</p>
-        
-          <a class="article-more-a" href="/2018/07/14/程序是怎样跑起来的/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">硬件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/14/程序是怎样跑起来的/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -1168,11 +1214,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1181,10 +1227,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1201,6 +1243,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
