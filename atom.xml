@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-03T03:25:12.881Z</updated>
+  <updated>2019-01-04T01:59:17.944Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>caffe（六）——可视化网络工具Netscope</title>
+    <link href="http://yoursite.com/2019/01/04/caffe%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7Netscope/"/>
+    <id>http://yoursite.com/2019/01/04/caffe（六）——可视化网络工具Netscope/</id>
+    <published>2019-01-04T01:55:46.000Z</published>
+    <updated>2019-01-04T01:59:17.944Z</updated>
+    
+    <content type="html"><![CDATA[<p>无疑之中发现的，caffe在线可视化网络结构工具，有一些常用的网络，也可以将网络结构文件 net.prototxt 放到editor里</p><p><a href="http://ethereon.github.io/netscope/quickstart.html" target="_blank" rel="noopener">http://ethereon.github.io/netscope/quickstart.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;无疑之中发现的，caffe在线可视化网络结构工具，有一些常用的网络，也可以将网络结构文件 net.prototxt 放到editor里&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://ethereon.github.io/netscope/quickstart.html&quot; t
+      
+    
+    </summary>
+    
+    
+      <category term="caffe" scheme="http://yoursite.com/tags/caffe/"/>
+    
+  </entry>
   
   <entry>
     <title>caffe（五）——windows下输出log日志和画出accuracy和loss曲线</title>
@@ -417,26 +441,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>C++学习：多线程</title>
-    <link href="http://yoursite.com/2018/11/08/C-%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    <id>http://yoursite.com/2018/11/08/C-学习：多线程/</id>
-    <published>2018-11-08T13:09:22.000Z</published>
-    <updated>2018-11-08T13:09:41.141Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：真的好难啊，看不懂，有没有什么多线程的资料可以系统读一下，完全云里雾里啊~<br><a id="more"></a></p><h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><p>POSIX 可移植操作系统接口（Portable Operating System Interface of UNIX ）是为了各操作系统间保持兼容性而制定的系列标准，POSIX并不局限于UNIX</p><p>个人理解：应用程序接口 API（Application Programming Interface）是操作系统提供给应用程序调用的代码，POSIX标准就是规范了不同操作系统的API。<strong>这样，为一个POSIX兼容的操作系统编写的应用程序，应该可以在任何其它的POSIX操作系统上编译执行</strong>。<br><br></p><h2 id="POSIX线程"><a href="#POSIX线程" class="headerlink" title="POSIX线程"></a>POSIX线程</h2><p>POSIX线程（POSIX Threads，Pthreads）是POSIX的线程标准，定义了创建和操纵线程的一套API<br>创建线程之后，由CPU决定何时执行线程调用的函数<br><br>   </p><h2 id="进程、线程"><a href="#进程、线程" class="headerlink" title="进程、线程"></a>进程、线程</h2><p><a href="https://www.cnblogs.com/xh0102/p/5710074.html" target="_blank" rel="noopener">https://www.cnblogs.com/xh0102/p/5710074.html</a><br>1.进程<br>每个进程有自己的地址空间。<strong>两个进程中的地址即使值相同，实际指向的位置也不同。</strong>进程间通信一般 <strong>通过操作系统</strong>的公共区进行。<br>2.线程<br>同一进程中的线程属于同一地址空间，<strong>共享全局变量和内存</strong>，所以一个线程的数据可以直接提供给其他线程使用，而 <strong>不必通过操作系统</strong>，也就是内核的调度。<br><br></p><h2 id="并行、并发"><a href="#并行、并发" class="headerlink" title="并行、并发"></a>并行、并发</h2><p>1.并行<br>是指两个或多个独立的操作同时进行。对于多核，多个线程可以在多核上真正独立的并行执行。<br>2.并发<br>是指在一段时间内执行多个操作。对于单核，多个线程是并发的，在一个时间段内轮流执行。<br>例如，4核4线程可以并行4个线程，4核8线程则使用了超线程技术，把一个物理核模拟为2个逻辑核心，可以并行8个线程。<br><br></p><h2 id="可结合和分离的线程"><a href="#可结合和分离的线程" class="headerlink" title="可结合和分离的线程"></a>可结合和分离的线程</h2><p>线程可结合或可分离是属于内核的属性，决定一个线程以什么样的方式来终止自己<br>1.joinable 可结合，非分离状态<br><strong>需要被其他线程收回其资源和杀死</strong>，在被其他线程回收之前，它的存储器资源是不释放的<br>原有的线程等待创建的线程结束，只有当pthread_join（）函数返回时，创建的线程才算终止，才能释放创建的线程占用的系统资源       </p><ol start="2"><li>detached 分离线程<br>一个分离的线程没有被其他的线程所等待，<strong>不能被其他线程回收或杀死</strong>，等到运行结束，线程也就终止，才释放系统资源<br><br></li></ol><h2 id="线程通信"><a href="#线程通信" class="headerlink" title="线程通信"></a>线程通信</h2><p>线程通信基本问题是同步和互斥<br>1.线程同步<br>一个线程的执行依赖于另一个线程的消息，当它没有得到另一个线程的消息时应等待，直到消息到达时才被唤醒<br>线程同步的四种方法：<a href="https://blog.csdn.net/zm_jacker/article/details/9787829" target="_blank" rel="noopener">https://blog.csdn.net/zm_jacker/article/details/9787829</a><br>2.线程互斥<br>当有若干个线程都要使用某一共享资源时，任何时刻最多只允许一个线程去使用，其它要使用该资源的线程必须等待，直到占用资源者释放该资源<br>同步其实已经实现了互斥，而互斥是一种特殊的同步<br><br></p><h2 id="临界资源、临界区"><a href="#临界资源、临界区" class="headerlink" title="临界资源、临界区"></a>临界资源、临界区</h2><p>临界资源：能够被多个线程共享的数据<br>临界区：对临界资源进行操作的那一段代码<br><br></p><h2 id="互斥锁-互斥锁（mutual-exclusive-lock-variable-mutex-）"><a href="#互斥锁-互斥锁（mutual-exclusive-lock-variable-mutex-）" class="headerlink" title="互斥锁/互斥锁（mutual exclusive lock variable / mutex ）"></a>互斥锁/互斥锁（mutual exclusive lock variable / mutex ）</h2><p>在访问共享资源前对互斥量加锁，在访问完成后释放互斥量上的锁。对互斥量加锁以后，任何其他试图对互斥量加锁的线程将会阻塞，直到当前线程释放该互斥锁。<br>如果释放互斥锁时有多个线程阻塞，所有在该互斥锁上的阻塞线程都会变成可运行状态，第一个变为运行状态的线程可以对互斥锁加锁，其他线程将会看到互斥锁依然被锁住，只能回去再次等待它重新变为可用。<br>个人理解：互斥量和互斥锁是一个意思<br><br></p><h2 id="条件变量和互斥锁"><a href="#条件变量和互斥锁" class="headerlink" title="条件变量和互斥锁"></a>条件变量和互斥锁</h2><p>条件变量是和互斥锁搭配使用<br>线程A需要等某个条件成立才能继续往下执行，现在这个条件不成立，线程A就阻塞等待，而线程B在执行过程中使这个条件成立了，就唤醒线程A继续执行<br><br></p><h2 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h2><p>信号量强调的是多线程的同步，一个线程完成了某一个动作就通过信号量告诉别的线程，别的线程再进行某些动作<br><br></p><h2 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h2><p><strong>原子操作是CPU执行指令的最小单元</strong>，这种操作一旦开始，就一直运行到结束，不会被中断<br>能够在单条指令中完成的操作都可以认为是原子操作</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：真的好难啊，看不懂，有没有什么多线程的资料可以系统读一下，完全云里雾里啊~&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
     
   </entry>
   
