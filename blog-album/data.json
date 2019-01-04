@@ -1,1 +1,1 @@
-{"list":[{"date":"2019-01","arr":{"year":2019,"month":1,"text":["test1","test2"],"type":["image","image"],"link":["2019-01-04_test1.jpg","2019-01-04_test2.png"]}}]}
+{"list":[{"date":"2019-01","arr":{"year":2019,"month":1,"link":["2019-01-04_test1.jpg","2019-01-04_test2.png"],"text":["test1","test2"],"type":["image","image"]}}]}
