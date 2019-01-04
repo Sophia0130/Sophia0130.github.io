@@ -81,7 +81,7 @@
 
     /**
      * @name impush-client 
-     * @description �����Ŀ���ҷ����¸���
+     * @description 这个项目让我发家致富…
      * @date 2016-12-1
      */
 
@@ -129,7 +129,7 @@
                 <figcaption style="display:none" itemprop="caption description">' + data.text[i] + '</figcaption>\
             </figure>';
         }
-        ulTmpl = ulTmpl + '<section class="archives album"><h1 class="year">' + data.year + '��<em>' + data.month + '��</em></h1>\
+        ulTmpl = ulTmpl + '<section class="archives album"><h1 class="year">' + data.year + '年<em>' + data.month + '月</em></h1>\
         <ul class="img-box-ul">' + liTmpl + '</ul>\
         </section>';
       }
