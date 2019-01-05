@@ -1,8 +1,0 @@
-1.hexo new page source/xxx 
-新创建一个文件夹，下面放图片
-
-2.deploy 之后，GitHub博客目录下会产生同样的文件
-
-3.博客引用图片
-![](GitHub上图片的链接?raw=true)
-注意要在链接地址后加?raw=true
