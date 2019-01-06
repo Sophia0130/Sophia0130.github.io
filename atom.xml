@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-04T01:59:17.944Z</updated>
+  <updated>2019-01-06T06:43:36.419Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>喵的简历</title>
+    <link href="http://yoursite.com/2019/01/06/%E5%96%B5%E7%9A%84%E7%AE%80%E5%8E%86/"/>
+    <id>http://yoursite.com/2019/01/06/喵的简历/</id>
+    <published>2019-01-06T06:27:02.000Z</published>
+    <updated>2019-01-06T06:43:36.419Z</updated>
+    
+    <content type="html"><![CDATA[<p>想做一只猫，开心时温柔，难过时睡觉</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;想做一只猫，开心时温柔，难过时睡觉&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="简介" scheme="http://yoursite.com/tags/%E7%AE%80%E4%BB%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>caffe（六）——可视化网络工具Netscope</title>
@@ -420,24 +444,6 @@
     <summary type="html">
     
       &lt;p&gt;PS：今天做项目的时候，开多线程测试，遇到了一个奇怪的问题，到现在都没有办法解释～&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Dlib中imglab生成失败的解决方法</title>
-    <link href="http://yoursite.com/2018/11/19/Dlib%E4%B8%ADimglab%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2018/11/19/Dlib中imglab生成失败的解决方法/</id>
-    <published>2018-11-19T01:12:46.000Z</published>
-    <updated>2018-11-19T01:38:11.543Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：花了一个晚上才把imglab这个标注工具生成失败的问题解决，哎，我真的太木了<br><a id="more"></a></p><h2 id="1-问题所在"><a href="#1-问题所在" class="headerlink" title="1.问题所在"></a>1.问题所在</h2><p><code>dlib\image_saver</code> 下的头文件 <code>save_png.h</code> 出现 Assertion Failed<br>可以看到作者在 <code>#ifndef DLIB_PNG_SUPPORT</code> 下其实打了超多感叹号的注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You are getting this error because you are trying to use save_png() but you haven&apos;t defined DLIB_PNG_SUPPORT.  You must do so to use this function. You must also make sure you set your build environment to link against the libpng library.</span><br></pre></td></tr></table></figure></p><p><br></p><h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2.解决方法</h2><p>解决方法很简单，我开始还在研究是不是要配置第三方库libpng和zlib的环境<br>其实只要在imglab主函数里声明<br> <code>#define DLIB_PNG_SUPPORT</code> 和 <code>#define DLIB_JPEG_SUPPORT</code></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：花了一个晚上才把imglab这个标注工具生成失败的问题解决，哎，我真的太木了&lt;br&gt;
     
     </summary>
     
