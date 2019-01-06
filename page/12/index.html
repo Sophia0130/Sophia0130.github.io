@@ -167,98 +167,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-argc和argv" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/argc和argv/">argc和argv</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>int main(int argc, char **argv)和int main(int argc, char *arg[])的区别</p>
-<h3 id="1-字符和指针"><a href="#1-字符和指针" class="headerlink" title="1. 字符和指针"></a>1. 字符和指针</h3><p>1.char *a: 一级指针，a数据地址，*a指针指向的数据<br>printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串<br>举个栗子：<br>char *p1,*p2<br>char str[]=”study” 字符数组，内容可变<br>p1=str<br>p2=”hard” 字符串，字符串以字符数组存储，以’\0’结束,内容不可变</p>
-<p>2.char **a: 二级指针，指向char *a[]<br>printf(“%c”,**a)输出一个字符，printf(“%s”,*a)输出字符串<br>举个栗子：<br>char **w<br>char *week={“Moday”,”Tuesday”,”Thursday”}<br>w=week</p>
-<p>3.char *a[]: a是一个数组，数组的元素是字符串地址，地址包含的值是字符型数据<br>printf(“%c”,*a[i])输出一个字符，printf(“%s”,a[i]))输出字符串<br>举个栗子：<br>char *a[]={“study”,”hard”}</p>
-        
-          <a class="article-more-a" href="/2018/05/08/argc和argv/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/08/argc和argv/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
     <article id="post-Hexo主题的优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1026,11 +934,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1046,11 +954,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1111,10 +1019,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">简介</a>
               </li>
              
               <li class="article-tag-list-item">
