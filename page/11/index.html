@@ -167,6 +167,451 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-anaconda，conda，pip的关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/13/anaconda，conda，pip的关系/">anaconda，conda，pip的关系</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/13/anaconda，conda，pip的关系/" class="archive-article-date">
+  	<time datetime="2018-06-13T01:31:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
+</a>
+
+
+<a href="/2018/06/13/anaconda，conda，pip的关系/" class="archive-article-date">
+  	<time datetime="2018-06-13T01:31:32.000Z" itemprop="datePublished">2018-06-13</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Anaconda：是一个<strong>python发行版</strong>。软件发行版是在系统上提前编译和配置好的软件包集合， 装好了后就可以直接用。因为包含了大量的科学包，Anaconda 的下载文件比较大（约 515 MB），如果只需要某些包，或者需要节省带宽或存储空间，也可以使用Miniconda这个较小的发行版(仅包含conda和 Python)</li>
+<li>Conda：是一个通用的包管理器，当初设计来<strong>管理任何语言的包</strong></li>
+<li>pip ：python包的软件包管理器</li>
+</ul>
+<p><br></p>
+<p>Conda 和 pip的区别：pip可以允许你在<strong>任何环境</strong>中安装python包，而conda允许你在<strong>conda环境中安装任何语言包</strong>（包括c语言或者python）</p>
+<p>PS；包管理器是自动化软件安装，更新，卸载的一种工具</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/13/anaconda，conda，pip的关系/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/11/正则表达式/">正则表达式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/11/正则表达式/" class="archive-article-date">
+  	<time datetime="2018-06-11T08:31:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
+</a>
+
+
+<a href="/2018/06/11/正则表达式/" class="archive-article-date">
+  	<time datetime="2018-06-11T08:31:41.000Z" itemprop="datePublished">2018-06-11</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：暂时没有深入学习的需求，但是老是看到，所有就想了解一下。<strong>正则表达式 (regular expression) 描述了一种字符串匹配的模式(pattern)</strong>。</p>
+<p><a href="http://deerchao.net/tutorials/regex/regex.htm#mission" target="_blank" rel="noopener">http://deerchao.net/tutorials/regex/regex.htm#mission</a></p>
+<p>字符可能是字母，数字，标点符号，空格，换行符，汉字等等。</p>
+<p>字符串是0个或更多个字符的序列。文本也就是字符串。</p>
+<p><strong>字符串匹配正则表达式</strong>，是指这个字符串里有一部分（或几部分）<strong>能满足表达式给出的条件</strong>。</p>
+<p><strong>正则表达式就是记录文本规则的代码，用来进行文本匹配的工具。</strong></p>
+<p>（比如，你可以编写一个正则表达式，用来查找所有以0开头，后面跟着2-3个数字，然后是一个连字号“-”，最后是7或8位数字的字符串像 010-12345678或0376-7654321)。</p>
+<p>re 模块使 Python 语言拥有全部的正则表达式功能。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/11/正则表达式/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-机器学习算法回顾目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/05/机器学习算法回顾目录/">机器学习算法回顾目录</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/05/机器学习算法回顾目录/" class="archive-article-date">
+  	<time datetime="2018-06-05T07:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
+</a>
+
+
+<a href="/2018/06/05/机器学习算法回顾目录/" class="archive-article-date">
+  	<time datetime="2018-06-05T07:32:56.000Z" itemprop="datePublished">2018-06-05</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇博文用来记录已经学习了的机器学习算法，持续更 ~ （哎，学了太容易忘）</p>
+        
+          <a class="article-more-a" href="/2018/06/05/机器学习算法回顾目录/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/05/机器学习算法回顾目录/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-Cygwin-安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/01/Cygwin-安装/">Cygwin 安装</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/01/Cygwin-安装/" class="archive-article-date">
+  	<time datetime="2018-06-01T09:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
+</a>
+
+
+<a href="/2018/06/01/Cygwin-安装/" class="archive-article-date">
+  	<time datetime="2018-06-01T09:12:21.000Z" itemprop="datePublished">2018-06-01</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：一篇我自己都搞不大明白的博文，咋办呢 … 得慢慢开始学 Linux 了</p>
+<p>Cygwin是一个在windows平台上运行的类UNIX模拟环境</p>
+        
+          <a class="article-more-a" href="/2018/06/01/Cygwin-安装/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/01/Cygwin-安装/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-Git-学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/01/Git-学习/">Git 学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/01/Git-学习/" class="archive-article-date">
+  	<time datetime="2018-06-01T09:05:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-01</time>
+</a>
+
+
+<a href="/2018/06/01/Git-学习/" class="archive-article-date">
+  	<time datetime="2018-06-01T09:05:53.000Z" itemprop="datePublished">2018-06-01</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：之前虽然用GitHub搭建博客，但是对于Git的理解非常不透彻，然后最近准备学Linux ，哎，之前挖的坑还是要填起来啊，Linux系统的源码由Git管理，我总要搞清楚Git 是个啥~ 感觉看完廖雪峰老师的教程心里大致有了个数</p>
+        
+          <a class="article-more-a" href="/2018/06/01/Git-学习/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/01/Git-学习/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-CryptoKitties" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -610,474 +1055,9 @@
 
 
   
-    <article id="post-傅里叶变换和图像处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/傅里叶变换和图像处理/">傅里叶变换和图像处理</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
-</a>
-
-
-<a href="/2018/05/14/傅里叶变换和图像处理/" class="archive-article-date">
-  	<time datetime="2018-05-14T07:28:48.000Z" itemprop="datePublished">2018-05-14</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h2><p>原理：傅立叶变换是一个将函数分解的工具，任一函数都可以表示成无数个正弦和余弦函数的和的形式。对一张图像使用傅立叶变换就是将它分解成正弦和余弦两部分，也就是将图像从空间域(spatial domain)转换到频域(frequency domain)</p>
-<h2 id="离散傅里叶变化-DFT"><a href="#离散傅里叶变化-DFT" class="headerlink" title="离散傅里叶变化 DFT"></a>离散傅里叶变化 DFT</h2><p><strong>图像去噪</strong>： 当图像出现的噪声是有规律的，去某个频率的波，比如高斯噪声。但是当出现的噪声是没有规律的，随机出现的一些东西，DFT是没有作用的。</p>
-<h2 id="离散余弦变换-DCT"><a href="#离散余弦变换-DCT" class="headerlink" title="离散余弦变换 DCT"></a>离散余弦变换 DCT</h2><p>图像的余弦波由实偶函数组成</p>
-<p><strong>图像压缩</strong>：JPEG格式的图片就是用Huffman编码方式压缩图片的DCT的系数</p>
-        
-          <a class="article-more-a" href="/2018/05/14/傅里叶变换和图像处理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/14/傅里叶变换和图像处理/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-机器学习算法大总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/11/机器学习算法大总结/">机器学习算法大总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
-</a>
-
-
-<a href="/2018/05/11/机器学习算法大总结/" class="archive-article-date">
-  	<time datetime="2018-05-11T07:42:09.000Z" itemprop="datePublished">2018-05-11</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="机器学习算法分类"><a href="#机器学习算法分类" class="headerlink" title="机器学习算法分类"></a>机器学习算法分类</h2><ul>
-<li><p>监督学习(有标签)      根据预测结果分成两类</p>
-<ul>
-<li>分类问题-离散值</li>
-<li>回归问题-连续值</li>
-</ul>
-</li>
-<li><p>无监督学习(无标签)</p>
-</li>
-<li><p>半监督学习(一半有标签，一般无标签)</p>
-</li>
-<li><p>强化学习</p>
-        
-          <a class="article-more-a" href="/2018/05/11/机器学习算法大总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/11/机器学习算法大总结/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-python入门编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/python入门编程/">python入门编程</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/09/python入门编程/" class="archive-article-date">
-  	<time datetime="2018-05-09T09:19:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-09</time>
-</a>
-
-
-<a href="/2018/05/09/python入门编程/" class="archive-article-date">
-  	<time datetime="2018-05-09T09:19:06.000Z" itemprop="datePublished">2018-05-09</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：结合下面这篇博客的第一个代码，写写关于python的入门编程理解</p>
-<p><a href="https://blog.csdn.net/han_xiaoyang/article/details/49123419" target="_blank" rel="noopener">https://blog.csdn.net/han_xiaoyang/article/details/49123419</a></p>
-        
-          <a class="article-more-a" href="/2018/05/09/python入门编程/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/09/python入门编程/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-CommandLineParse类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/CommandLineParse类/">CommandLineParse类</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/CommandLineParse类/" class="archive-article-date">
-  	<time datetime="2018-05-08T08:53:09.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CommandLineParse类-命令行解析类"><a href="#CommandLineParse类-命令行解析类" class="headerlink" title="CommandLineParse类(命令行解析类)"></a>CommandLineParse类(命令行解析类)</h2><p>PS：看例程的时候特别不理解这个类是啥意思，可以看下面这个</p>
-<p><a href="https://blog.csdn.net/jkhere/article/details/8674019" target="_blank" rel="noopener">https://blog.csdn.net/jkhere/article/details/8674019</a></p>
-<p>但是我个人觉得用我自己写的程序更好理解 keys，这种简单明了的比较适合我们小白~~</p>
-        
-          <a class="article-more-a" href="/2018/05/08/CommandLineParse类/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/08/CommandLineParse类/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-argc和argv" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/argc和argv/">argc和argv</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-
-
-<a href="/2018/05/08/argc和argv/" class="archive-article-date">
-  	<time datetime="2018-05-08T07:00:22.000Z" itemprop="datePublished">2018-05-08</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>int main(int argc, char **argv)和int main(int argc, char *arg[])的区别</p>
-<h3 id="1-字符和指针"><a href="#1-字符和指针" class="headerlink" title="1. 字符和指针"></a>1. 字符和指针</h3><p>1.char *a: 一级指针，a数据地址，*a指针指向的数据<br>printf(“%c”,*a)输出一个字符，printf(“%s”,a)输出字符串<br>举个栗子：<br>char *p1,*p2<br>char str[]=”study” 字符数组，内容可变<br>p1=str<br>p2=”hard” 字符串，字符串以字符数组存储，以’\0’结束,内容不可变</p>
-<p>2.char **a: 二级指针，指向char *a[]<br>printf(“%c”,**a)输出一个字符，printf(“%s”,*a)输出字符串<br>举个栗子：<br>char **w<br>char *week={“Moday”,”Tuesday”,”Thursday”}<br>w=week</p>
-<p>3.char *a[]: a是一个数组，数组的元素是字符串地址，地址包含的值是字符型数据<br>printf(“%c”,*a[i])输出一个字符，printf(“%s”,a[i]))输出字符串<br>举个栗子：<br>char *a[]={“study”,”hard”}</p>
-        
-          <a class="article-more-a" href="/2018/05/08/argc和argv/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/08/argc和argv/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
     </nav>
   
 
@@ -1219,11 +1199,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,10 +1219,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -1251,7 +1227,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1271,7 +1255,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1279,11 +1263,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1291,11 +1275,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
             
             <div class="clearfix"></div>

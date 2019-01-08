@@ -333,6 +333,456 @@
 
 
   
+    <article id="post-TCP-IP-HTTP-Soket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/08/TCP-IP-HTTP-Soket/">TCP/IP HTTP Soket</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/08/TCP-IP-HTTP-Soket/" class="archive-article-date">
+  	<time datetime="2019-01-08T03:49:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-08</time>
+</a>
+
+
+<a href="/2019/01/08/TCP-IP-HTTP-Soket/" class="archive-article-date">
+  	<time datetime="2019-01-08T03:49:34.000Z" itemprop="datePublished">2019-01-08</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、TCP-IP-HTTP-Socket"><a href="#一、TCP-IP-HTTP-Socket" class="headerlink" title="一、TCP/IP HTTP Socket"></a>一、TCP/IP HTTP Socket</h2><p><a href="https://blog.csdn.net/Pk_zsq/article/details/6087367" target="_blank" rel="noopener">https://blog.csdn.net/Pk_zsq/article/details/6087367</a></p>
+<p>OSI网络由下往上分为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层</p>
+<p><strong>IP协议对应于网络层，TCP协议对应于传输层，HTTP协议对应于应用层</strong></p>
+<h3 id="1-TCP-IP"><a href="#1-TCP-IP" class="headerlink" title="1.TCP/IP"></a>1.TCP/IP</h3><p>TCP/IP是一个 <strong>协议簇</strong>，包括应用层,传输层，网络层，网络访问层，每一层包括很多协议，因为TCP、IP协议是两个很重要的协议，就用它两命名，主要解决 <strong>数据如何在网络中传输</strong></p>
+<h3 id="2-HTTP"><a href="#2-HTTP" class="headerlink" title="2.HTTP"></a>2.HTTP</h3><p>HTTP协议，主要解决如何 <strong>包装数据</strong></p>
+<h3 id="3-Socket"><a href="#3-Socket" class="headerlink" title="3.Socket"></a>3.Socket</h3><p>Socket本身并不是协议，是对TCP/IP协议的 <strong>封装</strong>，是一个调用接口（API）<br>通过Socket，才能使用TCP/IP协议，<br>就像操作系统会提供标准的编程接口，TCP/IP也要提供可供程序员做网络开发所用的接口，这就是Socket编程接口</p>
+<h2 id="二、TCP三次握手、四次挥手"><a href="#二、TCP三次握手、四次挥手" class="headerlink" title="二、TCP三次握手、四次挥手"></a>二、TCP三次握手、四次挥手</h2><p><a href="https://github.com/jawil/blog/issues/14" target="_blank" rel="noopener">https://github.com/jawil/blog/issues/14</a></p>
+<p>TCP是 <strong>面向连接</strong>的协议，在收发数据前，必须和对方建立可靠的连接</p>
+<p>TCP建立连接为什么是三次握手?是为了满足在不可靠信道上可靠地传输信息，三次通信是理论上的最小值</p>
+<p>三次握手可以防止以下情况的发生：</p>
+<p>client发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达server。本来这是一个早已失效的报文段，但server收到此失效的连接请求报文段后，就误认为是client再次发出的一个新的连接请求，于是就向client发出确认报文段，同意建立连接。假设不采用“三次握手”，那么只要server发出确认，新的连接就建立了，由于现在client并没有发出建立连接的请求，因此不会理睬server的确认，也不会向server发送数据，但server却以为新的运输连接已经建立，并一直等待client发来数据，server的等待浪费了资源</p>
+<p>当客户端和服务器通过三次握手建立了TCP连接以后，当数据传送完毕，断开TCP的连接，需要四次挥手</p>
+<h2 id="三、TCP与UDP的区别"><a href="#三、TCP与UDP的区别" class="headerlink" title="三、TCP与UDP的区别"></a>三、TCP与UDP的区别</h2><p>TCP是 <strong>面向连接</strong>的、可靠的数据流传输，发送数据前需要先建立连接，<strong>求安全</strong></p>
+<p>TCP可以处理乱序，丢失的数据包（丢失后重发），拥挤情况自动调整传输速率</p>
+<p>UDP不是面向连接的、不可靠的数据流传输，发送数据前不需要建立连接，<strong>求速度</strong></p>
+<p>TCP适合用于网页，邮件等，UDP适合用于视频，语音广播等</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/08/TCP-IP-HTTP-Soket/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-网页生成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/07/网页生成/">网页生成</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/07/网页生成/" class="archive-article-date">
+  	<time datetime="2019-01-07T13:34:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-07</time>
+</a>
+
+
+<a href="/2019/01/07/网页生成/" class="archive-article-date">
+  	<time datetime="2019-01-07T13:34:17.000Z" itemprop="datePublished">2019-01-07</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：我不是做前端开发的，因为搭博客的时候，实在是这个也不会那个也不懂，所以连蒙带猜，下面写的只是我个人的理解 ~</p>
+        
+          <a class="article-more-a" href="/2019/01/07/网页生成/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/07/网页生成/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-yilia主题的相册搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/07/yilia主题的相册搭建/">yilia主题的相册搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/07/yilia主题的相册搭建/" class="archive-article-date">
+  	<time datetime="2019-01-07T12:16:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-07</time>
+</a>
+
+
+<a href="/2019/01/07/yilia主题的相册搭建/" class="archive-article-date">
+  	<time datetime="2019-01-07T12:16:15.000Z" itemprop="datePublished">2019-01-07</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：之前觉得很麻烦，更重要的是不明白网页生成的原理，所以拖着，那天一直做到凌晨一点，总算做出了个大概，前端开发的知识不够啊 </p>
+<p>参考：<a href="https://www.jianshu.com/p/a9f309aaa0e0" target="_blank" rel="noopener">https://www.jianshu.com/p/a9f309aaa0e0</a></p>
+        
+          <a class="article-more-a" href="/2019/01/07/yilia主题的相册搭建/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/07/yilia主题的相册搭建/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-算法（二）——递归、迭代、回溯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/算法（二）——递归、迭代、回溯/">算法（二）——递归、迭代、回溯</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/06/算法（二）——递归、迭代、回溯/" class="archive-article-date">
+  	<time datetime="2019-01-06T13:09:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
+</a>
+
+
+<a href="/2019/01/06/算法（二）——递归、迭代、回溯/" class="archive-article-date">
+  	<time datetime="2019-01-06T13:09:14.000Z" itemprop="datePublished">2019-01-06</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：感觉看样例代码有点明白了，有意思</p>
+<p><a href="https://www.jianshu.com/p/48cf12b84526" target="_blank" rel="noopener">https://www.jianshu.com/p/48cf12b84526</a></p>
+        
+          <a class="article-more-a" href="/2019/01/06/算法（二）——递归、迭代、回溯/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/06/算法（二）——递归、迭代、回溯/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-算法（一）——时间复杂度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/算法（一）——时间复杂度/">算法（一）——时间复杂度</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/06/算法（一）——时间复杂度/" class="archive-article-date">
+  	<time datetime="2019-01-06T13:08:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
+</a>
+
+
+<a href="/2019/01/06/算法（一）——时间复杂度/" class="archive-article-date">
+  	<time datetime="2019-01-06T13:08:10.000Z" itemprop="datePublished">2019-01-06</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：和段叔叔跑步的时候推归并排序的 O(nlogn)，我感觉要飞升了</p>
+<p><a href="https://blog.csdn.net/so_geili/article/details/53444816" target="_blank" rel="noopener">https://blog.csdn.net/so_geili/article/details/53444816</a></p>
+        
+          <a class="article-more-a" href="/2019/01/06/算法（一）——时间复杂度/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/06/算法（一）——时间复杂度/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-caffe（六）——可视化网络工具Netscope" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -605,454 +1055,9 @@
 
 
   
-    <article id="post-caffe（三）——模型和数据集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/02/caffe（三）——模型和数据集/">caffe（三）——模型和数据集</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/02/caffe（三）——模型和数据集/" class="archive-article-date">
-  	<time datetime="2019-01-02T08:56:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-02</time>
-</a>
-
-
-<a href="/2019/01/02/caffe（三）——模型和数据集/" class="archive-article-date">
-  	<time datetime="2019-01-02T08:56:59.000Z" itemprop="datePublished">2019-01-02</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数据集和模型的下载</p>
-<p><a href="http://dl.caffe.berkeleyvision.org" target="_blank" rel="noopener">http://dl.caffe.berkeleyvision.org</a></p>
-        
-          <a class="article-more-a" href="/2019/01/02/caffe（三）——模型和数据集/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">caffe</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/02/caffe（三）——模型和数据集/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-图神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/02/图神经网络/">图神经网络</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/02/图神经网络/" class="archive-article-date">
-  	<time datetime="2019-01-02T07:29:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-02</time>
-</a>
-
-
-<a href="/2019/01/02/图神经网络/" class="archive-article-date">
-  	<time datetime="2019-01-02T07:29:22.000Z" itemprop="datePublished">2019-01-02</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天看新闻，有关阿里达摩院发布2019年十大科技趋势，有一条，感觉很有意思。<br>原文是这样说的，单纯的深度学习已经成熟，而结合了深度学习的图神经网络将端到端学习与归纳推理相结合，有望解决深度学习无法处理的关系推理、可解释性等一系列问题。<br>开始不是很明白图神经网络是什么意思，所以稍微看了一下，做了个归纳。</p>
-<p>新闻链接：<a href="https://mp.weixin.qq.com/s/Zt1mI-TMdJYxMKwJ4nSRUQ?client=tim&amp;ADUIN=528036346&amp;ADSESSION=1546410913&amp;ADTAG=CLIENT.QQ.5597_.0&amp;ADPUBNO=26878" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Zt1mI-TMdJYxMKwJ4nSRUQ?client=tim&amp;ADUIN=528036346&amp;ADSESSION=1546410913&amp;ADTAG=CLIENT.QQ.5597_.0&amp;ADPUBNO=26878</a></p>
-        
-          <a class="article-more-a" href="/2019/01/02/图神经网络/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Advanced Technology</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/02/图神经网络/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-caffe（二）——训练和测试MNIST" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/27/caffe（二）——训练和测试MNIST/">caffe（二）——训练和测试MNIST</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/27/caffe（二）——训练和测试MNIST/" class="archive-article-date">
-  	<time datetime="2018-12-27T03:08:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-27</time>
-</a>
-
-
-<a href="/2018/12/27/caffe（二）——训练和测试MNIST/" class="archive-article-date">
-  	<time datetime="2018-12-27T03:08:12.000Z" itemprop="datePublished">2018-12-27</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>下面以MNIST为例，通过caffe来训练、测试、单张图片的分类</p>
-<p><a href="https://blog.csdn.net/jieleiping/article/details/53134174" target="_blank" rel="noopener">https://blog.csdn.net/jieleiping/article/details/53134174</a></p>
-<font color="#f58220">可执行文件的目录：caffe-master\Build\x64\Release</font>
-
-<font color="#f58220">可执行文件对应的cpp所在目录：caffe-master\tools</font>
-        
-          <a class="article-more-a" href="/2018/12/27/caffe（二）——训练和测试MNIST/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">caffe</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/27/caffe（二）——训练和测试MNIST/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-caffe（一）——windows下环境配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/27/caffe（一）——windows下环境配置/">caffe（一）——windows下环境配置</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/27/caffe（一）——windows下环境配置/" class="archive-article-date">
-  	<time datetime="2018-12-27T03:07:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-27</time>
-</a>
-
-
-<a href="/2018/12/27/caffe（一）——windows下环境配置/" class="archive-article-date">
-  	<time datetime="2018-12-27T03:07:05.000Z" itemprop="datePublished">2018-12-27</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：心力憔悴，是不是windows下做开发都这么不友好，师兄说Linux下配caffe只要几行命令</p>
-<p>PS：从12.26-12.28，总算林林总总的</p>
-        
-          <a class="article-more-a" href="/2018/12/27/caffe（一）——windows下环境配置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">caffe</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/27/caffe（一）——windows下环境配置/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-Christmas-Gift——pygame、pyinstaller" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/25/Christmas-Gift——pygame、pyinstaller/">Christmas Gift——pygame、pyinstaller</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/25/Christmas-Gift——pygame、pyinstaller/" class="archive-article-date">
-  	<time datetime="2018-12-25T11:46:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-25</time>
-</a>
-
-
-<a href="/2018/12/25/Christmas-Gift——pygame、pyinstaller/" class="archive-article-date">
-  	<time datetime="2018-12-25T11:46:52.000Z" itemprop="datePublished">2018-12-25</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天是圣诞节，然后玩了一个下午的pyinstaller，超累的，感觉还是自己太菜了，很多东西都不知道啊，还得多学习啊 ~</p>
-        
-          <a class="article-more-a" href="/2018/12/25/Christmas-Gift——pygame、pyinstaller/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/25/Christmas-Gift——pygame、pyinstaller/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1194,11 +1199,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1214,10 +1219,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -1226,7 +1227,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,7 +1255,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,11 +1263,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1266,11 +1275,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">软件</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">软件</a>
               </li>
             
             <div class="clearfix"></div>

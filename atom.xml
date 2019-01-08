@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-04T01:59:17.944Z</updated>
+  <updated>2019-01-08T05:56:41.341Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,110 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TCP/IP HTTP Soket</title>
+    <link href="http://yoursite.com/2019/01/08/TCP-IP-HTTP-Soket/"/>
+    <id>http://yoursite.com/2019/01/08/TCP-IP-HTTP-Soket/</id>
+    <published>2019-01-08T03:49:34.000Z</published>
+    <updated>2019-01-08T05:56:41.341Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、TCP-IP-HTTP-Socket"><a href="#一、TCP-IP-HTTP-Socket" class="headerlink" title="一、TCP/IP HTTP Socket"></a>一、TCP/IP HTTP Socket</h2><p><a href="https://blog.csdn.net/Pk_zsq/article/details/6087367" target="_blank" rel="noopener">https://blog.csdn.net/Pk_zsq/article/details/6087367</a></p><p>OSI网络由下往上分为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层</p><p><strong>IP协议对应于网络层，TCP协议对应于传输层，HTTP协议对应于应用层</strong></p><h3 id="1-TCP-IP"><a href="#1-TCP-IP" class="headerlink" title="1.TCP/IP"></a>1.TCP/IP</h3><p>TCP/IP是一个 <strong>协议簇</strong>，包括应用层,传输层，网络层，网络访问层，每一层包括很多协议，因为TCP、IP协议是两个很重要的协议，就用它两命名，主要解决 <strong>数据如何在网络中传输</strong></p><h3 id="2-HTTP"><a href="#2-HTTP" class="headerlink" title="2.HTTP"></a>2.HTTP</h3><p>HTTP协议，主要解决如何 <strong>包装数据</strong></p><h3 id="3-Socket"><a href="#3-Socket" class="headerlink" title="3.Socket"></a>3.Socket</h3><p>Socket本身并不是协议，是对TCP/IP协议的 <strong>封装</strong>，是一个调用接口（API）<br>通过Socket，才能使用TCP/IP协议，<br>就像操作系统会提供标准的编程接口，TCP/IP也要提供可供程序员做网络开发所用的接口，这就是Socket编程接口</p><h2 id="二、TCP三次握手、四次挥手"><a href="#二、TCP三次握手、四次挥手" class="headerlink" title="二、TCP三次握手、四次挥手"></a>二、TCP三次握手、四次挥手</h2><p><a href="https://github.com/jawil/blog/issues/14" target="_blank" rel="noopener">https://github.com/jawil/blog/issues/14</a></p><p>TCP是 <strong>面向连接</strong>的协议，在收发数据前，必须和对方建立可靠的连接</p><p>TCP建立连接为什么是三次握手?是为了满足在不可靠信道上可靠地传输信息，三次通信是理论上的最小值</p><p>三次握手可以防止以下情况的发生：</p><p>client发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达server。本来这是一个早已失效的报文段，但server收到此失效的连接请求报文段后，就误认为是client再次发出的一个新的连接请求，于是就向client发出确认报文段，同意建立连接。假设不采用“三次握手”，那么只要server发出确认，新的连接就建立了，由于现在client并没有发出建立连接的请求，因此不会理睬server的确认，也不会向server发送数据，但server却以为新的运输连接已经建立，并一直等待client发来数据，server的等待浪费了资源</p><p>当客户端和服务器通过三次握手建立了TCP连接以后，当数据传送完毕，断开TCP的连接，需要四次挥手</p><h2 id="三、TCP与UDP的区别"><a href="#三、TCP与UDP的区别" class="headerlink" title="三、TCP与UDP的区别"></a>三、TCP与UDP的区别</h2><p>TCP是 <strong>面向连接</strong>的、可靠的数据流传输，发送数据前需要先建立连接，<strong>求安全</strong></p><p>TCP可以处理乱序，丢失的数据包（丢失后重发），拥挤情况自动调整传输速率</p><p>UDP不是面向连接的、不可靠的数据流传输，发送数据前不需要建立连接，<strong>求速度</strong></p><p>TCP适合用于网页，邮件等，UDP适合用于视频，语音广播等</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一、TCP-IP-HTTP-Socket&quot;&gt;&lt;a href=&quot;#一、TCP-IP-HTTP-Socket&quot; class=&quot;headerlink&quot; title=&quot;一、TCP/IP HTTP Socket&quot;&gt;&lt;/a&gt;一、TCP/IP HTTP Socket&lt;/h2&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网页生成</title>
+    <link href="http://yoursite.com/2019/01/07/%E7%BD%91%E9%A1%B5%E7%94%9F%E6%88%90/"/>
+    <id>http://yoursite.com/2019/01/07/网页生成/</id>
+    <published>2019-01-07T13:34:17.000Z</published>
+    <updated>2019-01-07T13:38:20.907Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：我不是做前端开发的，因为搭博客的时候，实在是这个也不会那个也不懂，所以连蒙带猜，下面写的只是我个人的理解 ~</p><a id="more"></a><p><br></p><h2 id="一、html、css、js"><a href="#一、html、css、js" class="headerlink" title="一、html、css、js"></a>一、html、css、js</h2><p>段叔叔说的比喻，可以意会一下，html是一篇文章的名词即网页的内容，那css是形容词即网页的样式，js是动词实现一些交互</p><p><a href="https://blog.csdn.net/celtics00/article/details/60466964" target="_blank" rel="noopener">https://blog.csdn.net/celtics00/article/details/60466964</a></p><h3 id="1-html"><a href="#1-html" class="headerlink" title="1.html"></a>1.html</h3><p>html超文本标记语言，只负责描述网页内容</p><p>超文本是指通过超链接的方式将文字组织在一起，标记相当于对网页各个部分内容进行了区分</p><h3 id="2-css"><a href="#2-css" class="headerlink" title="2.css"></a>2.css</h3><p>描述网页样式的语句合并成一个文件，这个文件叫层叠样式表，简称css</p><h3 id="3-js"><a href="#3-js" class="headerlink" title="3.js"></a>3.js</h3><p>JavaScript是一种轻量级的编程语言，通过将js插入到html中执行，可以对事件作出反应 ，改变html内容、图像、样式</p><h2 id="4-三者的关系"><a href="#4-三者的关系" class="headerlink" title="4.三者的关系"></a>4.三者的关系</h2><p><strong>js文件和css文件最终是要应用到html中</strong></p><p>通过 <code>&lt;script&gt;</code> 元素来插入js代码，<code>&lt;script&gt;</code> 元素可以放在 <code>&lt;head&gt;</code> 或 <code>&lt;body&gt;</code> 中，或者在外部编写js文件，在html中引用</p><p>通过 <code>&lt;style&gt;</code> 元素插入css代码，<code>&lt;style&gt;</code> 元素必须放在 <code>&lt;head&gt;</code> 元素中，或者在外部编写css文件，在html中引用，也可以直接在某元素中规定css样式</p><p><br></p><h2 id="二、Node-js、Express、EJS"><a href="#二、Node-js、Express、EJS" class="headerlink" title="二、Node.js、Express、EJS"></a>二、Node.js、Express、EJS</h2><p>###1.Node.js</p><p>Node.js是一个能够在服务器端运行 JavaScript 代码的运行环境</p><p>Node.js在服务器端可以使用 JavaScript，既然是驱动 JavaScript 的工具，所以也是由 JavaScript 引擎驱动(后面第三部分写到引擎部分)</p><p>PS：其实这里不是很明白，是我理解的问题吗，部署博客之前，一般会看看效果，使用 <code>hexo s</code> 启用服务预览，相当于将本机作为服务器，浏览器从本地端口 localhost：4000 读取数据，浏览器渲染网页，不明白Node.js到底做了什么??</p><h3 id="2-Express"><a href="#2-Express" class="headerlink" title="2.Express"></a>2.Express</h3><p>Express是一个基于Node.js平台的web应用开发框架</p><p>Express的模板有很多，目前较流行的应该是Jade和EJS</p><h3 id="3-EJS"><a href="#3-EJS" class="headerlink" title="3.EJS"></a>3.EJS</h3><p>EJS是Express的模板引擎</p><p><a href="https://blog.csdn.net/zdy0_2004/article/details/49480305" target="_blank" rel="noopener">https://blog.csdn.net/zdy0_2004/article/details/49480305</a></p><p><strong>模板引擎</strong>做的两件事：</p><p>1.根据一定的规则，解析所定义的模板(.ejs文件)</p><p>2.根据数据(.json文件)以及模板(.ejs文件)生成html</p><p>注意：浏览器只认识html/css/js，除非将其它语言，进一步转换成html/css/js</p><p><br></p><h2 id="三、浏览器内核和js引擎"><a href="#三、浏览器内核和js引擎" class="headerlink" title="三、浏览器内核和js引擎"></a>三、浏览器内核和js引擎</h2><h3 id="1-渲染引擎"><a href="#1-渲染引擎" class="headerlink" title="1.渲染引擎"></a>1.渲染引擎</h3><p>浏览器内核，即渲染引擎，endering Engine </p><p>渲染引擎，负责浏览器如何显示网页的内容以及页面的格式信息，不同的浏览器内核对网页编写语法的解释不同，因此同一网页在不同的内核的浏览器里的渲染（效果也可能不同。</p><h3 id="2-js引擎"><a href="#2-js引擎" class="headerlink" title="2.js引擎"></a>2.js引擎</h3><p>在早期浏览内核也是包含js引擎的，而现在js引擎单独提出来</p><p>JavaScript 引擎称作进程虚拟机，就是读取和编译 JavaScript 代码，目标就是在最短时间内编译出最优化的代码</p><p>经常看到的 Google v8 就是js引擎</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：我不是做前端开发的，因为搭博客的时候，实在是这个也不会那个也不懂，所以连蒙带猜，下面写的只是我个人的理解 ~&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>yilia主题的相册搭建</title>
+    <link href="http://yoursite.com/2019/01/07/yilia%E4%B8%BB%E9%A2%98%E7%9A%84%E7%9B%B8%E5%86%8C%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2019/01/07/yilia主题的相册搭建/</id>
+    <published>2019-01-07T12:16:15.000Z</published>
+    <updated>2019-01-07T12:18:13.973Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：之前觉得很麻烦，更重要的是不明白网页生成的原理，所以拖着，那天一直做到凌晨一点，总算做出了个大概，前端开发的知识不够啊 </p><p>参考：<a href="https://www.jianshu.com/p/a9f309aaa0e0" target="_blank" rel="noopener">https://www.jianshu.com/p/a9f309aaa0e0</a></p><a id="more"></a><p><br></p><h2 id="一、博客相册的搭建步骤"><a href="#一、博客相册的搭建步骤" class="headerlink" title="一、博客相册的搭建步骤"></a>一、博客相册的搭建步骤</h2><h3 id="1-GitHub上新建一个放图片的仓库"><a href="#1-GitHub上新建一个放图片的仓库" class="headerlink" title="1.GitHub上新建一个放图片的仓库"></a>1.GitHub上新建一个放图片的仓库</h3><p>注意图片的格式 “2019-01-01_xxx”</p><h3 id="2-博客目录下需要的文件"><a href="#2-博客目录下需要的文件" class="headerlink" title="2.博客目录下需要的文件"></a>2.博客目录下需要的文件</h3><p><a href="https://github.com/litten/BlogBackup" target="_blank" rel="noopener">https://github.com/litten/BlogBackup</a></p><p>(1) ejs、js、css、json(通过脚本生成) </p><p>关于这些文件到底有什么用，后面再写</p><p>(2) 更改 ins.js 中 render 函数里的minSrc、src路径对应托管到GitHub的相册地址，注意这里用的是 <strong>raw.githubusercontent.com</strong></p><p>raw.githubusercontent.com 返回存储在GitHub中的文件的原始内容，即没有任何 GitHub 界面</p><p>(3) 这里会漏掉文件 empty.png</p><p>之前觉得很奇怪明明路径什么都是对的，但是相册里的图片就是没有显示，后来发现 render 函数下面有这么一句，所以需要将这个 asserts 文件也 load 下来，放在source目录下 </p><p><img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)"></p><h3 id="3-裁剪和生成json"><a href="#3-裁剪和生成json" class="headerlink" title="3.裁剪和生成json"></a>3.裁剪和生成json</h3><p><a href="https://github.com/lawlite19/Blog-Back-Up" target="_blank" rel="noopener">https://github.com/lawlite19/Blog-Back-Up</a></p><p>ImageProcess.py、tool.py 工具</p><ul><li><p>对需要上传的图片进行裁剪，生成缩略图</p></li><li><p>生成json文件，放在博客目录下</p></li></ul><p><br></p><h2 id="二、问题"><a href="#二、问题" class="headerlink" title="二、问题"></a>二、问题</h2><p>1.tools 是裁减了原图的，它将原图尺寸改为1：1之后，再做了resize 成为缩略图</p><p>2.如果图片名称中出现中文，报错 UnicodeDecodeError: ‘utf8’ codec can’t decode byte </p><p>我真的一遇到编码问题，头就开始晕，后面找个时间整理一下 ~</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：之前觉得很麻烦，更重要的是不明白网页生成的原理，所以拖着，那天一直做到凌晨一点，总算做出了个大概，前端开发的知识不够啊 &lt;/p&gt;
+&lt;p&gt;参考：&lt;a href=&quot;https://www.jianshu.com/p/a9f309aaa0e0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/p/a9f309aaa0e0&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法（二）——递归、迭代、回溯</title>
+    <link href="http://yoursite.com/2019/01/06/%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E9%80%92%E5%BD%92%E3%80%81%E8%BF%AD%E4%BB%A3%E3%80%81%E5%9B%9E%E6%BA%AF/"/>
+    <id>http://yoursite.com/2019/01/06/算法（二）——递归、迭代、回溯/</id>
+    <published>2019-01-06T13:09:14.000Z</published>
+    <updated>2019-01-06T13:17:41.533Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：感觉看样例代码有点明白了，有意思</p><p><a href="https://www.jianshu.com/p/48cf12b84526" target="_blank" rel="noopener">https://www.jianshu.com/p/48cf12b84526</a></p><a id="more"></a><h2 id="1-递归"><a href="#1-递归" class="headerlink" title="1.递归"></a>1.递归</h2><p>函数自己调用自己，将一个大型的复杂的问题转化为一个与原问题相似的规模较小的问题来解决</p><p>我觉得，递归=回溯(从要求的结果到递归终止条件)+迭代(从初值到要求的结果)</p><p><strong>从所需结果出发不断回溯前一运算，回溯过程中这些结果是未知的，直到回溯到初值令回溯终止，再层层递推回来得到当前要求的值</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int funcA(int n)  </span><br><span class="line">&#123;  </span><br><span class="line">    if(n &gt; 1)  </span><br><span class="line">       return n+funcA(n-1);  </span><br><span class="line">    else   </span><br><span class="line">       return 1;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="2-迭代"><a href="#2-迭代" class="headerlink" title="2.迭代"></a>2.迭代</h2><p>根据前一次运算结果，进行下一次运算</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int funcB(int n)  </span><br><span class="line">&#123;  </span><br><span class="line">    int i,s=0;  </span><br><span class="line">    for(i=1;i&lt;n;i++)  </span><br><span class="line">       s+=i;  </span><br><span class="line">    return s;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="3-回溯"><a href="#3-回溯" class="headerlink" title="3.回溯"></a>3.回溯</h2><p>属于递归的一个过程</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：感觉看样例代码有点明白了，有意思&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/48cf12b84526&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/p/48cf12b84526&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法（一）——时间复杂度</title>
+    <link href="http://yoursite.com/2019/01/06/%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"/>
+    <id>http://yoursite.com/2019/01/06/算法（一）——时间复杂度/</id>
+    <published>2019-01-06T13:08:10.000Z</published>
+    <updated>2019-01-06T13:15:02.722Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：和段叔叔跑步的时候推归并排序的 O(nlogn)，我感觉要飞升了</p><p><a href="https://blog.csdn.net/so_geili/article/details/53444816" target="_blank" rel="noopener">https://blog.csdn.net/so_geili/article/details/53444816</a></p><a id="more"></a><p>算法：问题的解决方案，而不是问题的答案</p><p>时间复杂度的计算，可以分为递归和非递归算法</p><h2 id="1-时间复杂度"><a href="#1-时间复杂度" class="headerlink" title="1.时间复杂度"></a>1.时间复杂度</h2><p>描述一个算法，在问题规模不断增大时，对应的时间增长曲线</p><h2 id="2-时间复杂度大O的理解"><a href="#2-时间复杂度大O的理解" class="headerlink" title="2.时间复杂度大O的理解"></a>2.时间复杂度大O的理解</h2><p>(1)T(n)：对于给定输入规模n，算法需要执行的运算次数为n的函数T(n)</p><p>(2)f(n)：存在常数 c 和函数 f(n)，使得当 n &gt;= c 时 T(n) &lt;= f(n)，即T(n)的 <strong>增长率</strong>小于等于f(n)，也说f(n)是T(n)的 <strong>上界</strong></p><p>(3)T(n) = O(f(n))：用 f(n)的增长速度来度量 T(n) 的增长速度，即这个算法的时间复杂度是 O(f(n))</p><h2 id="3-时间复杂度计算规则"><a href="#3-时间复杂度计算规则" class="headerlink" title="3.时间复杂度计算规则"></a>3.时间复杂度计算规则</h2><p>(1)忽略常数项 T(n) = n + 29，时间复杂度为 O(n)</p><p>(2)忽略低次项 T(n) = n^3 + n^2 + 29，时间复杂度为 O(n^3)</p><p>(3)忽略与最高阶相乘的常数 T(n) = 3n^3，此时时间复杂度为 O(n^3)</p><h2 id="4-递归算法时间复杂度的计算"><a href="#4-递归算法时间复杂度的计算" class="headerlink" title="4.递归算法时间复杂度的计算"></a>4.递归算法时间复杂度的计算</h2><p>PS：这个东西我真的很抗拒，各种放缩技巧</p><p>(1)主项定理</p><p>(2)递归树</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：和段叔叔跑步的时候推归并排序的 O(nlogn)，我感觉要飞升了&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/so_geili/article/details/53444816&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/so_geili/article/details/53444816&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>caffe（六）——可视化网络工具Netscope</title>
@@ -338,109 +442,6 @@
     
     
       <category term="编译" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编译和链接（二）——静态链接和动态链接</title>
-    <link href="http://yoursite.com/2018/12/19/%E7%BC%96%E8%AF%91%E5%92%8C%E9%93%BE%E6%8E%A5%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5/"/>
-    <id>http://yoursite.com/2018/12/19/编译和链接（二）——静态链接和动态链接/</id>
-    <published>2018-12-19T12:42:24.000Z</published>
-    <updated>2019-01-05T05:42:30.861Z</updated>
-    
-    <content type="html"><![CDATA[<p>预处理（需要头文件）（.c） -&gt; 编译器将源码转换为汇编代码（.asm） -&gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&gt;运行</p><p><img src="https://github.com/Sophia0130/Blog-Album/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true" alt=""></p><a id="more"></a><p><br></p><h2 id="一、编译和链接"><a href="#一、编译和链接" class="headerlink" title="一、编译和链接"></a>一、编译和链接</h2><p>编译：只要有头文件中的声明就足够了，头文件只是告诉编译器，函数是如何去调用如何返回</p><p>链接：把已经编译好的.obj和现有的.lib文件进行链接，这时生成可执行文件</p><p><br></p><h2 id="二、头文件和库文件"><a href="#二、头文件和库文件" class="headerlink" title="二、头文件和库文件"></a>二、头文件和库文件</h2><p>头文件：提供声明，编译的时候需要</p><p>库文件：提供定义/实现，链接时将指定的目标文件抽取出</p><p><br></p><h2 id="三、库"><a href="#三、库" class="headerlink" title="三、库"></a>三、库</h2><h3 id="1-lib后缀的库有两种"><a href="#1-lib后缀的库有两种" class="headerlink" title="1. lib后缀的库有两种"></a>1. lib后缀的库有两种</h3><ol><li>静态链接库（.lib）：静态库是一个或者多个obj文件的打包，包含了实际执行代码</li><li>动态链接库的导入库（.lib）：属于动态链接库的附加依赖项，只包含了确保程序找到对应函数的一些基本索引信息</li></ol><p><br></p><h3 id="2-dll后缀的库"><a href="#2-dll后缀的库" class="headerlink" title="2. dll后缀的库"></a>2. dll后缀的库</h3><p>动态链接库（.dll）：是具体的实现，程序运行时动态调用</p><p><br></p><p> n</p><h2 id="四、静态链接"><a href="#四、静态链接" class="headerlink" title="四、静态链接"></a>四、静态链接</h2><h3 id="1-用到的库"><a href="#1-用到的库" class="headerlink" title="1. 用到的库"></a>1. 用到的库</h3><p>静态链接库：（.lib为后缀）是一个或者多个obj文件的打包 ，<strong>『 链接时使用』</strong></p><h3 id="2-静态链接"><a href="#2-静态链接" class="headerlink" title="2. 静态链接"></a>2. 静态链接</h3><p><strong>把.lib文件中用到的函数代码直接链接进可执行文件</strong>，程序运行的时候不再需要其它的库文件</p><h3 id="3-优点"><a href="#3-优点" class="headerlink" title="3. 优点"></a>3. 优点</h3><p>程序在运行时与其它库函数无关，用户安装时就不需要再挂动态库，移植方便</p><h3 id="4-缺点"><a href="#4-缺点" class="headerlink" title="4. 缺点"></a>4. 缺点</h3><p>所有相关的目标文件和函数库被链接合成一个可执行文件，当多个程序都调用相同函数时，内存中就会存在这个函数的多个拷贝，浪费空间和资源</p><p><br></p><h2 id="五、动态链接"><a href="#五、动态链接" class="headerlink" title="五、动态链接"></a>五、动态链接</h2><h3 id="1-用到的库-1"><a href="#1-用到的库-1" class="headerlink" title="1. 用到的库"></a>1. 用到的库</h3><ul><li>动态链接库的导入库： （.lib为后缀）属于动态链接库的附加依赖项，一般是一些索引信息，告诉链接器调用的函数在哪个dll中，函数执行代码在dll中的什么位置，<strong>『 链接时使用』</strong></li><li>动态链接库：（.dll为后缀）具体的实现，<strong>『 程序运行时使用』</strong></li></ul><h3 id="2-动态链接"><a href="#2-动态链接" class="headerlink" title="2. 动态链接"></a>2. 动态链接</h3><p>调用的函数代码并没有被拷贝到可执行文件中，仅仅在其中加入了所调用函数的索引信息，只有当应用程序被装入内存开始运行时，在Windows的管理下，才在应用程序与相应的dll之间建立链接关系。</p><h3 id="3-优点-1"><a href="#3-优点-1" class="headerlink" title="3. 优点"></a>3. 优点</h3><p>这样当一个或多个应用程序运行时，才将程序代码和被调用的函数代码链接起来，从而节省了内存资源</p><h3 id="4-缺点-1"><a href="#4-缺点-1" class="headerlink" title="4. 缺点"></a>4. 缺点</h3><p>dll 和 lib 文件必须随应用程序一起发行，否则应用程序将会产生错误</p><p><img src="http://p8ge6t5tt.bkt.clouddn.com/%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;预处理（需要头文件）（.c） -&amp;gt; 编译器将源码转换为汇编代码（.asm） -&amp;gt; 汇编器将汇编代码转换为目标文件，即二进制文件 （.obj）-&amp;gt; 链接器将目标文件和库链接（需要库文件）（.exe）-&amp;gt;运行&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/Sophia0130/Blog-Album/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="编译" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编译和链接（一）——预处理、编译、链接</title>
-    <link href="http://yoursite.com/2018/12/19/%E7%BC%96%E8%AF%91%E5%92%8C%E9%93%BE%E6%8E%A5%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E9%A2%84%E5%A4%84%E7%90%86%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E9%93%BE%E6%8E%A5/"/>
-    <id>http://yoursite.com/2018/12/19/编译和链接（一）——预处理、编译、链接/</id>
-    <published>2018-12-19T12:19:02.000Z</published>
-    <updated>2019-01-05T05:41:49.307Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：这个博主连载了四篇关于编译、链接的博文，思路很清晰，推荐看原文，我只是用自己的话做了个总结</p><p><a href="https://segmentfault.com/a/1190000016433947" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016433947</a></p><p><img src="https://github.com/Sophia0130/Blog-Album/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true" alt=""></p><font color="#f58220"><strong>注意：编译包括了使用编译器生成汇编代码，和使用汇编器生成目标文件两部分</strong></font><p>1.编译：将一个源文件转为目标文件<br>2.链接：将多个目标文件之间产生关联</p><a id="more"></a><h2 id="一、预处理"><a href="#一、预处理" class="headerlink" title="一、预处理"></a>一、预处理</h2><p>预处理不对源代码进行解析，主要是 <strong>文本替换</strong>，即展开的过程</p><p>1.文件包含<br>2.宏定义<br>3.条件编译</p><h2 id="一、编译与目标文件"><a href="#一、编译与目标文件" class="headerlink" title="一、编译与目标文件"></a>一、编译与目标文件</h2><h3 id="1-编译"><a href="#1-编译" class="headerlink" title="1.编译"></a>1.编译</h3><p>编译的任务就是将汇编或高级计算机语言源程序转换成目标文件，即机器可以执行的机器指令</p><p>源文件被编译后生成的目标文件可以简单的理解为两部分：</p><p>代码段：源文件中定义的所有函数翻译成机器指令，存放在目标文件的代码部分<br>数据段：源文件中定义的全局变量，存放在目标文件的数据部分<br>（注意：局部变量是函数私有的，所以被放在了代码段中，作为机器指令的操作数）</p><p>在遇到外部定义的全局变量或者函数时 <font color="#f58220"><strong>只要能在当前文件找到其声明</strong></font>，编译器就认为编译正确<br>而寻找使用变量定义的这项任务就被留给了链接器，链接器的其中一项任务就是要确定所使用的变量要有其唯一的定义<br><br></p><h3 id="2-符号表-Symbol-table"><a href="#2-符号表-Symbol-table" class="headerlink" title="2.符号表(Symbol table)"></a>2.符号表(Symbol table)</h3><p>在编译过程中每次遇到一个全局变量或者函数名就会在符号表中添加一项，最终编译器会统计出一张符号表</p><p>符号表中保存的信息有两部分：</p><ul><li>目标文件中引用的全局变量以及函数，仅仅只是声明，未定义</li><li>目标文件中定义的全局变量以及函数</li></ul><p>符号表想表达的两件事：</p><ul><li>我能提供给其它文件使用的符号</li><li>我需要其它文件提供给我使用的符号</li></ul><p>符号表被放在目标文件中<br><br></p><h3 id="3-目标文件"><a href="#3-目标文件" class="headerlink" title="3.目标文件"></a>3.目标文件</h3><p>当前代码中引用，定义在其它源文件中的变量、函数，编译无法确定其内存地址，只有在进行链接时才能够确定这类变量、函数的内存地址</p><p>因此在目标文件中对于这些变量、函数的引用，对应的机器指令可能是:<br><code>call 0x000000</code></p><p>即编译器将不能确定的地址都这设置为空(0x000000)，同时编译器还会生成一条记录，告诉链接器在进行链接时要修正这条指令中的内存地址</p><ul><li>使用外部定义的函数，这个记录就放在了目标文件的.rel.text段中</li><li>使用外部定义的全局变量，则该记录放在了目标文件的.rel.data段中</li></ul><p>即链接器需要在链接过程中根据.rel.data以及.rel.text来填好编译器留下的空白位置(0x000000)</p><p>目标文件的内容如下图：<br><img src="https://image-static.segmentfault.com/340/576/3405765965-5b9f3fc6b5f70" alt=""></p><p><br></p><h2 id="二、链接器"><a href="#二、链接器" class="headerlink" title="二、链接器"></a>二、链接器</h2><h3 id="1-符号表决"><a href="#1-符号表决" class="headerlink" title="1.符号表决"></a>1.符号表决</h3><p>根据编译后得到的目标文件中的符号表，链接器根据所有目表文件进行符号决议，即 <font color="#f58220"><strong>确保所有目标文件中的符号引用都有唯一的定义</strong></font></p><p>1.对于当前目标文件，查找其符号表，并将已定义的符号并添加到已定义符号集合D中<br>2.对于当前目标文件，查找其符号表，将每一个当前目标文件引用的符号与已定义符号集合D进行对比，如果该符号不在集合D中则将其添加到未定义符合集合U中<br>3.当所有文件都扫描完成后，如果 <strong>未定义符号集合U不为空</strong>，则说明当前输入的目标文件集合中有未定义错误，链接器报错，整个编译过程终止<br><br></p><h3 id="2-重定位"><a href="#2-重定位" class="headerlink" title="2.重定位"></a>2.重定位</h3><p>PS：以下关于重定义的分析， <font color="#f58220"><strong>仅限于静态链接</strong></font>，该情况下，代码和数据都合并到可执行文件中，因此需要确定代码和数据的最终位置</p><p>编译时，无法确定，定义在其它源文件中的变量、函数的内存地址<br>链接时，才能确定可执行文件中代码和数据运行时的内存地址</p><p>确定程序运行时地址的过程就是重定位，重定位分为两步：</p><p>1.链接时，需要对所有目标文件的数据段和代码段的内存地址进行修正，编译得到的目标文件得到的只是相对地址<br>2.链接器扫描所有的.rel.text以及.rel.data段并找到相应记录的最终内存地址，并将机器指令中的<code>0x000000</code>修正为最终内存地址</p><p>PS：最后那个博主提出了一个问题，如果运行两次可执行文件，会不会出现内存内存占用的问题，而两个程序之间产生影响</p><p>回答肯定是不会的，从 <strong>操作系统</strong>层面来解释，从<font color="#f58220"><strong>虚拟内存里面看到的内存地址是一样的</strong></font>，但是物理地址不可能一样</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：这个博主连载了四篇关于编译、链接的博文，思路很清晰，推荐看原文，我只是用自己的话做了个总结&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000016433947&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://segmentfault.com/a/1190000016433947&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/Sophia0130/Blog-Album/blob/master/blog-img-%E7%BC%96%E8%AF%91/%E8%BF%87%E7%A8%8B.jpg?raw=true&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;font color=&quot;#f58220&quot;&gt;&lt;strong&gt;注意：编译包括了使用编译器生成汇编代码，和使用汇编器生成目标文件两部分&lt;/strong&gt;&lt;/font&gt;
-
-&lt;p&gt;1.编译：将一个源文件转为目标文件&lt;br&gt;2.链接：将多个目标文件之间产生关联&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="编译" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux（六）——进程调度</title>
-    <link href="http://yoursite.com/2018/12/17/Linux%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6/"/>
-    <id>http://yoursite.com/2018/12/17/Linux（六）——进程调度/</id>
-    <published>2018-12-17T08:34:34.000Z</published>
-    <updated>2018-12-17T08:44:52.829Z</updated>
-    
-    <content type="html"><![CDATA[<p>转载自：</p><p><a href="https://blog.csdn.net/qq_32811489/article/details/70768264" target="_blank" rel="noopener">https://blog.csdn.net/qq_32811489/article/details/70768264</a></p><a id="more"></a><h2 id="linux内核的三种调度方法"><a href="#linux内核的三种调度方法" class="headerlink" title="linux内核的三种调度方法"></a>linux内核的三种调度方法</h2><p>1.SCHED_OTHER<br>分时调度策略</p><p>2.SCHED_FIFO 实时调度策略，先到先服务，一旦占用cpu则一直运行，直到有更高优先级任务到达或自己放弃 </p><p>3.SCHED_RR<br>实时调度策略，时间片轮转，当进程的时间片用完，系统将重新分配时间片，并置于就绪队列尾，保证了所有具有相同优先级的RR任务的 <strong>调度公平</strong></p><p>实时进程：得到优先调用，实时进程根据 <strong>实时优先级</strong>决定调度权值<br>分时进程：曾经使用cpu最少的进程将会得到优先调度</p><p><br></p><h2 id="既有分时调度，又有时间片轮转调度和先进先出调度"><a href="#既有分时调度，又有时间片轮转调度和先进先出调度" class="headerlink" title="既有分时调度，又有时间片轮转调度和先进先出调度"></a>既有分时调度，又有时间片轮转调度和先进先出调度</h2><p>1.当实时进程准备就绪，如果当前cpu正运行非实时进程，则 <strong>实时进程立即抢占非实时进程</strong></p><p>2.RR进程和FIFO进程都采用实时优先级做为调度的权值</p><p>3.对于FIFO，如果两个进程的优先级一样，则这两个优级一样的进程具体执行哪一个是由其在队列中的位置决定的，这样导致一些不公正性</p><p>4.对于RR，两个优先级一样的任务可以循环执行，保证了公平</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;转载自：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_32811489/article/details/70768264&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/qq_32811489/article/details/70768264&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Debug、Release版本下 多线程问题</title>
-    <link href="http://yoursite.com/2018/11/28/Debug%E3%80%81Release%E7%89%88%E6%9C%AC%E4%B8%8B-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/11/28/Debug、Release版本下-多线程问题/</id>
-    <published>2018-11-28T09:16:44.000Z</published>
-    <updated>2018-11-29T06:21:57.693Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：今天做项目的时候，开多线程测试，遇到了一个奇怪的问题，到现在都没有办法解释～<br><a id="more"></a>      </p><p>多线程在Debug版本下的cout部分会正常输出   </p><p>多线程在Release版本下的cout部分似乎受到了阻塞</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//开了四个线程</span><br><span class="line">while(times&lt;4) &#123;&#125;;  //保证4个线程运行完进行cout</span><br><span class="line">//其它代码</span><br><span class="line">//cout部分</span><br></pre></td></tr></table></figure><p>Release版本的代码改为以下形式，while里加cout，所有cout部分就都能正常输出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//开了四个线程</span><br><span class="line">while(tims&lt;4) &#123;cout&lt;&lt;&quot;&quot;;&#125;       //保证4个线程运行完进行cout</span><br><span class="line">//其它代码</span><br><span class="line">//cout部分</span><br></pre></td></tr></table></figure><p><br><br>很服气，到底cout、while、Release是什么关系</p><hr><p>更新问题：</p><p>哇，真的超级崇拜我家Uncle D，晚上他试了几次，就找到问题所在，其实是 <strong>Release优化</strong>的问题 </p><p>（1）首先，这个和cout无关，之前觉得是cout多线程缓存区刷新的问题，后来发现不论将后面的代码改为printf还是文件输出都没有反应</p><p>（2）其次，这个问题和Release优化相关，将VS项目属性里C/C++下的优化改为禁用，while后面部分就能正常执行</p><p>（3）接着，解释为什么while后面的代码不执行，因为编译器觉得当前线程中times只加1次，所以times不能加到4，while是个死循环，所以while后的代码不执行</p><p>（4）最后，解释为什么在while的循环体内使用cin、cout、printf这些输入输出流，就能跨过while，因为输入输出能够 <strong>触发中断</strong>，这个时候while循环就不会被优化掉</p><p>最后的最后，他说是我程序写的有问题，因为我将times定义为全局，在每个线程结束处进行times++，编译器会觉得times加不到4，用 for和 <code>pthread_join()</code> 等待线程结束，不用while去等待所有线程结束</p><p>怎么办，现在越来越崇拜Uncle D了，无法自拔的痴迷 ~<br>现在发展到，他在旁边报代码，我来写的地步了，这样不好，我得自己思考 ~</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：今天做项目的时候，开多线程测试，遇到了一个奇怪的问题，到现在都没有办法解释～&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Dlib中imglab生成失败的解决方法</title>
-    <link href="http://yoursite.com/2018/11/19/Dlib%E4%B8%ADimglab%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2018/11/19/Dlib中imglab生成失败的解决方法/</id>
-    <published>2018-11-19T01:12:46.000Z</published>
-    <updated>2018-11-19T01:38:11.543Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：花了一个晚上才把imglab这个标注工具生成失败的问题解决，哎，我真的太木了<br><a id="more"></a></p><h2 id="1-问题所在"><a href="#1-问题所在" class="headerlink" title="1.问题所在"></a>1.问题所在</h2><p><code>dlib\image_saver</code> 下的头文件 <code>save_png.h</code> 出现 Assertion Failed<br>可以看到作者在 <code>#ifndef DLIB_PNG_SUPPORT</code> 下其实打了超多感叹号的注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You are getting this error because you are trying to use save_png() but you haven&apos;t defined DLIB_PNG_SUPPORT.  You must do so to use this function. You must also make sure you set your build environment to link against the libpng library.</span><br></pre></td></tr></table></figure></p><p><br></p><h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2.解决方法"></a>2.解决方法</h2><p>解决方法很简单，我开始还在研究是不是要配置第三方库libpng和zlib的环境<br>其实只要在imglab主函数里声明<br> <code>#define DLIB_PNG_SUPPORT</code> 和 <code>#define DLIB_JPEG_SUPPORT</code></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：花了一个晚上才把imglab这个标注工具生成失败的问题解决，哎，我真的太木了&lt;br&gt;
-    
-    </summary>
-    
     
   </entry>
   
