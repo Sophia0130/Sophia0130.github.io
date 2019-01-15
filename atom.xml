@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-15T09:37:59.267Z</updated>
+  <updated>2019-01-15T11:55:08.547Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>区块链</title>
+    <link href="http://yoursite.com/2019/01/15/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    <id>http://yoursite.com/2019/01/15/区块链/</id>
+    <published>2019-01-15T11:38:12.000Z</published>
+    <updated>2019-01-15T11:55:08.547Z</updated>
+    
+    <content type="html"><![CDATA[<p>本来今天只是看了一下关于哈希和密码学的基础，不知道怎么就翻到区块链了，之前也有了解，只是一些很模糊的名词概念，今天看了一下，突然觉得自己的视野确实太狭小了，我以为的世界都是平铺直叙，原来，你来我往错综复杂，才是世界的本态。</p><p>突然，就想感慨一下，知识能够创造新概念，而技术能够促进概念的落地，这个时代真的不缺新生物，所以我们一直在追赶。但是这里就会出现一个分化，是选择追求知识，还是追求技术?可悲的是，大多数的我们，无法对周遭的瞬息万变有敏锐的嗅觉，那就只能远远落后，默默接受新生物的存在，默默承受被这个时代改变的命运。</p><p>真心觉得这个教程写得挺不错的，花一个多小时理解一下，还是很有启发的，而且博客下的评论也很值得去看看</p><p>区块链：<a href="http://www.ruanyifeng.com/blog/2017/12/blockchain-tutorial.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2017/12/blockchain-tutorial.html</a><br>比特币：<a href="http://www.ruanyifeng.com/blog/2018/01/bitcoin-tutorial.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2018/01/bitcoin-tutorial.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本来今天只是看了一下关于哈希和密码学的基础，不知道怎么就翻到区块链了，之前也有了解，只是一些很模糊的名词概念，今天看了一下，突然觉得自己的视野确实太狭小了，我以为的世界都是平铺直叙，原来，你来我往错综复杂，才是世界的本态。&lt;/p&gt;
+&lt;p&gt;突然，就想感慨一下，知识能够创造新概
+      
+    
+    </summary>
+    
+    
+      <category term="区块链" scheme="http://yoursite.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>密码学</title>
@@ -437,26 +461,6 @@
     
       &lt;h2 id=&quot;XGBoost&quot;&gt;&lt;a href=&quot;#XGBoost&quot; class=&quot;headerlink&quot; title=&quot;XGBoost&quot;&gt;&lt;/a&gt;XGBoost&lt;/h2&gt;&lt;p&gt;1.多个决策树的 &lt;strong&gt;集成&lt;/strong&gt;               &lt;/p&gt;
 &lt;p&gt;2.一个树一个树向里增加，同时每加一个树，需要保证效果是提升的&lt;br&gt;当要增加树的时候，会将前面的树当成一个整体，构造的树，使得之前当成整体的目标函数减小&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习（三）——PCA</title>
-    <link href="http://yoursite.com/2018/12/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94PCA/"/>
-    <id>http://yoursite.com/2018/12/24/机器学习（三）——PCA/</id>
-    <published>2018-12-24T09:28:20.000Z</published>
-    <updated>2019-01-05T05:42:36.488Z</updated>
-    
-    <content type="html"><![CDATA[<p>PS：关于PCA数学推导，协方差矩阵、特征向量计算的那部分我就不放</p><a id="more"></a><h2 id="一、降维"><a href="#一、降维" class="headerlink" title="一、降维"></a>一、降维</h2><p>projection 高维到低维的 <strong>投影</strong><br>highly redundant features 可以减少多余的特征</p><p><br></p><h2 id="二、为什么需要降维"><a href="#二、为什么需要降维" class="headerlink" title="二、为什么需要降维"></a>二、为什么需要降维</h2><p>1.使用较少的计算机内存或磁盘空间（选择k，使得原数据的方差尽可能保留）<br>2.加快学习算法（选择k，使得原数据的方差尽可能保留）<br>3.可视化数据（选择k=2、3，将数据放在二维平面或三维空间展示）</p><p><br></p><h2 id="三、PCA"><a href="#三、PCA" class="headerlink" title="三、PCA"></a>三、PCA</h2><h3 id="1-PCA的理解"><a href="#1-PCA的理解" class="headerlink" title="1.PCA的理解"></a>1.PCA的理解</h3><p><strong>PCA就是找到一个低维的平面，把所有的数据都投射到该平面上时，使得投射误差 projection error 尽可能的小</strong></p><p>n维降到k维，就是在n维空间中，找一个低维空间，<strong>该低维空间可以用k个n维的向量来表示</strong>，把所有的数据都投射到该空间中，使得投射的误差 projection error 尽可能的小</p><h3 id="2-PCA需要计算"><a href="#2-PCA需要计算" class="headerlink" title="2.PCA需要计算"></a>2.PCA需要计算</h3><p>(1)用于降维的，k个n维的方向向量 U_redeuce<br>(2)数据在低维空间投影后的特征 Z</p><h3 id="3-PCA实现步骤"><a href="#3-PCA实现步骤" class="headerlink" title="3.PCA实现步骤"></a>3.PCA实现步骤</h3><p><img src="https://github.com/Sophia0130/Blog-Album/blob/master/blog-img-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/PCA%E6%AD%A5%E9%AA%A4%E5%AE%9E%E7%8E%B0.jpg?raw=true" alt=""></p><h3 id="4-PCA数学推导"><a href="#4-PCA数学推导" class="headerlink" title="4.PCA数学推导"></a>4.PCA数学推导</h3><h3 id="5-PCA与线性回归的区别"><a href="#5-PCA与线性回归的区别" class="headerlink" title="5.PCA与线性回归的区别"></a>5.PCA与线性回归的区别</h3><p>[右图] PCA最小化的是 <strong>投射误差</strong>（projection Error），不做预测<br>[左图] 线性回归最小化的是 <strong>预测误差</strong>，即预测结果与实际标签的距离</p><p><img src="https://images2015.cnblogs.com/blog/788978/201605/788978-20160524003006303-547302950.png" alt=""></p><p><br></p><h2 id="四、主成分个数k的选择"><a href="#四、主成分个数k的选择" class="headerlink" title="四、主成分个数k的选择"></a>四、主成分个数k的选择</h2><p>PCA的目的：是减少投射的平均均方误差</p><p>PCA的ｋ选取是：投射的平均均方误差与训练集方差的比例尽可能小的情况下，选择尽可能小的k<br>（这个比例小于1%，意味着原本数据的 <strong>方差</strong>有99%都保留下来了）</p><p>选取步骤：<br>1.令k=1，然后进行主要成分分析，获得前k个特征向量 U_reduce 和计算原数据 X 投影后的数据 Z<br>2.计算投射的平均均方误差与训练集方差的比例，是否小于1%<br>（如果不满足，令k=2，如此类推，直到找到可以使得比例小于1%的最小k值）</p><p><img src="https://images2015.cnblogs.com/blog/788978/201605/788978-20160524003014225-1738231865.png" alt=""></p><p><br></p><h2 id="五、PCA不适合设防止过拟合"><a href="#五、PCA不适合设防止过拟合" class="headerlink" title="五、PCA不适合设防止过拟合"></a>五、PCA不适合设防止过拟合</h2><p>PCA并不是一个好的方法用来防止过拟合，防止过拟合，还是应该用正则化</p><p>原因：<br>1.PCA是无监督的，会 <strong>丢失与Y相关的信息</strong><br>PCA是 <strong>无监督</strong>的，只关注输入数据X之间的相关性，降低数据Ｘ的维度，而不考虑标签Y，会让与Y有关的信息被丢失<br>对于监督学习，则寻找的是X与Y之间的联系</p><p>2.PCA会 <strong>丢失方差小的特征</strong><br><strong>PCA的假设是方差越大信息量越多</strong>，但是方差小的特征并不代表表对于标签没有意义</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PS：关于PCA数学推导，协方差矩阵、特征向量计算的那部分我就不放&lt;/p&gt;
     
     </summary>
     
