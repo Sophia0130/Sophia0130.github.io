@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-10T09:08:28.965Z</updated>
+  <updated>2019-01-15T09:37:59.267Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>密码学</title>
+    <link href="http://yoursite.com/2019/01/15/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    <id>http://yoursite.com/2019/01/15/密码学/</id>
+    <published>2019-01-15T09:20:33.000Z</published>
+    <updated>2019-01-15T09:37:59.267Z</updated>
+    
+    <content type="html"><![CDATA[<p>PS：最近老是看到MD5和SHA-1，不知道这是什么，所以就看了一下crash course解密的那一集，突然发现，自己对计算机网络的认识真的是太肤浅了<br>以前觉得hash不就是某种数据结构，没想过有其它用途<br>以前觉得网络就是从某个地方取数据，没考虑过安全问题</p><a id="more"></a><p><br></p><hr><p>crash course 学习心得</p><p>替换加密：凯撒密码</p><p>将字母替换为其它字母，缺点是字母出现频率一样，字母E加密为字母X，字母E出现频率很高，则密文中字母X的出现频率也会很高</p><p>移位加密</p><p>将明文放入网格，从某个方向读</p><p>Enigma机</p><p>这个转子的机械结构真的是神奇</p><p>密钥交换：Diffie-Hellman </p><p>Diffie-Hellman 通过模幂运算这种单向函数，可以双方共享密钥<br><code>基数^指数 mod 模</code> 其中基数和模是公开的   </p><p>甲：选择了指数x 甲=B^x mod M<br>乙：选择了指数y 乙=B^y mod M<br>甲乙互相交换模幂运算结果<br>甲乙建立的共享密钥=(B^x mod M)^y=(B^y mod M)^x</p><p>数学真神奇</p><hr><p><br></p><h2 id="一、对称加密、非对称加密"><a href="#一、对称加密、非对称加密" class="headerlink" title="一、对称加密、非对称加密"></a>一、对称加密、非对称加密</h2><h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><p>加、解密使用的同是一串密钥， 常用的对称加密算法：DES，AES等</p><h3 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h3><p>加、解密使用不同的密钥，公钥加密的信息，只有私钥才能解密。反之，私钥加密的信息，只有公钥才能解密。 常用的非对称加密算法：RSA</p><p><br></p><h2 id="二、数字摘要、数字签名"><a href="#二、数字摘要、数字签名" class="headerlink" title="二、数字摘要、数字签名"></a>二、数字摘要、数字签名</h2><p>下面面这个例子很不错啊</p><p><a href="http://www.cnblogs.com/JeffreySun/archive/2010/06/24/1627247.html" target="_blank" rel="noopener">http://www.cnblogs.com/JeffreySun/archive/2010/06/24/1627247.html</a></p><h3 id="１-数字摘要（Digital-Digest）"><a href="#１-数字摘要（Digital-Digest）" class="headerlink" title="１.数字摘要（Digital Digest）"></a>１.数字摘要（Digital Digest）</h3><p>数字摘要也称作为安全HASH编码法（SHA：Secure Hash Algorithm），常用的摘要算法有MD5、SHA1、SHA256</p><p>一段信息，经过摘要算法得到一串哈希值，就是摘要(digest)，信息是任意长度，而摘要是定长<br>摘要不同于加密算法，不存在解密，从摘要反推原信息很难（可以认为能加密但无法解密还原，但可以通过比对摘要是否相同，判断原信息是否相同）</p><p>算法的基本要求</p><ul><li>正向快速：给定明文和 hash 算法，在有限时间和有限资源内能计算出 hash 值</li><li>逆向困难：给定（若干） hash 值，在有限时间内很难（基本不可能）逆推出明文</li><li>输入敏感：原始输入信息修改一点信息，产生的 hash 值看起来应该都有很大不同</li><li>冲突避免：很难找到两段内容不同的明文，使得它们的 hash 值一致（发生冲突）</li></ul><p>摘要相同，信息一定相同，利用这个特点，摘要还可以用于应用在网站后台数据库中，用于比对用户的输入密码和预设密码是否相同。这里都无需关心密码本身是什么，关注的是密码是否相同，而密码是否相同取决于摘要是否相同，所以问题转化成了摘要是否相同。将用户密码的摘要而不是密码本身保存在数据库中，因为反推很难，所以真实密码是保密的。</p><p><br></p><h3 id="2-数字签名（Digital-Signature）"><a href="#2-数字签名（Digital-Signature）" class="headerlink" title="2.数字签名（Digital Signature）"></a>2.数字签名（Digital Signature）</h3><p>数字签名一般是结合了数字摘要技术和公开密钥算法共同使用</p><p>(1)生成签名信息 </p><ul><li>对信息M进行HASH函数处理，生成摘要H</li><li>发送者私钥加密H来获取数字签名S    </li><li><p>发送 {M, S}  </p><p>(2)验证签名信息 </p></li><li><p>接受{M, S} 并区分开它们 </p></li><li>对接收到的信息M进行HASH函数处理，生成摘要H*    </li><li>取得发送者的公钥    </li><li>用公钥解密S，来获取H </li><li>比较H和H<em>，如果H和H</em>是一样的，即说明信息在发送过程中没有被篡改</li></ul><p>由于明文信息也通过网络进行传递，因此在做完数字签名后，还要对整个信息（包括明文信息M和数字签名的密文信息S）进行加密</p><p><br></p><h3 id="3-数字证书（CA）"><a href="#3-数字证书（CA）" class="headerlink" title="3.数字证书（CA）"></a>3.数字证书（CA）</h3><p>数字证书是由权威机构给某网站颁发的一种认可凭证<br>数字证书可以保证数字证书里的公钥确实是这个证书的所有者</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PS：最近老是看到MD5和SHA-1，不知道这是什么，所以就看了一下crash course解密的那一集，突然发现，自己对计算机网络的认识真的是太肤浅了&lt;br&gt;以前觉得hash不就是某种数据结构，没想过有其它用途&lt;br&gt;以前觉得网络就是从某个地方取数据，没考虑过安全问题&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络、密码学" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E3%80%81%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>caffe（九）——配置文件</title>
@@ -437,29 +457,6 @@
     <summary type="html">
     
       &lt;p&gt;PS：关于PCA数学推导，协方差矩阵、特征向量计算的那部分我就不放&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习（二）——贝叶斯算法</title>
-    <link href="http://yoursite.com/2018/12/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2018/12/24/机器学习（二）——贝叶斯算法/</id>
-    <published>2018-12-24T09:21:17.000Z</published>
-    <updated>2019-01-05T06:50:07.809Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="正向概率、逆向概率"><a href="#正向概率、逆向概率" class="headerlink" title="正向概率、逆向概率"></a>正向概率、逆向概率</h2><p>根据表面现象，做出猜测</p><p><img src="https://github.com/Sophia0130/Blog-Album/blob/master/blog-img-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%AD%A3%E5%90%91%E3%80%81%E9%80%86%E5%90%91%E6%A6%82%E7%8E%87.JPG?raw=true" alt=""></p><h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p>P(B|A) = P(A|B)*P(B) / P(A)</p><p><img src="https://raw.githubusercontent.com/Sophia0130/Blog-Album/master/blog-img-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%85%AC%E5%BC%8F%E7%90%86%E8%A7%A3.jpg" alt=""></p><a id="more"></a><h2 id="实例一：拼写纠正"><a href="#实例一：拼写纠正" class="headerlink" title="实例一：拼写纠正"></a>实例一：拼写纠正</h2><p>用户输入了一个不在字典的单词，猜测用户想输入的单词</p><p>P(猜测用户想输入的单词|用户实际输入的单词)</p><p>用户输入P(D)=“tha”，猜测用户想输入的可能是P(h1)=“the”、P(h2)=“than”……</p><p><br></p><h3 id="一、公式理解"><a href="#一、公式理解" class="headerlink" title="一、公式理解"></a>一、公式理解</h3><p>1.需要求出这些概率，将最大值作为预测的结果</p><p>P(h1|D)=P(猜测用户想输入的=“the”|用户实际输入的=“tha”)<br>P(h2|D)=P(猜测用户想输入的=“than”|用户实际输入的=“tha”)……</p><p>P(h|D)=P(D|h)*P(h)/P(D)</p><p>2.<strong>先验概率</strong></p><p>P(h1)=P(猜测用户想输入的=“the”)<br>P(h2)=P(猜测用户想输入的=“than”) ……<br>即“the”、“than”的词频为先验概率</p><p>3.在某个猜想下，实际的概率</p><p>P(D|h1)=P(用户实际输入的=“tha”|猜测用户想输入的=“the”)<br>P(D|h2 )=P(用户实际输入的=“tha”|猜测用户想输入的=“than”)……</p><p>把“the”写成“tha”的概率，有很多衡量指标，可能与键盘中a和e的远近有关</p><p><br></p><h3 id="二、模型比较理论"><a href="#二、模型比较理论" class="headerlink" title="二、模型比较理论"></a>二、模型比较理论</h3><p>我们希望找出P(h1|D)、P(h2|D)…….中最大的作为预测结果，P(h|D)与P(D|h)*P(h)成正比，那么P(D|h)越大、或者P(h)越大对应的预测越大，越是我们需要的模型</p><p>1.<strong>最大似然估计((maximum likelihood estimation, MLE)</strong></p><p>P(D|h)较大的模型较有优势</p><p>2.<strong>奥卡姆剃刀</strong></p><p>P(h)较大的模型较有优势，即在实际中什么情况越常见，则其优势是越大的</p><p><br></p><h2 id="实例二：垃圾邮件过滤"><a href="#实例二：垃圾邮件过滤" class="headerlink" title="实例二：垃圾邮件过滤"></a>实例二：垃圾邮件过滤</h2><p><img src="https://github.com/Sophia0130/Blog-Album/blob/master/blog-img-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6.JPG?raw=true" alt=""></p><p>1.先验概率 P (h+)、P(h-)可以通过统计邮件库中垃圾邮件、正常邮件的比例来得到</p><p>2.P(D|h+)</p><p>将原始的条件概率通过以下几步化简</p><p>(1)P(D|h+)=P(d1,d2,d3…dn|h+)表示当这封邮件是垃圾邮件时，这封邮件中恰好出现D(d1,d2,d3…dn)中这N个单词的概率</p><p>(2)P(D|h+)=P(d1,d2,d3…dn|h+)=P(d1|h+)*P(d2|d1,h+)*P(d3|d1,d2,h<br>+)*…<br>对P(D|h+)条件概率可以展开为P(d1|h+)*P(d2|d1,h+)*P(d3|d1,d2,h<br>+)*…表示一封垃圾邮件第一个词为d1的概率，一封垃圾邮件第一个词为d1时第二个词为d2的概率，…</p><p>(3)<strong>朴素贝叶斯</strong><br>假设di与di-1互不影响，即 <strong>特征独立</strong><br>P(d1|h+)*P(d2|d1,h+)*P(d3|d1,d2,h<br>+)*…可以化简为P(d1|h+)*P(d2|h+)*P(d3|h<br>+)*…即只要统计垃圾邮件中d1、d2、d3的概率</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;正向概率、逆向概率&quot;&gt;&lt;a href=&quot;#正向概率、逆向概率&quot; class=&quot;headerlink&quot; title=&quot;正向概率、逆向概率&quot;&gt;&lt;/a&gt;正向概率、逆向概率&lt;/h2&gt;&lt;p&gt;根据表面现象，做出猜测&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/Sophia0130/Blog-Album/blob/master/blog-img-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%AD%A3%E5%90%91%E3%80%81%E9%80%86%E5%90%91%E6%A6%82%E7%8E%87.JPG?raw=true&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;公式&quot;&gt;&lt;a href=&quot;#公式&quot; class=&quot;headerlink&quot; title=&quot;公式&quot;&gt;&lt;/a&gt;公式&lt;/h2&gt;&lt;p&gt;P(B|A) = P(A|B)*P(B) / P(A)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Sophia0130/Blog-Album/master/blog-img-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%85%AC%E5%BC%8F%E7%90%86%E8%A7%A3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
