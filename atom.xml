@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-15T11:55:08.547Z</updated>
+  <updated>2019-10-07T13:27:35.175Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vim使用说明</title>
+    <link href="http://yoursite.com/2019/10/07/vim%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+    <id>http://yoursite.com/2019/10/07/vim使用说明/</id>
+    <published>2019-10-07T13:26:26.000Z</published>
+    <updated>2019-10-07T13:27:35.175Z</updated>
+    
+    <content type="html"><![CDATA[<p>一、三种模式<br>命令模式:光标移动、复制粘贴剪切删除(默认打开模式)<br>编辑模式:内容编辑<br>末行模式:搜索、替换、保存、退出、高亮</p><p>命令模式-&gt;末行模式:shift+:<br>末行模式-&gt;命令模式:按一下esc或按两下esc(速度快)或删除末行中所有命令</p><p>命令模式-&gt;编辑模式:i、a用于插入<br>编辑模式-&gt;命令模式:esc</p><p>二、使用<br>1.光标移动(命令模式)<br>行首:shift+6(^)<br>行尾:shift+4($)<br>首行:gg<br>末行:shift+g<br>向上翻页:ctrl+b<br>向下翻页:ctrl+f<br>将光标移动到指定行:数字 shift+g<br>将光标向上/下移动指定行:数字 ↑/↓<br>将光标向左/右移动指定字符:数字 ←/→</p><p>2.复制(命令模式)<br>复制光标所在行:yy<br>复制光标所在行以及以下几行: 数字 yy<br>粘贴:p</p><p>3.剪切/删除(命令模式)<br>剪切光标所在行:dd<br>剪切光标所在行以及以下几行: 数字 dd<br>剪切光标所在行且当前行为空行后面行不上移:shift+d</p><p>4.撤销/恢复(命令模式)<br>撤销,取消上一命令:u<br>恢复,取消之前的撤销:ctrl+r</p><p>5.保存/退出(末行模式)<br>保存: :w<br>另存为: :w 路径<br>退出: :q<br>保存且退出: :wq<br>强制退出不保存: :q!</p><p>6.查找(末行模式)<br>查找:/关键词<br>在查找结果中切换上/下:N/n</p><p>7.替换(末行模式)<br>替换光标所在行的第一个关键词: :s/待替换的关键词/替换内容<br>替换光标所在行的所有关键词: :s/待替换的关键词/替换内容/g<br>替换所有行的第一个关键词: :%s/待替换的关键词/替换内容<br>替换全文: :%s/待替换的关键词/替换内容/g</p><p>8.行号(末行模式)<br>显示行号: :set nu<br>取消行号: :set nonu</p><p>9.打开文件/切换(末行模式)<br>打开多个文件:vim 路径1 路径2 …<br>查看vim已打开的文件: :files(%a表示当前使用的文件，#表示上一个使用的文件)<br>切换文件: :open 文件名<br>切换上/下文件: :bp/bn</p><p>10.编辑<br>在光标所在字符前开始插入:i<br>在光标所在字符后开始插入:i</p><p>11.代码着色(末行模式)<br>显示:: syntax on<br>不显示:: syntax off</p><p>12.计算器(编辑模式)<br>ctrl+r+= 输入计算内容</p><p>13.在vim中调用外部命令(末行模式)<br>例如在vim中调用ls     :!ls</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一、三种模式&lt;br&gt;命令模式:光标移动、复制粘贴剪切删除(默认打开模式)&lt;br&gt;编辑模式:内容编辑&lt;br&gt;末行模式:搜索、替换、保存、退出、高亮&lt;/p&gt;
+&lt;p&gt;命令模式-&amp;gt;末行模式:shift+:&lt;br&gt;末行模式-&amp;gt;命令模式:按一下esc或按两下esc(速度快)
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>区块链</title>
@@ -440,27 +464,6 @@
 &lt;p&gt;2.计算已知实例与未知实例的距离&lt;/p&gt;
 &lt;p&gt;3.选择最近的K个实例&lt;/p&gt;
 &lt;p&gt;4.根据投票原则，将未知实例归为K个最近邻中多数的样本&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习（四）——XGBoost</title>
-    <link href="http://yoursite.com/2018/12/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94XGBoost/"/>
-    <id>http://yoursite.com/2018/12/25/机器学习（四）——XGBoost/</id>
-    <published>2018-12-25T01:09:43.000Z</published>
-    <updated>2018-12-25T01:13:36.434Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h2><p>1.多个决策树的 <strong>集成</strong>               </p><p>2.一个树一个树向里增加，同时每加一个树，需要保证效果是提升的<br>当要增加树的时候，会将前面的树当成一个整体，构造的树，使得之前当成整体的目标函数减小</p><a id="more"></a><h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><p>两者具体的区别：<a href="https://blog.csdn.net/u013709270/article/details/72553282" target="_blank" rel="noopener">https://blog.csdn.net/u013709270/article/details/72553282</a></p><p>Bagging <strong>并行</strong>生成<br>Boosting 将弱分类器 <strong>提升</strong>为强分类器，<strong>串行</strong>生成</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;XGBoost&quot;&gt;&lt;a href=&quot;#XGBoost&quot; class=&quot;headerlink&quot; title=&quot;XGBoost&quot;&gt;&lt;/a&gt;XGBoost&lt;/h2&gt;&lt;p&gt;1.多个决策树的 &lt;strong&gt;集成&lt;/strong&gt;               &lt;/p&gt;
-&lt;p&gt;2.一个树一个树向里增加，同时每加一个树，需要保证效果是提升的&lt;br&gt;当要增加树的时候，会将前面的树当成一个整体，构造的树，使得之前当成整体的目标函数减小&lt;/p&gt;
     
     </summary>
     

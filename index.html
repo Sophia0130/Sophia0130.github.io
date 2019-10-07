@@ -333,6 +333,108 @@
 
 
   
+    <article id="post-vim使用说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/07/vim使用说明/">vim使用说明</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/07/vim使用说明/" class="archive-article-date">
+  	<time datetime="2019-10-07T13:26:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+
+
+<a href="/2019/10/07/vim使用说明/" class="archive-article-date">
+  	<time datetime="2019-10-07T13:26:26.000Z" itemprop="datePublished">2019-10-07</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+
+        
+      </header>
+    
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、三种模式<br>命令模式:光标移动、复制粘贴剪切删除(默认打开模式)<br>编辑模式:内容编辑<br>末行模式:搜索、替换、保存、退出、高亮</p>
+<p>命令模式-&gt;末行模式:shift+:<br>末行模式-&gt;命令模式:按一下esc或按两下esc(速度快)或删除末行中所有命令</p>
+<p>命令模式-&gt;编辑模式:i、a用于插入<br>编辑模式-&gt;命令模式:esc</p>
+<p>二、使用<br>1.光标移动(命令模式)<br>行首:shift+6(^)<br>行尾:shift+4($)<br>首行:gg<br>末行:shift+g<br>向上翻页:ctrl+b<br>向下翻页:ctrl+f<br>将光标移动到指定行:数字 shift+g<br>将光标向上/下移动指定行:数字 ↑/↓<br>将光标向左/右移动指定字符:数字 ←/→</p>
+<p>2.复制(命令模式)<br>复制光标所在行:yy<br>复制光标所在行以及以下几行: 数字 yy<br>粘贴:p</p>
+<p>3.剪切/删除(命令模式)<br>剪切光标所在行:dd<br>剪切光标所在行以及以下几行: 数字 dd<br>剪切光标所在行且当前行为空行后面行不上移:shift+d</p>
+<p>4.撤销/恢复(命令模式)<br>撤销,取消上一命令:u<br>恢复,取消之前的撤销:ctrl+r</p>
+<p>5.保存/退出(末行模式)<br>保存: :w<br>另存为: :w 路径<br>退出: :q<br>保存且退出: :wq<br>强制退出不保存: :q!</p>
+<p>6.查找(末行模式)<br>查找:/关键词<br>在查找结果中切换上/下:N/n</p>
+<p>7.替换(末行模式)<br>替换光标所在行的第一个关键词: :s/待替换的关键词/替换内容<br>替换光标所在行的所有关键词: :s/待替换的关键词/替换内容/g<br>替换所有行的第一个关键词: :%s/待替换的关键词/替换内容<br>替换全文: :%s/待替换的关键词/替换内容/g</p>
+<p>8.行号(末行模式)<br>显示行号: :set nu<br>取消行号: :set nonu</p>
+<p>9.打开文件/切换(末行模式)<br>打开多个文件:vim 路径1 路径2 …<br>查看vim已打开的文件: :files(%a表示当前使用的文件，#表示上一个使用的文件)<br>切换文件: :open 文件名<br>切换上/下文件: :bp/bn</p>
+<p>10.编辑<br>在光标所在字符前开始插入:i<br>在光标所在字符后开始插入:i</p>
+<p>11.代码着色(末行模式)<br>显示:: syntax on<br>不显示:: syntax off</p>
+<p>12.计算器(编辑模式)<br>ctrl+r+= 输入计算内容</p>
+<p>13.在vim中调用外部命令(末行模式)<br>例如在vim中调用ls     :!ls</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/07/vim使用说明/">open >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-区块链" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -982,96 +1084,6 @@
 
 
   
-    <article id="post-yilia主题的相册搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/07/yilia主题的相册搭建/">yilia主题的相册搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/07/yilia主题的相册搭建/" class="archive-article-date">
-  	<time datetime="2019-01-07T12:16:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-07</time>
-</a>
-
-
-<a href="/2019/01/07/yilia主题的相册搭建/" class="archive-article-date">
-  	<time datetime="2019-01-07T12:16:15.000Z" itemprop="datePublished">2019-01-07</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
-    </span>
-</a>
-
-        
-      </header>
-    
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PS：之前觉得很麻烦，更重要的是不明白网页生成的原理，所以拖着，那天一直做到凌晨一点，总算做出了个大概，前端开发的知识不够啊 </p>
-<p>参考：<a href="https://www.jianshu.com/p/a9f309aaa0e0" target="_blank" rel="noopener">https://www.jianshu.com/p/a9f309aaa0e0</a></p>
-        
-          <a class="article-more-a" href="/2019/01/07/yilia主题的相册搭建/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/07/yilia主题的相册搭建/">open >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1196,11 +1208,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color5">Advanced Technology</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1212,7 +1224,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1220,11 +1232,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">硬件</a>
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1232,7 +1244,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1272,11 +1284,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
+                <a href="javascript:void(0)" class="js-tag color1">cs144</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cs144</a>
+                <a href="javascript:void(0)" class="js-tag color2">cs231n</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1288,11 +1300,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">计算机网络、密码学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">计算机网络、密码学</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
