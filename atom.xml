@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-07T13:27:35.175Z</updated>
+  <updated>2019-10-07T13:45:19.068Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,13 @@
     <link href="http://yoursite.com/2019/10/07/vim%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
     <id>http://yoursite.com/2019/10/07/vim使用说明/</id>
     <published>2019-10-07T13:26:26.000Z</published>
-    <updated>2019-10-07T13:27:35.175Z</updated>
+    <updated>2019-10-07T13:45:19.068Z</updated>
     
-    <content type="html"><![CDATA[<p>一、三种模式<br>命令模式:光标移动、复制粘贴剪切删除(默认打开模式)<br>编辑模式:内容编辑<br>末行模式:搜索、替换、保存、退出、高亮</p><p>命令模式-&gt;末行模式:shift+:<br>末行模式-&gt;命令模式:按一下esc或按两下esc(速度快)或删除末行中所有命令</p><p>命令模式-&gt;编辑模式:i、a用于插入<br>编辑模式-&gt;命令模式:esc</p><p>二、使用<br>1.光标移动(命令模式)<br>行首:shift+6(^)<br>行尾:shift+4($)<br>首行:gg<br>末行:shift+g<br>向上翻页:ctrl+b<br>向下翻页:ctrl+f<br>将光标移动到指定行:数字 shift+g<br>将光标向上/下移动指定行:数字 ↑/↓<br>将光标向左/右移动指定字符:数字 ←/→</p><p>2.复制(命令模式)<br>复制光标所在行:yy<br>复制光标所在行以及以下几行: 数字 yy<br>粘贴:p</p><p>3.剪切/删除(命令模式)<br>剪切光标所在行:dd<br>剪切光标所在行以及以下几行: 数字 dd<br>剪切光标所在行且当前行为空行后面行不上移:shift+d</p><p>4.撤销/恢复(命令模式)<br>撤销,取消上一命令:u<br>恢复,取消之前的撤销:ctrl+r</p><p>5.保存/退出(末行模式)<br>保存: :w<br>另存为: :w 路径<br>退出: :q<br>保存且退出: :wq<br>强制退出不保存: :q!</p><p>6.查找(末行模式)<br>查找:/关键词<br>在查找结果中切换上/下:N/n</p><p>7.替换(末行模式)<br>替换光标所在行的第一个关键词: :s/待替换的关键词/替换内容<br>替换光标所在行的所有关键词: :s/待替换的关键词/替换内容/g<br>替换所有行的第一个关键词: :%s/待替换的关键词/替换内容<br>替换全文: :%s/待替换的关键词/替换内容/g</p><p>8.行号(末行模式)<br>显示行号: :set nu<br>取消行号: :set nonu</p><p>9.打开文件/切换(末行模式)<br>打开多个文件:vim 路径1 路径2 …<br>查看vim已打开的文件: :files(%a表示当前使用的文件，#表示上一个使用的文件)<br>切换文件: :open 文件名<br>切换上/下文件: :bp/bn</p><p>10.编辑<br>在光标所在字符前开始插入:i<br>在光标所在字符后开始插入:i</p><p>11.代码着色(末行模式)<br>显示:: syntax on<br>不显示:: syntax off</p><p>12.计算器(编辑模式)<br>ctrl+r+= 输入计算内容</p><p>13.在vim中调用外部命令(末行模式)<br>例如在vim中调用ls     :!ls</p>]]></content>
+    <content type="html"><![CDATA[<p>ps:vim命令检索<br><a id="more"></a><br><br></p><h2 id="一、三种模式"><a href="#一、三种模式" class="headerlink" title="一、三种模式"></a>一、三种模式</h2><p>命令模式:光标移动、复制粘贴剪切删除(默认打开模式)<br>编辑模式:内容编辑<br>末行模式:搜索、替换、保存、退出、高亮</p><p>命令模式-&gt;末行模式:shift+:<br>末行模式-&gt;命令模式:按一下esc或按两下esc(速度快)或删除末行中所有命令</p><p>命令模式-&gt;编辑模式:i、a用于插入<br>编辑模式-&gt;命令模式:esc</p><p><br></p><h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><p>1.光标移动(命令模式)<br>行首:shift+6(^)<br>行尾:shift+4($)<br>首行:gg<br>末行:shift+g<br>向上翻页:ctrl+b<br>向下翻页:ctrl+f<br>将光标移动到指定行:数字 shift+g<br>将光标向上/下移动指定行:数字 ↑/↓<br>将光标向左/右移动指定字符:数字 ←/→<br><br><br>2.复制(命令模式)<br>复制光标所在行:yy<br>复制光标所在行以及以下几行: 数字 yy<br>粘贴:p<br><br><br>3.剪切/删除(命令模式)<br>剪切光标所在行:dd<br>剪切光标所在行以及以下几行: 数字 dd<br>剪切光标所在行且当前行为空行后面行不上移:shift+d<br><br><br>4.撤销/恢复(命令模式)<br>撤销,取消上一命令:u<br>恢复,取消之前的撤销:ctrl+r<br><br><br>5.保存/退出(末行模式)<br>保存: :w<br>另存为: :w 路径<br>退出: :q<br>保存且退出: :wq<br>强制退出不保存: :q!<br><br><br>6.查找(末行模式)<br>查找:/关键词<br>在查找结果中切换上/下:N/n<br><br><br>7.替换(末行模式)<br>替换光标所在行的第一个关键词: :s/待替换的关键词/替换内容<br>替换光标所在行的所有关键词: :s/待替换的关键词/替换内容/g<br>替换所有行的第一个关键词: :%s/待替换的关键词/替换内容<br>替换全文: :%s/待替换的关键词/替换内容/g<br><br><br>8.行号(末行模式)<br>显示行号: :set nu<br>取消行号: :set nonu<br><br><br>9.打开文件/切换(末行模式)<br>打开多个文件:vim 路径1 路径2 …<br>查看vim已打开的文件: :files(%a表示当前使用的文件，#表示上一个使用的文件)<br>切换文件: :open 文件名<br>切换上/下文件: :bp/bn<br><br><br>10.编辑<br>在光标所在字符前开始插入:i<br>在光标所在字符后开始插入:i<br><br><br>11.代码着色(末行模式)<br>显示:: syntax on<br>不显示:: syntax off<br><br><br>12.计算器(编辑模式)<br>ctrl+r+= 输入计算内容<br><br><br>13.在vim中调用外部命令(末行模式)<br>例如在vim中调用ls     :!ls</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;一、三种模式&lt;br&gt;命令模式:光标移动、复制粘贴剪切删除(默认打开模式)&lt;br&gt;编辑模式:内容编辑&lt;br&gt;末行模式:搜索、替换、保存、退出、高亮&lt;/p&gt;
-&lt;p&gt;命令模式-&amp;gt;末行模式:shift+:&lt;br&gt;末行模式-&amp;gt;命令模式:按一下esc或按两下esc(速度快)
-      
+      &lt;p&gt;ps:vim命令检索&lt;br&gt;
     
     </summary>
     
